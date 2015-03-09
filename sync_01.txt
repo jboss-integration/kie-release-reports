@@ -1,0 +1,66 @@
+These are the mails of responsible people
+dashboard-builder	        dgutierr@redhat.com
+drools                          mproctor@redhat.com,etirelli@redhat.com,mariof@redhat.com
+droolsjbpm-build-bootstrap	gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-build-distribution
+droolsjbpm-integration
+droolsjbpm-knowledge
+droolsjbpm-tools
+drools-wb
+fuse-bxms-integ
+guvnor                          manstis@redhat.com
+jbpm                            krisv@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+kie-wb-commons
+kie-wb-distribution
+optaplanner                     gdesmet@redhat.com
+
+
+These are the repositories
+https://github.com/droolsjbpm-build-bootstrap/tree/
+https://github.com/droolsjbpm/droolsjbpm-knowledge/tree/
+https://github.com/droolsjbpm/droolsjbpm/drools/tree/
+https://github.com/droolsjbpm/optaplanner/tree/
+https://github.com/droolsjbpm/jbpm/tree/
+https://github.com/droolsjbpm/droolsjbpm-integration/tree/
+https://github.com/droolsjbpm/droolsjbpm-tools/tree/
+https://github.com/droolsjbpm/droolsjbpm-build-distribution/tree/
+https://github.com/droolsjbpm/kie-uberfire-extensions/tree/
+https://github.com/droolsjbpm/guvnor/tree/
+https://github.com/droolsjbpm/kie-wb-common/tree/
+https://github.com/droolsjbpm/jbpm-form-modeler/tree/
+https://github.com/droolsjbpm/drools-wb/tree/
+https://github.com/droolsjbpm/jbpm-designer/tree/
+https://github.com/droolsjbpm/jbpm-console-ng/tree/
+https://github.com/droolsjbpm/dashboard-builder/tree/
+https://github.com/droolsjbpm/jbpm-dashboard/tree/
+https://github.com/droolsjbpm/kie-wb-distributions/tree/
+https://github.com/jboss-integration/fuse-bxms-integ/tree/
+
+
+The name of community tag is: 6.2.0.Final
+The name of product tag is: sync_01
+
+
+The JAVA version is:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.6.0_45"
+Java(TM) SE Runtime Environment (build 1.6.0_45-b06)
+Java HotSpot(TM) 64-Bit Server VM (build 20.45-b01, mixed mode)
+
+The Maven version is:
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /opt/maven
+Java version: 1.6.0_45, vendor: Sun Microsystems Inc.
+Java home: /usr/java/jdk1.6/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-123.20.1.el7.x86_64", arch: "amd64", family: "unix"
+
+
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+
+
