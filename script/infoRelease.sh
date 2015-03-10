@@ -28,8 +28,20 @@ read ok
 
 communityTag=$1
 productTag=$2
-prefix=`date +%F-%H:%M`
-fileToWrite=$productTag.txt
+#prefix=`date +%F-%H:%M`
+
+#checks if file-name is already existing
+LIST=$(find . -name $productTag*.txt)
+echo $LIST
+if [ -f $LIST ];
+   then 
+   counter=$(echo $LIST | rev | cut -c5)
+   counter=$counter+1
+else
+   counter=1
+fi    
+  
+fileToWrite=$productTag-$counter.txt
 repoDir=testRepo
  
 #extracts the mail of project leads
