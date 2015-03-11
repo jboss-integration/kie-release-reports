@@ -63,7 +63,7 @@ FILE_TO_READ=$scriptDir/mails.properties
 FILE_TO_READ=$scriptDir/repositories.properties
    while read line; do
      if [ -n "$line" ]; then
-       echo "$line"/tree/$communityTAG >> $fileToWrite
+       echo "$line"/tree/"$communityTAG" >> $fileToWrite
      fi
    done < $FILE_TO_READ
    echo "" >> $fileToWrite
