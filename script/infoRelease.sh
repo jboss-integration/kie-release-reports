@@ -37,22 +37,20 @@ echo "LIST="$LIST
 # all filename containing $productTag are listed. The filename with the highest *.txt is listed as last.
 # The LIST is reverted and the value * extracted
 counter=$(echo $LIST | rev | cut -c5)
-echo "counter"=$counter
 oneFile=$productTag-$counter.txt
-echo "oneFile="$oneFile
 
 if [ -f $oneFile ];
    then 
    counter=$((counter + 1))
-else
+ else
    counter=1
 fi    
 
 # name of file to be written and pushed  
 fileToWrite=$productTag-$counter.txt
  
-#extracts the mail of project leads
-FILE_TO_READ=$scriptDir/mails.properties
+# extracts the mail of project leads
+   FILE_TO_READ=$scriptDir/mails.properties
    echo "These are the mails of responsible people" >> $fileToWrite
    echo "-----------------------------------------" >> $fileToWrite
    # Read file in lines
@@ -66,7 +64,7 @@ FILE_TO_READ=$scriptDir/mails.properties
 # extracts the repositories URL
    echo "These are the repositories" >> $fileToWrite
    echo "--------------------------" >> $fileToWrite
-FILE_TO_READ=$scriptDir/repositories.properties
+   FILE_TO_READ=$scriptDir/repositories.properties
    while read line; do
      if [ -n "$line" ]; then
        echo "$line"/tree/"$communityTag" >> $fileToWrite
@@ -74,7 +72,7 @@ FILE_TO_READ=$scriptDir/repositories.properties
    done < $FILE_TO_READ
    echo "" >> $fileToWrite
    echo "" >> $fileToWrite
-#extracts the TAG name
+# extracts the TAG name
    echo "The name of community tag is:" $communityTag >> $fileToWrite
    echo "-----------------------------" >> $fileToWrite
    echo " "
@@ -82,7 +80,7 @@ FILE_TO_READ=$scriptDir/repositories.properties
    echo "---------------------------" >> $fileToWrite
    echo "" >> $fileToWrite
    echo "" >> $fileToWrite
-#gives the Maven and Java version
+# gives the Maven and Java version
    echo "The JAVA version is:" >> $fileToWrite
    echo "--------------------" >> $fileToWrite
    java -version 2>>$fileToWrite
@@ -92,10 +90,10 @@ FILE_TO_READ=$scriptDir/repositories.properties
    mvn --version >> $fileToWrite
    echo "" >> $fileToWrite
    echo "" >> $fileToWrite
-#infos
+# infos
    echo "NOTES:" >> $fileToWrite
    echo "------" >> $fileToWrite
-FILE_TO_READ=$scriptDir/notes.properties
+   FILE_TO_READ=$scriptDir/notes.properties
    while read line; do
      if [ -n "$line" ]; then
        echo "$line" >> $fileToWrite
@@ -105,9 +103,7 @@ FILE_TO_READ=$scriptDir/notes.properties
    echo "" >> $fileToWrite
 
 
-#copies the file to the right git repository and pushes to the blessed repository
-   cp $fileToWrite $fileDir
-   cd $fileDir
+# pushes $fileToWrite to the blessed repository
    git add .
    git commit -m "$productTag"
    git push origin master
