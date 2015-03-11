@@ -49,7 +49,8 @@ repoDir=testRepo
  
 #extracts the mail of project leads
 FILE_TO_READ=$scriptDir/mails.properties
-   echo  "These are the mails of responsible people" >> $fileToWrite
+   echo "These are the mails of responsible people" >> $fileToWrite
+   echo "-----------------------------------------" >> $fileToWrite
    # Read file in lines
    while read line; do
      if [ -n "$line" ]; then
@@ -60,6 +61,7 @@ FILE_TO_READ=$scriptDir/mails.properties
    echo "" >> $fileToWrite
 # extracts the repositories URL
    echo "These are the repositories" >> $fileToWrite
+   echo "--------------------------" >> $fileToWrite
 FILE_TO_READ=$scriptDir/repositories.properties
    while read line; do
      if [ -n "$line" ]; then
@@ -71,18 +73,22 @@ FILE_TO_READ=$scriptDir/repositories.properties
 #extracts the TAG name
    echo "The name of community tag is:" $communityTag >> $fileToWrite
    echo "The name of product tag is:" $productTag >> $fileToWrite
+   echo "---------------------------" >> $fileToWrite
    echo "" >> $fileToWrite
    echo "" >> $fileToWrite
 #gives the Maven and Java version
    echo "The JAVA version is:" >> $fileToWrite
+   echo "--------------------" >> $fileToWite
    java -version 2>>$fileToWrite
    echo ""  >> $fileToWrite
    echo "The Maven version is:" >> $fileToWrite
+   echo "---------------------" >> $fileToWrite
    mvn --version >> $fileToWrite
    echo "" >> $fileToWrite
    echo "" >> $fileToWrite
 #infos
    echo "NOTES:" >> $fileToWrite
+   echo "------" >> $fileToWrite
 FILE_TO_READ=$scriptDir/notes.properties
    while read line; do
      if [ -n "$line" ]; then
@@ -93,11 +99,10 @@ FILE_TO_READ=$scriptDir/notes.properties
    echo "" >> $fileToWrite
 
 
-#copies the file to the right git repository
+#copies the file to the right git repository and pushes to the blessed repository
    TARGET_REPO=$scriptDir/../../../$repoDir
    cp $fileToWrite $TARGET_REPO
    cd $TARGET_REPO
-   #chmod 755 $fileToWrite
    git add .
    git commit -m "$productTag"
    git push origin master
