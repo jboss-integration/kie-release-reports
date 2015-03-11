@@ -5,8 +5,11 @@ SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/xxx
 scriptDir=$(dirname "$SCRIPT")
 cd $scriptDir
+# where are the files stored
 cd ..
 fileDir=$(pwd)
+#name of git repository
+repoDir=testRepo
 
 if [ $# != 2 ] ; then
     echo
@@ -28,10 +31,12 @@ communityTag=$1
 productTag=$2
 #prefix=`date +%F-%H:%M`
 
-#checks if file-name is already existing
+#checks if $productTag is already existing in a filename
 cd $fileDir
 LIST=$(find . -name "$productTag*.txt")
 echo "LIST="$LIST
+# all filename containing $productTag are listed. The filename with the highest *.txt is listed as last.
+# The LIST is reverted and the value * extracted
 counter=$(echo $LIST | rev | cut -c5)
 echo "counter"=$counter
 oneFile=$productTag-$counter.txt
@@ -43,9 +48,9 @@ if [ -f $oneFile ];
 else
    counter=1
 fi    
-  
+
+# name of file to be written and pushed  
 fileToWrite=$productTag-$counter.txt
-repoDir=testRepo
  
 #extracts the mail of project leads
 FILE_TO_READ=$scriptDir/mails.properties
@@ -72,13 +77,15 @@ FILE_TO_READ=$scriptDir/repositories.properties
    echo "" >> $fileToWrite
 #extracts the TAG name
    echo "The name of community tag is:" $communityTag >> $fileToWrite
+   echo "-----------------------------" >> $fileToWrite
+   echo " "
    echo "The name of product tag is:" $productTag >> $fileToWrite
    echo "---------------------------" >> $fileToWrite
    echo "" >> $fileToWrite
    echo "" >> $fileToWrite
 #gives the Maven and Java version
    echo "The JAVA version is:" >> $fileToWrite
-   echo "--------------------" >> $fileToWite
+   echo "--------------------" >> $fileToWrite
    java -version 2>>$fileToWrite
    echo ""  >> $fileToWrite
    echo "The Maven version is:" >> $fileToWrite
