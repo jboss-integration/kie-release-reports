@@ -8,8 +8,7 @@ cd $scriptDir
 # where are the files stored
 cd ..
 fileDir=$(pwd)
-#name of git repository
-repoDir=testRepo
+
 
 if [ $# != 2 ] ; then
     echo
@@ -107,9 +106,8 @@ FILE_TO_READ=$scriptDir/notes.properties
 
 
 #copies the file to the right git repository and pushes to the blessed repository
-   TARGET_REPO=$scriptDir/../../../$repoDir
-   cp $fileToWrite $TARGET_REPO
-   cd $TARGET_REPO
+   cp $fileToWrite $fileDir
+   cd $fileDir
    git add .
    git commit -m "$productTag"
    git push origin master
