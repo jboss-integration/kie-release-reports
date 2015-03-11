@@ -82,9 +82,16 @@ FILE_TO_READ=$scriptDir/repositories.properties
    echo "" >> $fileToWrite
    echo "" >> $fileToWrite
 #infos
-   echo "NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed" >> $fileToWrite
+   echo "NOTES:" >> $fileToWrite
+FILE_TO_READ=$scriptDir/notes.properties
+   while read line; do
+     if [ -n "$line" ]; then
+       echo "$line" >> $fileToWrite
+     fi
+   done < $FILE_TO_READ
    echo "" >> $fileToWrite
    echo "" >> $fileToWrite
+
 
 #copies the file to the right git repository
    TARGET_REPO=$scriptDir/../../../$repoDir
