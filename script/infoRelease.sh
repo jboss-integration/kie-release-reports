@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Create a release branch for all git repositories
-
-
 # Absolute path to this script, e.g. /home/user/xxx/infoRlease.sh
 SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/xxx
@@ -10,11 +7,6 @@ scriptDir=$(dirname "$SCRIPT")
 cd $scriptDir
 cd ..
 fileDir=$(pwd)
-echo "scriptDir="$scriptDir
-echo "fileDir="$fileDir
-
-echo -n
-read ok
 
 if [ $# != 2 ] ; then
     echo
@@ -53,13 +45,6 @@ else
 fi    
   
 fileToWrite=$productTag-$counter.txt
-echo "fileToWrite="$fileToWrite
-pwd
-echo -n
-read ok
-
-
-
 repoDir=testRepo
  
 #extracts the mail of project leads
@@ -105,12 +90,8 @@ FILE_TO_READ=$scriptDir/repositories.properties
    TARGET_REPO=$scriptDir/../../../$repoDir
    cp $fileToWrite $TARGET_REPO
    cd $TARGET_REPO
-   pwd
-   ls -al
-   chmod 755 $fileToWtite
+   #chmod 755 $fileToWrite
    git add .
    git commit -m "$productTag"
    git push origin master
-   cd $scriptDir
-   rm $fileToWrite
  
