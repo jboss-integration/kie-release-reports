@@ -7,9 +7,14 @@
 SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/xxx
 scriptDir=$(dirname "$SCRIPT")
-echo $scriptDir
+cd $scriptDir
+cd ..
+fileDir=$(pwd)
+echo "scriptDir="$scriptDir
+echo "fileDir="$fileDir
 
-cd $scriptDir 
+echo -n
+read ok
 
 if [ $# != 2 ] ; then
     echo
@@ -26,22 +31,31 @@ echo "The prodcutTag is: "$2
 echo -n "Is this ok? (Hit control-c if is not): "
 read ok
 
+
 communityTag=$1
 productTag=$2
 #prefix=`date +%F-%H:%M`
 
 #checks if file-name is already existing
-LIST=$(find . -name $productTag*.txt)
-echo $LIST
-if [ -f $LIST ];
+cd $fileDir
+LIST=$(find . -name "$productTag*.txt")
+echo "LIST="$LIST
+counter=$(echo $LIST | rev | cut -c5)
+echo "counter"=$counter
+oneFile=$productTag-$counter.txy
+echo "oneFile="$oneFile
+
+if [ -f $oneFile ];
    then 
-   counter=$(echo $LIST | rev | cut -c5)
-   counter=$counter+1
+   counter=$((counter + 1))
 else
    counter=1
 fi    
   
 fileToWrite=$productTag-$counter.txt
+echo "fileToWrite="$fileToWrite
+pwd
+
 repoDir=testRepo
  
 #extracts the mail of project leads
@@ -89,6 +103,7 @@ FILE_TO_READ=$scriptDir/repositories.properties
    cd $TARGET_REPO
    pwd
    ls -al
+   chmod 755 $fileToWtite
    git add .
    git commit -m "$productTag"
    git push origin master
