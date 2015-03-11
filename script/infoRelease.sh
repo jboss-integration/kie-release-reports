@@ -42,7 +42,7 @@ LIST=$(find . -name "$productTag*.txt")
 echo "LIST="$LIST
 counter=$(echo $LIST | rev | cut -c5)
 echo "counter"=$counter
-oneFile=$productTag-$counter.txy
+oneFile=$productTag-$counter.txt
 echo "oneFile="$oneFile
 
 if [ -f $oneFile ];
@@ -55,6 +55,10 @@ fi
 fileToWrite=$productTag-$counter.txt
 echo "fileToWrite="$fileToWrite
 pwd
+echo -n
+read ok
+
+
 
 repoDir=testRepo
  
