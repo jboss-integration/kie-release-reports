@@ -6,7 +6,7 @@ SCRIPT=$(readlink -f "$0")
 scriptDir=$(dirname "$SCRIPT")
 cd $scriptDir
 # where are the files stored
-cd ..
+cd ../reports/tags
 fileDir=$(pwd)
 
 
@@ -33,7 +33,7 @@ productTag=$2
 #checks if $productTag is already existing in a filename
 cd $fileDir
 LIST=$(find . -name "$productTag*.txt")
-echo "LIST="$LIST
+
 # all filename containing $productTag are listed. The filename with the highest *.txt is listed as last.
 # The LIST is reverted and the value * extracted
 counter=$(echo $LIST | rev | cut -c5)
@@ -48,63 +48,55 @@ fi
 
 # name of file to be written and pushed  
 fileToWrite=$productTag-$counter.txt
- 
-# extracts the mail of project leads
-   FILE_TO_READ=$scriptDir/mails.properties
-   echo "These are the mails of responsible people" >> $fileToWrite
-   echo "-----------------------------------------" >> $fileToWrite
-   # Read file in lines
-   while read line; do
-     if [ -n "$line" ]; then
-       echo "$line" >> $fileToWrite
-     fi
-   done < $FILE_TO_READ
-   echo "" >> $fileToWrite
-   echo "" >> $fileToWrite
-# extracts the repositories URL
-   echo "These are the repositories" >> $fileToWrite
-   echo "--------------------------" >> $fileToWrite
-   FILE_TO_READ=$scriptDir/repositories.properties
-   while read line; do
-     if [ -n "$line" ]; then
-       echo "$line"/tree/"$communityTag" >> $fileToWrite
-     fi
-   done < $FILE_TO_READ
-   echo "" >> $fileToWrite
-   echo "" >> $fileToWrite
-# extracts the TAG name
-   echo "The name of community tag is:" $communityTag >> $fileToWrite
-   echo "-----------------------------" >> $fileToWrite
-   echo " "
-   echo "The name of product tag is:" $productTag >> $fileToWrite
-   echo "---------------------------" >> $fileToWrite
-   echo "" >> $fileToWrite
-   echo "" >> $fileToWrite
-# gives the Maven and Java version
-   echo "The JAVA version is:" >> $fileToWrite
-   echo "--------------------" >> $fileToWrite
-   java -version 2>>$fileToWrite
-   echo ""  >> $fileToWrite
-   echo "The Maven version is:" >> $fileToWrite
-   echo "---------------------" >> $fileToWrite
-   mvn --version >> $fileToWrite
-   echo "" >> $fileToWrite
-   echo "" >> $fileToWrite
-# infos
-   echo "NOTES:" >> $fileToWrite
-   echo "------" >> $fileToWrite
-   FILE_TO_READ=$scriptDir/notes.properties
-   while read line; do
-     if [ -n "$line" ]; then
-       echo "$line" >> $fileToWrite
-     fi
-   done < $FILE_TO_READ
-   echo "" >> $fileToWrite
-   echo "" >> $fileToWrite
 
+cd $scriptDir
+pwd
+
+CONTACTS=$(cat mails.properties)
+REPOSITORIES=$(cat repositories.properties)
+MAVEN=$(mvn -version)
+NOTES=$(cat notes.properties)
+# JAVA version as it neds a workaround
+java -version 2>>javaVersion.txt
+JAVAV=$(cat javaVersion.txt)
+
+
+cat <<EOF >$fileToWrite
+ 
+------------------------------------------------------------------------   
+                     Component owner contacts                           
+------------------------------------------------------------------------
+$CONTACTS
+
+
+------------------------------------------------------------------------
+                    Used repositories for build                         
+------------------------------------------------------------------------
+$REPOSITORIES
+
+
+------------------------------------------------------------------------
+                        Software versions                               
+------------------------------------------------------------------------
+$JAVAV
+________________________________________________________________________
+
+$MAVEN
+
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+$NOTES
+
+
+
+EOF
 
 # pushes $fileToWrite to the blessed repository
+   rm javaVersion.txt
+   
    git add .
    git commit -m "$productTag"
    git push origin master
- 
+   
