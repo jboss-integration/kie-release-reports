@@ -95,7 +95,7 @@ EOF
 
 # pushes $fileToWrite to the blessed repository
    rm javaVersion.txt
-   mv $fileToWrite $fileDir/
+   mv $fileToWrite $fileDir/ .
    git add .
    git commit -m "$productTag"
    git push origin master
