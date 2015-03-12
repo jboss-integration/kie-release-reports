@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Absolute path to this script, e.g. /home/user/xxx/infoRlease.sh
-SCRIPT=$(readlink -f "$0")
+SCRIPT="$(cd $(dirname "$0") && pwd)/$(basename "$0")"
 # Absolute path this script is in, thus /home/user/xxx
 scriptDir=$(dirname "$SCRIPT")
 cd $scriptDir
@@ -52,7 +52,6 @@ fi
 # name of file to be written and pushed  
 fileToWrite=$productTag-$counter.txt
 
-
 cd $scriptDir
 
 CONTACTS=$(cat mails.properties)
@@ -67,7 +66,7 @@ REPOSITORIES=$(cat repURLS.txt)
 rm repURLS.txt
 MAVEN=$(mvn -version)
 NOTES=$(cat notes.properties)
-# JAVA version as it neds a workaround
+# JAVA version as it needs a workaround
 java -version 2>>javaVersion.txt
 JAVAV=$(cat javaVersion.txt)
 DATETIME=`date +%F-%H:%M`
@@ -84,27 +83,37 @@ Target Product Build: $targetProdBuild
 Source Product Tag: $productTag
 Community Tag (if available): $communityTag
  
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
 
-------------------------------------------------------------------------   
-                     Component owner contacts                           
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
 ------------------------------------------------------------------------
-$CONTACTS
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+$JAVAV
 
+MAVEN: 
+$MAVEN
 
 ------------------------------------------------------------------------
-                    Used repositories for build                         
+                        Sources to build                         
 ------------------------------------------------------------------------
 $REPOSITORIES
 
+-------------------------------------------------------------------------
+                          Build Command
+-------------------------------------------------------------------------
 
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true 
+
+------------------------------------------------------------------------   
+                     Component owners contacts                           
 ------------------------------------------------------------------------
-                        Software versions                               
-------------------------------------------------------------------------
-JAVA: $JAVAV
-________________________________________________________________________
-
-MAVEN: $MAVEN
-
+$CONTACTS
 
 ------------------------------------------------------------------------
                               Notes                                     
@@ -121,5 +130,7 @@ EOF
    cd $fileDir
    git add $fileToWrite
    git commit -m "$productTag"
-   git push origin master
+   # best not to push automatically as it is always possible we need 
+   # to fix something locally before pushing
+   #git push origin master
    
