@@ -18,5 +18,5 @@ that construct these files.
     
 The script runs and stores a file with name **productTag-*.txt** in testRepo <br> The * is a number that increments each time the script runs with the same <productTag> as parameter.<br>
 The script gets all information about a productTag from properties-files and from the machine where it is stored the repository.<br>
-The **.txt** files are stored in the directory testRepo.
+The **.txt** files are stored in the directory testRepo/reports/tags.
     
