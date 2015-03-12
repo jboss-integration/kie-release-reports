@@ -16,7 +16,6 @@ that construct these files.
     where <community-releaseTag> could be .i.e 6.2.0.Final and <productTag> could be i.e. sync-6.2.x-2015.02.27
     
     
-The script runs and stores a file with name **productTag-*.txt** in testRepo <br> The * is a number that increments each time the script runs with the same <productTag> as parameter.<br>
+The script runs and stores a file with name **productTag-*.txt** in testRepo/reposrts/tags <br> The * is a number that increments each time the script runs with the same <productTag> as parameter.<br>
 The script gets all information about a productTag from properties-files and from the machine where it is stored the repository.<br>
-The **.txt** files are stored in the directory testRepo/reports/tags.
     
