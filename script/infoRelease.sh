@@ -104,13 +104,20 @@ $MAVEN
 ------------------------------------------------------------------------
 $REPOSITORIES
 
--------------------------------------------------------------------------
+------------------------------------------------------------------------
                           Build Command
--------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true 
 
-------------------------------------------------------------------------   
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+$MAVEN_OPTS
+
+-----------------------------------------------------------------------  
                      Component owners contacts                           
 ------------------------------------------------------------------------
 $CONTACTS
@@ -124,13 +131,22 @@ $NOTES
 
 EOF
 
-# pushes $fileToWrite to the blessed repository
+# makes missing directories for the dependency:trees
+   cd $scriptDir
+   cd ../reports/dependencyTree
+   mkdir $productTag-$counter
+   export dependencyDir=$productTag-$counter
+   cd $scriptDir
    rm javaVersion.txt
    mv $fileToWrite $fileDir/
-   cd $fileDir
+#creates the dependensyTrees
+./dependencyTree.sh
+# pushes $fileToWrite to the blessed repository
    git add $fileToWrite
    git commit -m "$productTag"
    # best not to push automatically as it is always possible we need 
    # to fix something locally before pushing
    #git push origin master
-   
+
+
+
