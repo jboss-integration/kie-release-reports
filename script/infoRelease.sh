@@ -4,10 +4,7 @@
 SCRIPT="$(cd $(dirname "$0") && pwd)/$(basename "$0")"
 # Absolute path this script is in, thus /home/user/xxx
 scriptDir=$(dirname "$SCRIPT")
-cd $scriptDir
-# where are the files stored
-cd ../reports/tags
-fileDir=$(pwd)
+logFileDir=$HOME/droolsjbpm
 
 
 if [ $# != 4 ] ; then
@@ -32,6 +29,17 @@ communityTag=$1
 productTag=$2
 targetProdBuild=$3
 cutOffDate=$4
+
+# checks if directory where the files are to be stored exists, if not it creates it
+cd $scriptDir
+cd ../reports/tags
+if [ ! -d "$productTag" ]; then
+  mkdir $productTag
+  cd $productTag
+else
+  cd $productTag
+fi
+fileDir=$(pwd)
 
 #checks if $productTag is already existing in a filename
 cd $fileDir
@@ -63,6 +71,7 @@ FILE_TO_READ=$scriptDir/repositories.properties
      fi
    done < $FILE_TO_READ
 REPOSITORIES=$(cat repURLS.txt)
+VERSIONS=$(cat versions.properties)
 rm repURLS.txt
 MAVEN=$(mvn -version)
 NOTES=$(cat notes.properties)
@@ -105,10 +114,17 @@ $MAVEN
 $REPOSITORIES
 
 ------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+$VERSIONS
+
+------------------------------------------------------------------------
                           Build Command
 ------------------------------------------------------------------------
 
-mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true 
+mvn clean install -Dfull -Dprodcutized -DskipTests (building skipping the tests)
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResult.txt (building with test execution)
 
 ------------------------------------------------------------------------
                        Environment variables
@@ -131,6 +147,9 @@ $NOTES
 
 EOF
 
+# copies the build log to the lgo directory
+cp $logFileDir/testResult.txt $fileDir/$productTag-$counter.log
+gzip $fileDir/$productTag-$counter.log 
 # makes missing directories for the dependency:trees
    cd $scriptDir
    cd ../reports/dependencyTree
@@ -140,7 +159,7 @@ EOF
    rm javaVersion.txt
    mv $fileToWrite $fileDir/
 #creates the dependensyTrees
-./dependencyTree.sh
+#./dependencyTree.sh
 # pushes $fileToWrite to the blessed repository
    git add $fileToWrite
    git commit -m "$productTag"
