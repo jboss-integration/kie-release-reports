@@ -1,0 +1,136 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2015-03-20-19:35
+Code Cutoff Date: 2015-03-19
+Target Product Build: 6.1.0.CR1
+Source Product Tag: sync-6.2.x-2015.03.20
+Community Tag (if available): 6.2.0.Final
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.6.0_45"
+Java(TM) SE Runtime Environment (build 1.6.0_45-b06)
+Java HotSpot(TM) 64-Bit Server VM (build 20.45-b01, mixed mode)
+
+MAVEN: 
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven
+Java version: 1.6.0_45, vendor: Sun Microsystems Inc.
+Java home: /usr/java/jdk1.6.0_45/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-123.el7.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/droolsjbpm-build-bootstrap/tree/6.2.0.Final
+https://github.com/droolsjbpm/droolsjbpm-knowledge/tree/6.2.0.Final
+https://github.com/droolsjbpm/droolsjbpm/drools/tree/6.2.0.Final
+https://github.com/droolsjbpm/optaplanner/tree/6.2.0.Final
+https://github.com/droolsjbpm/jbpm/tree/6.2.0.Final
+https://github.com/droolsjbpm/droolsjbpm-integration/tree/6.2.0.Final
+https://github.com/droolsjbpm/droolsjbpm-tools/tree/6.2.0.Final
+https://github.com/droolsjbpm/droolsjbpm-build-distribution/tree/6.2.0.Final
+https://github.com/droolsjbpm/kie-uberfire-extensions/tree/6.2.0.Final
+https://github.com/droolsjbpm/guvnor/tree/6.2.0.Final
+https://github.com/droolsjbpm/kie-wb-common/tree/6.2.0.Final
+https://github.com/droolsjbpm/jbpm-form-modeler/tree/6.2.0.Final
+https://github.com/droolsjbpm/drools-wb/tree/6.2.0.Final
+https://github.com/droolsjbpm/jbpm-designer/tree/6.2.0.Final
+https://github.com/droolsjbpm/jbpm-console-ng/tree/6.2.0.Final
+https://github.com/droolsjbpm/dashboard-builder/tree/6.2.0.Final
+https://github.com/droolsjbpm/jbpm-dashboard/tree/6.2.0.Final
+https://github.com/droolsjbpm/kie-wb-distributions/tree/6.2.0.Final
+https://github.com/jboss-integration/fuse-bxms-integ/tree/6.2.0.Final
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.0.CR26
+Uberfire: 0.5.2.Final
+dashbuilder: 0.2.2.Final
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dprodcutized -DskipTests (building skipping the tests)
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResult.txt (building with test execution)
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3096m -XX:MaxPermSize=1024m -Dgwt-plugin.localWorkers='3' -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+dashboard-builder	        dgutierr@redhat.com
+drools                          mariof@redhat.com,etirelli@redhat.com
+droolsjbpm-build-bootstrap	gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,porcelli@redhat.com
+droolsjbpm-integration          mariof@redhat.com,etirelli@redhat.com
+droolsjbpm-knowledge            mariof@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+drools-wb                       manstis@redhat.com
+fuse-bxms-integ                 mariof@redhat.com
+guvnor                          manstis@redhat.com
+jbpm                            krisv@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+kie-wb-commons                  manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+optaplanner                     gdesmet@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull -DskipTests
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized -DskipTests
+      before these builds the Unit Tests are executed: mvn clean install -Dfull -Dmaven.test.failure.ignore=true >> testResults.txt to check which tests failed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+Cherry-picks..:
+
+      optaplanner: 
+      650530ffc61c32a350e1bf20dce9df0c7aa8d387 Author: Jiri Vahala <jvahala@redhat.com>
+      b4a9debd9987e3defbe350d3e3d223270b05eff2 Author: Geoffrey De Smet <gds.geoffrey.de.smet@gmail.com>
+      
+      droolsjbpm-integration:
+      e853650172d8c5849786c0219a684803011a2026 Author: Marco Rietveld <mrietvel@redhat.com>
+      
+      drools-wb:
+      51fc8f7ced7b59c61f3b68a92b289eace76d63ac Author: Michael Anstis <michael.anstis@gmail.com>
+      
+      jbpm-designer:
+      53caacc48bc84750b331b93813261576b72ced63 Author: Jeremy Lindop <jlindop@redhat.com>
+      
+      fuse-bxms-integ:
+      9d46c1f849a4515f5f9f3a24e889ca4d5fdc65c4 Author: kiereleaseuser <kiereleaseuser@gmail.com>
+      
+      droolsjbpm-build-bootstrap:
+      b27b072a231f5967d7995b04c89fbf1a90b8e9b2 Author: kiereleaseuser <kiereleaseuser@gmail.com>
+      03db4c7e98344a66001ef357c678dc055691061f Author: kiereleaseuser <kiereleaseuser@gmail.com>
+      e16fe956e1ecc99fe4e17981d2d07e181d225526 Author: kiereleaseuser <kiereleaseuser@gmail.com>
+
+
+
