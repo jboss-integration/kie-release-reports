@@ -13,7 +13,7 @@ https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
 https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
 
 Overall community build info:
-https://github.com/jboss-integration/droolsjbpm-build-bootstrap/blob/master/README.md
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
 
 ------------------------------------------------------------------------
                           Build Tools                               
@@ -35,24 +35,24 @@ OS name: "linux", version: "3.10.0-229.el7.x86_64", arch: "amd64", family: "unix
 ------------------------------------------------------------------------
                         Sources to build                         
 ------------------------------------------------------------------------
-https://github.com/jboss-integration/uberfire/tree/0.3.x
-https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/6.0.x
-https://github.com/jboss-integration/droolsjbpm-knowledge/tree/6.0.x
-https://github.com/jboss-integration/droolsjbpm/drools/tree/6.0.x
-https://github.com/jboss-integration/optaplanner/tree/6.0.x
-https://github.com/jboss-integration/jbpm/tree/6.0.x
-https://github.com/jboss-integration/droolsjbpm-integration/tree/6.0.x
-https://github.com/jboss-integration/droolsjbpm-tools/tree/6.0.x
-https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/6.0.x
-https://github.com/jboss-integration/guvnor/tree/6.0.x
-https://github.com/jboss-integration/kie-wb-common/tree/6.0.x
-https://github.com/jboss-integration/jbpm-form-modeler/tree/6.0.x
-https://github.com/jboss-integration/drools-wb/tree/6.0.x
-https://github.com/jboss-integration/jbpm-designer/tree/6.0.x
-https://github.com/jboss-integration/jbpm-console-ng/tree/6.0.x
-https://github.com/jboss-integration/dashboard-builder/tree/6.0.x
-https://github.com/jboss-integration/jbpm-dashboard/tree/6.0.x
-https://github.com/jboss-integration/kie-wb-distributions/tree/6.0.x
+https://github.com/jboss-integration/uberfire/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/droolsjbpm/drools/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/optaplanner/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/jbpm/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/guvnor/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/drools-wb/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.0.x-2015.04.08
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.0.x-2015.04.08
 
 ------------------------------------------------------------------------
                           3rd party  versions
@@ -80,11 +80,11 @@ MAVEN_OPTS:
 uberfire                               porcelli@redhat.com
 dashboard-builder	               dgutierr@redhat.com
 drools                                 mariof@redhat.com,etirelli@redhat.com
-jboss-integration-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
-jboss-integration-build-distribution   manstis@redhat.com,porcelli@redhat.com
-jboss-integration-integration          mariof@redhat.com,etirelli@redhat.com
-jboss-integration-knowledge            mariof@redhat.com,etirelli@redhat.com
-jboss-integration-tools                kverlaen@redhat.com
+droolsjbpm-build-bootstrap             gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-build-distribution          manstis@redhat.com,porcelli@redhat.com
+droolsjbpm-integration                 mariof@redhat.com,etirelli@redhat.com
+droolsjbpm-knowledge                   mariof@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                       kverlaen@redhat.com
 drools-wb                              manstis@redhat.com
 guvnor                                 manstis@redhat.com
 jbpm                                   krisv@redhat.com
