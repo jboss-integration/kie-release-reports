@@ -1,0 +1,140 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2015-04-10-14:08
+Code Cutoff Date: 2015.04.08
+Target Product Build: 6.0.3-rollup-patch#3
+Source Product Tag: sync-6.0.x-2015.04.08
+Community Tag (if available): none
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.6.0_45"
+Java(TM) SE Runtime Environment (build 1.6.0_45-b06)
+Java HotSpot(TM) 64-Bit Server VM (build 20.45-b01, mixed mode)
+
+MAVEN: 
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven
+Java version: 1.6.0_45, vendor: Sun Microsystems Inc.
+Java home: /usr/local/java/jdk1.6.0_45/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-229.el7.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/uberfire/uberfire/tree/0.3.x
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/tree/6.0.x
+https://github.com/droolsjbpm/droolsjbpm-knowledge/tree/6.0.x
+https://github.com/droolsjbpm/droolsjbpm/drools/tree/6.0.x
+https://github.com/droolsjbpm/optaplanner/tree/6.0.x
+https://github.com/droolsjbpm/jbpm/tree/6.0.x
+https://github.com/droolsjbpm/droolsjbpm-integration/tree/6.0.x
+https://github.com/droolsjbpm/droolsjbpm-tools/tree/6.0.x
+https://github.com/droolsjbpm/droolsjbpm-build-distribution/tree/6.0.x
+https://github.com/droolsjbpm/guvnor/tree/6.0.x
+https://github.com/droolsjbpm/kie-wb-common/tree/6.0.x
+https://github.com/droolsjbpm/jbpm-form-modeler/tree/6.0.x
+https://github.com/droolsjbpm/drools-wb/tree/6.0.x
+https://github.com/droolsjbpm/jbpm-designer/tree/6.0.x
+https://github.com/droolsjbpm/jbpm-console-ng/tree/6.0.x
+https://github.com/droolsjbpm/dashboard-builder/tree/6.0.x
+https://github.com/droolsjbpm/jbpm-dashboard/tree/6.0.x
+https://github.com/droolsjbpm/kie-wb-distributions/tree/6.0.x
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.0.CR6
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dprodcutized -DskipTests (building skipping the tests)
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResult.txt (building with test execution)
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3096m -XX:MaxPermSize=1024m -Dgwt-plugin.localWorkers='3' -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+uberfire                        porcelli@redhat.com
+dashboard-builder	        dgutierr@redhat.com
+drools                          mariof@redhat.com,etirelli@redhat.com
+droolsjbpm-build-bootstrap	gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,porcelli@redhat.com
+droolsjbpm-integration          mariof@redhat.com,etirelli@redhat.com
+droolsjbpm-knowledge            mariof@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+drools-wb                       manstis@redhat.com
+guvnor                          manstis@redhat.com
+jbpm                            krisv@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+kie-wb-commons                  manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+optaplanner                     gdesmet@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull -DskipTests
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized -DskipTests
+      before these builds the Unit Tests are executed: mvn clean install -Dfull -Dmaven.test.failure.ignore=true >> testResults.txt to check which tests failed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+BZ/Cherry-picks..:
+
+===============================================================================
+Repository: drools
+===============================================================================
+f273cb1 BZ-1199941 - [6.0.3.RP#3] ConcurrentModificationException on org.drools.persistence.TransactionSynchronizationContainer class Maciej Swiderski 11 days ago
+684ab2f [BZ-1197263] fix incremental compilation when a type declartion redefines an existing java class with a different package name Mario Fusco 3 weeks ago
+9f48073 [BZ-1195464] add null check for the pkg before trying to get the rule Mario Fusco 6 weeks ago
+532bdd9 [BZ-1185691] fix concurrent exection on a StatelessKieSession Mario Fusco 6 weeks ago
+fc1f4fb [BZ-1193600] add check for non existing accumulate context Mario Fusco 7 weeks ago
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+5960f84 BZ-1195151 - [6.0.3.RP#3] TaskService.getTasksAssignedAsPotentialOwners() returns excluded owners too Maciej Swiderski 11 days ago
+cf275f6 BZ-1206667 - [6.0.3.RP#3] MortgageApplication process IllegalStateException: We cannot have more than one BAM Task Summary for the task id = 3 Maciej Swiderski 11 d
+1b9e78f BZ-1195135 - [6.0.3.RP#3] Cron Syntax in timer boundary events and timer intermediary catch events Causing Parse Error Maciej Swiderski 11 days ago
+622aa62 BZ-1195130 - [6.0.3.RP#3] NullPointerException at GlobalTimerService.getTimerJobInstances(GlobalTimerService.java:149) includes: BZ-1142084 - java.lang.NullPointerE
+
+===============================================================================
+Repository: dashboard-builder
+===============================================================================
+664bf5f BZ-1174637: Sybase database codes. Roger Martinez 8 weeks ago Mon Feb 16 14:19:40 2015 +0100
+32e08ec BZ-1174637: Sybase DB (ASE 15.7) Support Roger Martinez 3 months ago Tue Jan 13 18:18:02 2015 +0100
+
+
+===============================================================================
+Repository: kie-wb-distributions
+===============================================================================
+dc6ee4b BZ-1190240 - [One-Off] WEB-INF/web-exec-server.xml & WEB-INF/web-ui-server.xml not available for WAS-8.5 installer Maciej Swiderski 9 weeks ago Mon Feb 9 13:09:22 2
+
+
+
