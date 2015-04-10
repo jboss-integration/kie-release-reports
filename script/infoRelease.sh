@@ -18,7 +18,7 @@ if [ $# != 4 ] ; then
 fi
 
 echo "The communityTag is: "$1
-echo "The prodcutTag is: "$2
+echo "The productTag is: "$2
 echo "The target product build is: "$3
 echo "The cutoff date is: " $4
 echo -n "Is this ok? (Hit control-c if is not): "
@@ -67,7 +67,7 @@ CONTACTS=$(cat mails.properties)
 FILE_TO_READ=$scriptDir/repositories.properties
    while read line; do
      if [ -n "$line" ]; then
-       echo "$line"/tree/"$communityTag" >> repURLS.txt
+       echo "$line"/tree/"$productTag" >> repURLS.txt
      fi
    done < $FILE_TO_READ
 REPOSITORIES=$(cat repURLS.txt)

@@ -1,0 +1,168 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2015-04-10-17:11
+Code Cutoff Date: 2015-04-02
+Target Product Build: 6.1.0.CR2
+Source Product Tag: sync-6.2.x-2015.04.02
+Community Tag (if available): none
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.6.0_45"
+Java(TM) SE Runtime Environment (build 1.6.0_45-b06)
+Java HotSpot(TM) 64-Bit Server VM (build 20.45-b01, mixed mode)
+
+MAVEN: 
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven
+Java version: 1.6.0_45, vendor: Sun Microsystems Inc.
+Java home: /usr/local/java/jdk1.6.0_45/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-229.el7.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/droolsjbpm/drools/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/optaplanner/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/jbpm/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/guvnor/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/drools-wb/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.2.x-2015.04.02
+https://github.com/jboss-integration/fuse-bxms-integ/tree/sync-6.2.x-2015.04.02
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.0.CR26
+Uberfire: 0.5.3.Final
+dashbuilder: 0.2.2.Final
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dprodcutized -DskipTests (building skipping the tests)
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResult.txt (building with test execution)
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3096m -XX:MaxPermSize=1024m -Dgwt-plugin.localWorkers='3' -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+dashboard-builder	        dgutierr@redhat.com
+drools                          mariof@redhat.com,etirelli@redhat.com
+droolsjbpm-build-bootstrap	gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,porcelli@redhat.com
+droolsjbpm-integration          mariof@redhat.com,etirelli@redhat.com
+droolsjbpm-knowledge            mariof@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+drools-wb                       manstis@redhat.com
+fuse-bxms-integ                 mariof@redhat.com
+guvnor                          manstis@redhat.com
+jbpm                            krisv@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+kie-wb-commons                  manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+optaplanner                     gdesmet@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull -DskipTests
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized -DskipTests
+      before these builds the Unit Tests are executed: mvn clean install -Dfull -Dmaven.test.failure.ignore=true >> testResults.txt to check which tests failed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+BZ/Cherry-picks..:
+
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+82219ce [BZ-1200699] make KIE Worbench version configurable Petr Siroky 10 days ago Tue Mar 31 16:46:56 2015 +0200
+
+===============================================================================
+Repository: drools
+===============================================================================
+15e2b33 [DROOLS-749] fix events deserialization Mario Fusco 10 days ago Tue Mar 31 17:44:08 2015 +0200
+5d4a8b7 [DROOLS-750] fix discovery of currently built package in KnowledgeBuilderImpl Mario Fusco 2 weeks ago Thu Mar 26 15:39:02 2015 +0000
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+315fb16 BZ-1192148 - TaskData object not storing Comments, CreatedOn, ExpirationTime Marco Rietveld 8 days ago Thu Apr 2 11:10:21 2015 +0200
+7d7137e BZ-1195145: Changed the property separator to avoid parsing errors pefernan 9 days ago Thu Apr 2 01:25:02 2015 +0200
+32a7fe7 BZ-1199256 - Switchyard rules component cannot build a decision table from CSV format on JBoss FUSE - aligned OSGi manifest info with other jbpm modules Maciej Swiderski 9 days ago Wed Apr 1 15:33:48 2015 +0200
+dd7f970 BZ-1195145: Forced a Date Pattern for documents in order to avoid errors parsing it on front-end pefernan 2 weeks ago Fri Mar 27 11:56:10 2015 +0100
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+f5b85bb BZ-1200838, BZ-1170211 - Task complete operation without deploymentId does not work in REST API Marco Rietveld 10 days ago Tue Mar 31 23:29:03 2015 +0200
+
+===============================================================================
+Repository: kie-wb-common
+===============================================================================
+4a8f9dd [BZ-1200699] make KIE Worbench version configurable Petr Siroky 10 days ago Tue Mar 31 16:50:57 2015 +020
+
+===============================================================================
+Repository: jbpm-console-ng
+===============================================================================
+b57f5db BZ-1195145: Changed the Document's property separator to avoid parsing errors pefernan 9 days ago Thu Apr 2 01:26:31 2015 +0200
+094a237 BZ-1195145: Forced a Date Pattern for documents in order to avoid errors parsing it on front-end pefernan 2 weeks ago Fri Mar 27 11:54:28 2015 +0100
+
+===============================================================================
+Repository: dashboard-builder
+===============================================================================
+b45f718 BZ-1204633 - Slow jBPM Dashboard loading times despite DB columns being indexed David Gutierrez 9 days ago Wed Apr 1 11:53:05 2015 +0200
+56922ea BZ-1184018: Improved displayed message for DataDisplayerInvalidConfigurationException. Roger Martinez 9 days ago Wed Apr 1 11:50:44 2015 +0200
+
+===============================================================================
+Repository: kie-wb-distributions
+===============================================================================
+073e045 BZ-1207580 - WebSphere: process with timer never ends Maciej Swiderski 8 days ago Thu Apr 2 17:12:00 2015 +0200
+74c1f33 BZ-1207580 - WebSphere: process with timer never ends Maciej Swiderski 10 days ago Tue Mar 31 17:35:11 2015 +0200
+
+===============================================================================
+Repository: fuse-bxms-integ
+===============================================================================
+cb9e238 Downgrade findbugs-maven-plugin to 2.5.5 (3.0 is not supported on JDK6) Petr Siroky 2 weeks ago Fri Mar 27 17:47:59 2015 +0100
+
+
+
