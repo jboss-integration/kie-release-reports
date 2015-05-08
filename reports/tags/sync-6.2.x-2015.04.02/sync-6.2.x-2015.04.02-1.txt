@@ -81,14 +81,14 @@ MAVEN_OPTS:
                      Component owners contacts                           
 ------------------------------------------------------------------------
 dashboard-builder	        dgutierr@redhat.com
-drools                          mariof@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
 droolsjbpm-build-bootstrap	gdesmet@redhat.com,mbiarnes@redhat.com
 droolsjbpm-build-distribution   manstis@redhat.com,porcelli@redhat.com
-droolsjbpm-integration          mariof@redhat.com,etirelli@redhat.com
-droolsjbpm-knowledge            mariof@redhat.com,etirelli@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
 droolsjbpm-tools                kverlaen@redhat.com
 drools-wb                       manstis@redhat.com
-fuse-bxms-integ                 mariof@redhat.com
+fuse-bxms-integ                 mfusco@redhat.com
 guvnor                          manstis@redhat.com
 jbpm                            krisv@redhat.com
 jbpm-console-ng                 msalatin@redhat.com
