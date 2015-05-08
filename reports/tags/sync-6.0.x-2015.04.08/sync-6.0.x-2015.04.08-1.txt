@@ -87,7 +87,7 @@ droolsjbpm-knowledge                   mfusco@redhat.com,etirelli@redhat.com
 droolsjbpm-tools                       kverlaen@redhat.com
 drools-wb                              manstis@redhat.com
 guvnor                                 manstis@redhat.com
-jbpm                                   krisv@redhat.com
+jbpm                                   kverlaen@redhat.com
 jbpm-console-ng                        msalatin@redhat.com
 jbpm-form-modeler                      pfernan@redhat.com
 jbpm-dashboard                         dgutierr@redhat.com
