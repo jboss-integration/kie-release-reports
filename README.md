@@ -25,22 +25,22 @@ All property files are displayed in the final release-report.
 There are some that should not change with every release/sync, but others should.
 The individual property files will be explained here:
 
-### mails.properties
+#### mails.properties
      In this property file are stored all emails of project leads of the different repositories
      Should be changed only if there are modifications.
 
-### notes.properties
+#### notes.properties
     The notes properties consis of information about the release/sync-tag.
     This file changes with each release/sync. The information considered to be important should be stored here.
 
-### repositories.properties
+#### repositories.properties
     In this property file all github URLs of all repositories are stored.
     Should be changed only if there are modifications.
 
-### repositoryList.properties
+#### repositoryList.properties
     This property file lists all repository for the script dependencyTree.sh, that is not yet a part of infoRelease.sh
 
-### versions.properties
+#### versions.properties
     This property stores the versions of repositories used that have their own life-cycle.
     i.e. Jboss-integration-ip-bom version
        Uberfire version
