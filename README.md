@@ -46,3 +46,8 @@ The individual property files will be explained here:
        Uberfire version
        dashbuilder version
     This property file will change as version of 3rd party reps change or maybe there have to be added more.
+    
+
+**IMPORANT**: Please assure that before you generate a hand over report you pull the latest changes from github and that you push
+    only information that should be stored there (i.e some important and permament modifications to property files and
+    at least the generated hand-over report).
