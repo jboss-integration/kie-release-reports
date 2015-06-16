@@ -4,7 +4,7 @@
 ------------------------------------------------------------------------
 Report Date: 2015-06-16-20:16
 Code Cutoff Date: 2015.06.16
-Target Product Build: ER6
+Target Product Build: 6.1.1 (one off patch)
 Source Product Tag: sync-6.2.x-2015.06.16
 Community Tag (if available): 6.2.0.Final
  
