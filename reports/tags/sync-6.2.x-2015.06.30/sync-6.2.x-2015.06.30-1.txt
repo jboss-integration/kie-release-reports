@@ -1,0 +1,197 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2015-07-02-19:48
+Code Cutoff Date: 2015.06.30
+Target Product Build: 6.1.2 (CP02) Cumulative Patch Payload
+Source Product Tag: sync-6.2.x-2015.06.30
+Community Tag (if available): 6.2.0.Final
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.6.0_45"
+Java(TM) SE Runtime Environment (build 1.6.0_45-b06)
+Java HotSpot(TM) 64-Bit Server VM (build 20.45-b01, mixed mode)
+
+MAVEN: 
+Apache Maven 3.0.5 (r01de14724cdef164cd33c7c8c2fe155faf9602da; 2013-02-19 14:51:28+0100)
+Maven home: /usr/local/maven
+Java version: 1.6.0_45, vendor: Sun Microsystems Inc.
+Java home: /usr/local/java/jdk1.6.0_45/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-229.7.2.el7.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/drools/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/optaplanner/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/jbpm/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/guvnor/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/drools-wb/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.2.x-2015.06.30
+https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.2.x-2015.06.30
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.0.CR26
+Uberfire: 0.5.5.Final
+dashbuilder: 0.2.2.Final
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dprodcutized -DskipTests (building skipping the tests)
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResult.txt (building with test execution)
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3096m -XX:MaxPermSize=1024m -Dgwt-plugin.localWorkers='3' -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+dashboard-builder	        dgutierr@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-build-bootstrap	gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,porcelli@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+drools-wb                       manstis@redhat.com
+guvnor                          manstis@redhat.com
+jbpm                            kverlaen@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+kie-eap-modules                 romartin@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+kie-wb-commons                  manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+optaplanner                     gdesmet@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder and uberfire repositories are removed
+      repositories for community releases are build with: mvn clean install -Dfull -DskipTests
+      repositories for product releases are build with: mvn clean install -Dfull -Dproductized -DskipTests
+      the very fist build is always with executing Unit Tests: mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResults.txt 
+      looking into testResults.txt you can check which tests failed.
+      
+
+BZ/Cherry-picks - commits difference to previous TAG sync-6.2.x-2015.06.17..:
+      
+      droolsjbpm-build-bootstrap..:
+      58f22f2--changed UF and dashbuilder to final versions--kiereleaseuser
+      13892f5--Upgrade to Errai 3.0.5.Final--Alexandre Porcelli
+      1438b0b--upgrade uberfire version to 0.5.6-SNAPSHOT--Alexandre Porcelli
+      91d89ae--[BZ-1233218] remove camel related dependencies from BOMs--Petr Siroky
+      3e3de24--git-clone-others.sh: accept additional Git options for cloning--Petr Siroky
+      1272286--[BZ-1233161] add kie-eap-modules repo into repo list--Petr Siroky
+      1377555--[BZ-1233218] remove fuse-bxms-integ from repository list--Petr Siroky
+      dc87c0d--[BZ-1217650] remove unused camel-maven-plugin--Petr Siroky
+      cfd2f0b--[BZ-1229587, BZ-1217650] upgrade Helix from 0.6.2-incubating to 0.6.5--Petr Siroky
+
+      droolsjbpm-knowledge..:
+      cce5c24--BZ-1236476, BZ-1236477 - REST Query Operation fails when using the "potentialOwner" parameter--Marco Rietveld
+      (cherry-picked from https://github.com/droolsjbpm/droolsjbpm-knowledge/commit/9fbb0548294bfc48696441db2763ca4152f95be4)
+
+      drools..:
+      5f40938--[BZ-1228313] prevent NPE during a right update when no left memory is present (sequential mode)--Mario Fusco
+      3f82cc2--[BZ-1228098] avoid eager evaluations in sequential mode--Mario Fusco
+      dc22271--[DROOLS-751] add state machine to DefaultAgenda--Mario Fusco
+      5b8b57f--BZ1234640: Guided Rule Editor: String fields with double slashes changes the editor--Michael Anstis
+      10ae3a7--[BZ-1227866] fix incremental compilation for extended rule--Mario Fusco
+      2f931bb--BZ1227234: Regression in 'forall' operator in Decision Tables--Michael Anstis
+      c425ef2--BZ-1221491: fixing marshalling of additional commands--Edson Tirelli
+      d1d8331--[BZ-1225587] fix marshalling of StartProcessCommand--Petr Siroky
+      f6393a1--BZ-1225587: fixing NPE when out-identifier is set for StartProcess command. Test case added to kie-server-integration-tests.--Edson Tirelli
+
+      jbpm..:
+      1048414--BZ-1231002: When migrate BPMS from 6.0.1 to 6.1.0 , existing deployments are not transfered--xiabai
+      (cherry -picked from https://github.com/droolsjbpm/jbpm/commit/2d4c3e1cd)
+      2dfefe6--BZ-1236476, BZ-1236477 - REST Query Operation fails when using the "potentialOwner" parameter--Marco Rietveld
+      (cherry-picked from https://github.com/droolsjbpm/jbpm/commit/8e090149298b3bd0d4c4614e33e01bb233eebc94)
+      8067e1b--JBPM-4611 - Duplicate Timer calls by a Boundary Timer inside a MultipleInstances (cherry picked from commit 486103f4cf0be2bdd86037480436c75887162fcc)--Maciej Swiderski
+      750a730--JBPM-3916 - Keeping multi instance node (instance) ids consistent--Marco Rietveld
+      740eecc--[BZ-1230881] add test case with XLS dtable with own config--Petr Siroky
+      851724c--BZ-1230881 fix adding dtable resources in SimpleRuntimeEnvironment--Marco Rietveld
+
+      droolsjbpm-integration..:
+      d7b05ea--BZ-1236476, BZ-1236477 - REST Query Operation fails when using the "potentialOwner" parameter--Marco Rietveld
+      (cherry-picked from https://github.com/droolsjbpm/droolsjbpm-integration/commit/7fc24c9f0058d8c6d7b938922baf414ee660d2a9)
+      8da71e8--[BZ-1233218] karaf-itests: clean-up pax exam maven configuration--Petr Siroky
+      9fd911e--[BZ-1233218] use dependency plugin to always get the latest *orm files--Petr Siroky
+      e54a750--Merge branch 'osgi_pr' into 6.2.x--Mario Fusco
+      a6e13bd--[BZ-1233218] restore drools-osgi integration modules--Petr Siroky
+      08a3c05--BZ-1229171 - Any authenticated user can see tasks from other users via Java Remote REST API--Marco Rietveld
+      4b23719--BZ-1225587: adding test case--Edson Tirelli
+
+      kie-wb-common..:
+      1762d60--BZ1236100: Message Console does not get shown in the AuthoringPerspectiveNoContext perspective--Michael Anstis
+
+      jbpm-designer: 
+      ec67de1--BZ 1216247 - Task Text in Business process are not correctly exported when using PNG and PDF formats--Tihomir Surdilovic
+      (cherry-picked from https://github.com/droolsjbpm/jbpm-designer/commit/d3f517500bdd7dba23faf43170d767e25aa052b0)      
+      c5402f1--BZ 1225181 - Unable to split the connector name into two lines in BPM Suite 6.1--Tihomir Surdilovic
+      5c7be7b--BZ 1233396 - Attempt to rename file affects the wrong BPM process in BPM Suite 6.1.0--Tihomir Surdilovic
+      2959f35--BZ 1192067 -  Issue with DI with subprocesses inside subprocesses--Tihomir Surdilovic
+      cb44b94--BZ 1196267 -  First and last coordinates of connection Waypoints inside a container are relative to container--Tihomir Surdilovic
+      7f1f5f7--BZ 1196267 -  First and last coordinates of connection Waypoints inside a container are relative to container--Tihomir Surdilovic
+      8cc9886--BZ 1230181 - Unable to drag a workflow pattern from the menu and drop it inside a swimlane in BPM Suite 6.1--Tihomir Surdilovic
+      c6735aa--BZ 1232975 - Process elements divided in different swimlanes changes its connectors positions everytime we move one of the swimlanes--Tihomir Surdilovic
+      27120de--BZ 1225151 - Swimlane issues in BPM Suite 6.1 - Large text name is overlapping other components--Tihomir Surdilovic
+      2edb937--BZ1231365: Fix error opening process form when project has space is name--Jeremy Lindop
+
+      dashboard-builder..:
+      b955d62--BZ-1211316 - CVE-2015-1818 dashbuilder: XXE/SSRF vulnerability--David Gutierrez
+
+      kie-wb-distributions..:
+      d8735dc--BZ-1221380: remove use of cookies (that have 4k limit) what, depending of the number of roles/groups of a user, can be reached. new solution `patches` the host page (UserHostPageFilter) with user's info that now is supported on errai client security.--Alexandre Porcelli
+
+      kie-eap-modules..:
+      38f7609--BZ-1233161: kie-fuse-config-editor can be compiled with Java 6--Petr Siroky
+      6cd94a0--BZ-1233161: Removed old base EAP modules, no longer used.--Roger Martinez
+      f6b2fc5--BZ-1233161: Making 6.2.x branch compatible with Maven 3.0.5, as productization team will build it using this mvn version.--Roger Martinez
+      351e1a1--BZ-1233161: Disabled Fuse EAP Integration Pack generation for 6.2.x branch--Roger Martinez
+      0cf2287--BZ-1233161: Removed unused WAR artifacts generation for modules distributions (thin wars), as no longer used by Fuse--Roger Martinez
+      bff7804--BZ-1233161: Bug fixing--Roger Martinez
+      1397b42--Added Fuse&BxMS integration package for EAP.--Roger Martinez
+      eaed75f--New boolean plugin configuration parameter about generation of "layers.conf". The generation of this file is now  parametrizable from the plugin configuration and, by default, the layers.conf is not generated.--Roger Martinez
+      000fd82--BZ-1233161: Missing added files into git--Roger Martinez
+      3a7198c--BZ-1233161: Moved modules from kie-wb-distributions/kie-eap-integration on 6.2.x branch into this new branch.--Roger Martinez
+      e69b8b0--Add branch for 6.2.x EAP modules--Roger Martinez
+
+
+
