@@ -1,0 +1,119 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2015-07-08-18:20
+Code Cutoff Date: 2015-07-06
+Target Product Build: 6.2.0.DR1
+Source Product Tag: sync-6.3.x-2015.07.08
+Community Tag (if available): 6.3.0.Beta2
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.7.0_25"
+Java(TM) SE Runtime Environment (build 1.7.0_25-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 23.25-b01, mixed mode)
+
+MAVEN: 
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_25, vendor: Oracle Corporation
+Java home: /usr/local/java/jdk1.7.0_25/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-229.7.2.el7.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/drools/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/optaplanner/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/jbpm/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/guvnor/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/drools-wb/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/optaplanner-wb/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.3.x-2015.07.08
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.3.x-2015.07.08
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.0.CR26
+Uberfire: 0.7.0.Beta3
+Uberfire-extensions: 0.7.0.Beta3
+dashbuilder: 0.3.0.Beta2
+errai: 3.2.0.CR1
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dprodcutized -DskipTests (building skipping the tests)
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResult.txt (building with test execution)
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3096m -XX:MaxPermSize=1024m -Dgwt-plugin.localWorkers='3' -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+dashboard-builder               dgutierr@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,porcelli@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+drools-wb                       manstis@redhat.com
+guvnor                          manstis@redhat.com
+jbpm                            kverlaen@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+kie-wb-commons                  manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+optaplanner                     gdesmet@redhat.com
+optaplanner-wb                  manstis@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder and uberfire repositories are removed
+      repositories for community releases are build with: mvn clean install -Dfull -DskipTests
+      repositories for product releases are build with: mvn clean install -Dfull -Dproductized -DskipTests
+      the very fist build is always with executing Unit Tests: mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResults.txt 
+      looking into testResults.txt you can check which tests failed.
+      
+      The base for this tag is the community 6.3.0.Beta2.
+      This tag was  build + tests executed and released but NOT yet build with -Dproductized.
+      This tag will be the base for Target Product Build: 6.2.0.DR1 
+
+
+
