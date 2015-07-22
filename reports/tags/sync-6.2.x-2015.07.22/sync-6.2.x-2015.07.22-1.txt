@@ -59,7 +59,7 @@ https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.2.x-2015.07.22
                           3rd party  versions
 ------------------------------------------------------------------------
 
-jboss-ip-bom: 6.0.0.CR26 (same as in the preivous tag)
+jboss-ip-bom: 6.0.0.CR26 (same as in the previous tag)
 UberFire: 0.5.7.Final (upgraded)
 Fashbuilder: 0.2.2.Final (same as in the previous tag)
 Errai: 3.0.6.Final (upgraded)
