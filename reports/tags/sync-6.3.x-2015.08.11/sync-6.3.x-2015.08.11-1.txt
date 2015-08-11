@@ -3,7 +3,7 @@
            Engineering to Productization Handoff Report
 ------------------------------------------------------------------------
 Report Date: 2015-08-11-17:07
-Code Cutoff Date: 2015-08-11
+Code Cutoff Date: 2015-08-07
 Target Product Build: 6.2.0.ER1
 Source Product Tag: sync-6.3.x-2015.08.11
 Community Tag (if available): 6.3.0.CR1
