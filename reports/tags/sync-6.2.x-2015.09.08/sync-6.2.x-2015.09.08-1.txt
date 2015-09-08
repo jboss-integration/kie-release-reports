@@ -1,0 +1,139 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2015-09-08-23:12
+Code Cutoff Date: please look at NOTES
+Target Product Build: roll up patch 3
+Source Product Tag: sync-6.2.x-2015.09.08
+Community Tag (if available): based on 6.2.x branch
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.6.0_45"
+Java(TM) SE Runtime Environment (build 1.6.0_45-b06)
+Java HotSpot(TM) 64-Bit Server VM (build 20.45-b01, mixed mode)
+
+MAVEN: 
+1105: old priority 0, new priority 19
+Apache Maven 3.0.5 (r01de14724cdef164cd33c7c8c2fe155faf9602da; 2013-02-19 14:51:28+0100)
+Maven home: /usr/local/maven
+Java version: 1.6.0_45, vendor: Sun Microsystems Inc.
+Java home: /usr/java/jdk1.6.0_45/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-504.8.1.el6.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/drools/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/optaplanner/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/jbpm/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/guvnor/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/drools-wb/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.2.x-2015.09.08
+https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.2.x-2015.09.08
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.0.CR26
+Uberfire: 0.5.7.Finali
+Uberfire-extensions: 0.5.7.Final
+dashbuilder: 0.2.2.Final
+org.jboss.errai: 3.0.6.Final
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dprodcutized -DskipTests (building skipping the tests)
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResult.txt (building with test execution)
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3096m -XX:MaxPermSize=1024m -Dgwt-plugin.localWorkers='3' -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+dashboard-builder	        dgutierr@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-build-bootstrap	gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,porcelli@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+drools-wb                       manstis@redhat.com
+guvnor                          manstis@redhat.com
+jbpm                            kverlaen@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+kie-eap-modules                 romartin@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+kie-wb-commons                  manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+optaplanner                     gdesmet@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull -DskipTests
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized -DskipTests
+      before these builds the Unit Tests are executed: mvn clean install -Dfull -Dmaven.test.failure.ignore=true >> testResults.txt to check which tests failed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+IMPORTANT: the tag sync-6.2.x-2015.09.08 was tagged today: 2015.09.08, but the base for this was the previous tag sync-6.2.x-2015.08.24 
+from 2015.08.24.
+The only difference are these added commits:
+
+Cherry-picks..:
+
+jbpm-designer..:
+-------------
+5cf33250a32ecd2f017885f4dbc66abb2a155e85 BZ 1259696 -  Designer can't associate existing elements with swimlane - Tihomir Surdilovic
+cherry-picked from: https://github.com/droolsjbpm/jbpm-designer/commit/3f2eba024090ef08eec5a1362d60af55c08fed17
+
+6b3253ec54054220a010270c82a767656bc55a6e backwards compatibility to pre bpmn2 color spec update - Tihomir Surdilovic
+cherry-picked from: https://github.com/droolsjbpm/jbpm-designer/commit/bd158a8098b6b05fa82d3006337f48acf81ed128
+
+30518280a78547626660ed3a53b91b1c8bb0603a BZ 1259265 - Cannot save imported process with signal catching event - Tihomir Surdilovic
+cherry-picked from: https://github.com/droolsjbpm/jbpm-designer/commit/7c2ffa5356397b238f44a06eb943a5851145ac62
+
+
+guvnor..:
+------
+752afb7e21820ce291f7a0f50cf81cca8620ed33 BZ1259617: [Backport to 6.1.3] NullPointerException during fresh Business Central startup - Michael Anstis
+cherry-picked from: https://github.com/droolsjbpm/guvnor/commit/fce0cd821
+
+
+
