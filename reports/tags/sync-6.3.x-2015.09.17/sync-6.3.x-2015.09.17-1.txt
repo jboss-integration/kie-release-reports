@@ -1,0 +1,149 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2015-09-18-00:53
+Code Cutoff Date: 2015.09.15 (please see Notes)
+Target Product Build: 6.2.0.ER3
+Source Product Tag: sync-6.3.x-2015.09.17
+Community Tag (if available): 6.3.0.Final
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.7.0_25"
+Java(TM) SE Runtime Environment (build 1.7.0_25-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 23.25-b01, mixed mode)
+
+MAVEN: 
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_25, vendor: Oracle Corporation
+Java home: /usr/java/jdk1.7.0_25/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-504.8.1.el6.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/drools/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/optaplanner/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/jbpm/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/guvnor/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/drools-wb/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.3.x-2015.09.17
+https://github.com/jboss-integration/kie-docs/tree/sync-6.3.x-2015.09.17
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jboss-ip-bom: 6.0.0.CR28
+uberfire: 0.7.2.Final
+uberfire-extensions: 0.7.2.Final
+dashbuilder: 0.3.2.Final
+errai: 3.2.0.Final
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dprodcutized -DskipTests (building skipping the tests)
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResult.txt (building with test execution)
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3096m -XX:MaxPermSize=1024m -Dgwt-plugin.localWorkers='3' -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+dashboard-builder	        dgutierr@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-build-bootstrap	gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,porcelli@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+drools-wb                       manstis@redhat.com
+guvnor                          manstis@redhat.com
+jbpm                            kverlaen@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+kie-eap-modules                 romartin@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+kie-wb-commons                  manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+optaplanner                     gdesmet@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull -DskipTests
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized -DskipTests
+      before these builds the Unit Tests are executed: mvn clean install -Dfull -Dmaven.test.failure.ignore=true >> testResults.txt to check which tests failed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+IMPORTANT: the base for this tag sync-6.3.x-2015.09.17 is the branch community 6.3.x.
+           The Cuff Off day was 2015.09.15. To the status of 6.3.x branch there were added the following cherry-picks:
+
+Cherry-picks..:
+
+      jbpm:
+      https://github.com/droolsjbpm/jbpm/commit/3121cd2d5e77a799dffd3255134c7564cf174e5c - Maciej Swiderski
+      https://github.com/droolsjbpm/jbpm/commit/7bd3131998c45b142128d5535aee70bb755ebe75 - Mauricio Salatino
+      https://github.com/droolsjbpm/jbpm/commit/13307c95851c2d36f50ccd055241d913d4a06146 - Kris Verlaenen
+
+      droolsjbpm-tools:
+      https://github.com/droolsjbpm/droolsjbpm-tools/commit/6ed5a3be251af79cf04e7bc713f91a5b4f462913 - Bob Brodt
+
+      kie-wb-common:
+      https://github.com/droolsjbpm/kie-wb-common/commit/b77f8558627bd6a67b034d86feaad99658912006 - Alexandre Porcelli
+      https://github.com/droolsjbpm/kie-wb-common/commit/68f81e30e2c05be4176a63a05af9fdb235bfdbd0 - Walter Medvedeo
+      
+      drools:
+      https://github.com/droolsjbpm/drools/commit/044c6abe46b8a7e7786a12d9902880d5696c090c - Mario Fusco
+      https://github.com/droolsjbpm/drools/commit/9ac3a6dde8e6c46b6923b200aee0a2943bec1f1c - Michael Anstis / Mario Fusco
+      https://github.com/droolsjbpm/drools/commit/4946084c1cc57b0db38f61017cb1fea7d890d025 - Mario Fusco
+
+      droolsjbpm-integration:
+      https://github.com/droolsjbpm/droolsjbpm-integration/commit/123762750d6df781eec54d831147d25f4364a478 - Marco Rietveld
+
+      jbpm-console-ng:
+      https://github.com/droolsjbpm/jbpm-console-ng/commit/a8a9d055789293550de7d8ae86ca7fcbef65c00a - Marco Rietveld
+
+      kie-wb-distribution:
+      https://github.com/droolsjbpm/kie-wb-distributions/commit/1b80d72f89ad54c51b1580986baf7bc56f5bbdd1 - Maciej Swiderski
+      https://github.com/droolsjbpm/kie-wb-distributions/commit/57cf9e76ff11fa35d2f5c95d7dcb0f32e6cbdaa5 - Maciej Swiderski / Marco Rietveld
+      https://github.com/droolsjbpm/kie-wb-distributions/commit/324727e999206522a07b47257909f0f1a9651e65 - Neus Miras
+
+
+
