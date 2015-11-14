@@ -1,0 +1,276 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2015-11-14-20:15
+Code Cutoff Date: 2015-11-13
+Target Product Build: 6.2.0.CR1
+Payload Tracker:
+Source Product Tag: sync-6.3.x-2015.11.13
+Community Tag (if available): based on 6.3.x branch
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.7.0_25"
+Java(TM) SE Runtime Environment (build 1.7.0_25-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 23.25-b01, mixed mode)
+
+MAVEN: 
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_25, vendor: Oracle Corporation
+Java home: /usr/java/jdk1.7.0_25/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-504.23.4.el6.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/drools/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/optaplanner/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/jbpm/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/guvnor/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/drools-wb/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/kie-docs/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.3.x-2015.11.13
+https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.3.x-2015.11.13
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.0.CR30
+uberfire: 0.7.x.20151113   - available at https://github.com/jboss-integration/uberfire/tree/sync-6.3.x-2015.11.13
+uberfire-extensions:0.7.x.20151113   - available at https://github.com/jboss-integration/uberfire-extensions/tree/sync-6.3.x-2015.11.13
+dashbuilder: 0.3.x.20151113   - avaiable at https://github.com/jboss-integration/dashbuilder/tree/sync-6.3.x-2015.11.13
+errai:3.2.1.Final
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dprodcutized -DskipTests (building skipping the tests)
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResult.txt (building with test execution)
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3096m -XX:MaxPermSize=1024m -Dgwt-plugin.localWorkers='3' -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+dashboard-builder	        dgutierr@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-build-bootstrap	gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,porcelli@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+drools-wb                       manstis@redhat.com
+guvnor                          manstis@redhat.com
+jbpm                            kverlaen@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+kie-docs                        manstis@redhat.com
+kie-eap-modules                 romartin@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+kie-wb-commons                  manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+optaplanner                     gdesmet@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull -DskipTests
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized -DskipTests
+      before these builds the Unit Tests are executed: mvn clean install -Dfull -Dmaven.test.failure.ignore=true >> testResults.txt to check which tests failed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+This tag sync-6.3.x-2015.11.13 is based on community 6.3.x with Cut Off date on 2015.11.13.
+
+The difference between the previous tag sync-6.3.x-2015.10.28 are these commits:
+
+
+**************************************************************
+droolsjbpm-build-bootstrap..:
+
+d5318f5--upgraded to 6.3.1.20151113-prod--Jenkins
+896d8b1--upgraded 6.3.x to use jboss-ip-bom 6.0.0.CR30--kiereleaseuser
+7166f20--git-clone-others.sh: support URLs not ending with .git--Petr Siroky
+d8ad206--Remove dependencies already prenset in IP BOM--Petr Siroky
+d979617--update-version-all: support both community and prod builds--Petr Siroky
+3671385--Upgrade Errai to 3.2.1.Final--Petr Široký
+ec17dd2--BZ-1274685 - New Repository dialog validation broken when Managed Repository is checked--Walter Medvedeo
+
+**************************************************************
+drools..:
+
+34c26c6--upgraded to 6.3.1.20151113-prod--Jenkins
+2e44553--fix nodes iteration order in ReteComparator--Mario Fusco
+d84285c--BZ-1267906: fixing FlatQueryResults marshalling in XStream--Edson Tirelli
+57de39a--[DROOLS-970] fix Date coercion when the constraint uses a declaration or an instance field--Mario Fusco
+382a9fe--ENTESB-4090 - fixes for kie-camel tests--Marco Rietveld
+506cb99--[BZ-1276311] improve PatternBuilder performances--Mario Fusco
+cbc10d8--[BZ-1271909] log all declarations even if not used in consequence--Mario Fusco
+e88a97e--[BZ-1266076] add support for guided rule templates with DSL--Petr Siroky
+
+**************************************************************
+optaplanner..:
+
+e323c8f--upgraded to 6.3.1.20151113-prod--Jenkins
+9bdb0ec--PLANNER-472 SmallScalingOrderedSetTest--Geoffrey De Smet
+a485bbe--PLANNER-472 SmallScalingOrderedSet--Geoffrey De Smet
+**************************************************************
+jbpm..:
+
+f68471d--upgraded to 6.3.1.20151113-prod--Jenkins
+b29c4fd--JBPM-4826 DB2 upgrade script bpms-6.0-to-6.1.sql doesn't change SessionInfo.id datatype properly if there are no sessions stored--Tibor Zimanyi
+751359c--JBPM-4825 SQLServer upgrade script bpms-6.0-to-6.1.sql for SqlServer2008 dialect contains commands for SqlServer dialect.--Tibor Zimanyi
+509b56f--Revert "BZ-1234592 - Race condition with multiple job executor threads on Oracle"--Maciej Swiderski
+33ffca5--BZ-1234592 - Race condition with multiple job executor threads on Oracle--Tomáš Livora
+e40cf76--BZ-1279821 - Synchronization of a deployment unit between EJB services app and Business Central fails--Maciej Swiderski
+02a656e--BZ-1213209 - Duplicate Timer calls by a Boundary Timer inside a MultipleInstances--Tomáš Livora
+980b048--move bitronix setting to top level test to be applied to all test cases closes #324--Maciej Swiderski
+e36c89f--- removing internal host info--Marco Rietveld
+52fd202--BZ1276350 - added ordering for user task comments and attachments closes #322--Karel Suta
+932bb75--removed dependency to external web service to avoid false negatives when external ws is not available--Maciej Swiderski
+
+**************************************************************
+droolsjbpm-integration..:
+
+2b9d08e--upgraded to 6.3.1.20151113-prod--Jenkins
+24dd658--Upgrade takari-plugin-testing to 2.8.0 to fix failing tests--Petr Siroky
+c692ca7--BZ-1281549 - KIE Server: jBPM extension ignore runtime strategy (and other settings) from deployment descriptor included in kjar--Maciej Swiderski
+44257bc--BZ-1277962 - REST Query API: taskId_min and taskId_max parameters are reversed closes #223--Marco Rietveld
+f4c8a18--BZ-1273109 - BPM cluster: Job executor fails with NPE while creating a deployment unit - removed recent job cache to avoid outdated information--Maciej Swiderski
+0b4b05c--BZ-1278722 - Marshalling Error when executing command through SOAP interface closes #225--Marco Rietveld
+e6d3d83--BZ-1278750 OSGi OptaPlanner:  missing dependency on servicemix.bundles.reflections because org.reflections isn't osgi-ified--Geoffrey De Smet
+c055273--BZ-1277114 - JMS authentication does not work on WebSphere--Marco Rietveld
+eafdf4d--Changed logger output from info to debug--Ivo Bek
+6a486bb--BZ-1276626 - GetTaskAssignedAsBusinessAdminCommand is not being serialized correctly--Marco Rietveld
+
+**************************************************************
+kie-uberfire-extensions..:
+
+c57cdf1--upgraded to 6.3.1.20151113-prod--Jenkins
+f611a63--Timeline feature does not respect security constraint set by "add-group-repo" kie-cli command--ederign
+d2ed0af--BZ-1265604, BZ-1266138: Now PriorityDisposables need register itself due a WAS issue.--Alexandre Porcelli
+
+**************************************************************
+guvnor..:
+
+54303d3--upgraded to 6.3.1.20151113-prod--Jenkins
+a08953e--BZ1193484: Roles added to Projects are ignored by Business Central--Michael Anstis
+aad6231--added latest Zanata translation fixes--kiereleaseuser
+4328eb8--BZ1274691: Fix NPE on Presenter--Michael Anstis
+e9fff1e--- BZ-1274691: fixing view checks--salaboy
+8d473c6--BZ-1275620: AssetMgmt: Names of files to be promoted not visible--pefernan
+e584823--BZ-1275621: AssetMgmt: Impossible to promote multiple selected files--pefernan
+c28d95a--BZ-1274685 - New Repository dialog validation broken when Managed Repository is checked     - original bz fixed     - MVP improvements     - Tests added--Walter Medvedeo
+
+**************************************************************
+kie-wb-common..:
+
+79fba69--[urgent] fix for UnproxyableResolutionException--ederign
+8da2858--upgraded to 6.3.1.20151113-prod--Jenkins
+286cb6a--BZ1193484: Roles added to Projects are ignored by Business Central--Michael Anstis
+326a1b8--Timeline feature does not respect security constraint set by "add-group-repo" kie-cli command--ederign
+98b2c47--BZ1277556: Project selector Dropdown becomes useless with the right(wrong) OU/Repository/Project name lengths--Michael Anstis
+8d85b11--BZ1269333: Result of searching Assets in Business Central's 'Full Text Search' includes duplicate records--Michael Anstis
+fea3751--added latest Zanata translation fixes--kiereleaseuser
+19d070c--BZ1274349: Asset Management: Branch selector partially hidden--Michael Anstis
+0bbad9a--BZ1275325: WAS: indexing fails with ContextNotActiveException--Michael Anstis
+
+**************************************************************
+jbpm-form-modeler..:
+
+5fde94e--upgraded to 6.3.1.20151113-prod--Jenkins
+ccc0182--added latest Zanata translation fixes--kiereleaseuser
+ade4ae8--Add missing ASL license headers--Michael Biarnes Kiefer
+
+**************************************************************
+drools-wb..:
+
+182714b--upgraded to 6.3.1.20151113-prod--Jenkins
+ec3c6f2--added latest Zanata translation fixes--kiereleaseuser
+9afbdee--BZ1274349: Asset Management: Branch selector partially hidden. Setup drools-wb-webapp to support Asset Management.--Michael Anstis
+
+**************************************************************
+jbpm-designer..:
+
+6ac6c4c--upgraded to 6.3.1.20151113-prod--Jenkins
+49da255--BZ 1278756 - Isn't possible to move group of elements from container--krisv
+cc7c7c5--BZ 1279507 - Designer don't enter to read-only mode after opening locked process (cherry picked from commit 9263410ccf77dae75bcc6502f8c037b264c0586a)--Tihomir Surdilovic
+
+**************************************************************
+jbpm-console-ng..:
+
+267a4f2--upgraded to 6.3.1.20151113-prod--Jenkins
+8434461--added latest Zanata translation fixes--kiereleaseuser
+bbecb7c--BZ:1261052 - Console: various localized perspective listings does not work--nmirasch
+338e990--BZ:1277466 - No tasks shown in task list. Fixed issue about create task popup remainig open--nmirasch
+34d5bfb--BZ:1275245 - Oracle DBs: Tasks is status 'Ready' not visible in task list--nmirasch
+06baf2c--BZ:1277466 - No tasks shown in task list (restore refresh config button)--nmirasch
+b9ee186--BZ:1277466 - No tasks shown in task list--nmirasch
+
+**************************************************************
+
+kie-wb-distributions..:
+
+d2ed5d1--Merge pull request #7 from jboss-integration/bsync-6.3.x-2015.11.13-ignore-test--Michael Biarnés Kiefer
+bb186da--Temporarily ignore failing test - failure caused by mis-configuration--Petr Siroky
+f67614b--upgraded to 6.3.1.20151113-prod--Jenkins
+8580ad2--added latest Zanata translation fixes--kiereleaseuser
+796dade--enabled JMS based executor by using standalone-full.xml profile, copy webapp sources into kie-wb.war folder so wildfly recognizes it as web app--Maciej Swiderski
+
+**************************************************************
+
+kie-eap-modules..:
+
+6955cbc--upgraded to 6.3.1.20151113-prod--Jenkins
+6679627--ENTESB-4090,BZ-1267906 - kie-remote modules fix--Marco Rietveld
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
