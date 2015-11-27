@@ -1,0 +1,189 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2015-11-27-23:25
+Code Cutoff Date: 2015.11.26
+Target Product Build: 6.2.0.CR2
+Payload Tracker:
+Source Product Tag: sync-6.3.x-2015.11.26
+Community Tag (if available): based on community 6.3.x branch
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.7.0_25"
+Java(TM) SE Runtime Environment (build 1.7.0_25-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 23.25-b01, mixed mode)
+
+MAVEN: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4;
+2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_25, vendor: Oracle Corporation
+Java home: /usr/java/jdk1.7.0_25/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-504.23.4.el6.x86_64", arch: "amd64",
+family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/drools/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/optaplanner/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/jbpm/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/guvnor/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/drools-wb/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/kie-docs/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.3.x-2015.11.26
+https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.3.x-2015.11.26
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jboss-ip-bom: 6.0.0.CR30
+uberfire: 0.7.x.20151116   - available at https://github.com/jboss-integration/uberfire/tree/sync-6.3.x-2015.11.26
+uberfire-extensions:0.7.x.20151126   - available at https://github.com/jboss-integration/uberfire-extensions/tree/sync-6.3.x-2015.11.26
+dashbuilder: 0.3.x.20151126   - avaiable at https://github.com/jboss-integration/dashbuilder/tree/sync-6.3.x-2015.11.26
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dprodcutized -DskipTests (building skipping the tests)
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResult.txt (building with test execution)
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3096m -XX:MaxPermSize=1024m -Dgwt-plugin.localWorkers='3' -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+dashboard-builder	        dgutierr@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-build-bootstrap	gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,porcelli@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+drools-wb                       manstis@redhat.com
+guvnor                          manstis@redhat.com
+jbpm                            kverlaen@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+kie-docs			manstis@redhat.com
+kie-eap-modules                 romartin@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+kie-wb-commons                  manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+optaplanner                     gdesmet@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull -DskipTests
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized -DskipTests
+      before these builds the Unit Tests are executed: mvn clean install -Dfull -Dmaven.test.failure.ignore=true >> testResults.txt to check which tests failed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+This tag sync-6.3.x-2015.11.26 is based on community 6.3.x with Cut Off date on 2015.11.26.
+
+The difference between the previous tag sync-6.3.x-2015.11.13 are these commits:
+
+**************************************************************
+droolsjbpm-build-bootstrap..:
+c231e05--Change prod to productized in update-version-all.sh for consistency--Michael Biarnes Kiefer
+
+**************************************************************
+drools..:
+83a8cec--DROOLS-951: add missing @Test annotation--Marek Winkler
+
+**************************************************************
+jbpm..:
+7b4254c--BZ-1279821 - Synchronization of a deployment unit between EJB services app and Business Central fails - missing ejb deployment service change--Maciej Swiderski
+394a79a--BZ-1281864 - Marshalling error accessing remote EJB services app with Sybase DB closes #340--Maciej Swiderski
+**************************************************************
+droolsjbpm-integration..:
+594fa3e--BZ-1280313 - Multiple client command execution through SOAP interface does not authenticate correctly closes #238--Marco Rietveld
+576a5c6--BZ-1283208 - KieServerClient JSON marshaling does not work for QueryResults and FactHandles closes #235--Maciej Swiderski
+c4e079a--BZ-1222829 - Rules are not getting fired when JAXB request is sent - support for gdst format and other drools workbench models closes #234--Maciej Swiderski
+24dd658--Upgrade takari-plugin-testing to 2.8.0 to fix failing tests--Petr Siroky
+
+**************************************************************
+kie-uberfire-extensions..:
+17bcc20--BZ-1266138: managed beans can't be used during container lifecycle on WAS. Code is not nice, but is the only way that I managed to make it work on WAS without changing all architecture.--Alexandre Porcelli
+
+**************************************************************
+guvnor..:
+4c71c09--Added latest Zanata translation changes--Michael Biarnes Kiefer
+6e407f2--BZ-1283953: review some fs writes that are missing batch mechanism.--Alexandre Porcelli
+
+**************************************************************
+kie-wb-common..:
+dba1b81dd08690bbd96d55cb5b12dd0ac3829a38 Improve fix for PriorityDisposableRegistry -- Michael Anstis
+0d9970630eea53fad483d7b49079fb14ace09b6a Fix failing tests. -- Michael Anstis
+6a13605--Prevent constraint fail when there is no identity on request scope--ederign
+77b7285--Null pointer exception when a repo related event are not associated with a project--ederign
+0bb48b3--Added latest Zanata translation changes--Michael Biarnes Kiefer
+
+**************************************************************
+drools-wb..:
+a23cb7c--Added latest Zanata translation changes--Michael Biarnes Kiefer
+
+**************************************************************
+jbpm-designer..:
+1e290a2--Added latest Zanata translation changes--Michael Biarnes Kiefer
+8a144d7--BZ 1283214 - After Force Unlock locked user can continue to work with Business Process but can't to save it--Tihomir Surdilovic
+02601ad--Revert "BZ 1283214 - After Force Unlock locked user can continue to work with Business Process but can't to save it"--Christian Sadilek
+2dcd04c--BZ 1283214 - After Force Unlock locked user can continue to work with Business Process but can't to save it--Tihomir Surdilovic
+
+**************************************************************
+jbpm-console-ng..:
+07e0288--BZ:1283537 - jbpmHumanTasksWithUser links PeopleAssignments_PotOwners.task_id to AuditTaskImpl.id instead of AuditTaskImpl.taskId--nmirasch
+0280ce8--BZ:1284004 - Mysql57: Creating Process Instances filter with PROCESSID--nmirasch
+8c3f5de--Added latest Zanata translation changes--Michael Biarnes Kiefer
+43facbb--BZ:1272842 - Sybase 15.7: "DataSetLookupException: Implicit conversion from datatype 'VARCHAR' to 'INT' is not allowed"--nmirasch
+f704c26--BZ-1248020 - JobExecutor: Job Service Settings dialog active despite disabled job executor--Maciej Swiderski
+8434461--added latest Zanata translation fixes--kiereleaseuser
+
+**************************************************************
+kie-wb-distributions..:
+bfcb6c2-- BZ:1283537 - jbpmHumanTasksWithUser links PeopleAssignments_PotOwners task_id to AuditTaskImpl.id instead of AuditTaskImpl.taskId--nmirasch
+bd437e6--BZ:1284004 - Mysql57: Creating Process Instances filter with PROCESSID--nmirasch
+3147552--Added latest Zanata translation changes--Michael Biarnes Kiefer
+145f992--BZ1192831: User with no privileges for Repository can view and modify assets in that Repository. Ensure the same instance of RuntimeAuthorizationManager is used.--Michael Anstis
+
+**************************************************************
+
+
+
