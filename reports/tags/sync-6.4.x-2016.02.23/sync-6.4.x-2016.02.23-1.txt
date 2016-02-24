@@ -4,7 +4,7 @@
 ------------------------------------------------------------------------
 Report Date: 2016-02-24-18:29
 Code Cutoff Date: 2016-02-23
-Target Product Build: DR2
+Target Product Build: 6.3.0.DR2
 Payload Tracker:
 Source Product Tag: sync-6.4.x-2016.02.23
 Community Tag (if available): 6.4.0.Beta2
