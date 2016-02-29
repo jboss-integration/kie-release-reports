@@ -1,0 +1,166 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2016-02-29-23:01
+Code Cutoff Date: 2016.02.29
+Target Product Build: 6.2.2-patch
+Payload Tracker:
+Source Product Tag: sync-6.3.x-2016.02.29
+Community Tag (if available): 6.3.x
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.7.0_80"
+Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
+
+MAVEN: 
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven/mavenVer
+Java version: 1.7.0_80, vendor: Oracle Corporation
+Java home: /usr/local/java/jdk1.7.0_80/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "4.3.5-200.fc22.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/drools/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/optaplanner/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/jbpm/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/guvnor/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/drools-wb/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/kie-docs/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.3.x-2016.02.29
+https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.3.x-2016.02.29
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.0.CR30
+Uberfire: 0.7.5.20160229 available at https://github.com/jboss-integration/uberfire/tree/bsync-6.3.x-2016.02.29
+Uberfire-extensions: 0.7.5.20160229 available at https://github.com/jboss-integration/uberfire-extensions/tree/bsync-6.3.x-2016.02.29
+dashbuilder: 0.3.5.20160229 available at https://github.com/jboss-integration/dashbuilder/tree/bsync-6.3.x-2016.02.29
+errai: 3.2.1.Final
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dprodcutized -DskipTests (building skipping the tests)
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResult.txt (building with test execution)
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms1024m -Xmx2048m -XX:MaxPermSize=1024m -Djava.awt.headless=true -Dgwt-plugin.localWorkers='3' -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      psiroky@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+guvnor                          manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+drools-wb                       manstis@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+dashboard-builder               dgutierr@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+kie-docs			manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com
+kie-eap-modules                 romartin@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull -DskipTests
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized -DskipTests
+      before these builds the Unit Tests are executed: mvn clean install -Dfull -Dmaven.test.failure.ignore=true >> testResults.txt to check which tests failed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+This tag sync-6.3.x-2016.02.29 is based on community branch 6.3.x with cut-off date of 2016.02.29.
+The difference to previous tag sync-6-3-x-2016.01.29 are these commits:
+
+*************************************************************
+drools..:
+4d4c6a0--GUVNOR-2444: Guided Decision Table: Can't add columns/rows--Michael Anstis
+7cb3f4e--BZ1301055: [GSS](6.2.z) Column values are deleted after changing the operator in a Guided Decision Table--Michael Anstis
+eae76a6--[DROOLS-465] avoid adding local repository among remote ones--Mario Fusco
+e47e798--[DROOLS-465] avoid adding local repository among remote ones--Mario Fusco
+014f29c--[DROOLS-1037] fix or expression rewriting--Mario Fusco
+4678dd0--[BZ-1310261] fix incremental compilation when a rule makes reference to a global defined in a .gdrl file--Mario Fusco
+bd31094--[BZ-1310261] fix incremental compilation when a rule makes reference to a global defined in a .gdrl file--Mario Fusco
+**************************************************************
+jbpm..:
+0227d6e--jbpm-test-coverage: run tests in alphabetical order--Petr Siroky
+3f194bc--fix after change in Drools: install testing kjars instead of deploying--Petr Siroky
+4e9935f--BZ-1310711 - [QA](6.2.z)Missing indexes in jbpm schema DDL for Sybase--Maciej Swiderski
+6c6cfb3--BZ-1310820 - Can't signal sub process when using the EJB API closes #405--Maciej Swiderski
+6655d21--BZ-1304508 - NPE exception is thrown when using jbpm kie ProcessService to issue signal event--Maciej Swiderski
+**************************************************************
+droolsjbpm-integration..:
+b17a667--[DROOLS-465,BZ-1304051] kie-server test fixes--Maciej Swiderski
+1c8f0ca--[DROOLS-465,BZ-1304051] install test kjars instead of deploying--Mario Fusco
+74b8815--BZ-1296017 - IllegalAnnotationsException 'JAXB can't handle interfaces.' in kie-server--Maciej Swiderski
+329185e--[DROOLS-1055, BZ-1307079] Fix ClassCastException when running with Fuse 6.2.1 (blueprint-core 1.4.4)--Grzegorz Grzybek
+e27f7d9--DROOLS-1034 - Kie server test improvement for Oracle RAC--Jakub Schwan
+ba821db--DROOLS-719 - added Cargo WAS profile for Kie server--Karel Suta
+**************************************************************
+guvnor..:
+2c3a29e--BZ-1305057 - [GSS] (6.2.z) Unable to automatically create further branches in Managed Git Repository for BRMS 6.2--Maciej Swiderski
+d996277--Fix dep cycle in BZ1289724--ederign
+**************************************************************
+kie-wb-common..:
+f036ca3--BZ1303534: [GSS](6.2.z): Full Text search returns only 10 results even if it hits more than 10--Michael Anstis
+df49ce5--GUVNOR-2388: Chars being removed from metadata when lock is acquired--Christian Sadilek
+70c6c9a--GUVNOR-2310: Comment on an unlocked asset gets cleared when lock acquired--Christian Sadilek
+38abc39--BZ1301816: GDT: Editor is not displayed if operation 'is contained in the (comma separated) list' is selected--Michael Anstis
+**************************************************************
+drools-wb..:
+835dcbe--BZ1301055: [GSS](6.2.z) Column values are deleted after changing the operator in a Guided Decision Table--Michael Anstis
+**************************************************************
+jbpm-console-ng..:
+ab595fb--BZ1310713 : [QA] (6.2.z) "Complete" button of task row only working once. Renamed Complete button to Open and used just for open details--nmirasch
+**************************************************************
+kie-docs..:
+a741f8e--BZ1299870: [GSS](6.2.z) Business Central Repo Clone Fails To Clone SCP Style SSH URLs--Michael Anstis
+**************************************************************
+
+
+
