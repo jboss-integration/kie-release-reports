@@ -1,0 +1,276 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2016-03-09-19:28
+Code Cutoff Date: 2016-03-08
+Target Product Build: 6.3.0.ER1
+Payload Tracker:
+Source Product Tag: sync-6.4.x-2016.03.08
+Community Tag (if available): 6.4.0.CR1
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.7.0_80"
+Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
+
+MAVEN: 
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven/mavenVer
+Java version: 1.7.0_80, vendor: Oracle Corporation
+Java home: /usr/local/java/jdk1.7.0_80/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-504.23.4.el6.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/drools/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/optaplanner/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/jbpm/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/guvnor/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/drools-wb/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/optaplanner-wb/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/kie-docs/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.4.x-2016.03.08
+https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.4.x-2016.03.08
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.2.Final
+Uberfire: 0.8.0.CR1 - this version is released
+Uberfire-extensions: 0.8.0.CR1 - this version is released 
+dashbuilder: 0.4.0.CR1 - this version is released
+errai: 3.2.3.Final
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResult.txt (building with test execution)
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms1024m -Xmx2048m -XX:MaxPermSize=1024m -Djava.awt.headless=true -Dgwt-plugin.localWorkers='3' -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      psiroky@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+guvnor                          manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+drools-wb                       manstis@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+dashboard-builder               dgutierr@redhat.com
+optaplanner-wb                  gdesmet@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+kie-docs			manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com
+kie-eap-modules                 romartin@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull -DskipTests
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized -DskipTests
+      before these builds the Unit Tests are executed: mvn clean install -Dfull -Dmaven.test.failure.ignore=true >> testResults.txt to check which tests failed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+This test failed: org.drools.workbench.screens.guided.rule.backend.server.GuidedRuleEditorRenameHelperTest.txt
+
+This tag sync-6.4.x-2016.03.08 is based on community tag 6.4.0.CR1
+The difference to previous tag sync-6.4.x-2016.02.23 are these commits:
+
+**************************************************************
+droolsjbpm-build-bootstrap..:
+1d40bea--Upgrade from Errai 3.2.3-SNAPSHOT to 3.2.3.Final--Max Barkley
+3d23793--BZ-1310647 update groupId of org.beanshell to org.apache-extras.beanshell; upgrade version from 2.0b5 to 2.0b6--Michael Biarnes Kiefer
+3b8e7d5--Upgrade Errai from 3.2.2-SNAPSHOT to 3.2.3-SNAPSHOT--Petr Siroky
+**************************************************************
+drools..:
+9f79ad5--[DROOLS-1025] Incremental Rule Refactor + new tests--Mark Proctor
+a25d15a--GUVNOR-2444: Guided Decision Table: Can't add columns/rows--Michael Anstis
+c237fbc--Move btm1.tlog and btm2.tlog from module dir into target/btm directory. Disable journal.--Geoffrey De Smet
+fc2a594--BZ1301051: Column values are deleted after changing the operator in a Guided Decision Table--Michael Anstis
+a81fa4b--GUVNOR-2030: Guided Decision Table: Empty field results in all Conditions being cancelled--Michael Anstis
+**************************************************************
+optaplanner..:
+8d4c402--PLANNER-538 Revert org.reflections scanning from forClassLoader(...) back to forPackage("", ...) The real fix is DROOLS-1080.--Geoffrey De Smet
+8e8dbbe--Fix error message--Geoffrey De Smet
+b176ca4--PLANNER-538 scanAnnotatedClasses with a classloader without packageIncludes does not work well--Geoffrey De Smet
+a8f790c--Do not print exception stacktraces twice (let the default exception handler do it). + Do not catch-wrap everything that extends Exception. + Do not wrap with same exception message as the chained exception.--Geoffrey De Smet
+119261e--Replace database profile with maven-surefire-plugin additionalClasspathElement--Geoffrey De Smet
+98eb2c7--Get rid of BTM files, see https://github.com/droolsjbpm/drools/pull/660--Geoffrey De Smet
+5b4bb79--removed comment from pom--Jiri Vahala
+a1dd125--persistence utils moved into kie-test-utils--Jiri Vahala
+ba850ff--removed commented line--Jiri Vahala
+ac30f74--little alternations after review--Jiri Vahala
+e11e552--JTA enabled--Jiri Vahala
+1ec188a--working with h2--Jiri Vahala
+d3b1bd2--h2 is now correctly initialized, tests are failing--Jiri Vahala
+795c28e--First step to run persistance tests with database--Jiri Vahala
+**************************************************************
+jbpm..:
+96508ec--JBPM-5016 org.jbpm.runtime.manager.impl.CacheManagerImpl : Cacheable items are not closed on dispose closes #418--Bernard Tison
+a161a41--DROOLS-1073 Option to bypass start task operation in REST/JMS--Ivo Bek
+9a37b13--DROOLS-1067 - Oracle DB issue for findTasksByVariableAndValue--Maciej Swiderski
+d71e07b--BZ-1300598 - Missing indexes in jbpm schema DDL for Sybase--Maciej Swiderski
+1bd53c9--BZ-1310820 - Can't signal sub process when using the EJB API--Maciej Swiderski
+**************************************************************
+droolsjbpm-integration..:
+b96a120--BZ-1306309,1314445 - REST endpoints do not work on WebLogic 12--Marco Rietveld
+ad3f240--GUVNOR-2452: Redesign the Unified Execution Server UI - kie server controller REST api--Maciej Swiderski
+b45bcfa--review updates--Maciej Swiderski
+e735c42--GUVNOR-2452: Redesign the Unified Execution Server UI - kie server controller enhancements--Maciej Swiderski
+9ded90a--JBPM-4859 - Edit FormService and ImageService tests closes #345--Jakub Schwan
+67e87f0--kie-server tests: separated BTM for Tomcat builds--Karel Suta
+df936a8--QueryDataServiceIntegrationTest queries fix--Karel Suta
+5aba4a9--DROOLS-1073 Option to bypass start task operation in REST/JMS--Ivo Bek
+81ed93a--JBPM-4957 - signals / messages external scope is missing in kie execution server closes #336--Maciej Swiderski
+e1ecd7c--BZ-1312887 - kie-server JSON doesn't work with singleton extra classes--Maciej Swiderski
+2fab34e--DROOLS-1020 Add withVars query attribute to getProcessInstance operation for finished processes--Ivo Bek
+cc9e5de--kie-server tests: refactored kie client closes #327--Karel Suta
+5046041--PLANNER-505: initial implementation for the Optaplaner Kie Server Extension--Edson Tirelli
+82226d9--Revert "PLANNER-505: initial implementation for the Optaplaner Kie Server Extension"--Edson Tirelli
+5851781--PLANNER-505: initial implementation for the Optaplaner Kie Server Extension--Edson Tirelli
+c065dc8--kie-server tests: remove additional dependencies for kie-maven-plugin--Petr Siroky
+**************************************************************
+guvnor..:
+bc63bea--GUVNOR-2452: general improvements on artifact list in order to be easy to reuse (needed by new exec server ui)--Alexandre Porcelli
+23794cf--Bug 1313094 - If one user changes a branch, the branch is changed for all the users Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync--Toni Rikkola
+7accc80--latest Zanata translation changes--kiereleaseuser
+d8492f6--JBPM-4863 - Allow to make managed repo while cloning--Maciej Swiderski
+e6c7a10--GUVNOR-2399: Errors retrieving LockInfo--Michael Anstis
+dbc8e09--BZ-1305056 - Unable to automatically create further branches in Managed Git Repository for BRMS 6.2--Maciej Swiderski
+**************************************************************
+kie-wb-common..:
+944abc7--Logging improvements as requested by code review--Alexandre Porcelli
+fb5a197--fix related to recent updates on guvnor (artifact list component)--Alexandre Porcelli
+b5b321d--review updates--Alexandre Porcelli
+7cd038c--GUVNOR-2452: Enhanced tests for presenter classes--Cristiano Nicolai
+126775c--GUVNOR-2452: server ui tests and i18n adjusts--Paulo Martins
+a282b72--GUVNOR-2452: enabled server template migration for older version of the templates--Maciej Swiderski
+2952f94--GUVNOR-2452: new exec server UI--Alexandre Porcelli
+64459a5--GUVNOR-2417: Repository view doesn't show contents of the project after switching from another project.--Paulo Martins
+2cc5bda--    Bug 1313094 - If one user changes a branch, the branch is changed for all the users     Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync--Toni Rikkola
+063418f--Zanata translation changes for 6.4.0.CR1--kiereleaseuser
+ded8d1b--GUVNOR-2419: After deleting from one project and switching to another, it is not possible to return to the first one.--Paulo Martins
+2386ee8--[BZ-983540,BZ-983528] add test coverage--Zuzana Krejcova
+82186bc--GUVNOR-2414: When deleting a file from a project, an error message is shown even though the file is succesfully deleted.--Paulo Martins
+087f557--BZ1310893: Full Text search returns only 10 results even if it hits more than 10--Michael Anstis
+**************************************************************
+jbpm-form-modeler..:
+0d1b384--BZ-1310647 update groupId of org.beanshell to org.apache-extras.beanshell--Michael Biarnes Kiefer
+fb1d31d--    Bug 1313094 - If one user changes a branch, the branch is changed for all the users     Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync--Toni Rikkola
+1c25e7b--latest Zanata translations for 6.4.0.CR1--kiereleaseuser
+**************************************************************
+drools-wb..:
+d234dd0--GUVNOR-2452: adding new dependencies needed by new exec server ui--Alexandre Porcelli
+28aa1a4--    Bug 1313094 - If one user changes a branch, the branch is changed for all the users     Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync--Toni Rikkola
+f1de44e--latest Zanata translations for 6.4.0.CR1--kiereleaseuser
+f73bb3b--BZ1310208: When converting .XLS to GDT, Globals defined with short Class Names are converted to invalid Globals file.--Michael Anstis
+3fbf35c--BZ1301051: Column values are deleted after changing the operator in a Guided Decision Table--Michael Anstis
+2a58cca--GUVNOR-2030: Guided Decision Table: Empty field results in all Conditions being cancelled--Michael Anstis
+**************************************************************
+jbpm-designer..:
+576f01b--BZ1096848 Complete i18n of simulation diagrams--Jeremy Lindop
+35cef1d--JBPM-5011: Artifact (Group) lose documentation--Kirill Gaevskii
+984c03a--JBPM-4999: Remove process image from Process Docs tab because it doesn't work in Chrome and it breaks designer in IE11--Jeremy Lindop
+17fe3d5--I18n update--Cristiano Nicolai
+164fb5d--JBPM-5014 - Decreased height spacing to fit all available space--Cristiano Nicolai
+2efa959--    Bug 1313094 - If one user changes a branch, the branch is changed for all the users     Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync--Toni Rikkola
+39d0660--latest Zanata translations for 6.4.0.CR1--kiereleaseuser
+6800358--JBPM-4999: Fix IE11 problem caused by Javascript String not implementing startsWith function--Jeremy Lindop
+6d71c70--BZ 1149871 - export Business Process in PDF format does not includes documentation values--Tihomir Surdilovic
+1190188--Fix stencil definition of assignments for services with no params--Jeremy Lindop
+624c18b--GUVNOR-2415: Boundary events lose it’s documentation after save and reopen Business Process--Kirill Gaevskii
+**************************************************************
+jbpm-console-ng..:
+10c9cfa--JBPM-5017 - Fixed perspective name to navigate (cherry picked from commit 8707f76922b6fb19d73bc1514432fca47a97d2ad)--Cristiano Nicolai
+d4840dd--Fix for JBPM-4960, JBPM-5004, JBPM-4945 and JBPM-4943--Cristiano Nicolai
+5941986--upgraded to 6.4.0.CR1--Jenkins
+0397221-- JBPM-4767: 2 Process/Task dashboard details screen (in log mode) switch to default after refresh. Added Process Instance Details in log mode--nmirasch
+4886d49--    Bug 1313094 - If one user changes a branch, the branch is changed for all the users     Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync--Toni Rikkola
+bc2f0cb--latest Zanata translations for 6.4.0.CR1--kiereleaseuser
+fa95d4a--JBPM-4976 and JBPM-4969: Avoid load filter setting from removed filters--nmirasch
+73bde63-- JBPM-4767: Process/Task dashboard details screen (in log mode) switch to default after refresh--nmirasch
+84d7288--BZ1174807: JobExecutor: Job Name column is not displayed--nmirasch
+caabebc--DataSet database tests--Cristiano Nicolai
+d52b6c0--JBPM-4958 and BZ-1160144 Update process instances and tasks search--Cristiano Nicolai
+77b224e--BZ1283711: Console: unsupported locales results in mixed languages in BC--nmirasch
+8e695cc--BZ-1255695 - kie-deployment-descriptor.xml Source tab doesn't have XML syntax highlighting--Maciej Swiderski
+22a97df--I18n updates--Cristiano Nicolai
+6e7efe5--BZ1257029 - Reset search results when search string is empty--Cristiano Nicolai
+60c7ab6--JBPM-4942 - Remove duplicated variable selectedProcess--Cristiano Nicolai
+**************************************************************
+dashboard-builder..:
+49c7161--BZ-1310647 update groupId of org.beanshell to org.apache-extras.beanshell--Michael Biarnes Kiefer
+7ecba22--showcaseKPIs.kpis and showcaseWorkspace.workspace to latest Zanata translations for kie 6.4.0.CR1--kiereleaseuser
+6570a8c--latest Zanata translations for kie 6.4.0.CR1--kiereleaseuser
+********************************************************
+optaplanner-wb..:
+1e35104--GUVNOR-2452: adding dependencies needed by new exec server ui--Christian Sadilek
+58ff73d--    Bug 1313094 - If one user changes a branch, the branch is changed for all the users     Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync--Toni Rikkola
+10af965--latest Zanata translations for 6.4.0.CR1--kiereleaseuser
+7b49dfe--PLANNER-530 : Workbench: Solver Editor: spent limit checkbox states are not saved--Toni Rikkola
+**************************************************************
+jbpm-dashboard..:
+27e3233--added jbpmKPIs_v2.kpis, jbpmWorkspace_v2.workspace, showcaseKPIs.kpis and showcaseWorkspace.workspace to latest Zanata translations for kie 6.4.0.CR1--kiereleaseuser
+95bc8b4--latest Zanata translations for kie 6.4.0.CR1--kiereleaseuser
+**************************************************************
+kie-docs..:
+f1b2ebb--PLANNER-505: adding planner kie server docs--Edson Tirelli
+ba9b49b--BZ1299619: Business Central Repo Clone Fails To Clone SCP Style SSH URLs closes #51--Michael Anstis
+**************************************************************
+kie-wb-distributions..:
+786620c--GUVNOR-2452: adding new dependencies needed by new exec server ui--Alexandre Porcelli
+feb759d--latest Zanata translations for 6.4.0.CR1-also for -Dproductized--kiereleaseuser
+c93069b--    Bug 1313094 - If one user changes a branch, the branch is changed for all the users     Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync--Toni Rikkola
+248b531--Add kiemgmt role to WAS web*.xml to make the role available and working on WAS--Zuzana Krejcova
+27a5613--BPMSPL-281 - Update login/logout pages layout to match RCUE style--Cristiano Nicolai
+**************************************************************
+kie-eap-modules..:
+9f0b867--BZ-1310647 update groupId of org.beanshell to org.apache-extras.beanshell--Michael Biarnes Kiefer
+**************************************************************
+
+
+
