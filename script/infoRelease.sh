@@ -131,7 +131,7 @@ mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testR
 ------------------------------------------------------------------------ 
 
 MAVEN_OPTS:
--Dgwt.memory.settings="-Xmx2g -Xms1g -XX:MaxPermSize=512m -XX:PermSize=256m -Xss1M" -Dgwt.compiler.localWorkers=8
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
 
 -----------------------------------------------------------------------  
                      Component owners contacts                           
