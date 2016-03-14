@@ -124,7 +124,6 @@ $VERSIONS
                           Build Command
 ------------------------------------------------------------------------
 
-mvn clean install -Dfull -Dprodcutized -DskipTests (building skipping the tests)
 mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResult.txt (building with test execution)
 
 ------------------------------------------------------------------------
@@ -132,7 +131,7 @@ mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testR
 ------------------------------------------------------------------------ 
 
 MAVEN_OPTS:
-$MAVEN_OPTS
+-Dgwt.memory.settings="-Xmx2g -Xms1g -XX:MaxPermSize=512m -XX:PermSize=256m -Xss1M" -Dgwt.compiler.localWorkers=8
 
 -----------------------------------------------------------------------  
                      Component owners contacts                           
