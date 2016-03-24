@@ -1,0 +1,317 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2016-03-24-21:06
+Code Cutoff Date: 2015.03.23
+Target Product Build: 6.3.0.ER2
+Payload Tracker:
+Source Product Tag: sync-6.4.x-2016.03.24
+Community Tag (if available): 6.4.0.CR2
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.7.0_80"
+Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
+
+MAVEN: 
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven/mavenVer
+Java version: 1.7.0_80, vendor: Oracle Corporation
+Java home: /usr/local/java/jdk1.7.0_80/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-504.23.4.el6.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/drools/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/optaplanner/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/jbpm/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/guvnor/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/drools-wb/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/optaplanner-wb/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/kie-docs/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.4.x-2016.03.24
+https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.4.x-2016.03.24
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.4.Final
+Uberfire: 0.8.0.CR2 (released, tag available at https://github.com/uberfire/uberfire/tree/0.8.0.CR2)
+Uberfire-extensions: 0.8.0.CR2 (released, tag available at https://github.com/uberfire/uberfire-extensions/tree/0.8.0.CR2)
+Dashbuilder: 0.4.0.CR2 (released, tag avilable at https://github.com/dashbuilder/dashbuilder/tree/0.4.0.CR2)
+Errai: 3.2.3.Final (released, tag available at https://github.com/errai/errai/tree/3.2.3.Final)
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+guvnor                          manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+drools-wb                       manstis@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+dashboard-builder               dgutierr@redhat.com
+optaplanner-wb                  gdesmet@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,porcelli@redhat.com
+kie-eap-modules                 romartin@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+There were two tests failing:
+ org.drools.workbench.jcr2vfsmigration.WeldTest.testWeldContainer
+ org.jbpm.runtime.manager.concurrent.SessionTest.testSessionPerProcessInstance
+
+This tag sync-6.4.x-2016.03.24 is based on community tag 6.4.0.CR2
+The difference to previous tag sync-6.4.x-2016.03.08 are these commits:
+
+Cherry-picks..:
+
+**************************************************************
+droolsjbpm-build-bootstrap..:
+90b73cb--upgraded jboss-ip-bom to 6.0.4.Final--Michael Biarnes Kiefer
+5c40d83--create_filemgmt_links.sh: copy also jBPM artifacts--kiereleaseuser
+2496c13--update-verion-all.sh: fix regex to match all version strings in category.xml--Petr Siroky
+**************************************************************
+droolsjbpm-knowledge..:
+4add463--BZ-1310439 - RuntimeManagerFactory may fail to initialize in OSGi--Maciej Swiderski
+676a2e3--[BZ-1317026] implement stated and logical delete--Mario Fusco
+**************************************************************
+drools..:
+5fdcfc8--[BZ-1319742] skip xsd files not having a jaxb configuration--Marek Winkler
+0a623b5--[BZ-1319777] skip partially matched SubnetworkTuple during marshalling--Mario Fusco
+fde2729--replaced old license header by new one--Michael Biarnes Kiefer
+88f86ef--[BZ-1317026] serialization for stated and logical delete implementation--Marco Rietveld
+a4205d7--BZ 1308925: add support for MariaDB--Marek Winkler
+76dd4a8--[BZ-1317026] implement stated and logical delete--Mario Fusco
+4b7d2a8--[BZ-1318532] update class accessors caches when merging packages--Mario Fusco
+63961e4--[BZ-1318052] avoid to add an activation to the eager list more than once--Mario Fusco
+74367e4--avoid using diamond operator in 6.x--Mario Fusco
+57a54e9--[DROOLS-1026] Allow FromNodes sharing--Mario Fusco
+124fe92--Added nodeHashCode to all nodes.--Asif Iqbal
+718423b--GUVNOR-2455: Guided Decision Tree: Unable to re-open trees using data-type suffixes (d, f, L) in Actions--Michael Anstis
+fcaafb0--[DROOLS-1090] set modificationMask in PropagationContext when it is retrieved from cache--Mario Fusco
+05d8440--[DROOLS-1089] flush reentrant working memory actions when eager evaluation is enforced--Mario Fusco
+e2dd47d--[DROOLS-1041] workaround for Javadoc generation error on JDK 8--Petr Siroky
+9f50ec3--fix java 6 compatibility--Mario Fusco
+0b4fd80--DROOLS-1082: Simplify the logic for how ClassAwareObjectStore manages its internal datastructures, and ensure the linked structure is properly updated when read and writes come out of order.--James Elford
+c8c95f3--[DROOLS-1080] make ProjectClassLoader.getResources to work with ZipKieModules--Geoffrey De Smet
+51509dc--[DROOLS-1074] fix usage of org.kie.spring.KModuleSpringMarshaller--Petr Siroky
+4eb4972--[BZ-1315143] make EvaluatorWrapper safely serializable declaring its FactHandles transient--Mario Fusco
+e30ca18--[DROOLS-1065] fix ClasspathKieProject to recognize "*.jar" dirs--David Santos
+77e529e--[DROOLS-1025] new tests + improved flush + implement insertPeerRightTuple--Mark Proctor
+**************************************************************
+optaplanner..:
+7abf805--PLANNER-550 Avoid null selection in SwapMoveSelector + don't break mimic selection for swap moves--Geoffrey De Smet
+**************************************************************
+jbpm..:
+3a5593e--JBPM-5038 - DeploymentStore is not set in the DeploymentSynchronizerEJBImpl if DeploymentSynchronizer is turned off--Maciej Swiderski
+613301c--BZ-1308925 - add support for MariaDB--Petr Siroky
+9ae7986--corrected wrong property check for user info in UserDataServiceProvider--Maciej Swiderski
+fee6566--BZ-1310439 - RuntimeManagerFactory may fail to initialize in OSGi--Maciej Swiderski
+ba7e30a--[BZ-1317026] implement stated and logical delete--Mario Fusco
+7b2b0bb--JBPM-5024 - error after timer causes the process to abort--Maciej Swiderski
+51a9e03--DROOLS-1089 - flush reentrant working memory actions when eager evaluation is enforced - test case closes #420--Maciej Swiderski
+**************************************************************
+droolsjbpm-integration..:
+e0ba3c1--Revert "[ENTESB-5168] drools-osgi: upgrade javax.servlet to 3.1.0"--Petr Siroky
+33ac502--upgraded to 6.4.0.CR2--Jenkins
+56776a5--BZ-1320042 - LinkageError when creating container--Maciej Swiderski
+3a624b3--[BZ-1310039] set blueprint bundleContext in all needed cases--Petr Siroky
+a0411e7--[ENTESB-5168] drools-osgi: upgrade javax.servlet to 3.1.0--Petr Siroky
+9929567--[ENTESB-5152] add support for OSGi WAR bundles--Petr Siroky
+e54d4b2--[BZ-1310039] use the bundle class loader when creating a KieContainer in kie-aries-blueprint--Marek Winkler
+903e0b5--Minor compilation fixes--Marco Rietveld
+1fb6354--Ignore testGetBestSolution for JSON--Geoffrey De Smet
+644d8fb--Add @JsonIgnore for calculate getters--Geoffrey De Smet
+af29809--Use System.err in doMain for error stream--Geoffrey De Smet
+0e14a91--Assert that the returned best solution has the same number of processes/computers as the submitted problem--Geoffrey De Smet
+d40b742--test extensions--Karel Suta
+73c928d--BZ-1310439 - RuntimeManagerFactory may fail to initialize in OSGi - test case--Marek Winkler
+def5e3d--enhanced credentials for kie server client to allow various authorization mechanisms closes #355--Maciej Swiderski
+a36227a--BZ-1316732 - Quartz jar not bundled with kie-server distribution closes #353--Maciej Swiderski
+214ee32--JBPM-5026 - Not possible to change UserInfo in KieServer--Maciej Swiderski
+1e87649--JBPM-5022 - enable kie server REST services only after all containers have been loaded / processed on startup--Maciej Swiderski
+9d4f573--BZ-1187245 - REST parameters Float and Boolean are not supported--Marco Rietveld
+44c8700--BZ-1278722 - Marshalling Error when executing command through SOAP interface--Marco Rietveld
+429e4c2--BZ-1310510 - 6.2.0: Remote java API: cannot get tasks assigned to different users--Marco Rietveld
+389ba45--kie-server tests: test coverage for GetObjectCommand--Karel Suta
+81274cc--[DROOLS-1074] add support for kie-spring as EAP module + related refactoring--Petr Siroky
+**************************************************************
+guvnor..:
+f13ebdc--BZ-1315671: dev/release branches initially not listed in Repository Editor after managed repository created--Walter Medvedeo
+f22a6be--GUVNOR-2352 : Adding of manual dependency does not work correctly--Toni Rikkola
+478206b--replaced old license header by new one--Michael Biarnes Kiefer
+abf2658--BZ1319046: Unique GAV detection fails if Repository ID is used by both PluginRepository and (regular) Repository--Michael Anstis
+8e3a081--Zanata changes for 6.4.0.CR2--kiereleaseuser
+ea73a83--GUVNOR-2365: Repository remains in repositories list after it is deleted (regression)--Paulo Martins
+b706455--Bug 1316224 - User can not create projects in any other repository than master--Toni Rikkola
+99862dd--GUVNOR-2456 - Remove file explorer vertical scroll bar--Cristiano Nicolai
+b71513f--Align project general settings with settings combo switcher--Cristiano Nicolai
+bca9c32--Message console styling enhancement--Cristiano Nicolai
+a6f9f3c--BZ#1315341: Registered the right event handler--Jozef Marko
+2eecbf6--BZ1310893: BxMS6.2.0 Full Text search returns only 10 results even if it hits more than 10--Michael Anstis
+**************************************************************
+kie-wb-common..:
+f5147c3--BZ-1318987 - Execution server controller doesn't notify Kie server when creating/deleting container--Maciej Swiderski
+834aacd--GUVNOR-2352 : Adding of manual dependency does not work correctly--Toni Rikkola
+32c9dc0--BZ-1313782:  Error on startup: Unable to bootstrap project org.kie.example:project1:1.0.0-SNAPSHOT--pefernan
+5c95ecc--replaced old license header by new one--Michael Biarnes Kiefer
+54d2fe0--JBPM-4937: Data Modeler loading time very long and increasing with more 'instances'         - events throwing and editors reloading optimized         - context "static" information optimized--Walter Medvedeo
+d7a2c17--Zanata changes for 6.4.0.CR2--kiereleaseuser
+d97b8f0--JBPM-5033: DM: type selection dropdown in 'New Field' modal too short--Walter Medvedeo
+4e11723--GUVNOR-2459: NPE when open an Organization Unit that doesn't have a repository yet--Michael Anstis
+6deb00d--GUVNOR-2464: Move StyleHelper from kie-wb-common to uberfire-extensions--Michael Anstis
+0877d6b-- Bug 1316224 - User can not create projects in any other repository than master--Toni Rikkola
+512e0ce--GUVNOR-2457: remove docs reference from empty pages (it may return in the future when we have a better idea how it would work). Also adapts achors to repospond to "add" actions.--Alexandre Porcelli
+86da7a7--GUVNOR-2458: now there isn't more `loading`; also fixes the `old` data issue--Alexandre Porcelli
+12c563f--GUVNOR-2362: Project Explorer freezes after uploading an item with an extension-free name--Michael Anstis
+1502fc1--add a few language improvements to exec server ui--Zuzana Krejcova
+883fdc7--In exec.server UI, switch from KeyUpHandler to Change handler.--Zuzana Krejcova
+47f5306--GUVNOR-2454 - Remove onresize and use 100% width--Cristiano Nicolai
+dcb1d71--GUVNOR-2452 - test enhancement to not fail in case of order of elements is different--Maciej Swiderski
+ebc18bc--BZ1310893: BxMS6.2.0 Full Text search returns only 10 results even if it hits more than 10--Michael Anstis
+**************************************************************
+jbpm-form-modeler..:
+bc56611--Zanata changes for 6.4.0.CR2--kiereleaseuser
+**************************************************************
+drools-wb..:
+afb8921--GUVNOR-2030: Guided Decision Table: Empty field results in all Conditions being cancelled. - This commit fixes handling of Template Keys in non-String fields.--Michael Anstis
+6d40d70--Zanata changes for 6.4.0.CR2--kiereleaseuser
+288a430-- Bug 1316224 - User can not create projects in any other repository than master--Toni Rikkola
+0b7ec49--GUVNOR-2446: NPE in SafeSessionInfo.getIdentity() leading to 'Anonymous' user being used--Michael Anstis
+39d14b0--BZ1310893: BxMS6.2.0 Full Text search returns only 10 results even if it hits more than 10--Michael Anstis
+**************************************************************
+jbpm-designer..:
+dda0b54--JBPM-4998 Hide DataInputSet and DataOutputSet for service tasks which don't use customEditor.--Jeremy Lindop
+0421804--JBPM-5007 - Process Documentation not contain Process Image--Tihomir Surdilovic
+206cead--JBPM-4978 - Process Documentation contains encoded values--Tihomir Surdilovic
+db82eb4--JBPM-4992 - It is not possible to set Documentation property for WID/Service tasks--Tihomir Surdilovic
+d1a56e5--Zanata changes for 6.4.0.CR2--kiereleaseuser
+ea4dc14--JBPM-5035 Replaced System.lineSeparator method call.--Tibor Zimanyi
+4821969--BZ1297383: Add style property with height and width to PDF created by "Share Process PDF" menu option--Jeremy Lindop
+0f42742--JBPM-5027: stop showProcessDocs function from being called multiple times when not needed.--Jeremy Lindop
+7046459--JBPM-5013_4.x Ensure Assignments with names e.g. "Content", "Locale" etc on non-User tasks are saved.--Jeremy Lindop
+6b1fb1e--BZ1248991 show Input/Output counts on Assignments properties--Jeremy Lindop
+8235285--BZ 1315981 - Process preview in process instances not loaded when opened for 2nd time--Tihomir Surdilovic
+36300df--JBPM-5010: Swimlane lose it's documentation--Kirill Gaevskii
+e3367b0--Marshaller refactoring and code coverage--Kirill Gaevskii
+71090a6--BZ1310893: BxMS6.2.0 Full Text search returns only 10 results even if it hits more than 10--Michael Anstis
+b62c51e--BZ 1314510 - process model image shows the node in waiting status grey instead of red after sending a signal event--Tihomir Surdilovic
+**************************************************************
+jbpm-console-ng..:
+ec51b9c--Zanata changes for 6.4.0.CR2--kiereleaseuser
+dd5b90e--BZ-1203561 - Kbase name and ksession name not reflected in 'Deployments Unit' page if we deploy kjar through REST API--Maciej Swiderski
+fe4b136--JBPM-5025: Date format inconsistency in TaskDetails > Due on--nmirasch
+bb25eb9--Update showcase menus--Cristiano Nicolai
+d0a979f-- Bug 1316224 - User can not create projects in any other repository than master--Toni Rikkola
+1cb81dc--JBPM-4941: New Job Due On time is preset to past--nmirasch
+52c5afe--Fix for JBPM-4963, JBPM-4973, BZ1285247, BZ1285243 and BZ1285198 Centralize dateTimeFormatting--nmirasch
+86f1432--JBPM-4964 - Load data before popup shows--Cristiano Nicolai
+1104779--BZ1310893: BxMS6.2.0 Full Text search returns only 10 results even if it hits more than 10--Michael Anstis
+**************************************************************
+dashboard-builder..:
+441acdc--Zanata changes for 6.4.0.CR2--kiereleaseuser
+c7ce15c--BZ-1296881: Dashbuilder login page not protected against frame busting--David Gutierrez
+**************************************************************
+optaplanner-wb..:
+f5f94e9--JBPM-4937: Data Modeler loading time very long and increasing with more 'instances'--Walter Medvedeo
+613d77a--Zanata changes for 6.4.0.CR2--kiereleaseuser
+2033312--PLANNER-532 : Workbench: Solver Editor: Solver configuration contains row with default kiesession name--Toni Rikkola
+672a85d--Bug 1316224 - User can not create projects in any other repository than master--Toni Rikkola
+4aab5cd--BZ1310893: BxMS6.2.0 Full Text search returns only 10 results even if it hits more than 10--Michael Anstis
+**************************************************************
+jbpm-dashboard..:
+04f4db7--Zanata changes for 6.4.0.CR2--kiereleaseuser
+**************************************************************
+kie-docs..:
+6c1cf96--Use 6.4.0-SNAPSHOT on 6.4.x--Geoffrey De Smet
+4711f68--BXMSDOC-10 Initial docs for OptaPlanner workbench--Geoffrey De Smet
+553cbd8--Remove "18.9.7. Remote APIs " because it's covered by "20.1 REST"--Geoffrey De Smet
+d3fa31a--Remove duplicate dtable-wizard1.png file that isn't used (the real one is in the images directory)--Geoffrey De Smet
+5c19c0d--hours <-> days--Geoffrey De Smet
+6733fe7--[BZ-1317026] implement stated and logical delete--Mario Fusco
+d8d049a--BXMSDOC-9 Document OptaPlanner REST API improvements (missing content)--Geoffrey De Smet
+d3ef4ad--Format file according to README code style (2 spaces to indent XML files) + make valid XML (replace > with &gt; when needed)--Geoffrey De Smet
+9521990--GUVNOR-2452: Redesign the Unified Execution Server UI - kie server controller REST api documentation updates--Maciej Swiderski
+c7f65f9--JBPM-4886 - Resetting timer cycle in a running workflow process - documentation--Maciej Swiderski
+22d1a13--JBPM-4812 - Allow to query by task variables - documentation--Maciej Swiderski
+**************************************************************
+kie-wb-distributions..:
+b4045b4--BZ 1044549 - Applied new logo images--Cristiano Nicolai
+153cc24--BZ 1290025 - New image fixing typo--Cristiano Nicolai
+504a77e--BZ-1319053: Messages window can't be reopened after closing--Paulo Martins
+c374ca8--replaced old license header by new one--Michael Biarnes Kiefer
+16267ca--JBPM-4937: Data Modeler loading time very long and increasing with more 'instances'--Walter Medvedeo
+de1230d--BZ1318739: Product Home Page has localized URLs in Zanata--Michael Anstis
+7134448-- Bug 1316224 - User can not create projects in any other repository than master--Toni Rikkola
+4a6c9b1--BZ-1315446: Disable user and group management on product distributions by default.--Roger Martinez
+2a97faf--BZ1315760: kie-config-cli: 'Auth failure' trying to work with repositories--Michael Anstis
+3756e39--BZ1310893: BxMS6.2.0 Full Text search returns only 10 results even if it hits more than 10--Michael Anstis
+**************************************************************
+kie-eap-modules..:
+015371a--[DROOLS-1096] use different slot for org.eclipse.aether to avoid conflicts--dvirgiln
+e1c52b8--Remove no longer needed kie-eap-distributions-brms-layer--Petr Siroky
+9fc4e32--Add missing junit deps--Petr Siroky
+a48c58a--[DROOLS-1091] Fix warning on EAP: CNFE - com.google.inject.servlet.ServletModuleTargetVisitor--dvirgiln
+b2de8b1--[DROOLS-1086] Create KIE EAP installer--dvirgiln
+0d78b01--[DROOLS-1085] include kie-spring and its dependencies in the eap-distro.zip--dvirgiln
+
+
+
