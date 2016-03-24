@@ -73,11 +73,7 @@ FILE_TO_READ=$scriptDir/repositories.properties
 REPOSITORIES=$(cat repURLS.txt)
 VERSIONS=$(cat versions.properties)
 rm repURLS.txt
-MAVEN=$(mvn -version)
 NOTES=$(cat notes.properties)
-# JAVA version as it needs a workaround
-java -version 2>>javaVersion.txt
-JAVAV=$(cat javaVersion.txt)
 DATETIME=`date +%F-%H:%M`
 
 
@@ -104,10 +100,18 @@ https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
                           Build Tools                               
 ------------------------------------------------------------------------
 JAVA: 
-$JAVAV
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.7.0_80"
+Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
 
 MAVEN: 
-$MAVEN
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven/mavenVer
+Java version: 1.7.0_80, vendor: Oracle Corporation
+Java home: /usr/local/java/jdk1.7.0_80/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-504.23.4.el6.x86_64", arch: "amd64", family: "unix"
 
 ------------------------------------------------------------------------
                         Sources to build                         
@@ -124,7 +128,7 @@ $VERSIONS
                           Build Command
 ------------------------------------------------------------------------
 
-mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true >> testResult.txt (building with test execution)
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true
 
 ------------------------------------------------------------------------
                        Environment variables
