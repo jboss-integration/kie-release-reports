@@ -1,0 +1,221 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2016-04-26-22:55
+Code Cutoff Date: 2016-04-26
+Target Product Build: brms 6.2 rollup patch 3
+Payload Tracker:
+Source Product Tag: sync-6.3.x-2016.04.26-2
+Community Tag (if available): 6.3.x branch
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.7.0_80"
+Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
+
+MAVEN: 
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven/mavenVer
+Java version: 1.7.0_80, vendor: Oracle Corporation
+Java home: /usr/local/java/jdk1.7.0_80/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-504.23.4.el6.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/drools/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/optaplanner/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/jbpm/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/guvnor/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/drools-wb/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/optaplanner-wb/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/kie-docs/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.3.x-2016.04.26-2
+https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.3.x-2016.04.26-2
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.0.CR30
+Uberfire: sync-6.3.x-2016.04.26 (tag available at https://github.com/jboss-integration/uberfire/tree/sync-6.3.x-2016.04.26)
+Uberfire-extensions: sync-6.3.x-2016.04.26 (tag available at https://github.com/jboss-integration/uberfire-extensions/tree/sync-6.3.x-2016.04.26)
+Dashbuilder: sync-6.3.x-2016.04.26 (tag available at https://github.com/jboss-integration/dashbuilder/tree/sync-6.3.x-2016.04.26)
+Errai: 3.2.1.Final (released, tag available at https://github.com/errai/errai/tree/3.2.1.Final)
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+guvnor                          manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+drools-wb                       manstis@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+dashboard-builder               dgutierr@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,porcelli@redhat.com
+kie-eap-modules                 romartin@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+This tag sync-6.3.x-2016.04.26-2 is based on community 6.3.x branch (cut off date : 2016.04.26) 
+The difference to previous tag sync-6.3.x-2016.03.14 are these commits:
+
+**************************************************************
+droolsjbpm-build-bootstrap..:
+9585345--[BZ-1323349] upgrade XStream to 1.4.9 and Spring to 3.2.14.RELEASE--Michael Biarnés
+9f979af--[BZ-1321281] upgrade mvel version to fix LinkageError in org.mvel2.ParserConfiguration--Mario Fusco
+edc4450--update-verion-all.sh: fix regex to match all version strings in category.xml--Petr Siroky
+975be81--BZ-1312171 BZ-1312174 update groupId of org.beanshell to org.apache-extras.beanshell; upgrade version from 2.0b5 to 2.0b6--Michael Biarnes Kiefer
+**************************************************************
+droolsjbpm-knowledge..:
+486a646--[BZ-1324527] optionally osgi-import drools-wb-models-guided-dtable pa… (#138)--Petr Široký
+317da62--[BZ-1317026] implement stated and logical delete--Mario Fusco
+**************************************************************
+drools..:
+a08d313--[BZ-1328380] fix node hashing when type coercion is involved--Mario Fusco
+81d62be--[BZ-1328380] Node Hashing with type mismatch condition results in silent misfiring - Test case--Toshiya Kobayashi
+f55329e--[BZ-1323167] lazily instance KieScanner used by KieRepository--Mario Fusco
+b546c09--DROOLS-1106 - xstream xml marshaller does not work for more than one fact handle for ExecutionResults--Mario Fusco
+fa7f87a--DROOLS-1106 - xstream xml marshaller does not work for more than one fact handle for ExecutionResults--Maciej Swiderski
+da8de9f--[BZ-1324527] OSGify wb-guided-dtable module + its deps (#742)--Petr Široký
+ffd7709--[BZ-1323310] create a temp file when the user maven settings doesn't come from a file--Mario Fusco
+f42976b--[BZ-1317026] serialization for stated and logical delete implementation (#751)--Petr Široký
+a030b85--[DROOLS-1119] fix timers serialization (#732) (cherry picked from commit dae76dcf996969b1804e4ccf72f675cd8dc85010)--Mario Fusco
+d82e484--[BZ-1318532] update class accessors caches when merging packages--Mario Fusco
+29e1f0d--[BZ-1318052] avoid to add an activation to the eager list more than once--Mario Fusco
+4ec2101--[BZ-1317026] implement stated and logical delete--Mario Fusco
+eaecc1b--[DROOLS-1089] flush reentrant working memory actions when eager evaluation is enforced--Mario Fusco
+89981c0--[BZ-1315143] make EvaluatorWrapper safely serializable declaring its FactHandles transient--Mario Fusco
+54da411--[DROOLS-986] fix reteoo intialization via system property--Mario Fusco
+c0ebf2b--[DROOLS-1041] workaround for Javadoc generation error on JDK 8--Petr Siroky
+7ead961--BZ1313125: [GSS] (6.2.z) Unauthorized (401) when deploying Artifact with encrypted passwords - [GUVNOR-2279] Exposing MavenSession.--Andrew Collins
+**************************************************************
+jbpm..:
+8f9c180--Fix random user generation (#452)--Marián Macik
+465090a--[DROOLS-1119] fix timers serialization (#447) (cherry picked from commit 66895a9288f4c6cb6a84260109d3f20885b4d856)--Mario Fusco
+d516ab5--[BZ-1317026] implement stated and logical delete--Mario Fusco
+**************************************************************
+droolsjbpm-integration..:
+2ccb9d5--BZ-1327632 - Support for custom authentication in RemoteRuntimeEngine configuration (#452)--Marco Rietveld
+b504f31--BZ-1319546 - Marshalling of results are done twice resulting in a malformed response--Maciej Swiderski
+5bcfffa--kie-server tests: test coverage for GetObjectCommand--Karel Suta
+8121789--BZ-1283208 - KieServerClient JSON marshaling does not work for QueryResults and FactHandles - fixed custom objects in lists--Maciej Swiderski
+d67ba4b--[DROOLS-1058,BZ-1316666] osgi: upgrade jaxb bundles from 2.2.10 to 2.2.11 (#438)--Petr Široký
+9637763--[BZ-1324527] OSGi feature for guided-dtables (#433)--Petr Široký
+6a21746--BZ-1326806 - Serialization problems on websphere as a result of BZ-1310739 (#443)--Marco Rietveld
+1d6e9f3--Minor compilation fix--Mario Fusco
+3e0a38c--[BZ-1310039] use the bundle class loader when creating a KieContainer in kie-aries-blueprint--Marek Winkler
+6e8a9c8--BZ-1310510,1325945 - Remote java API: cannot get tasks assigned to different users--Marco Rietveld
+78b4110--BZ-1310739 - Performance degradation with REST API on WebSphere: JAXBContext CDI use--Marco Rietveld
+**************************************************************
+guvnor..:
+a3230c9--guvnor Zanata translations 2016.04.25--kiereleaseuser
+a276f5f--Bug 1316566 - [ENG](6.2.z)User can not create projects in any other repository than master (#286)--Toni Rikkola
+b384bc8--Bug 1324596 - [GSS] [6.2.z] 6.2.2 unable to open/edit some assets with specific user (#305)--Toni Rikkola
+321623c--BZ1303534: [GSS](6.2.z) BxMS6.2.0 Full Text search returns only 10 results even if it hits more than 10--Michael Anstis
+de62b83--Zanata translation changes 2016-03-03--Jenkins
+1ae3669--BZ1313125: [GSS](6.2.z) Unauthorized (401) when deploying Artifact with encrypted passwords - [GUVNOR-2279] Deploy artifact with encrypted password.--Andrew Collins
+6a59720--Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync - Some changes to what master has. Reverted the MVP changes for this branch since the differences were too much. Mainly because this branch did not have the bootstrap3 upgrade.--Toni Rikkola
+330a8bb--Bug 1304447 - [GSS](6.2.z) Not able to select specific branch from repository--Toni Rikkola
+d674e6f--GUVNOR-2399: Errors retrieving LockInfo--Michael Anstis
+**************************************************************
+kie-wb-common..:
+339c6b7--kie-wb-common Zanata translations 2016.04.25--kiereleaseuser
+bd3f393--[6.3.x] Bug 1316566 - User can not create projects in any other repository than master (#347)--Toni Rikkola
+eaee983--Merge pull request #310 from Rikkola/BZ-1316224-user-can-not-create-projects-in-any-othe-branch-than-master-6.3.x--Toni Rikkola
+ee7598e--[6.3.x] BZ-1322241 - [GSS](6.2.z) ServerImpl cannot be cast to KieServerInsta…--Maciej Swiderski
+43f3509--BZ1303534: [GSS](6.2.z) BxMS6.2.0 Full Text search returns only 10 results even if it hits more than 10--Michael Anstis
+2666720--Zanata translation changes 2016-03-03--Jenkins
+99d25ed--    Bug 1313094 - If one user changes a branch, the branch is changed for all the users     Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync--Toni Rikkola
+**************************************************************
+jbpm-form-modeler..:
+79e9643--    Bug 1313094 - If one user changes a branch, the branch is changed for all the users     Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync--Toni Rikkola
+**************************************************************
+drools-wb..:
+fd5a789--drools-wb Zanata translations 2016.04.25--kiereleaseuser
+88f1f13--Bug 1316566 - [ENG](6.2.z)User can not create projects in any other repository than master (#144)--Toni Rikkola
+2963d9c--Zanata translation changes 2016-03-03--Jenkins
+c3df926--    Bug 1313094 - If one user changes a branch, the branch is changed for all the users     Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync--Toni Rikkola
+**************************************************************
+jbpm-designer..:
+16c5696--BZ 1318344 - BPMN Process with swimlane created from business-central has been distorted while opening in JBDS (#245) (#247)--Tihomir Surdilovic
+29c3437--Zanata translation changes 2016-03-03--Jenkins
+dbd5dc9--    Bug 1313094 - If one user changes a branch, the branch is changed for all the users     Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync--Toni Rikkola
+**************************************************************
+jbpm-console-ng..:
+c7cbf15--Bug 1316566 - [ENG](6.2.z)User can not create projects in any other repository than master (#365)--Toni Rikkola
+e9928f3--BZ1320357 - [GSS] (6.2.z) Default Tasks List filters doesn't keep up with user's roles changes--nmirasch
+433930f--BZ1314589 - unable to delegate any tasks as Business Administrator on Business Central--nmirasch
+be9a56a--Zanata translation changes 2016-03-03--Jenkins
+65f0245--    Bug 1313094 - If one user changes a branch, the branch is changed for all the users     Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync--Toni Rikkola
+**************************************************************
+kie-wb-distributions..:
+31cad11--kie-wb-distributions Zanata translations 2016.04.25--kiereleaseuser
+c2d6147--Bug 1316566 - [ENG](6.2.z)User can not create projects in any other repository than master (#229)--Toni Rikkola
+f377ac0--BZ-1326806 - Serialization problems on websphere as a result of BZ-1310739 (cherry picked from commit f2ef5929ef9da32c18bbc44c175d78b4105962e6) (#269)--Marco Rietveld
+75a1802--BZ-1320502: AdministrationPerspective not loading for administrative user whose roles is not defined as admin (#277)--Paulo Martins
+07c1564--Zanata translation changes 2016-03-03--Jenkins
+18a6299--    Bug 1313094 - If one user changes a branch, the branch is changed for all the users     Bug 1313095 - Repository listing and File explorer in Adminstration perspective were often out of sync--Toni Rikkola
+
+**************************************************************
+kie-eap-modules..:
+f5b33ed--Remove kie-fuse-config-editor which is not used--Petr Siroky
+
+
+
