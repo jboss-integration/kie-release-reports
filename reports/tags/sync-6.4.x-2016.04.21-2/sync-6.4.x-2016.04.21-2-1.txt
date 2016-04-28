@@ -68,8 +68,8 @@ Uberfire-extensions: sync-6.4.x-2016.04.21 (tag available at https://github.com/
 Dashbuilder: sync-6.4.x-2016.04.21 (tag available at https://github.com/jboss-integration/dashbuilder/tree/sync-6.4.x-2016.04.21)
 Errai: 3.2.3.Final (released, tag available at https://github.com/errai/errai/tree/3.2.3.Final)
 
-The artifacts/binaries are available in the internal kie-staging repos: https://origin-repository.jboss.org/nexus/content/groups/kie-internal-group/org/
-under the version: 6.4.1.20160419-productized until they will be automatically removed by Nexus.
+The artifacts/binaries are available at: https://repository.jboss.org/nexus/content/repositories/kie/org/ under the version
+6.4.1.20160419-productized.
 
 ------------------------------------------------------------------------
                           Build Command
