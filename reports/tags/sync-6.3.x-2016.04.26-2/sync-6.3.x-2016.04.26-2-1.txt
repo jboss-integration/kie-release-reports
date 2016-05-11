@@ -67,6 +67,7 @@ Uberfire: sync-6.3.x-2016.04.26 (tag available at https://github.com/jboss-integ
 Uberfire-extensions: sync-6.3.x-2016.04.26 (tag available at https://github.com/jboss-integration/uberfire-extensions/tree/sync-6.3.x-2016.04.26)
 Dashbuilder: sync-6.3.x-2016.04.26 (tag available at https://github.com/jboss-integration/dashbuilder/tree/sync-6.3.x-2016.04.26)
 Errai: 3.2.1.Final (released, tag available at https://github.com/errai/errai/tree/3.2.1.Final)
+Mvel: 2.2.8.Final (released, tag available at https://github.com/mvel/mvel/tree/mvel2-2.2.8.Final) - Override in kie-parent-platform
 
 ------------------------------------------------------------------------
                           Build Command
