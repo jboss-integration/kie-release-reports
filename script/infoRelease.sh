@@ -72,6 +72,7 @@ FILE_TO_READ=$scriptDir/repositories.properties
    done < $FILE_TO_READ
 REPOSITORIES=$(cat repURLS.txt)
 VERSIONS=$(cat versions.properties)
+INTPACK=$(cat intpack.properties)
 rm repURLS.txt
 NOTES=$(cat notes.properties)
 DATETIME=`date +%F-%H:%M`
@@ -123,6 +124,12 @@ $REPOSITORIES
 ------------------------------------------------------------------------
 
 $VERSIONS
+
+------------------------------------------------------------------------
+                             INTPACK
+------------------------------------------------------------------------
+
+$INTPACK
 
 ------------------------------------------------------------------------
                           Build Command
