@@ -4,7 +4,7 @@
 ------------------------------------------------------------------------
 Report Date: 2016-06-01-10:32
 Code Cutoff Date: 2016.05.31
-Target Product Build: 6.3.1 CR3
+Target Product Build: 6.3.1 CR1
 Payload Tracker:
 Source Product Tag: sync-6.4.x-2016.05.31
 Community Tag (if available): based on 6.4.x branch
