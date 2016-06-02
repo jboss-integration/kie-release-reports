@@ -71,6 +71,40 @@ Errai: 3.2.3.Final (released, tag available at https://github.com/errai/errai/tr
 The artifacts/binaries are available at: https://repository.jboss.org/nexus/content/repositories/kie/org/ under the version
 6.4.1.20160419-productized.
 
+
+------------------------------------------------------------------------
+                          Integration Package
+------------------------------------------------------------------------
+
+As the integration pack for 6.3.0 was done on 2016.06.02 by re-building the kie version 6.4.1.20160419-productized
+based on the tags:
+
+kie:sync-6.4.x-2016.04.21-2
+uberfire/uberfire-extensions: sync-6.4.x-2016.04.21
+dashbuilder: sync-6.4.x-2016.04.21
+
+and so created new "internal and interim solution" for kie: 6.4.1.20160601-productized.
+
+The intpack tag is: fuse-bxms-integ-1.4.0.redhat-621028
+
+The version are:
+
+FUSE_VERSION=6.2.1.redhat-084
+KARAF_VERSION=2.4.0.redhat-621084
+ACTIVEMQ_VERSION=5.11.0.redhat-621084
+HAWTIO_VERSION=1.4.redhat-084
+CXF_VERSION=3.0.4.redhat-621084
+FABRIC_VERSION=1.3.0.redhat-084
+SY_PARENT_VERSION=2.0.1.redhat-621084
+WILDFLYCAMEL_VERSION=2.3.0.redhat-621084
+KIE_VERSION=6.4.1.20160601-productized
+FUSE_VERSION_SUFIX=621
+FUSEENTERPRISE_VERSION=6.2.1.redhat-084
+CAMEL_VERSION=2.15.1.redhat-621084
+FUSEINT_VERSION=1.4.0.redhat-621028
+jboss-ip-bom=6.0.6.Final
+
+
 ------------------------------------------------------------------------
                           Build Command
 ------------------------------------------------------------------------
