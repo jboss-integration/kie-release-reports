@@ -85,6 +85,9 @@ dashbuilder: sync-6.4.x-2016.04.21
 
 and so created new "internal and interim solution" for kie: 6.4.1.20160601-productized.
 
+The tag is:
+fuse-bxms-integ-1.4.0.redhat-621031 available at: https://github.com/jboss-integration/fuse-bxms-integ/tree/fuse-bxms-integ-1.4.0.redhat-621031
+
 The version are:
 
 FUSE_VERSION=6.2.1.redhat-117
