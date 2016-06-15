@@ -86,23 +86,24 @@ dashbuilder: sync-6.4.x-2016.04.21
 and so created new "internal and interim solution" for kie: 6.4.1.20160601-productized.
 
 The tag is:
-fuse-bxms-integ-1.4.0.redhat-621031 available at: https://github.com/jboss-integration/fuse-bxms-integ/tree/fuse-bxms-integ-1.4.0.redhat-621031
+fuse-bxms-integ-1.4.0.redhat-621038 available at: https://github.com/jboss-integration/fuse-bxms-integ/tree/fuse-bxms-integ-1.4.0.redhat-621038
 
 The version are:
 
-FUSE_VERSION=6.2.1.redhat-117
-KARAF_VERSION=2.4.0.redhat-621117
-ACTIVEMQ_VERSION=5.11.0.redhat-621117
-HAWTIO_VERSION=1.4.redhat-117
-CXF_VERSION=3.0.4.redhat-621117
-FABRIC_VERSION=1.3.0.redhat-117
-SY_PARENT_VERSION=2.0.1.redhat-621117
-WILDFLYCAMEL_VERSION=2.3.0.redhat-621117
+FUSE_VERSION=6.2.1.redhat-107
+KARAF_VERSION=2.4.0.redhat-621107
+ACTIVEMQ_VERSION=5.11.0.redhat-621107
+HAWTIO_VERSION=1.4.redhat-107
+CXF_VERSION=3.0.4.redhat-621107
+FABRIC_VERSION=1.3.0.redhat-107
+SY_PARENT_VERSION=2.0.1.redhat-621107
+WILDFLYCAMEL_VERSION=2.3.0.redhat-621107
 KIE_VERSION=6.4.1.20160601-productized
 FUSE_VERSION_SUFIX=621
-FUSEENTERPRISE_VERSION=6.2.1.redhat-117
-CAMEL_VERSION=2.15.1.redhat-621117
-FUSEINT_VERSION=1.4.0.redhat-621031
+FUSEENTERPRISE_VERSION=6.2.1.redhat-107
+CAMEL_VERSION=2.15.1.redhat-621107
+FUSEINT_VERSION=1.4.0.redhat-621038
+
 jboss-ip-bom=6.0.6.Final
 
 
