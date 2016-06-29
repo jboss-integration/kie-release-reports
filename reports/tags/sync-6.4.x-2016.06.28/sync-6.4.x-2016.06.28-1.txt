@@ -1,3 +1,6 @@
+THE TAG FOR BxMS 6.3.1.CR2 WAS RE-BUILD 
+PLEASE LOOK AT https://github.com/jboss-integration/kie-release-reports/blob/master/reports/tags/sync-6.4.x-2016.06.29/sync-6.4.x-2016.06.29-1.txt
+
 
 ------------------------------------------------------------------------
            Engineering to Productization Handoff Report
