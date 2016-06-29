@@ -1,0 +1,166 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2016-06-29-19:34
+Code Cutoff Date: 2016-06.29
+Target Product Build: 6.3.1.CR2
+Payload Tracker:
+Source Product Tag: sync-6.4.x-2016.06.29
+Community Tag (if available): based on sync-6.4.x-2016.05.31 tag 
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.7.0_80"
+Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
+
+MAVEN: 
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven/mavenVer
+Java version: 1.7.0_80, vendor: Oracle Corporation
+Java home: /usr/local/java/jdk1.7.0_80/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-504.23.4.el6.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/drools/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/optaplanner/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/jbpm/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/guvnor/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/drools-wb/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/optaplanner-wb/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/kie-docs/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.4.x-2016.06.29
+https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.4.x-2016.06.29
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.6.Final
+uberfire: 0.8.1.20160629-productized (available at https://github.com/jboss-integration/uberfire/tree/sync-6.4.x-2016.06.29)
+uberfire-extensions: 0.8.1.20160629-productized (available at https://github.com/jboss-integration/uberfire-extensions/tree/sync-6.4.x-2016.06.29)
+dashbuilder: 0.4.1.20160629-productized (avilable at https://github.com/jboss-integration/dashbuilder/tree/sync-6.4.x-2016.06.29)
+errai: 3.2.4.Final (released, tag available at https://github.com/errai/errai/tree/3.2.4.Final)
+
+------------------------------------------------------------------------
+                             INTPACK
+------------------------------------------------------------------------
+
+the intpack related to this tag is:
+
+combination BxMS 6.3.1.CR + Fuse 6.2.1.R3 [#Build 117]
+<tag name>at: <tag URL>
+
+Versions defined:
+
+jboss-ip-bom: 6.0.6.Final
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+guvnor                          manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+drools-wb                       manstis@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+dashboard-builder               dgutierr@redhat.com
+optaplanner-wb                  gdesmet@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,porcelli@redhat.com
+kie-eap-modules                 romartin@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+The tag sync-6.4.x-2016.06.29 is based on the tag sync-6.4.x-2016.05.31 + the listed cherry-picks
+Cherry-picks..:
+
+
+jbpm..:
+7c7a003--ENTESB-4967 Different behaviour of DocumentBuilderFactory in Fuse and EAP (#490)--Tom Cunningham
+**************************************************************
+droolsjbpm-integration..:
+1d2f323--kie-server-tests: jbpm - add escalation test to UserTaskEscalationIntegrationTest (#501)--jakubschwan
+b526a9d--kie-server-tests: use BOM for kjar dependencies (#494)--Karel Suta
+3918e19--kie-server-tests: custom client-deployment-settings.xml (#491)--Karel Suta
+51f41d5--kie-server-tests: release REST connection in finally block (#488) (cherry picked from commit 3412c2b37ff3e1f2f9d5459de0c96132754fae16)--Karel Suta
+6185e42--DROOLS-1182 - KieServiesClient.completeConversation() won't unset all conversationIds (#479) (cherry picked from commit 1d95897b08ed91d60b067f2b87283a0d03413afd)--Maciej Swiderski
+5980135--DROOLS-1122 - KieServicesClientImpl init not thread-safe--Maciej Swiderski
+**************************************************************
+kie-wb-common..:
+f75b30b--kie-wb-common-ZanataChanges-2016-06-27 (#395)--kiereleaseuser
+107f52c--GUVNOR-2572 : Refreshing browser page when in authoring > Repository view causes error (#392) (#393)--Toni Rikkola
+**************************************************************
+drools-wb..:
+b6110d5--Zanata translation changes 2016-06-27 (#219)--kiereleaseuser
+**************************************************************
+jbpm-designer..:
+15b154f--RHBPMS-4021 - Not able to open BP without browser refresh - fix for failing test (#308)--Tihomir Surdilovic
+1ca36a1--RHBPMS-4021 - Not able to open BP without browser refresh (#305)--Tihomir Surdilovic
+0ec604c--RHBPMS-596 - Message and Service task default properties displayed when re-open process (#301)--Tihomir Surdilovic
+b7b77f6--RHBPMS-75: Add latest Zanata translations to complete Japanese localisation of simulation. (#300)--Jeremy Lindop
+e58e37c--RHBPMS-4011: Fix i18n Simulation problem in IE11 (#290)--Jeremy Lindop
+4b6bac0-- RHBPMS-75: Complete i18n of simulation tab (#296)--Jeremy Lindop
+03529b9--JBPM-5153 SimulationServletTest.testLocalizedStartEndTime fails on some JDKs (#292)--Tibor Zimanyi
+3341b35--JBPM-5060: removed unused private method (#227) (cherry picked from commit b7d9946a9311d49038776aadd48be7cdd47c712b)--Jozef Marko
+**************************************************************
+kie-eap-modules..:
+9e65dcf--kie-eap-installer: use fixed file name to avoid SNAPSHOT timestamps in the name (#24)--Petr Široký
+**************************************************************
+
+
+
