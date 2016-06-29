@@ -74,6 +74,7 @@ errai: 3.2.4.Final (released, tag available at https://github.com/errai/errai/tr
 the intpack related to this tag is:
 
 combination BxMS 6.3.1.CR2 + Fuse 6.2.1.R3 [#Build 117]
+
 fuse-bxms-integ 1.4.0.redhat-621039 available at: https://github.com/jboss-integration/fuse-bxms-integ/tree/fuse-bxms-integ-1.4.0.redhat-621039
 
 Versions defined:
