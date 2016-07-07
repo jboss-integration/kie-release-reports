@@ -1,0 +1,198 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2016-07-07-23:34
+Code Cutoff Date: 2016.07.07
+Target Product Build: BxMS 6.3.2
+Payload Tracker:
+Source Product Tag: sync-6.4.x-2016.07.07
+Community Tag (if available):
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.7.0_80"
+Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
+
+MAVEN: 
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven/mavenVer
+Java version: 1.7.0_80, vendor: Oracle Corporation
+Java home: /usr/local/java/jdk1.7.0_80/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-504.23.4.el6.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/drools/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/optaplanner/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/jbpm/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/guvnor/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/drools-wb/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/optaplanner-wb/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/kie-docs/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.4.x-2016.07.07
+https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.4.x-2016.07.07
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.6.Final
+uberfire: 0.8.1.20160707-productized (tag available at https://github.com/jboss-integration/uberfire/tree/sync-6.4.x-2016.07.07)
+uberfire-extensions: 0.8.1.20160707-productized (released, tag available at https://github.com/jboss-integration/uberfire-extensions/tree/sync-6.4.x-2016.07.07)
+dashbuilder: 0.4.1.20160707-productized (tag avilable at https://github.com/jboss-integration/dashbuilder/tree/sync-6.4.x-2016.07.07)
+errai: 3.2.4.Final (released, tag available at https://github.com/errai/errai/tree/3.2.4.Final)
+
+------------------------------------------------------------------------
+                             INTPACK
+------------------------------------------------------------------------
+
+the intpack related to this tag is:
+information will be added here when intpack is done
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         porcelli@redhat.com
+guvnor                          manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+drools-wb                       manstis@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-console-ng                 msalatin@redhat.com
+dashboard-builder               dgutierr@redhat.com
+optaplanner-wb                  gdesmet@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,porcelli@redhat.com
+kie-eap-modules                 romartin@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+This tag sync-6.4.x-2016.07.07 (based on community 6.4.x) has these commits more then the previous tag sync-6.4.x-2016.06.29: 
+
+
+*************************************************************
+olsjbpm-build-bootstrap..:
+6f9af29--RHBPMS-4032 - removing fop dependency (#230)--Jeremy Lindop
+6e2484d--[RHBRMS-2447] add maven-invoker-plugin:2.0.0 into pluginMgmt (#216)--Petr Široký
+33eeec1--Revert "upgraded jboss-ip-bom to 6.0.7.Final (#225)" (#229)--Michael Biarnés Kiefer
+f4ba12d--upgrade errai to 3.2.4.Final (#227)--Michael Biarnés Kiefer
+21ce25c--upgraded jboss-ip-bom to 6.0.7.Final (#225)--Michael Biarnés Kiefer
+**************************************************************
+drools..:
+b28c290--[DROOLS-1186] iterate all child left tuples during a left update (#826)--Mario Fusco
+c2ef917--[DROOLS-1219] fix ClassObjectTypes rewiring during packages merge (#818)--Mario Fusco
+e6c9204--[RHBRMS-2463] fix propagation of expired events--Mario Fusco
+bd7b648--[DROOLS-1199] dispose PlexusContainer after having finished to use it--Mario Fusco
+b120d6b--[DROOLS-1186] rehash deleted RightTuples in correct order while processing right updates (#808)--Mario Fusco
+**************************************************************
+jbpm..:
+842e8ce--JBPM-5191 - Task properties doesn't include values - only data types (#498)--Maciej Swiderski
+a7d14d5--JBPM-5186 - Database Queries perform poorly on VariableInstanceLog and NodeInstanceLog (#493)--Marco Rietveld
+**************************************************************
+droolsjbpm-integration..:
+bsync-6.4.x-2016.07.07
+2e90011--upgraded to 6.4.1.20160707-productized--Jenkins
+47bf4da--JBPM-5191 - Task properties doesn't include values - only data types (#532)--Maciej Swiderski
+977c808--JBPM-5192 - After the simulation fails the server becomes unresponsive and it does not even respond to shutdown requests (#530)--Maciej Swiderski
+6bb534f--PLANNER-562 DROOLS-1203 OptaPlanner extension doesn't run on 1 processor machine: it throws an IllegalArgumentException on ThreadPoolExecutor (#496) (#522)--Geoffrey De Smet
+60ecbe9--JBPM-5097 - Kie Server - jBPM UI - process image markers not visible for some nodes (RHBPMS-3980) (#513)--Maciej Swiderski
+**************************************************************
+guvnor..:
+93070d2--RHBRMS-2477: Allow users to edit project's GAV information in business central Project Editor when it has a parent (#335)--Guilherme Carreiro
+5a9d5d0--RHBPMS-3997: [GSS](6.3.x) Project dependencies are not retained in BPM Suite 6.3.0 (#332)--Guilherme Carreiro
+b4bed20--[RHBRMS-2447] fix asset-mgmt-project kjar to work OOTB (#322)--Petr Široký
+**************************************************************
+kie-wb-common..:
+35f1d79--Zanata translation changes 2016-07-07 (#404)--kiereleaseuser
+72a5655--RHBPMS-3997: [GSS](6.3.x) Project dependencies are not retained in BPM Suite 6.3.0 (#398)--Guilherme Carreiro
+786a9ab--RHBRMS-1830: The enumerations obtained from external sources are loaded several times during the same session (#380)--Michael Anstis
+**************************************************************
+drools-wb..:
+2deeb7f--Zanata translation changes 2016-07-07 (#237)--kiereleaseuser
+b0752eb--RHBRMS-2486 : Verification & Validation: BRL fragments are ignored (#197)--Toni Rikkola
+40fd0c8--RHBRMS-1830: The enumerations obtained from external sources are loaded several times during the same session (#193)--Michael Anstis
+36374c4--RHBRMS-2435: Unable to view 'Source' option for a XLSX Decision Table (#216) (#226)--Michael Anstis
+034fdc7--Zanata translation changes 2016-06-27 (#219)--kiereleaseuser
+**************************************************************
+jbpm-designer..:
+57a61fb--RHBPMS-479 - Business Central Creates Multiple WIDs if You Create A Process in a non-root package (#324)--Tihomir Surdilovic
+0c2be48--JBPM-5192 - After the simulation fails the server becomes unresponsive and it does not even respond to shutdown requests (#321)--Tihomir Surdilovic
+164afc2--RHBPMS-511: Set a default name on UserTasks with no name in json->BPMN marshaller (#320)--Jeremy Lindop
+cdaed0b--RHBPMS-4032 - Japanese text get garbled in PDF generated from Business Process (#316)--Jeremy Lindop
+318b7b1--RHBPMS-4034: Show default gateway name:id in combo after reselection in properties view (#317)--Jeremy Lindop
+3ba8e6b--JBPM-5162 - default gate is not readable just after selecting a sequence flow which has Japanese name (#313)--Tihomir Surdilovic
+ab8efc5--RHBPMS-1698 - Build & Deploy fails due to duplicate ProcessID after copying business process  (#311)--Tihomir Surdilovic
+0107cf9--RHBPMS-4007 - MI Subprocess mi data input and mi data output properties should be String type (#312)--Jeremy Lindop
+**************************************************************
+jbpm-console-ng..:
+1a5e85d--JBPM-5185 - HTTP 405 Error when retrieving process image via REST when running on WebSphere (#434)--Marco Rietveld
+bee2dce--[RHBRMS-2447] avoid WARNing in the log in case asset-mgmt-project is not yet deployed (#426)--Petr Široký
+**************************************************************
+dashboard-builder..:
+6e8e568--Zanata translation changes 2016-07-07 (#66)--kiereleaseuser
+5db3274--Zanata translation changes 2016-06-27 (#65)--kiereleaseuser
+**************************************************************
+jbpm-dashboard..:
+1380fac--Zanata translation changes 2016-07-07 (#21)--kiereleaseuser
+80b64ba--Zanata translation changes 2016-06-27 (#20)--kiereleaseuser
+**************************************************************
+kie-eap-modules..:
+27841ff--RHBPMS-4032: remove dependency on org.apache.xmlgraphics:fop (#25)--Jeremy Lindop
+**************************************************************
+
+
+
