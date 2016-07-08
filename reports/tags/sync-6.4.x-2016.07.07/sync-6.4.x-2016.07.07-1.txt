@@ -73,7 +73,50 @@ errai: 3.2.4.Final (released, tag available at https://github.com/errai/errai/tr
 ------------------------------------------------------------------------
 
 the intpack related to this tag is:
-information will be added here when intpack is done
+
+fuse-bxms-integ 1.4.0.redhat-621041
+available at: https://github.com/jboss-integration/fuse-bxms-integ/tree/fuse-bxms-integ-1.4.0.redhat-621041
+combination BxMS 6.3.2 + Fuse 6.2.1.R3 [Build #117]
+
+Versions defined:
+FUSE_VERSION=6.2.1.redhat-117
+KARAF_VERSION=2.4.0.redhat-621117
+ACTIVEMQ_VERSION=5.11.0.redhat-621117
+HAWTIO_VERSION=1.4.redhat-117
+CXF_VERSION=3.0.4.redhat-621117
+FABRIC_VERSION=1.3.0.redhat-117
+SY_PARENT_VERSION=2.0.1.redhat-621117
+WILDFLYCAMEL_VERSION=2.3.0.redhat-621117
+KIE_VERSION=6.4.1.20160707-productized
+FUSE_VERSION_SUFIX=621
+FUSEENTERPRISE_VERSION=6.2.1.redhat-117
+CAMEL_VERSION=2.15.1.redhat-621117
+FUSEINT_VERSION=1.4.0.redhat-621041
+
+jboss-ip-bom: 6.0.6.Final
+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+
+fuse-bxms-integ 1.5.0.redhat-630003
+available at: https://github.com/jboss-integration/fuse-bxms-integ/tree/fuse-bxms-integ-1.5.0.redhat-630003
+combianation BxMS 6.3.2 + Fuse 6.3.0 ER2 [Build #133]
+
+Versions defined:
+FUSE_VERSION=6.3.0.redhat-133
+KARAF_VERSION=2.4.0.redhat-630133
+ACTIVEMQ_VERSION=5.11.0.redhat-630133
+HAWTIO_VERSION=1.4.redhat-133
+CXF_VERSION=3.1.5.redhat-630133
+FABRIC_VERSION=1.3.0.redhat-133
+SY_PARENT_VERSION=2.1.0.redhat-630133
+WILDFLYCAMEL_VERSION=2.4.0.redhat-630133
+KIE_VERSION=6.4.1.20160707-productized
+FUSE_VERSION_SUFIX=630
+FUSEENTERPRISE_VERSION=6.3.0.redhat-133
+CAMEL_VERSION=2.17.0.redhat-630133
+FUSEINT_VERSION=1.5.0.redhat-630003
+
+jboss-ip-bom: 6.0.6.Final
 
 ------------------------------------------------------------------------
                           Build Command
