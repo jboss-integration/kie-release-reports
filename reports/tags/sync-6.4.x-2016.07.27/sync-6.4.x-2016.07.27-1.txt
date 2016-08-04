@@ -91,14 +91,6 @@ FUSEINT_VERSION=1.4.0.redhat-621043
 
 jboss-ip-bom: 6.0.6.Final
 
-+++
-
-BxMS 6.3.2.CR2 + Fuse 6.3.0:
-
-Versions used:
-
-jboss-ip-bom: 6.0.6.Final
-
 
 
 ------------------------------------------------------------------------
