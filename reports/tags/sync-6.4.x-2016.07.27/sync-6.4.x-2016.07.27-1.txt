@@ -91,7 +91,26 @@ FUSEINT_VERSION=1.4.0.redhat-621043
 
 jboss-ip-bom: 6.0.6.Final
 
+****
 
+BxMS 6.3.2.CR2 + Fuse 6.3.0.CR1:
+
+Versions used:
+FUSE_VERSION=6.3.0.redhat-159
+KARAF_VERSION=2.4.0.redhat-630159
+ACTIVEMQ_VERSION=5.11.0.redhat-630159
+HAWTIO_VERSION=1.4.redhat-159
+CXF_VERSION=3.1.5.redhat-630159
+FABRIC_VERSION=1.3.0.redhat-159
+SY_PARENT_VERSION=2.1.0.redhat-630159
+WILDFLYCAMEL_VERSION=2.4.0.redhat-630159
+KIE_VERSION=6.4.0.Final-redhat-8
+FUSE_VERSION_SUFIX=630
+FUSEENTERPRISE_VERSION=6.3.0.redhat-159
+CAMEL_VERSION=2.17.0.redhat-630159
+FUSEINT_VERSION=1.5.0.redhat-630006
+
+jboss-ip-bom: 6.0.6.Final-redhat-3
 
 ------------------------------------------------------------------------
                           Build Command
