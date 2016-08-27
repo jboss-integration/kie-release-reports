@@ -101,10 +101,9 @@ https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
                           Build Tools                               
 ------------------------------------------------------------------------
 JAVA: 
-Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
-java version "1.7.0_80"
-Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
-Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
+java version "1.8.0_92"
+Java(TM) SE Runtime Environment (build 1.8.0_92-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.92-b14, mixed mode)
 
 MAVEN: 
 Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
@@ -113,7 +112,6 @@ Java version: 1.7.0_80, vendor: Oracle Corporation
 Java home: /usr/local/java/jdk1.7.0_80/jre
 Default locale: en_US, platform encoding: UTF-8
 OS name: "linux", version: "2.6.32-504.23.4.el6.x86_64", arch: "amd64", family: "unix"
-
 ------------------------------------------------------------------------
                         Sources to build                         
 ------------------------------------------------------------------------
@@ -135,7 +133,7 @@ $INTPACK
                           Build Command
 ------------------------------------------------------------------------
 
-mvn clean install -Dfull -Dproductized -Dmaven.test.failure.ignore=true
+mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -T1C -DaltDeploymentRepository=local::default::file://$DEPLOY_DIR -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -XX:MaxPermSize=256m -XX:PermSize=128m -Xss1M" -Dgwt.compiler.localWorkers=3
 
 ------------------------------------------------------------------------
                        Environment variables
