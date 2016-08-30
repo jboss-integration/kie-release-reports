@@ -1,0 +1,188 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2016-08-30-17:21
+Code Cutoff Date: 2016.08.30
+Target Product Build: 6.3.3.CR1
+Payload Tracker:
+Source Product Tag: sync-6.4.x-2016.08.30
+Community Tag (if available): 6.4.x branch
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+java version "1.8.0_92"
+Java(TM) SE Runtime Environment (build 1.8.0_92-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.92-b14, mixed mode)
+
+MAVEN: 
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven/mavenVer
+Java version: 1.7.0_80, vendor: Oracle Corporation
+Java home: /usr/local/java/jdk1.7.0_80/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-504.23.4.el6.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/drools/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/optaplanner/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/jbpm/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/guvnor/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/drools-wb/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/jbpm-console-ng/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/optaplanner-wb/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/kie-docs/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.4.x-2016.08.30
+https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.4.x-2016.08.30
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.6.Final
+Uberfire: 0.8.1.20160830-productized (tag available at https://github.com/jboss-integration/uberfire/tree/sync-6.4.x-2016.08.30)
+Uberfire-extensions: 0.8.1.20160830-productized (tag available at https://github.com/jboss-integration/uberfire-extensions/tree/sync-6.4.x-2016.08.30)
+Dashbuilder: 0.4.1.20160830-productized (tag avilable at https://github.com/jboss-integration/dashbuilder/tree/sync-6.4.x-2016.08.30)
+Errai: 3.2.4.Final (released, tag available at https://github.com/errai/errai/tree/3.2.4.Final)
+
+------------------------------------------------------------------------
+                             INTPACK
+------------------------------------------------------------------------
+
+
+the intpack related to this tag is:
+
+information will be updated
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -XX:MaxPermSize=256m -XX:PermSize=128m -Xss1M" -Dgwt.compiler.localWorkers=3
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         csadilek@redhat.com
+guvnor                          manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+drools-wb                       manstis@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-console-ng                 csadilek@redhat.com
+dashboard-builder               dgutierr@redhat.com
+optaplanner-wb                  gdesmet@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,csadilek@redhat.com
+kie-eap-modules                 romartin@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The base for this tag sync-6.4.x-2016.08.30 was the community branch 6.4.x branch.
+
+Comparision of 6.4.x branch with previous tag sync-6.4.x-2016.07.27..:
+
+
+droolsjbpm-build-bootstrap..:
+e47d44b--Upgrade Cargo from 1.4.19 to 1.5.0 to support latest EAP 6.4.x (#255)--Petr Široký
+01ad4ab--[RHBRMS-2447] add build-migration-maven-plugin:0.5 into pluginMgmt (#236)--Petr Široký
+**************************************************************
+droolsjbpm-knowledge..:
+8527f2c--RHBPMS-4184,JBPM-5277 - getTasksAssignedAsPotentialOwner doesn't allow groups searching, only actorid (#160)--Marco Rietveld
+**************************************************************
+drools..:
+db1b2c7--[RHBRMS-2538] propagate stagedLeftTuples in doLeftUpdates of PhreakFromNode--Mario Fusco
+1866ad0--[DROOLS-1212,RHBRMS-2501] properly close streams/resources (#876)--Petr Široký
+3bd852a--RHBPMS-4165: BRMS Generates wrong source code for Guided Rules if using 'Formula'--Mario Fusco
+aac8eb7--RHBPMS-4166: BRMS Generates wrong source code for Guided Rules if using 'Formula'--Michael Anstis
+9145933--RHBPMS-4171 - Exception in JBPM Executor Command leads to loss of original error (#864)--Maciej Swiderski
+5428236--[RHBRMS-2509] register KieScanner on KieRepo when kie-ci-osgi bundle is activated (#841)--Mario Fusco
+ffc988a--Don't report turtle tests as skipped (#844)--Petr Široký
+
+**************************************************************
+jbpm..:
+9712f84--RHBPMS-4184,JBPM-5277 - getTasksAssignedAsPotentialOwner doesn't allow groups searching, only actorid (#560)--Marco Rietveld
+e39ffd3--JBPM-5255 - 'Process Not Found' when deploying more than one DeploymentUnit in BPM Suite 6.3 using PER REQUEST strategy (#548)--Maciej Swiderski
+6e92f0e--RHBMS-4188 - Unable to use LATEST in process image REST endpoint (#545)--Marco Rietveld
+2245d7b--[RHBPMS-4106,JBPM-5232] fix CNFE when exucuting service task defined in standalone kjar--Maciej Swiderski
+**************************************************************
+droolsjbpm-integration..:
+6e325db--RHBPMS-4184,JBPM-5277 - getTasksAssignedAsPotentialOwner doesn't allow groups searching, only actorid (#605)--Marco Rietveld
+ad9aa9b--RHBPMS-4176: [GSS](6.3.z)jbpm-case-mgmt jar is missing in product distribution  - adding jbpm-document as well--krisv
+818e88b--GUVNOR-2297,RHBPMS-4118 - 'SAXParseException; Premature end of file' due to incorrect encoding (#599)--Marco Rietveld
+16c0fd1--[JBPM-5282,RHBPMS-4108] recognize GetTaskByWorkItemIdCommand when processing JAXB responses (#594)--Petr Široký
+7640d4d--Allows user to specify additional Maven repositories for pax-exam tests. (#587)--jiripetrlik
+06a9c36--JBPM-5275, RHBRMS-2535 - Support for custom HTTP headers in Decision Server java client configuration (#585)--Maciej Swiderski
+70e26f1--JBPM-5253 - NPE when container dispose fails (#570) (#573)--Karel Suta
+c7afaff--JBPM-5158 - AppScopedEntityManager not clean up by TaskTransactionInterceptor (#503)--Maciej Swiderski
+10d14a0--DROOLS-1224 - Not able to update kie-server container version using REAT API (#526)--Maciej Swiderski
+9b6782d--[JBPM-5263,RHBPMS-4087] kie-server: persist active scanner state (#580)--Petr Široký
+24b4ee3--RHBPMS-4017: org.jbpm:jbpm-case-mgmt:6.4.0.Final-redhat-3 Missing from online and offline maven repositories--krisv
+6aae0a2--RHBPMS-397 - Allow insecure Remote task operations (not only limited to GetTask* commands) (#549)--Marco Rietveld
+9e14364--kie-server-tests: update unstable escalation test (#547)--Karel Suta
+f074b5a--kie-server-tests: raise timeout for sync with controller (#542)--Karel Suta
+**************************************************************
+guvnor..:
+cedea4e--[RHBRMS-2447] add missing required metainfo into asset-mgmt-project POM (#341)--Petr Široký
+cf5a42d--[RHBRMS-2447] guvnor-asset-mgmt-project: replace also main POM to make the build consistent (#338)--Petr Široký
+**************************************************************
+jbpm-form-modeler..:
+9c3bd99--JBPM-5219: reseting screen view after a document upload. That prevents errors uploading documents on MultipleSubForms (#61)--Pere Fernández
+**************************************************************
+jbpm-designer..:
+3ecfc72--RHBPMS-4130 - break possible script tags when displaying process properties (#399)--Tihomir Surdilovic
+5974304--RHBPMS-4196 - It is not possible to open copy of Business Process if it's name contain whitespaces or multybyte chars (#397)--Tihomir Surdilovic
+345e484--RHBPMS-4164 - org.jbpm.designer.server.BusinessProcessCopyHelperTest fails on Windows (#373)--Tihomir Surdilovic
+**************************************************************
+jbpm-console-ng..:
+758a92f--RHBPMS-4187 - process instance id not validated when getting process image (#457)--Marco Rietveld
+**************************************************************
+dashboard-builder..:
+8bd24d4--RHBPMS-1177: Dashbuilder does not work with Sybase 15.7 with default setting (ALLOW_NULLS_BY_DEFAULT=False) (#70)--David Gutierrez
+**************************************************************
+
+
+
