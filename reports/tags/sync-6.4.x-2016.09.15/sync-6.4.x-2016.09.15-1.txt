@@ -72,7 +72,27 @@ Errai: 3.2.4.Final (released, tag available at https://github.com/errai/errai/tr
 ------------------------------------------------------------------------
 
 
-the intpack related to this tag is: N/A
+the intpack related to this tag is:
+
+BxMS 6.3.3.CR + Fuse 6.3.0.CR3:
+https://github.com/jboss-integration/fuse-bxms-integ/tree/fuse-bxms-integ-1.5.0.redhat-630018
+
+FUSE_VERSION=6.3.0.redhat-187
+KARAF_VERSION=2.4.0.redhat-630187
+ACTIVEMQ_VERSION=5.11.0.redhat-630187
+HAWTIO_VERSION=1.4.redhat-187
+CXF_VERSION=3.1.5.redhat-630187
+FABRIC_VERSION=1.3.0.redhat-187
+SY_PARENT_VERSION=2.1.0.redhat-630187
+WILDFLYCAMEL_VERSION=2.4.0.redhat-630187
+KIE_VERSION=6.4.1.20160915-productized
+FUSE_VERSION_SUFIX=630
+FUSEENTERPRISE_VERSION=6.3.0.redhat-187
+CAMEL_VERSION=2.17.0.redhat-630187
+FUSEINT_VERSION=1.5.0.redhat-630018
+
+jbossss-ip-bom: 6.0.6.Final
+
 
 ------------------------------------------------------------------------
                           Build Command
