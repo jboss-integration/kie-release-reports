@@ -72,7 +72,7 @@ Errai: 3.2.4.Final (released, tag available at https://github.com/errai/errai/tr
 ------------------------------------------------------------------------
 
 
-the intpack related to this tag is:
+the intpack related to this tag is: fuse-bxms-integ-1.4.0.redhat-621046
 
 BxMS 6.3.3.CR1 + Fuse 6.2.1
 
