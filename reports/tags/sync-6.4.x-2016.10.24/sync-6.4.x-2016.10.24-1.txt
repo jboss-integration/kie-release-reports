@@ -3,7 +3,7 @@
            Engineering to Productization Handoff Report
 ------------------------------------------------------------------------
 Report Date: 2016-10-25-21:43
-Code Cutoff Date: 2016-10-24
+Code Cutoff Date: 2016-10-25
 Target Product Build: 6.3.4.CR1
 Payload Tracker:
 Source Product Tag: sync-6.4.x-2016.10.24
@@ -64,9 +64,9 @@ https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.4.x-2016.10.24
 ------------------------------------------------------------------------
 
 jBoss-ip-bom: 6.0.6.Final
-Uberfire: 0.8.1.20161024-productized (tag available at https://github.com/jboss-integration/uberfire/tree/0.8.1.20161024-productized)
-Uberfire-extensions: 0.8.1.20161024-productized (tag available at https://github.com/jboss-integration/uberfire-extensions/tree/0.8.1.20161024-productized)
-Dashbuilder: 0.4.1.20161024-productized (tag avilable at https://github.com/jboss-integration/dashbuilder/tree/0.4.1.20161024-productized)
+Uberfire: 0.8.1.20161024-productized (tag available at https://github.com/jboss-integration/uberfire/tree/sync-6.4.x-2016.10.24)
+Uberfire-extensions: 0.8.1.20161024-productized (tag available at https://github.com/jboss-integration/uberfire-extensions/tree/sync-6.4.x-2016.10.24)
+Dashbuilder: 0.4.1.20161024-productized (tag avilable at https://github.com/jboss-integration/dashbuilder/tree/sync-6.4.x-2016.10.24)
 Errai: 3.2.4.Final (released, tag available at https://github.com/errai/errai/tree/3.2.4.Final)
 
 ------------------------------------------------------------------------
