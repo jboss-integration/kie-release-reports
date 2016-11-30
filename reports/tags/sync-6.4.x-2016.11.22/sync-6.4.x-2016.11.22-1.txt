@@ -72,13 +72,48 @@ Errai: 3.2.4.Final (released, tag available at https://github.com/errai/errai/tr
                              INTPACK
 ------------------------------------------------------------------------
 
+BxMS 6.3.4 CR2 + Fuse 6.3..:
+https://github.com/jboss-integration/fuse-bxms-integ/tree/fuse-bxms-integ-1.5.0.redhat-630022
 
-the intpack related to this tag is:
+Versions:
+FUSE_VERSION=6.3.0.redhat-187
+KARAF_VERSION=2.4.0.redhat-630187
+ACTIVEMQ_VERSION=5.11.0.redhat-630187
+HAWTIO_VERSION=1.4.redhat-187
+CXF_VERSION=3.1.5.redhat-630187
+FABRIC_VERSION=1.3.0.redhat-187
+SY_PARENT_VERSION=2.1.0.redhat-630187
+WILDFLYCAMEL_VERSION=2.4.0.redhat-630187
+KIE_VERSION=6.4.1.20161122-productized
+FUSE_VERSION_SUFIX=630
+FUSEENTERPRISE_VERSION=6.3.0.redhat-187
+CAMEL_VERSION=2.17.0.redhat-630187
+FUSEINT_VERSION=1.5.0.redhat-630022
+jboss-ip-bom=6.0.6.Final
 
-information will be updated
+
+BxMS 6.3.4 CR2 + Fuse 6.2.1..:
+https://github.com/jboss-integration/fuse-bxms-integ/tree/fuse-bxms-integ-1.4.0.redhat-621060
+
+Versions:
+FUSE_VERSION=6.2.1.redhat-159
+KARAF_VERSION=2.4.0.redhat-621159
+ACTIVEMQ_VERSION=5.11.0.redhat-621159
+HAWTIO_VERSION=1.4.redhat-159
+CXF_VERSION=3.0.4.redhat-621159
+FABRIC_VERSION=1.3.0.redhat-159
+SY_PARENT_VERSION=2.0.1.redhat-621159
+WILDFLYCAMEL_VERSION=2.3.0.redhat-621159
+KIE_VERSION=6.4.1.20161122-productized
+FUSE_VERSION_SUFIX=621
+FUSEENTERPRISE_VERSION=6.2.1.redhat-159
+CAMEL_VERSION=2.15.1.redhat-621159
+FUSEINT_VERSION=1.4.0.redhat-621060
+jboss-ip-bom=6.0.6.Final
 
 ------------------------------------------------------------------------
-                          Build Command
+                        
+  Build Command
 ------------------------------------------------------------------------
 
 mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -XX:MaxPermSize=256m -XX:PermSize=128m -Xss1M" -Dgwt.compiler.localWorkers=3
