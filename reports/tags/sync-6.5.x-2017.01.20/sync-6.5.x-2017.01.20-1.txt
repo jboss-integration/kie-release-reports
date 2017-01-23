@@ -67,13 +67,48 @@ Dashbuilder: 0.5.1.2017.01.03-productized (tag available https://github.com/jbos
 Errai: 3.2.5.Final (released, tag available at https://github.com/errai/errai/tree/3.2.5.Final)
 
 ------------------------------------------------------------------------
-                             INTPACK
+                             INTPACKs
 ------------------------------------------------------------------------
+the intpacks related to this tag are:
+
+https://github.com/jboss-integration/fuse-bxms-integ/tree/fuse-bxms-integ-1.6.0.redhat-621017
+BxMS 6.4.1.CR2 + Fuse 6.2.1
+
+Versions defined: 
+FUSE_VERSION=6.2.1.redhat-169
+KARAF_VERSION=2.4.0.redhat-621169
+ACTIVEMQ_VERSION=5.11.0.redhat-621169
+HAWTIO_VERSION=1.4.redhat-169
+CXF_VERSION=3.0.4.redhat-621169
+FABRIC_VERSION=1.3.0.redhat-169
+SY_PARENT_VERSION=2.0.1.redhat-621169
+WILDFLYCAMEL_VERSION=2.3.0.redhat-621169
+KIE_VERSION=6.5.1.20170120-productized
+FUSE_VERSION_SUFIX=621
+FUSEENTERPRISE_VERSION=6.2.1.redhat-169
+CAMEL_VERSION=2.15.1.redhat-621169
+FUSEINT_VERSION=1.6.0.redhat-621017
+JBOSS_IP_BOM=6.0.8.Final
 
 
-the intpack related to this tag is:
+https://github.com/jboss-integration/fuse-bxms-integ/tree/fuse-bxms-integ-1.7.0.redhat-630017
+BxMS 6.5.1.CR2 + Fuse 6.3
 
-information will be updated
+Versions defined:
+FUSE_VERSION=6.3.0.redhat-224
+KARAF_VERSION=2.4.0.redhat-630224
+ACTIVEMQ_VERSION=5.11.0.redhat-630224
+HAWTIO_VERSION=1.4.redhat-224
+CXF_VERSION=3.1.5.redhat-630224
+FABRIC_VERSION=1.3.0.redhat-224
+SY_PARENT_VERSION=2.1.0.redhat-630224
+WILDFLYCAMEL_VERSION=2.4.0.redhat-630224
+KIE_VERSION=6.5.1.20170120-productized
+FUSE_VERSION_SUFIX=630
+FUSEENTERPRISE_VERSION=6.3.0.redhat-224
+CAMEL_VERSION=2.17.0.redhat-630224
+FUSEINT_VERSION=1.7.0.redhat-630016
+JBOSS_IP_BOM=6.0.8.Final
 
 ------------------------------------------------------------------------
                           Build Command
