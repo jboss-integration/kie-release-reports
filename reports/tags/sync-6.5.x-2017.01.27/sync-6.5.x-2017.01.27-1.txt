@@ -130,7 +130,6 @@ kie-wb-distribution..:
 revert of https://github.com/jboss-integration/kie-wb-distributions/commit/5af1c1cce30e6ed07d5a126d43d941b7fde3b847
 (revert commit: https://github.com/jboss-integration/kie-wb-distributions/commit/f7fbf696327864358a2d3a07be4b29dfaf9c8082)
 
-The KIE Workbench cannot be deployed to a Tomcat. This will be fixed in the next version: https://issues.jboss.org/browse/GUVNOR-2838
 
 
 
