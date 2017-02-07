@@ -30,7 +30,7 @@ The individual property files will be explained here:
      Should be changed only if there are modifications.
 
 #### notes.properties
-    The notes properties consis of information about the release/sync-tag.
+    The notes properties consist of information about the release/sync-tag.
     This file changes with each release/sync. The information considered to be important should be stored here.
 
 #### repositories.properties
