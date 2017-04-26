@@ -1,0 +1,142 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2017-04-26-10:47
+Code Cutoff Date: 2017-04-25
+Target Product Build: 6.4.3.CR2
+Payload Tracker:
+Source Product Tag: sync-6.5.x-2017.04.25
+Community Tag (if available): 6.5.x brach
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+java version "1.8.0_92"
+Java(TM) SE Runtime Environment (build 1.8.0_92-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.92-b14, mixed mode)
+
+MAVEN: 
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /usr/local/maven/mavenVer
+Java version: 1.7.0_80, vendor: Oracle Corporation
+Java home: /usr/local/java/jdk1.7.0_80/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-504.23.4.el6.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/drools/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/optaplanner/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/jbpm/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/guvnor/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/drools-wb/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/jbpm-wb/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/optaplanner-wb/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/kie-docs/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.5.x-2017.04.25
+https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.5.x-2017.04.25
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.8.Final
+Uberfire: 0.9.1.20170425-productized (tag available https://github.com/jboss-integration/uberfire/tree/sync-6.5.x-2017.04.25)
+Uberfire-extensions: 0.9.1.20170425-productized (tag available https://github.com/jboss-integration/uberfire-extensions/tree/sync-6.5.x-2017.04.25)
+Dashbuilder: 0.5.1.20170425-productized (tag available https://github.com/jboss-integration/dashbuilder/tree/sync-6.5.x-2017.04.25)
+Errai: 3.2.5.Final (released, tag available at https://github.com/errai/errai/tree/3.2.5.Final)
+
+------------------------------------------------------------------------
+                             INTPACK
+------------------------------------------------------------------------
+
+
+the intpack related to this tag is:
+
+information will be updated
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         manstis@redhat.com
+guvnor                          manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+drools-wb                       manstis@redhat.com
+jbpm-designer                   cnicolai@redhat.com
+jbpm-wb		                manstis@redhat.com
+dashboard-builder               dgutierr@redhat.com
+optaplanner-wb                  gdesmet@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,csadilek@redhat.com
+kie-eap-modules                 romartin@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The difference to the previous tag sync-6.5.x-2017.04.10 for BxMS 6.4.3.CR1 are these commits:
+
+droolsjbpm-knowledge..:
+5a60e63--fix osgi import of kiescanner (#225)--Mario Fusco
+**************************************************************
+drools..:
+122bd24--[RHBRMS-2799] fix rewriting of a connective temporal constraint on a … (#1221)--Mario Fusco
+f7c5f3f--[DROOLS-1530] fix double accumulate with join (#1219)--Mario Fusco
+d40888e--  [DROOLS-1523] defer retraction of tuples generated by expired events if there are setFocus action in the propagation queue (#1206)--Mario Fusco
+8e0911e--[DROOLS-1517] fix accumulate node when there is both a left and a rig… (#1198) (#1201)--Mario Fusco
+**************************************************************
+jbpm..:
+eef06d1--Fix Byteman test for IBM Java (#821)--Marián Macik
+**************************************************************
+kie-wb-common..:
+**************************************************************
+
+
+
