@@ -137,6 +137,6 @@ eef06d1--Fix Byteman test for IBM Java (#821)--Marián Macik
 **************************************************************
 kie-wb-common..:
 **************************************************************
-
+5c3bf7b-Revert "[6.5.x] RHBPMS-4564: Cloning managed repo as unmanaged causes… -- Michael Anstis
 
 
