@@ -1,0 +1,130 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2017-05-10
+Code Cutoff Date: 2017-05-10
+Source Product Tag: 7.1.0.t004
+Community Tag (if available): build from kie master branch
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_112"
+Java(TM) SE Runtime Environment (build 1.8.0_112-b15)
+
+MAVEN: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Java HotSpot(TM) 64-Bit Server
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T18:29:23+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_112, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_112/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/7.1.0.t004
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/7.1.0.t004
+https://github.com/jboss-integration/drools/tree/7.1.0.t004
+https://github.com/jboss-integration/optaplanner/tree/7.1.0.t004
+https://github.com/jboss-integration/jbpm/tree/7.1.0.t004
+https://github.com/jboss-integration/droolsjbpm-integration/tree/7.1.0.t004
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The diff to previous tag 7.1.0.t002 are these commits:
+
+droolsjbpm-build-bootstrap..:
+*****************************
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/commit/cfb88f3a17b4a843cf2339df6da829ece2b31ae3 -  Added kie server router to bpms distribution zip (#434)
+- Maciej Swiderski
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/commit/b547d06b850974c3bf489ad4217b80342692d7b6 - JBPM-5490: Upgrade to lienzo 2.0.287-RELEASE. (#435)  - Roger Martinez
+
+droolsjbpm-knowledge..:
+***********************
+https://github.com/kiegroup/droolsjbpm-knowledge/commit/c95237fdb8ff6ec88aa50ad5e6e1a6db78a61ffa - fix osgi import of kiescanner (#225) - Mario Fusco 
+https://github.com/kiegroup/droolsjbpm-knowledge/commit/4ab9f6e27d13b6b97adb86123df4dc23415657ba - JBPM-5851 - Technical Error Events (#224) - Maciej Swiderski
+
+drools..:
+*********
+https://github.com/kiegroup/drools/commit/960c7801a28ddcc1424bb3ba4e49dbbec612e4e2 - [DROOLS-1532] fix removal of a LeftTuple from its FactHandle in case … - Mario Fusco
+https://github.com/kiegroup/drools/commit/7f6658a123e900c2c3e5d0e409e18db5a5640984 - Append threads' full stack trace dump in JUnit Listener for test timeout - tarilabs
+https://github.com/kiegroup/drools/commit/fd342a13f178eeb38b98db2b6332917788503ebd - make public some BuildContext methods that are used by pojorules - Mario Fusco
+https://github.com/kiegroup/drools/commit/5b60caa238da955116581682177f68d6ec8492cd - [DROOLS-1533] avoid need to explicitly bind a datasource to the execu…  - Mario Fusco
+https://github.com/kiegroup/drools/commit/c18a7315851fc85d68219a5580fc6163f520a260 - [DROOLS-1225] add options to specify the salience range of rules in a… - Mario Fusco
+https://github.com/kiegroup/drools/commit/871acf587aaf40aa037371ce5e3bada5ddfeb610 - [DROOLS-1225] add options to specify the salience range of rules in a… - MarioFusco
+https://github.com/kiegroup/drools/commit/d0b73a357ccf995534c992f70cb7d46a33d8820d - DROOLS-1531 Fix instanceof accordingly to FEEL spec table 49 and Inst… - tarilabs
+https://github.com/kiegroup/drools/commit/bc414df51a4d9efe64680574759a99d981d6cada - [RHBRMS-2799] fix rewriting of a connective temporal constraint on a … - Mario Fusco
+https://github.com/kiegroup/drools/commit/6a7a55da8fded9ea16144782f3d2175fb10dab0e - [DROOLS-1530] fix double accumulate with join (#1219) - Mario Fusco
+https://github.com/kiegroup/drools/commit/fbfeb2919d52c88245217852eeb30ea3a453fbfa - DROOLS-1477 DMN Extension Elements (#1192) -  akoufoudakis 
+https://github.com/kiegroup/drools/commit/a1546a142a4645ad08e88bf1dfee090a53cf035f - [DROOLS-1537] avoid to keep a reference of the KnowledgeHelper inside… - Mario Fusco
+https://github.com/kiegroup/drools/commit/169c596e59f75f9ee97cb728b013fed21f543f36 - Fix exception when Pong GUI window is closed, when originally launche… - tarilabs
+https://github.com/kiegroup/drools/commit/cd7e5ed8db17b43fedf8f5a2fa5505df4ddc4f76 - GUVNOR-2980: Test scenarios do not show correct results (#1226)  - Michael Anstis
+https://github.com/kiegroup/drools/commit/92cdb06232dc14edecf4797ae8d521266ede6032 - Test harness for MultithreadTest.testConcurrentFireAndDispose (#1227) - tarilabs
+https://github.com/kiegroup/drools/commit/4ae9c55d3eb7e6bf058401a92b74d7ed4fcf55a3 - [DROOLS-1536] allow to cache compiler subcomponents into the Knowledg… - Mario Fusco
+https://github.com/kiegroup/drools/commit/25e3636f4ea292121b20c2c688a2db27162c060e - DROOLS-1531 Fix instanceof accordingly to FEEL spec table 49 (optimiz… - tarilabs
+https://github.com/kiegroup/drools/commit/2da27a6672ebf497ccf984d6bca97f0a99ec0f91 - [DROOLS-1539] fix multipart and nested oopath with ruleunit pattern (#… - Mario Fusco
+https://github.com/kiegroup/drools/commit/06e97fa599ffd18b2f14d1c1799d9ea5d1d82cfb - [DROOLS-1243] allow from pattern to match a subclass of the type of t… - tarilabs
+https://github.com/kiegroup/drools/commit/5ac83fc9016f8dbbde6d23276eb6eb001beca87c - GUVNOR-2900: [Guided Decision Table] User is not prompted to save or  - Michael Anstis https://github.com/kiegroup/drools/commit/055b8428552ebdb50db03e924322261fa2c6cd78 - DROOLS-1543 DMN ItemDefinition dependencies ordering (#1235)  - tarilabs
+https://github.com/kiegroup/drools/commit/6bab04f207024172a73ef86a3c1673b5a4d2b867 - Drools 1535 - improving error reporting for unknown variables (#1237) - Edson Tirelli
+https://github.com/kiegroup/drools/commit/1deb6bdde042b37bd422280fae3738422968eaf6 - DROOLS-1545: fixing date functions and arithmetic. (#1244)  - Edson Tirelli
+https://github.com/kiegroup/drools/commit/e5d69ff1b73c10eafcb75b82e2064e47dd75d957 - Change revapi-config.json comment to be more general (#1240) - Marian Macik
+https://github.com/kiegroup/drools/commit/d17656db081d774558257dc498094978fbafe25a - [DROOLS-1544] ensure that ReturnValueRestrictionDescr has a reference… - Mario Fusco
+https://github.com/kiegroup/drools/commit/debb76bae2cc7a42c90d838e7a623f3009ccd813 - GUVNOR-2900: [Guided Decision Table] User is not prompted to save or … - Michael Anstis
+https://github.com/kiegroup/drools/commit/b0e8ac6d353d0e08bd69aa39e911546b89008166 - [DROOLS-1542] rewrite mvel error message in cause original message is… - Mario Fusco
+https://github.com/kiegroup/drools/commit/b4a6408a916e210e188b41571d2bd17146cda1a5 - DROOLS-1557 InputData dependency check does not enforce allowed value… - tarilabs
+https://github.com/kiegroup/drools/commit/05fb0d2db2dbdf6aa6afecbfb333a80593def4b8 - [DROOLS-1556] implement support for proxies in kie-ci (#1254) - Mario Fusco
+https://github.com/kiegroup/drools/commit/6a687d0bda824792f54c481613b9c2e5b84e05c3 - DROOLS-1548 Fix bug with filter selection operator (#1252) - tarilabs
+https://github.com/kiegroup/drools/commit/ebabef75784d0fce2d4ee7421625a8a046c3ea31 - [DROOLS-1559] fix concurrent dispose (#1255) - Mario Fusco
+https://github.com/kiegroup/drools/commit/a8016c32b651431f6067ec6191a7a079b35e156a - DROOLS-1550: adding support to boxed function definitions and fixing … - Edson Tirelli
+https://github.com/kiegroup/drools/commit/00de5bd539f8b5ffa75cf1d0c446b5249338b05e - DROOLS-1550: Adding OSGi import into the pom file (#1261) - Edson Tirelli
+
+optaplanner..:
+**************
+there does not exist previous tag for optaplanner
+
+jbpm..:
+*******
+there does not exist previous tag for jbpm
+
+droolsjbpm-integration..:
+*************************
+there does not exist previous tag for droolsjbpm-integration
+
+
