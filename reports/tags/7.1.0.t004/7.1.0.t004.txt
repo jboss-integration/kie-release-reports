@@ -127,4 +127,8 @@ droolsjbpm-integration..:
 *************************
 there does not exist previous tag for droolsjbpm-integration
 
+This test failed..:
+****************** 
+org.jbpm.process.workitem.bpmn2.BusinessRuleTaskHandlerTest.testDrlStatefulBusinessRuleTaskWithScanner
 
+https://kie-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/view/trisotech/job/trisotech-tag/lastCompletedBuild/testReport/org.jbpm.process.workitem.bpmn2/BusinessRuleTaskHandlerTest/testDrlStatefulBusinessRuleTaskWithScanner/
