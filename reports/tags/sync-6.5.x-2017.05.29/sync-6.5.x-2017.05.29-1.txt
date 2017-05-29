@@ -176,7 +176,26 @@ e0cf269--RHBPMS-4712: Only 15 workitemhandlers can be added to kie-deployment-de
 **************************************************************
 kie-wb-distributions..:
 3e7e939--GUVNOR-3095 : Make 6.4.x Inbox optional (#530)--Toni Rikkola
-**************************************************************
+*************************************************************
+uberfire..:
+0eab5c4 -- UF-511: Skip JGitFileSystemProviderSSHTest on IBM JDK -- yurloc
+ea4477a -- RHBPMS-4706: [GSS](6.4.z) Embedded Authoring perspective is broken when using parameter controlled URL -- Michael Anstis
+a9fb835 -- Upgraded Asset editor can broke navigation in Business Central -- Eder Ignatovicz
+d912104 -- Create project-sources archive during full build -- Petr Siroky
+4466da3 -- [RHBPMS-4669] filter out invalid (null) login principals (#715) -- Petr Siroky
+a982620 --  RHBPMS-4609: [GSS] (6.4.z) Not able to clone BPMS server git repository over ssh protocol over WAS server. (#719) -- markcoble  	
+***************************************************************
+uberfire-extensions..:
+34e69ec -- [RHBPMS-4669] enhance test to cover principal with 'null' name (#320) -- Petr Siroky
+***************************************************************
 
+These test might fail:
+https://kie-jenkins-rhel7.rhev-ci-vms.eng.rdu2.redhat.com/view/kie-releases-6.5.x/job/031.Releasing_KIE_deployLocally-6.5.x/lastCompletedBuild/testReport/org.jbpm.persistence.processinstance/ProcessInstanceResolverStrategyTest/testWithDatabaseAndStartProcess_0_/
 
+https://kie-jenkins-rhel7.rhev-ci-vms.eng.rdu2.redhat.com/view/kie-releases-6.5.x/job/031.Releasing_KIE_deployLocally-6.5.x/lastCompletedBuild/testReport/org.jbpm.persistence.processinstance/ProcessInstanceResolverStrategyTest/testWithDatabaseAndStartProcessInstance_1_/
 
+https://kie-jenkins-rhel7.rhev-ci-vms.eng.rdu2.redhat.com/view/kie-releases-6.5.x/job/031.Releasing_KIE_deployLocally-6.5.x/lastCompletedBuild/testReport/org.jbpm.persistence.processinstance/ProcessInstanceResolverStrategyTest/testWithDatabaseAndStartProcess_1_/
+
+https://kie-jenkins-rhel7.rhev-ci-vms.eng.rdu2.redhat.com/view/kie-releases-6.5.x/job/031.Releasing_KIE_deployLocally-6.5.x/lastCompletedBuild/testReport/org.kie.workbench/RestApiJspTest/restApiJspCorrectReferencesAllRestOperations/
+
+The are not considered as blocker or regression. There are already fixes for them but they are not merged yet.
