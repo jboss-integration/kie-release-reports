@@ -34,27 +34,27 @@ OS name: "linux", version: "2.6.32-504.23.4.el6.x86_64", arch: "amd64", family: 
 ------------------------------------------------------------------------
                         Sources to build                         
 ------------------------------------------------------------------------
-https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/drools/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/optaplanner/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/jbpm/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/guvnor/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/kie-wb-common/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/drools-wb/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/jbpm-designer/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/jbpm-wb/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/dashboard-builder/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/optaplanner-wb/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/kie-docs/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.5.x-2017.05.29
-https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.5.x-2017.05.29
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/drools/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/optaplanner/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/jbpm/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/guvnor/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/kie-wb-common/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/drools-wb/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/jbpm-designer/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/jbpm-wb/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/dashboard-builder/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/optaplanner-wb/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/kie-docs/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.5.x-2017.06.16
+https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.5.x-2017.06.16
 
 ------------------------------------------------------------------------
                           3rd party  versions
@@ -121,7 +121,7 @@ NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, opta
       repositories for production release are build with: mvn clean install -Dfull -Dproductized 
       to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
 
-The difference to the previous tag sync-6.5.x-2017.04.25 are these commits:
+The difference to the previous tag sync-6.5.x-2017.05.29 are these commits:
 
 ***************************************************************
 droolsjbpm-build-bootstrap..:
