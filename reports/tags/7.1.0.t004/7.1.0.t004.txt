@@ -34,12 +34,12 @@ OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix
 ------------------------------------------------------------------------
                         Sources to build                         
 ------------------------------------------------------------------------
-https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/7.1.0.t004
-https://github.com/jboss-integration/droolsjbpm-knowledge/tree/7.1.0.t004
-https://github.com/jboss-integration/drools/tree/7.1.0.t004
-https://github.com/jboss-integration/optaplanner/tree/7.1.0.t004
-https://github.com/jboss-integration/jbpm/tree/7.1.0.t004
-https://github.com/jboss-integration/droolsjbpm-integration/tree/7.1.0.t004
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.1.0.t004
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.1.0.t004
+https://github.com/kiegroup/drools/tree/7.1.0.t004
+https://github.com/kiegroup/optaplanner/tree/7.1.0.t004
+https://github.com/kiegroup/jbpm/tree/7.1.0.t004
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.1.0.t004
 
 ------------------------------------------------------------------------
                           Build Command
