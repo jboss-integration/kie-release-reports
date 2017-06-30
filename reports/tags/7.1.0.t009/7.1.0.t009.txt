@@ -4,7 +4,7 @@
 ------------------------------------------------------------------------
 Report Date: 2017.06.30
 Code Cutoff Date: 2017.06.30
-Source Product Tag: 7.1.0.t008
+Source Product Tag: 7.1.0.t009
 Community Tag (if available): build from kie master branch
  
 Product Pages: 
@@ -34,12 +34,12 @@ OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix
 ------------------------------------------------------------------------
                         Sources to build                         
 ------------------------------------------------------------------------
-https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.1.0.t008
-https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.1.0.t008
-https://github.com/kiegroup/drools/tree/7.1.0.t008
-https://github.com/kiegroup/optaplanner/tree/7.1.0.t008
-https://github.com/kiegroup/jbpm/tree/7.1.0.t008
-https://github.com/kiegroup/droolsjbpm-integration/tree/7.1.0.t008
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.1.0.t009
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.1.0.t009
+https://github.com/kiegroup/drools/tree/7.1.0.t009
+https://github.com/kiegroup/optaplanner/tree/7.1.0.t009
+https://github.com/kiegroup/jbpm/tree/7.1.0.t009
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.1.0.t009
 
 ------------------------------------------------------------------------
                           Build Command
@@ -70,4 +70,43 @@ NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, opta
 
 The diff to previous tag 7.1.0.t007 are these commits:
 
+
 **************************************************************
+droolsjbpm-build-bootstrap..:
+3d05ea3--build (#453)--Adriel Paredes
+
+**************************************************************
+droolsjbpm-knowledge..:
+b4a4a55--DROOLS-1630 DMN support during incremental KieContainer upgrade (#241)--tarilabs
+c455e7e--JBPM-5976 - Provide auto acknowledge jobs for execution errors (#242)--Maciej Swiderski
+
+**************************************************************
+drools..:
+b8b0e6c--[DROOLS-1377] remove reteoo implementation (#1341)--Mario Fusco
+a7b121b--DROOLS-1630 DMN support during incremental KieContainer upgrade (#1336)--tarilabs
+
+**************************************************************
+optaplanner..:
+f1c04c2--PLANNER-835 Improve javadoc--Geoffrey De Smet
+016e497--PLANNER-835 Fix minor style issues and typos--Jiří Locker
+2aad797--PLANNER-573 @PlanningEntityCollectionProperty and @ProblemFactCollectionProperty should support arrays too--Geoffrey De Smet
+95c3bee--createSorterWeight recycle from PR 294--Geoffrey De Smet
+505f666--Fix test--Geoffrey De Smet
+aada48b--PLANNER-835 test + remove dead Termination param + extract AbstractEntityPlacerTest--Geoffrey De Smet
+
+**************************************************************
+jbpm..:
+1ef45fe--JBPM-5976 - Provide auto acknowledge jobs for execution errors - fixed acknowledge methods in services (#895)--Maciej Swiderski
+55f9c4b--JBPM-5976 - Provide auto acknowledge jobs for execution errors (#893)--Maciej Swiderski
+ea6e033--JBPM-5880 - 'async' as a default option for all tasks - test stabilization (#891)--Maciej Swiderski
+37ab919--Log Stacktrace in ExecutorRunnable for Exceptions (#887)--Ron
+
+**************************************************************
+droolsjbpm-integration..:
+5ad0a70--[RHBRMS-2317] configure clockType on ksession created by kie-spring (#1041)--Mario Fusco
+5cdb24e--DROOLS-1630 DMN support during incremental KieContainer upgrade (#1035)--tarilabs
+513628c--JBPM-5976 - Provide auto acknowledge jobs for execution errors (#1039)--Maciej Swiderski
+d7808ad--kie-server-tests: Update WebSphere test instructions (#1037)--Karel Suta
+21047d4--kie-server-tests: Duplicate dependency, ignore test (#1034)--Karel Suta
+
+****************************************************************************************************************************
