@@ -1,0 +1,84 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2017.07.03
+Code Cutoff Date: 2017.07.03
+Source Product Tag: 7.1.0.t010
+Community Tag (if available): build from kie master branch
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_112"
+Java(TM) SE Runtime Environment (build 1.8.0_112-b15)
+
+MAVEN: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Java HotSpot(TM) 64-Bit Server
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T18:29:23+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_112, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_112/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.1.0.t010
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.1.0.t010
+https://github.com/kiegroup/drools/tree/7.1.0.t010
+https://github.com/kiegroup/optaplanner/tree/7.1.0.t010
+https://github.com/kiegroup/jbpm/tree/7.1.0.t010
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.1.0.t010
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The diff to previous tag 7.1.0.t009 are these commits:
+
+**************************************************************
+drools..:
+f4cc78e--DROOLS-1551: Adding String and Code marshallers for FEEL (#1345)--Edson Tirelli
+78cb210--DROOLS-1549: extending date and time functions to support datetime strings as well (#1344)--Edson Tirelli
+79bd359--[DROOLS-1487] fix rete partioning when an alpha is source of another alpha (#1343)--Mario Fusco
+**************************************************************
+optaplanner..:
+cc75ed8--multiVariableConstructionHeuristics.png--Geoffrey De Smet
+**************************************************************
+droolsjbpm-integration..:
+0be44e5--kie-server-tests: add missing CaseServicesClient tests (#1043)--Tomáš Livora
+**************************************************************
