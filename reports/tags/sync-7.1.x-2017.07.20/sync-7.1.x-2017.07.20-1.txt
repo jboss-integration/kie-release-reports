@@ -60,7 +60,7 @@ https://github.com/jboss-integration/kie-wb-distributions/tree/sync-7.1.x-2017.0
 ------------------------------------------------------------------------
 
 jBoss-ip-bom: 7.0.0.CR9
-Uberfire: 1.1.0.Final (tag available https://github.com/appformer/uberfire/tree/1.1.0.Final)
+Uberfire: 1.1.0.Final (tag available https://github.com/appformer/uberfire/tree/1.1.0.Final-fixed)
 Dashbuilder: 0.7.0.Final (tag available https://github.com/dashbuilder/dashbuilder/tree/0.7.0.Final)
 Errai: 4.0.1.Beta2 (released, tag available at https://github.com/errai/errai/tree/4.0.1.Beta2)
 
