@@ -3,7 +3,7 @@
            Engineering to Productization Handoff Report
 ------------------------------------------------------------------------
 Report Date: 2017-07-31-14:45
-Code Cutoff Date: 2017-07-28
+Code Cutoff Date: 2017-07-31
 Target Product Build: BxMS 6.4.5.CR1
 Payload Tracker:
 Source Product Tag: sync-6.5.x-2017.07.31
