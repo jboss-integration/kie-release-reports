@@ -101,9 +101,10 @@ https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
                           Build Tools                               
 ------------------------------------------------------------------------
 JAVA: 
-java version "1.8.0_92"
-Java(TM) SE Runtime Environment (build 1.8.0_92-b14)
-Java HotSpot(TM) 64-Bit Server VM (build 25.92-b14, mixed mode)
+cked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
 
 MAVEN: 
 Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
@@ -133,14 +134,14 @@ $INTPACK
                           Build Command
 ------------------------------------------------------------------------
 
-mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -T1C -DaltDeploymentRepository=local::default::file://$DEPLOY_DIR -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -XX:MaxPermSize=256m -XX:PermSize=128m -Xss1M" -Dgwt.compiler.localWorkers=3
+mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -T1C -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx2g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
 
 ------------------------------------------------------------------------
                        Environment variables
 ------------------------------------------------------------------------ 
 
 MAVEN_OPTS:
--Xms512m -Xmx3g -XX:MaxPermSize=512m
+-Xms2g -Xmx3g -XX:MaxPermSize=512m
 
 -----------------------------------------------------------------------  
                      Component owners contacts                           
@@ -156,7 +157,7 @@ $NOTES
 
 EOF
 
-# copies the build log to the lgo directory
+# copies the build log to the log directory
 cp $logFileDir/testResult.txt $fileDir/$productTag-$counter.log
 gzip $fileDir/$productTag-$counter.log 
 # makes missing directories for the dependency:trees
