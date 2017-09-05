@@ -3,6 +3,15 @@
 # go to script dir
 cd $WORKSPACE
 
+# remove json files
+file=$(ls sync*.json)
+echo $file
+if [ -f "$file" ]; then
+   echo "file found"
+   rm $file
+fi 
+ 
+
 # resultant sed extraction files
 ./droolsjbpm-build-bootstrap/script/git-all.sh log -1 --format=%H  >> sedExtraction_1.txt
 sed -e '1d;2d' -e '/Total/d' -e '/====/d' -e 's/Repository: //g' -e 's/^/\"/; s/$/\"/;' -e '/""/d' sedExtraction_1.txt >> sedExtraction_2.txt
