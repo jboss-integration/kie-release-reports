@@ -1,0 +1,257 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2017.09.12
+Code Cutoff Date: 2017.09.12
+Source Product Tag: 7.1.0.t012
+Community Tag (if available): build from kie 7.3.x branch
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_112"
+Java(TM) SE Runtime Environment (build 1.8.0_112-b15)
+
+MAVEN: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_112, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_112/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.1.0.t012
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.1.0.t012
+https://github.com/kiegroup/drools/tree/7.1.0.t012
+https://github.com/kiegroup/optaplanner/tree/7.1.0.t012
+https://github.com/kiegroup/jbpm/tree/7.1.0.t012
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.1.0.t012
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The diff to previous tag 7.1.0.t011 are these commits:
+**************************************************************
+**************************************************************
+droolsjbpm-build-bootstrap..:
+8302142--variable names don't support - character--Michael Biarnes Kiefer
+1239a29--upgraded to 7.3.1-SNAPSHOT (#544)--Michael Biarnés Kiefer
+2d38d39--RHBRMS-2870 - override of version.org.apache.httpcomponents.httpcore and added dependencies--Michael Biarnes Kiefer
+a38fcec--Upgrade freemarker to 2.3.26.jbossorg-1--Petr Široký
+b10ef4d--JBPM-6388 - Fill in wid entries based on annotations in workitem handler (jbpm-workitems-archetype) (#540)--Tihomir Surdilovic
+199a39a--JBPM-6148 - rename kie-wb-runtime to kie-wb-monitoring (#536)--Cristiano Nicolai
+96c1888--Script tweaks 7.3.x (#533)--Michael Biarnés Kiefer
+5d62f96--GUVNOR-3404: Openshift Provider Integration + UI integration (#530)--Walter Medvedeo
+044a7f1--JBPM-6148 - New module kie-runtime-wb-webapp for runtime views distribution war (#523)--Cristiano Nicolai
+db7bbe1--GUVNOR-3025: OpenShift S2I (Source to Image) Integration (#516)--David Ward
+2144896--JBPM-6137 - Remove deprecated search modules (#520)--Cristiano Nicolai
+117a467--JBPM-6310 - update to jbpm-workitems module (#510) (#512)--Tihomir Surdilovic
+9a1cc05--Raise Narayana version to 5.6.4 (#505)--Karel Suta
+6c9f4a9-- JBPM-6148 - New shared module for common web app resources (#503)--Cristiano Nicolai
+0596260--JBPM-5531: Problems after deleting a form that is used as a subform in other form. (#508)--Pere Fernández
+d75737b--JBPM-5967: Upgrade to lienzo 2.0.291-RELEASE. (#507)--Roger Martínez
+09d6736--[DROOLS-1650] remove jsr94 support (#506)--Mario Fusco
+c1fc457--updated errai, uberfire and dashbuidler--Michael Biarnes Kiefer
+bd0511d--changed filenames and variable-names for consitency with other scripts (uberfire & dashbuider) (#495)--Michael Biarnés Kiefer
+12af24d--upgraded to 7.3.0-SNAPSHOT--Michael Biarnes Kiefer
+6bb20c4--GUVNOR-3168 [DMN Editor] Write unmarshaller (#476) (#501)--tarilabs
+28d288b--GUVNOR-3023: Support provisioning of KIE Server instances by Guvnor ALA (#489)--David Ward
+729613b--JBPM-6233 - Provide web socket based alternative for KIE Server to controller communication (#494)--Maciej Swiderski
+f8ac69e--GUVNOR-3128: Store Guvnor ALA state using VFS (#485)--Walter Medvedeo
+41c6f18--[RHBRMS-2870] upgrade httpclient to support SNI requests (#479)--Mario Fusco
+**************************************************************
+droolsjbpm-knowledge..:
+52b6e65--upgraded to 7.3.1-SNAPSHOT (#264)--Michael Biarnés Kiefer
+8e0e174--Remove references to Locale and Properties classes, and the localized lowercasing (#261)--David Ward
+888fcfa--GUVNOR-3025: OpenShift S2I (Source to Image) Integration (#258)--David Ward
+41b3458--[RHBRMS-2784] centralize xstream initialization (#259)--Mario Fusco
+fe4d0ce--upgraded to 7.3.0-SNAPSHOT--Michael Biarnes Kiefer
+ce926cf--[DROOLS-1649] ServiceRegistry refactor (#255)--Mario Fusco
+68e6d2b--[DROOLS-1649] ServiceRegistry refactor (#254)--Mario Fusco
+3cf3a9e--[DROOLS-1649] ServiceRegistry refactor (#252) (#253)--Mario Fusco
+a2e15ab--Log checkstyle violations into console--Petr Široký
+**************************************************************
+drools..:
+ad5caf7--Fix race condition when initializing ParserConfiguration (#1462)--Tibor Zimanyi
+35cfc33--upgraded to 7.3.1-SNAPSHOT (#1454)--Michael Biarnés Kiefer
+66c25b6--GUVNOR-3458: Increase coverage of multiline constraints (#1452)--Jozef Marko
+bdda5d4--[DROOLS-1720] allow to use KieScanner in combination with explicit updateToVersion (#1453)--Mario Fusco
+f6e12ba--DROOLS-1722: adding support for invoking FEEL functions using boxed invocations (#1445)--Edson Tirelli
+99f2afe--DROOLS-1715 DMN parallel evaluation ConcurrentModificationException (#1438) (#1447)--tarilabs
+f67e8dc--PLANNER-828: Workbench: ScoreHolder support in GuidedRuleEditor shows error in server log (#1450)--Matej Čimbora
+2b0f183--[DROOLS-1723] throw compile time error for misspelled sliding window predicate (#1449)--Mario Fusco
+f81131d--[DROOLS-1720] allow to use KieScanner in combination with explicit updateToVersion (#1443)--Mario Fusco
+98f1f1d--GUVNOR-3451 : GRE DSL: Multiline code blocks break the editor (#1439) (#1441)--Toni Rikkola
+ebebfee--DROOLS-1717 Add new coverage for concurrent sessions (#1440)--Tibor Zimanyi
+9d887eb--Add KieBase serialization to ConcurrentSessionsTest (#1437)--Tibor Zimanyi
+ec8a31b--add concurrent session test using enums--Mario Fusco
+0b13dc3--[DROOLS-1714] avoid CCE when parsing an accumulate with a missing import--Mario Fusco
+cbab11c--Extend tests for concurrent sessions (#1434)--Tibor Zimanyi
+d59be33--[DROOLS-1710] ensure complete evaluation of the mvel ast before starting the jitting process (#1431)--Mario Fusco
+9e54a24--GUVNOR-3025: OpenShift S2I (Source to Image) Integration (#1426)--David Ward
+fe128f6--RHBRMS-2784 - XStream: DoS when unmarshalling void type (#1392) (#1420)--Michael Biarnés Kiefer
+eced01d--[DROOLS-1704] avoid NPE trying to remove no longer existing Java class during incremental compilation (#1427)--Mario Fusco
+edfb0e0--[DROOLS-1707] retrieve unchanged type declarations from existing kiebase during incremental compilation (#1425)--Mario Fusco
+e5228d1--DROOLS-1697 Augment FEEL AST node at compilation with standard return type (#1411)--tarilabs
+ea0b826--DROOLS-1695 When unmarshalling attributePrefix as null on IBM JDK (#1408)--tarilabs
+6e8ac81--Add missing coverage--Matej Čimbora
+30cb88e--PLANNER-823: ScoreHolder support does not work in Guided Decision Tables (#1412)--Matej Čimbora
+1a93169--[DROOLS-1700] Avoid forking a useless thread issueing a FireUntilHaltCommand when the engine is already firing (#1416)--Mario Fusco
+17de313--[DROOLS-1650] remove jsr94 support (#1413)--Mario Fusco
+ad132c8--[DROOLS-1699] preserve AllSetBitMask when subtracting an empty mask (#1415)--Mario Fusco
+b4b8b79--[DROOLS-1696] immediately propagate event's expiration when equal to current timestamp (cherry picked from commit 0d76e7c41226127da66a32fafbacee2d79d7b40b)--Tibor Zimanyi
+8c2a462--upgraded to 7.3.0-SNAPSHOT--Michael Biarnes Kiefer
+3fda1e7--DROOLS-1693 ProcessBuilderFactory refactoring dealing tech debt (#1409)--tarilabs
+2ca9c88--[DROOLS-1688] allow alpha sharing when an hashed constraint requires type coercion on a field of type String (#1405)--Mario Fusco
+5e00322--[DROOLS-1687] throw UnsupportedOperationException when trying to use getObjectsDeep method on an accumulate without reverse support--Mario Fusco
+5220243--[DROOLS-1649] ServiceRegistry refactor (#1403)--Mario Fusco
+3fd0335--[DROOLS-1686] skip InitialFact when collecting activation's deep objects--Mario Fusco
+7550cc0--[DROOLS-1649] ServiceRegistry refactor (#1400)--Mario Fusco
+95231ec--[DROOLS-1684] fix processing of new types during incremental compilation (#1399)--Mario Fusco
+4ae5d99--[DROOLS-1649] ServiceRegistry refactor (#1387) (#1395)--Mario Fusco
+b62067d--[DROOLS-1683] open spreadsheet in read only mode when parsing them (#1396)--Mario Fusco
+b007d9d--DROOLS-1682 DMN Marshaller prefix preservation and minor improvements (#1389)--tarilabs
+3be8ac6--Refactor rule sorting "while" in KnowledgeBuilderImpl (#1382)--Tibor Zimanyi
+ed74783--Remove recursion from testLeakAfterSessionDispose (#1380)--Tibor Zimanyi
+2a6dbb3--[DROOLS-1386] fix delete of a subnetwork tuple from a query node (#1381)--Mario Fusco
+**************************************************************
+optaplanner..:
+f623ab0--upgraded to 7.3.1-SNAPSHOT (#337)--Michael Biarnés Kiefer
+e330096--PLANNER-337 Rename StaticMember to StaticInnerClass + remove _ from method names--Geoffrey De Smet
+2372860--PLANNER-337 Improve error msg when trying to instantiate an inner class--Jiří Locker
+fd52eb9--PLANNER-877 ScoreDirector should support ARM (automatic resource management) and implement AutoCloseable--Geoffrey De Smet
+cd5f9da--RHBRMS-2784 - XStream: DoS when unmarshalling void type (#328)--Michael Biarnés Kiefer
+ed2e83f--PLANNER-724 Benchmarker should include BEST_SCORE statistic by default--Geoffrey De Smet
+f302783--PLANNER-858 PLANNER-627 very basic test coverage: TennisBenchmarkTest--Geoffrey De Smet
+26d6e68--PLANNER-858 buildPlannerBenchmark(List)--Geoffrey De Smet
+e80a951--PLANNER-858 PLANNER-627 Documentation--Geoffrey De Smet
+fa378a2--PLANNER-858 PLANNER-627 quick and easy benchmarker--Geoffrey De Smet
+fc4c486--PLANNER-858 buildPlannerBenchmark also accepts problem instances--Geoffrey De Smet
+2ac682e--PLANNER-858 Introduce ProblemProvider--Geoffrey De Smet
+9fffa2f--PLANNER-860 SolutionFileIO.getOutputFileExtension should default to getInputFileExtension--Geoffrey De Smet
+d61ffd0--Rename "planningProblem" to "problem" in solve()--Geoffrey De Smet
+edf2f95--PLANNER-857 Comment to make clear why it's rejected--Geoffrey De Smet
+3698698--Clarify bi-direction relationship in domain modeling guide (Duncan's suggestion)--Geoffrey De Smet
+20629cb--The right AI for the job image--Geoffrey De Smet
+225a6a5--upgraded to 7.3.0-SNAPSHOT--Michael Biarnes Kiefer
+8516284--Partially revert 8e0d114c528d3d0a47c3e6fcb179e7df0e169a4c--Daniel Trebbien
+0189f54--[DROOLS-1649] ServiceRegistry refactor (#330)--Mario Fusco
+03e8642--[DROOLS-1649] ServiceRegistry refactor (#327) (#329)--Mario Fusco
+**************************************************************
+jbpm..:
+98a1f79--upgraded to 7.3.1-SNAPSHOT (#977)--Michael Biarnés Kiefer
+6811dd7--JBPM-6309: Fix incorrect type in method invocation (#975)--Dominik Hanak
+ceaa355--JBPM-6388 - Fill in wid entries based on annotations in workitem handler (jbpm-workitems-archetype) (#967)--Tihomir Surdilovic
+80e4acf--[7.3.x] JBPM-6309: Fix jBPM community DB tests with Narayana (#971)--Dominik Hanak
+e4cf9b5--RHBPMS-4844 - 'getProcessInstancesByVariableNameAndValue' does not work with multiple process variables (#972)--Maciej Swiderski
+7f78064--reverting JBPM-6388--Tihomir Surdilovic
+1bd00ae--JBPM-6388 - Fill in wid entries based on annotations in workitem handler (jbpm-workitems-archetype)--Tihomir Surdilovic
+65df3d3--[7.3.x] JBPM-6309: JBPM-6309: Additional fixes for DB tests with narayana (#965)--Dominik Hanak
+5f74426--[7.3.x] JBPM-6309: Investigate and fix jBPM community DB tests with Narayana (#961)--Dominik Hanak
+1525de6--JBPM-6362 - installer missing org.kie.server.persistence.dialect prop for mysql (#963)--Tihomir Surdilovic
+e1a13d5--Fix jbpm-remote-ejb-test (#956)--Marián Macik
+07c2004--JBPM-6367 - jBPM workitems archetype (#960)--Tihomir Surdilovic
+46a85ce--JBPM-6225 - Explicit Accept Header on RestWorkItemHandler (#954)--Tihomir Surdilovic
+e4bec03--RHBRMS-2784 - XStream: DoS when unmarshalling void type (#928) (#950)--Michael Biarnés Kiefer
+b36e145--JBPM-6310 - update to jbpm-workitems module (#945) (#948)--Tihomir Surdilovic
+671cb6a--RHBPMS-4854 - GlobalTimerService.timerJobsPerSession grows without bounds (#947)--Maciej Swiderski
+173a538--Stabilize DeactivateDeploymentServiceWithSyncTest (#943)--Marián Macik
+e491450--RHBPMS-4857 - Completing task with empty map overrides the current output variables (#941)--Maciej Swiderski
+f12b6ac--RHBPMS-4854 - GlobalTimerService.timerJobsPerSession grows without bounds (#938)--Maciej Swiderski
+add1907--upgraded to 7.3.0-SNAPSHOT--Michael Biarnes Kiefer
+f2576be--[DROOLS-1649] ServiceRegistry refactor (#934)--Mario Fusco
+390ae1e--[DROOLS-1649] ServiceRegistry refactor (#931)--Mario Fusco
+c6e9ecc--JBPM-5998 : Tasks: Completed tasks disappear from All tab when process instance completes (#924)--nmirasch
+10d998c--[DROOLS-1649] ServiceRegistry refactor (#923) (#929)--Mario Fusco
+6359fbf--[7.2.x] Additional updates for JBPM-6144 and JBPM-5710 (#927)--Maciej Swiderski
+1f549af--[7.2.x] RHBPMS-4826 - User Task can not be exited if a different businessAdministrator is set in BPM Suite 6.4.x, RHBPMS-4831 - Process execution stop at converging parallel gateway if we use async task (#926)--Maciej Swiderski
+**************************************************************
+droolsjbpm-integration..:
+9f01f6a--kie-performance-kit:Init scenario in concurrent load suite (#1181)--Marián Macik
+e69a087--JBPM-6384 - Smart router synchronization with Workbench, JBPM-6400 - KIE Server router - support for job operations (#1174)--Maciej Swiderski
+f5a459d--upgraded to 7.3.1-SNAPSHOT (#1172)--Michael Biarnés Kiefer
+ad3c47d--kie-performance-kit: KPKLimit warmUp handling and redirection of error stream (#1169)--Marián Macik
+7208fa6--Raise warmUp logging level from debug to info (#1166)--Marián Macik
+08e0b30--remove wrong test cases--Mario Fusco
+01e804a--Enhance kie-performance-kit for 7.x tests (#1157)--Marián Macik
+c7baa92--Fix failing Kie server test (#1162)--Karel Suta
+ef74302--JBPM-6373 - KIE Server improvements for cloud based deployments (#1152)--Maciej Swiderski
+4f87feb--GUVNOR-3025: OpenShift S2I (Source to Image) Integration (#1136)--David Ward
+756c5e5--JBPM-6336 - KIE Server Router support for OpenShift with services (#1148)--Maciej Swiderski
+b30914f--JBPM-6351: Test and fix for update to broken container (#1147)--Karel Suta
+d58758d--DROOLS-1704: Test for multiple container updates (#1146)--Karel Suta
+a2b9578--RHBRMS-2784 - XStream: DoS when unmarshalling void type (#1075) (#1140)--Michael Biarnés Kiefer
+a24e2de--JBPM-6353: Avoid NPE when creating container without processes (#1144)--Karel Suta
+1342d5e--JBPM-6355 - KIE Server Client lost connection on timeout causes workbench to not have any endpoints available (#1143)--Maciej Swiderski
+db6e78e--JBPM-6310 - update to jbpm-workitems module (#1129) (#1134)--Tihomir Surdilovic
+4bdcfa5--[DROOLS-1655] Maven plugin for managed KIE Server deployments (#1108) (#1133)--Maciej Swiderski
+36d6c17--JBPM-6344 - Workbench registers queries to Kie server without BPM capability--Maciej Swiderski
+a38f064--JBPM-6339 - Kie server fails to correctly process websocket message sent by Workbench--Maciej Swiderski
+07ed578--JBPM-6085: Exclude jboss-jaxrs-api_2.0_spec (#1131)--Karel Suta
+e2d73c8--JBPM-6346: Missing jar in droolsjbpm-bpms distribution  - adding missing simple-jndi jar to droolsjbpm-bpms-distribution for running jbpm test cases--krisv
+1dd7fef--JBPM-6316 - Race condition when invoking Kie controller operations (#1117) (#1121)--Maciej Swiderski
+49821c3--Kie server controller test adjustments (#1124)--Karel Suta
+5b4eadf--JBPM-5994 - Advanced queries decoupled to the database model - added jms support (#1122)--Maciej Swiderski
+74e5df7--JBPM-6271: Kie server custom extension REST client (#1116)--Karel Suta
+275779d--JBPM-6233: Remove unused dependencies from websocket modules (#1115)--Karel Suta
+2557445--JBPM-6233: Websocket test stabilization (#1114)--Karel Suta
+358cd64--DROOLS-1650 - remove jsr94 support (#1119)--Cristiano Nicolai
+4f9711a--upgraded to 7.3.0-SNAPSHOT--Michael Biarnes Kiefer
+1b400cf--JBPM-6233: Adjust web socket tests for WebLogic (#1107)--Karel Suta
+9296914--[7.2.x] RHBPMS-4790 - KIE Scanner not starting correctly when started using Controller REST API (#1094)--Lance Leverich
+50377d3--JBPM-6271: Kie server custom extension REST test (#1096)--Karel Suta
+280ea39--JBPM-5457: Start and Stop container buttons change states even though they fail (#1100)--Guilherme Carreiro
+528dcda--PLANNER-815: Execution server: Support real-time planning * REST API resource rename * SolverServiceBase - fail on terminating solver--Matej Cimbora
+17485aa--PLANNER-815: Execution server: Support real-time planning--Matej Cimbora
+e62cb0d--JBPM-6233 - Provide web socket based alternative for KIE Server to controller communication (#1085)--Maciej Swiderski
+a89f353--JBPM-6027: return BAD REQUEST 400 for  DataSetLookupException (#1088)--markcoble
+a2e256a--Add CXF dependency to Wildfly/EAP deployable (#1093)--Karel Suta
+ab377a2--[DROOLS-1655] Maven plugin for unmanaged KIE Server deployments (#1063) (#1090)--Maciej Swiderski
+ea34043--JBPM-6261 - Workbench UI doesn't show errors if Projects is not possible to deploy (#1078)--Maciej Swiderski
+a70241f--JBPM-6290 - Kie server JAXB annotations are ignored when extraClasses are used (#1087)--Maciej Swiderski
+5d6ebf3--RHBRMS-2878: Start/stop container buttons are in wrong state after container upgrade (#1083)--Guilherme Carreiro
+cf57fa4--RHBRMS-2874: Start/stop container buttons should be enabled/disabled only when the operation finished (#1082)--Guilherme Carreiro
+4c46542--[DROOLS-1649] ServiceRegistry refactor (#1068) (#1084)--Mario Fusco
+1301be0--JBPM-6223 - CaseServicesClient not rising exceptions when bad container ID is used--Maciej Swiderski
+4c59b93--JBPM-6204: Use AssertJ in CaseServiceIntegrationTest--domhanak
+4988b16--JBPM-6204: Add tests covering exception handling--domhanak
+**************************************************************
