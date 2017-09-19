@@ -4,7 +4,7 @@
 ------------------------------------------------------------------------
 Report Date: 2017.09.12
 Code Cutoff Date: 2017.09.12
-Source Product Tag: 7.1.0.t012
+Source Product Tag: 7.3.0.t012
 Community Tag (if available): build from kie 7.3.x branch
  
 Product Pages: 
