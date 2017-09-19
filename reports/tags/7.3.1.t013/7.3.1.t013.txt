@@ -1,0 +1,101 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2017.09.19
+Code Cutoff Date: 2017.09.19
+Source Product Tag: 7.3.1.t013
+Community Tag (if available): build from kie 7.3.x branch
+
+Product Pages:
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_112"
+Java(TM) SE Runtime Environment (build 1.8.0_112-b15)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_112, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_112/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build
+------------------------------------------------------------------------
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.3.1.t013
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.3.1.t013
+https://github.com/kiegroup/drools/tree/7.3.1.t013
+https://github.com/kiegroup/optaplanner/tree/7.3.1.t013
+https://github.com/kiegroup/jbpm/tree/7.3.1.t013
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.3.1.t013
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------
+                     Component owners contacts
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+------------------------------------------------------------------------
+                              Notes
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The diff to previous tag 7.3.0.t012 are these commits:
+**************************************************************
+droolsjbpm-build-bootstrap..:
+1bd06aa--upgrade mvel to version 2.3.2.Final--Mario Fusco
+**************************************************************
+droolsjbpm-knowledge..:
+273aa82--Added Drools Channel support to kmodule XML-Schema. (#265)--Duncan Doyle
+**************************************************************
+drools..:
+ba4b863--DROOLS-1734: fixing 'if' expression semantics to comply with the spec in case of null values or non-boolean expressions (#1478)--Edson Tirelli
+c988d3f--DROOLS-1733 Enhance test coverage of FEEL built-in functions (#1475)--Tibor Zimanyi
+0dc04df--[DROOLS-1675] Wrong FEEL external function definition throws NPE (#1471)--Fedor Gavrilov
+2f45926--[DROOLS-1727] avoid CCE when a ReactiveFromNode has a different node as peer (#1469)--Mario Fusco
+0efa854--DROOLS-1676 invoke FEEL function (#1468)--tarilabs
+eef6580--DROOLS-1706 Allow marshalling of DMN Extension Elements (#1460)--tarilabs
+0f3e830--JBPM-5019 fix DisposeCommand serialization (#1465)--tarilabs
+e8eddb2--[GUVNOR-3481] make incremental build messages to include KieBaseName (#1457)--Mario Fusco
+2d7c813--Added Drools Channel support to kmodule XML-Schema. (#1458)--Duncan Doyle
+**************************************************************
+jbpm..:
+185f1cb--[RHBRMS-2897] Added Drools Channel support to kmodule XML-Schema--Mario Fusco
+**************************************************************
+droolsjbpm-integration..:
+fa0cf7b--RHBPMS-4943: New ad-hoc job can't be created (#1192)--nmirasch
+1ddc326--RHBRMS-2772: Missing jta-1.1.jar in jboss-brms-engine.zip (#1190)--Yicheng Sha (Roy)
+a096c97--RHBPMS-4917 - Old version of container is being deployed after previous deployment failed even though a new one is already built (#1183)--Maciej Swiderski
+e09ba39--RHBPMS-4876 [7.3.x] KieServerMDB retains jms connection retrieved from managed connection pool... (#1159)--Lance Leverich
+83c45f7--kie-performance-kit: Get annotation from scenario correctly (#1187)--Marián Macik
+6f409d0--Align revapi config.--tarilabs
+b1018bc--JBPM-5019 fix DisposeCommand serialization (cherry picked from commit 93fd7710f3133319d2bc4737c240d93b54f20f8c)--tarilabs
