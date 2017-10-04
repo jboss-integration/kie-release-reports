@@ -1,0 +1,253 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2017-10-04-09:41
+Code Cutoff Date: 2017-10-03
+Target Product Build: 7.0.0.CR1
+Payload Tracker:
+Source Product Tag: sync-7.3.x-2017.10.03
+Community Tag (if available): based on 7.3.x
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/drools/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/optaplanner/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/jbpm/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/guvnor/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/kie-wb-playground/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/kie-wb-common/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/drools-wb/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/optaplanner-wb/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/jbpm-designer/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/jbpm-wb/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/kie-docs/tree/sync-7.3.x-2017.10.03
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-7.3.x-2017.10.03
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 7.0.1.Final
+Uberfire: 1.3.1.20171003-prod (tag available https://github.com/jboss-integration/uberfire/tree/sync-7.3.x-2017.10.03)
+Dashbuilder: 0.9.0.20171003-prod (tag available https://github.com/jboss-integration/dashbuilder/tree/sync-7.3.x-2017.10.03)
+Errai: 4.0.2.Final (released, tag available at https://github.com/errai/errai/tree/4.0.2.Final)
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -T2 -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -XX:MaxPermSize=256m -XX:PermSize=128m -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         cnicolai@redhat.com
+guvnor                          manstis@redhat.com
+kie-wb-playground               manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+drools-wb                       manstis@redhat.com
+optaplanner-wb                  gdesmet@redhat,com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-wb		                cnicolai@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distributions            manstis@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The difference to the previous tag sync-7.3.x-2017.09.18 are these commits:
+
+**************************************************************
+droolsjbpm-build-bootstrap..:
+c237b98--upgraded to jboss-ip-bom 7.0.1.Final--Michael Biarnes Kiefer
+3cea3a6--JBPM-6426: Use of Errai's embedded Wildfly server 10.1.0.Final (#561)--Roger Martínez
+ba9632d--jbpm-case-mgmt is not exist anymore, so remove it from jbpm-bom--Ryan Zhang
+5cf4787--upgrade to xstream 1.4.10--Mario Fusco
+13bfcf9--[GUVNOR-3500] New project creation fails from Guvnor ALA OpenShift Provider (#552)--David Ward
+**************************************************************
+droolsjbpm-knowledge..:
+2a58b15--[DROOLS-1726] configure XStream security framework (#267)--Mario Fusco
+**************************************************************
+drools..:
+0808e9c--Fix asSystemSpecificPath method so that windows drive, even in lower case (as 'c:\'), is not removed (#1477)--Benjamin
+0600db7--[DROOLS-1744] avoid adding duplicated resources to dtable configuration (#1502)--Mario Fusco
+800bd08--RHBRMS-2689: Unable to build project if kbase and ksession names are identical (#1496) (#1501)--Michael Anstis
+fba67ed--GUVNOR-3334: Test dsl date marshalling (#1499)--Jozef Marko
+ebf541f--GUVNOR-3482: Assets cannot be open after version of an asset is switched in big repository (#1466) (#1472)--Michael Anstis
+826f1b6--[7.3.x] GUVNOR-3509: Test marshaling of not matches and not soundslike operators (#1491)--Jozef Marko
+92f838b--GUVNOR-3517: Test Dsl with apostrophe (#1493)--Jozef Marko
+a25a03a--[DROOLS-1742] manage change of package in drl file during incremental compilation (#1489)--Mario Fusco
+074c9bd--[DROOLS-1726] configure XStream security framework (#1485)--Mario Fusco
+d0f42d2--GUVNOR-3479 : [GSS-RFE] Add support for missing keywords like "not ma (#1480)--Toni Rikkola
+a8800b3--[DROOLS-1740] read configuration of defualt KieBase and KieSession fr… (#1484)--Mario Fusco
+4941795--[DROOLS-1739] ensure creation of the segment memory of a subnetwork when the main segment memory is created from a prototype (#1483)--Mario Fusco
+ebd9370--DROOLS-1738: test not soundslike operator (#1482)--Jozef Marko
+ba4b863--DROOLS-1734: fixing 'if' expression semantics to comply with the spec in case of null values or non-boolean expressions (#1478)--Edson Tirelli
+c988d3f--DROOLS-1733 Enhance test coverage of FEEL built-in functions (#1475)--Tibor Zimanyi
+0dc04df--[DROOLS-1675] Wrong FEEL external function definition throws NPE (#1471)--Fedor Gavrilov
+**************************************************************
+optaplanner..:
+ac8b4a6--PLANNER-879 Configure XStream security framework--Geoffrey De Smet
+**************************************************************
+jbpm..:
+1257b75--RHBPMS-4959 - Tasks: GET request returns SessionNotFoundException when task belongs to aborted process instance (#994) (#1003)--Maciej Swiderski
+cb4ffb5--JBPM-6434 - ProcessInstance is not correctly persisted when loaded with readOnly = true early in the same transaction--Maciej Swiderski
+0ddb601--JBPM-6434 - ProcessInstance is not correctly persisted when loaded with readOnly = true early in the same transaction - Unit test--Toshiya Kobayashi
+0cf9803--JBPM-6292 - Add index to ExecutionErrorInfo PROCESS_INST_ID and ERROR_ACK columns (#1004)--Cristiano Nicolai
+e75e57d--JBPM-6433 - RESTWorkItemHandler - rename Content parameter to ContentData (#999)--Tihomir Surdilovic
+64cae22--JBPM-6429 - Workitem Archetype - allow @Wid parameter inheritance from handler interfaces (#996)--Tihomir Surdilovic
+10f5e95--JBPM-6047: Uploaded documents not visible on Documents tab on process Instance details (#982)--Pere Fernández
+ab727dc--[DROOLS-1726] configure XStream security framework (#980)--Mario Fusco
+4a35775--RHBPMS-4950 - UpdateTimerCommand does not work for timers in embedded sub process (#992)--Maciej Swiderski
+c48a519--JBPM-6425 - Workitem Archetype - generated .wid file should use name based on user project (#991)--Tihomir Surdilovic
+abb77fa--Installer - Add system properties to deploy demo and show Case Management app link (#988)--nmirasch
+0561c88--JBPM-6417 - Kie Server rest Signals API does not resolve mvel expressions (#985)--Tihomir Surdilovic
+**************************************************************
+droolsjbpm-integration..:
+50d575e--JBPM-6456: Unable to open tasks that contain subforms. (#1221)--Pere Fernández
+ea4df40--JBPM-6445: Maven plugin fails to deploy to server root context (#1218)--Rafael Barriuso
+58819c2--Create client for Smart router operations (#1214)--Karel Suta
+cdc034f--JBPM-6423 - Advanced Queries: input data field comes with wrong values in response (#1206)--Maciej Swiderski
+c2758e7--[7.3.x] RHBPMS-4862: Container started by upgrade doesn't contain process configuration (#1208)--Guilherme Carreiro
+e2a80c0--Rename Dispose command test (#1210)--Karel Suta
+1ea7279--[DROOLS-1726] configure XStream security framework (#1188)--Mario Fusco
+4da59e8--Use Kie server settings.xml for local artifact removal (#1205)--Karel Suta
+ebde686--[DROOLS-1732] use correct plugin classloader for kie-maven-plugin (#1196)--Petr Široký
+2b972f5--Show warning in case server template file isn't found (#1202)--Karel Suta
+9c3f231--RHBPMS-4941 - Smart router returns HTTP 503 - Rewrite HOST header with target host for proxy requests (#1198)--Karel Suta
+**************************************************************
+guvnor..:
+03b8e51--[GUVNOR-3500] New project creation fails from Guvnor ALA OpenShift Provider (#516)--David Ward
+22d8675--Support multiple GAVs per Runtime (#514)--Walter Medvedeo
+**************************************************************
+kie-wb-playground..:
+75fe15c--PLANNER-847: Workbench: Improve description of playground repository examples--Matej Cimbora
+**************************************************************
+kie-wb-common..:
+2149559--RHBRMS-2917: [UX] Radios and checkboxes in Import dialog should be selectable by lables (#1198)--Matej Čimbora
+94d96c3--AF-622: [Library] Advanced Import dialog doesn't show up due to JavaScript error (#1197)--Paulo Martins
+8170089--AF-615: Items in the logout menu duplicated every time navigation tree is changed (#1194)--Paulo Martins
+056f103--Cherry pick commit a292ea3de54eda5ea8214d598962f63250d2be26 to 7.3.x referred to JBPM-6051 (#1184)--Tiago Dolphine
+903145b--JBPM-6104: Stunner - not possible to remove container with not empty container inside (#1167)--Alessio Pintus
+2d9466c--[JBPM-5544] Text displayed in the model now support auto-wrap (#1140)--Christopher Chianelli
+ee28e7c--JBPM-5745 Unclear May not be null validation error in the MultipleSubform. (#1157)--Alessio Scalici
+3001135--Remove redundant else branch from getFQCNByFactName method (#1175) (#1183)--Jozef Marko
+c7346e9--JBPM-6426: Use of Errai's embedded Wildfly server 10.1.0.Final (#1182)--Roger Martínez
+78d0c25--JBPM-5429: AssigneeEditor should not appear in the form-modeler. (#1178)--Pere Fernández
+ea778db--JBPM-6047: Uploaded documents not visible on Documents tab on process Instance details (#1163)--Pere Fernández
+f813878--GUVNOR-3479 : [GSS-RFE] Add support for missing keywords like "not matches" condition in Guided Rule (#1164) (#1173)--Toni Rikkola
+69a122a--JBPM-6283: Changing binding in the fields resets all properties to default values. (#1145)--Pere Fernández
+67e0d21--AF-613: Example projects URL should be customizable by a system property (#1169)--Paulo Martins
+**************************************************************
+jbpm-form-modeler..:
+9ffa270--RHBPMS-4768: "On Change Script Code" does not work properly for Short Date/Timestamp fields in Form Modeler (#145)--Pere Fernández
+1f7a726--JBPM-6047: Uploaded documents not visible on Documents tab on process Instance details (#143)--Pere Fernández
+**************************************************************
+drools-wb..:
+efa9794--GUVNOR-3449: Test widget for selecting rules to be fired (#633)--Jozef Marko
+589bc08--[7.3.x] GUVNOR-3508: test offered operators by rule editor widget (#630)--Jozef Marko
+3e5d6ba--GUVNOR-3511: Use the same Delete popup for all column types (#629) (#631)--Jozef Marko
+e847e8a--GUVNOR-3487: Multi-select combo box in guided decision table only has a height of a single row (#628)--Michael Anstis
+c75682d--GUVNOR-3479 : [GSS-RFE] Add support for missing keywords like "not matches" condition in Guided Rule (#614) (#626)--Toni Rikkola
+b74a4a8--GUVNOR-3445: Test CRUD operations of ScenarioTestEditorServiceImpl (#622) (#625)--Jozef Marko
+76bab07--GUVNOR-3474: grouping columns in management section (#602) (#623)--Jozef Marko
+d771cb5--GUVNOR-3486: [Guided Decision Table Graph] Refresh after removal of table (#604) (#619)--Michael Anstis
+1655152--GUVNOR-3090: Guided Decision Table: Problems deleting rows from decision table (#621)--markcoble
+e0a1996--GUVNOR-3444: Increase coverage of RunScenario Error Callbacks (#607) (#617)--Jozef Marko
+cd8ec19--GUVNOR-3446: Test successful loading of scenario from xml (#618)--Jozef Marko
+**************************************************************
+jbpm-designer..:
+72b01c7--JBPM-6433 - RESTWorkItemHandler - rename Content parameter to ContentData (#664)--Tihomir Surdilovic
+**************************************************************
+jbpm-wb..:
+1003ed4--RHBPMS-4962: Tasks Administration: Custom filter can't select any column (#908)--nmirasch
+4ed8b5e--RHBPMS-4925: HTTP 405 when sending empty signal name to process instance (#900)--nmirasch
+99054c0--JBPM-6450: Process instance Abort confirmation popup is different from the other console confirmations (#905)--nmirasch
+1e3854a--JBPM-6292 - Review error count query (#902)--Cristiano Nicolai
+277db57--Extend process admin showcase to allow specifying processes variables when starting multiple instances (#898)--Cristiano Nicolai
+eec2552--JBPM-6437 - Allow date filter to specify whether to use calendar max date or not (#894)--Cristiano Nicolai
+da871c5--JBPM-6438 - Use task forward client API instead of delegate (#896)--Cristiano Nicolai
+43164a5--Use Errai's Wildfly distribution to allow upgrading Intellij (#883)--Cristiano Nicolai
+6580864--JBPM-6279 - Remove charlist wildcard from help text (#892)--Cristiano Nicolai
+e1f8a72--JBPM-6294 - Avoid null or empty values in dropdown (#886)--Cristiano Nicolai
+2318543--JBPM-6281 - Use likeTo to filter Error Id (#888)--Cristiano Nicolai
+d5bf2aa--JBPM-6433 - RESTWorkItemHandler - rename Content parameter to ContentData (#891)--Tihomir Surdilovic
+ee4dc71--JBPM-6416 - Deployment descriptor validation fix (#876)--Tihomir Surdilovic
+c53783e--JBPM-6376 - Review GWT compiler classpath (#879)--Cristiano Nicolai
+04c4838--JBPM-5955 and JBPM-5957: Tasks & Jobs: Inconsistent naming (#885)--nmirasch
+8d1f90b--JBPM-6047: Uploaded documents not visible on Documents tab on process Instance details (#874)--Pere Fernández
+b9960d2--JBPM-6236: Execution Errors: Inconsistent actions order and action names capitalization (#877)--nmirasch
+**************************************************************
+kie-docs..:
+a727f74--BXMSDOC-1797-master Exclude specified chapters from Admin Guide and update affected sections in User Guide. (#391)--Stetson Robinson
+4c7b013--Merge pull request #4 from sterobin/BXMSDOC-1632-master (#389)--Stetson Robinson
+c7fbd5b--[7.3.x] JBPM-6422 - Stunner's missing release notes for 7.3.0.Final (#387)--Roger Martínez
+246fcbd--BXMSDOC-1630 (for upstream 7.3.x): Modularize and update Chap. 7: Data Models of BRMS/BPMS User Guide (#384)--Stetson Robinson
+5394d99--JBPM-6279 - Remove charlist wildcard from docs (#380)--Cristiano Nicolai
+4554c7f--Merge pull request #1 from michelehaglund/BXMSDOC-1745-master (#377)--michelehaglund
+fe14433--Merge pull request #1 from emmurphy1/BXMSDOC-1681-master (#370)--emmurphy1
+3a97b97--Merge pull request #3 from emmurphy1/BXMSDOC-1682-master (#372)--emmurphy1
+f5302ad--BXMSDOC-1463 Add 'target' parameter to enable advanced queries in Intelligent Server.--sterobin
+3f47aa7--Release notes for new home, menu and admin page--Paulo Martins
+**************************************************************
+kie-wb-distributions..:
+8682ae4--JBPM-6376 - Review GWT compiler classpath (#623)--Cristiano Nicolai
+**************************************************************
+
+
+
+
+
+
