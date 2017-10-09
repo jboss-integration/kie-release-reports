@@ -1,0 +1,254 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2017-10-09-16:33
+Code Cutoff Date: 2017-10-09
+Target Product Build: 7.0.0.CR1
+Payload Tracker:
+Source Product Tag: sync-7.3.x-2017.10.09
+Community Tag (if available): based on 7.3.x
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/drools/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/optaplanner/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/jbpm/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/guvnor/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/kie-wb-playground/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/kie-wb-common/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/drools-wb/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/optaplanner-wb/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/jbpm-designer/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/jbpm-wb/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/kie-docs/tree/sync-7.3.x-2017.10.09
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-7.3.x-2017.10.09
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 7.0.1.Final
+Uberfire: 1.3.1.20171009-productized (tag available https://github.com/jboss-integration/uberfire/tree/sync-7.3.x-2017.10.09)
+Dashbuilder: 0.9.0.20171009-productized (tag available https://github.com/jboss-integration/dashbuilder/tree/sync-7.3.x-2017.10.09)
+Errai: 4.0.3.Final (released, tag available at https://github.com/errai/errai/tree/4.0.3.Final)
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -T2 -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -XX:MaxPermSize=256m -XX:PermSize=128m -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         cnicolai@redhat.com
+guvnor                          manstis@redhat.com
+kie-wb-playground               manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+drools-wb                       manstis@redhat.com
+optaplanner-wb                  gdesmet@redhat,com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-wb		                cnicolai@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distributions            manstis@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The commits are the same as the commits on 7.3.x branch of cut-off day:
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+b478ccb7ca59d8d2473d7a98bed90e669cfd8614 PLANNER-888: Create optaplanner-wb-models module in optaplanner project (#567)
+c61672f27bcbbe67efb1cd4de0437d19a4a1cd53 GUVNOR-3394: [DMN Editor] Literal Expression: Line breaks for multiple line expressions (#564) (#565)
+c237b98d2d36dcbe83bcaea6af4f88d532c70659 upgraded to jboss-ip-bom 7.0.1.Final
+3cea3a62fb7f94b9cfe4a40533166bec6e8b1dc2 JBPM-6426: Use of Errai's embedded Wildfly server 10.1.0.Final (#561)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+2a58b15825f757c54471072f644a25be59ac7939 [DROOLS-1726] configure XStream security framework (#267)
+273aa82bcae58e277a6e9705c451cb7f98e822f0 Added Drools Channel support to kmodule XML-Schema. (#265)
+52b6e654d8c8168d8498de77f98959877212b14f upgraded to 7.3.1-SNAPSHOT (#264)
+8e0e1748e6d5e2e2678d32ed3d996c9a47542326 Remove references to Locale and Properties classes, and the localized lowercasing (#261)
+
+===============================================================================
+Repository: drools
+===============================================================================
+9810a14aea24798854eb90b639cb4b6b254969ad DROOLS-1753: fixing replace() function with escape characters (#1524)
+87abd8170bc9549206afc3ca652f77ee878c95b9 DROOLS-1752: Fixing 'substring after' function (#1522)
+a095ce7bf5a42397b93cc06f1aa42a07f1c9fa3b PLANNER-865: Workbench: ScoreHolder support in GuidedDecisionTables causes error in server log (#1517)
+c27be95c772d0fbc800ccf9998312d40d0a19afb [DROOLS-1751] NullPointerException on org.mvel2.MVEL.executeExpression() (#1515)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+17c6024e10a1daf9aa8dd3678d54e536c31724c9 PLANNER-888: Create optaplanner-wb-models module in optaplanner project (#341)
+ac8b4a6bdaeaf62531a951159fbd714a87dabe56 PLANNER-879 Configure XStream security framework
+f623ab02ebe94e097e1b725a097bea8e2c0bdf73 upgraded to 7.3.1-SNAPSHOT (#337)
+e330096382db00ebded1e89364ec84da1de20db5 PLANNER-337 Rename StaticMember to StaticInnerClass + remove _ from method names
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+b51aa217cfd34ae2891e790627aea889bf9a1d78 JBPM-6459 - Update taskInstance attributes and variables inside the same REST API call (#1006) (#1010)
+8c006f76bf032e0012c367407792b650e60c9c11 Fix incorrect update statement in upgrade script for Oracle DB (#1013)
+1257b75a348d2bdc42ffcada3ba425000541335c RHBPMS-4959 - Tasks: GET request returns SessionNotFoundException when task belongs to aborted process instance (#994) (#1003)
+cb4ffb5f8940928cb3737dab5c9267a7ed5df75e JBPM-6434 - ProcessInstance is not correctly persisted when loaded with readOnly = true early in the same transaction
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+404d053d4ae02669974a8618d8b28de22f0e5b23 PLANNER-888: Create optaplanner-wb-models module in optaplanner project (#1229)
+58d188bfbbaf07b76addd72e6314c2ad75e8b0d1 JBPM-6459 - Update taskInstance attributes and variables inside the same REST API call (#1223) (#1226)
+3476cced561f55d43dc6793d8548051afb0480c0 JBPM-6449 - Kie Server Router should retry when updating controller config in case of controller's unavailability, JBPM-6448 - Connectivity lost between kie server router and kie server (#1219) (#1224)
+50d575e51c7606ce6659b20e0e7f388ddb2ef697 JBPM-6456: Unable to open tasks that contain subforms. (#1221)
+
+===============================================================================
+Repository: droolsjbpm-tools
+===============================================================================
+99386ad91f6ccea2451e634de88b32ffe470c0dd upgraded to 7.3.1-SNAPSHOT (#83)
+2b69189295c863e5d01fbe380d94f688db0470eb JBTIS-1045 - update drools target platform to Oxygen-based JBNTIS 4.5.0.Final (#81)
+85207facc4b7792317eca82360782832b8724be5 RHBRMS-2784 - XStream: DoS when unmarshalling void type (#75) (#80)
+ae9374f09345e60339725e8c36ec1b5a2f5c5d27 [DROOLS-1650] remove jsr94 support (#78)
+
+===============================================================================
+Repository: kie-uberfire-extensions
+===============================================================================
+6f27a78c21035ebf749708712a2cd7ffbc64a581 upgraded to 7.3.1-SNAPSHOT (#55)
+07b744dc070eb5f5dbb9aaeb7dffb3736d9edddf upgraded to Zanata 7.3.0 (#53)
+7c7f219babf1e9f3ca383af05f0e0dac035b8aac upgraded to 7.3.0-SNAPSHOT
+7b2f4aadfde065fd1c03a7a4ead90be22fad47ef upgraded to 7.2.0 Zanata project (#51)
+
+===============================================================================
+Repository: guvnor
+===============================================================================
+03b8e51d41f038b985b7afc57500d8d09c89f1dc [GUVNOR-3500] New project creation fails from Guvnor ALA OpenShift Provider (#516)
+22d867502e9d69e5da5843b54e9b28598ca701be Support multiple GAVs per Runtime (#514)
+a05b787cbe13346309e4eb575b8c0fbc0ad12e42 GUVNOR-3485: Provider type shouldn't be available for selection if the UI components are not present (#512)
+e92ff5acb835de1bcf37a3525541adf869ef1078 upgraded to 7.3.1-SNAPSHOT (#511)
+
+===============================================================================
+Repository: kie-wb-playground
+===============================================================================
+75fe15c1433aa2be88251c2bc0a1fb84ec8b1653 PLANNER-847: Workbench: Improve description of playground repository examples
+0eaf79994af07162c2ce31d58a76f43ed243f734 upgraded to 7.3.1-SNAPSHOT (#38)
+7aca445837324fbf15b248fd7dad3a604174f140 upgraded to 7.3.0-SNAPSHOT
+c9b08305967a6a146d3acc2344aeac6fff91453c updated to 7.2.0-SNAPSHOT
+
+===============================================================================
+Repository: kie-wb-common
+===============================================================================
+7f8888e002c77b2b980b1f7208862d30c97c87b6 GUVNOR-3524: Do not expose unsupported features by UI (e.g. scorecards, decision trees) (#1211) (#1225)
+a44308e4df7a31fa984284ace8427aec5815a507 GUVNOR-3200: [Guided Decision Table] Access control to prohibit business users from modifying columns (#1222)
+6321ad7c4ccfe9d3aae34439db3c44687d0fba09 AF-619: [Library] Null exception appears in Project Explorer when switching views (#1202)
+f9f9dab37edec9828ae7689665a76a38ffa88015 AF-623: [Library] New project is created even if name validation fails (#1217)
+
+===============================================================================
+Repository: jbpm-form-modeler
+===============================================================================
+9ffa270a76e0a36d653372e43856f9a3417b9847 RHBPMS-4768: "On Change Script Code" does not work properly for Short Date/Timestamp fields in Form Modeler (#145)
+1f7a7265d6d30e09282a604ece1bbb04510f477b JBPM-6047: Uploaded documents not visible on Documents tab on process Instance details (#143)
+9891f4e4001b77849e3cc54b6a7f27f62bc01aef upgraded to 7.3.1-SNAPSHOT (#141)
+b48d14e9c6e2d904810202a4ba2d1005213d9586 Home icon fix (#139)
+
+===============================================================================
+Repository: drools-wb
+===============================================================================
+98811ee9c591a8110c89d5cb31473e1fb576e79b GUVNOR-3524: Do not expose unsupported features by UI (e.g. scorecards, decision trees) (#641) (#645)
+dac5bd27426f17753bca1231ddbd65ecb40c4718 GUVNOR-3200: [Guided Decision Table] Access control to prohibit business users from modifying columns (#644)
+330a42fb280b1384a8242ddf8c4e62548eaa1cec GUVNOR-3148: [Guided Decision Table] User is allowed to reorder dependent work item columns (#634) (#643)
+99cf10c68cbcd1f329f542fdf27f49d29fbf8308 PLANNER-865: Workbench: ScoreHolder support in GuidedDecisionTables causes error in server log (#642)
+
+===============================================================================
+Repository: optaplanner-wb
+===============================================================================
+c1b69dc7745365c7222fded7cf0d12207f4f8be7 [7.3.x] PLANNER-888: Create optaplanner-wb-models module in optaplanner project (#225)
+d37c52926c03df7b77a3e9740160a2c741310ef2 upgraded to 7.3.1-SNAPSHOT (#220)
+19e750c497604deceda76ca210e512ac7800e5f5 PLANNER-824: Long Score Holders can be filled with float values
+f50d3e19903d45652ec4c09c76c2db9253bbd116 Include dashbuilder dependencies to avoid errors in authoring perspective
+
+===============================================================================
+Repository: jbpm-designer
+===============================================================================
+a5a32ab2bd9642a545d299fb9dbbf2165447c348 JBPM-6409: In taskforms data inputs (if different than outpus) should be readonly by default. (#666)
+72b01c70a680a4ca9c77baa30d160569b613a148 JBPM-6433 - RESTWorkItemHandler - rename Content parameter to ContentData (#664)
+cede7932601439cbc1c3708d0b5bb61f3601abe1 JBPM-6415 - Remove jPDL migration plugin and its use from jbpm-designer (#659)
+98d69de40f6d9011836b5ebda8c8fc1f63470e57 JBPM-6397 - Variables with same name but in different scopes causes IllegalArgumentExceptions by indexer in designer (#656) (#657)
+
+===============================================================================
+Repository: jbpm-wb
+===============================================================================
+2a7dd70bb8b3f1ad80a38a76b46e67346c62306f JBPM-6409: In taskforms data inputs (if different than outpus) should be readonly by default. (#904)
+60592d2750503fcd174e24d4579a47125035f8b2 JBPM-6374: Listing pages unchecks previosuly checked rows (#911)
+a042e494b94a86a13421c4254124e8c147529fc9 RHBPMS-4928: Broken page when selecting Process dashboard from task instances (#913)
+1003ed4105dc09c0d2a2dc4659ae03b446c0f445 RHBPMS-4962: Tasks Administration: Custom filter can't select any column (#908)
+
+===============================================================================
+Repository: kie-docs
+===============================================================================
+4feb2601015ba00ae00254fe8ae270fef7f8b4c1 GUVNOR-3200: [Guided Decision Table] Access control to prohibit business users from modifying columns (#407)
+b2df53a3b1f55ae3c0198ef0f5339322b31de5ac BXMSDOC-1631-master Finish modularizing and updating all of Chap. 8: Business Rules in BRMS UG.
+4f97fc52965350b8a9bea8226cb9e6bdc13e613f BXMSDOC-1631-master Modulrize and update Verification and Validation section.
+763d2f7131bd973abf7bd70c44f85dac2d7a1ab0 BXMSDOC-1631-master Modularize and update Writing Rules up to Guided Decision Trees.
+
+===============================================================================
+Repository: kie-wb-distributions
+===============================================================================
+93d538bcbc0db691857c561f121b85a4328f8490 GUVNOR-3461: Business Dashboard perspective is not available for admin user (#637)
+4697ff5459df8146e37636124f230ab670d9734e GUVNOR-3524: Do not expose unsupported features by UI (e.g. scorecards, decision trees) (#631) (#635)
+24a909116db3635bead6ccc79789afe2d47c0250 GUVNOR-3200: [Guided Decision Table] Access control to prohibit business users from modifying columns (#634)
+db7ab287d98d140bc96d304b7d3522fa408bc15f PLANNER-888: Create optaplanner-wb-models module in optaplanner project (#633)
