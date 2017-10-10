@@ -1,0 +1,148 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2017.10.09
+Code Cutoff Date: 2017.10.09
+Source Product Tag: 7.4.0.t015
+Community Tag (if available): build from kie 7.4.x branch
+
+Product Pages:
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_112"
+Java(TM) SE Runtime Environment (build 1.8.0_112-b15)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_112, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_112/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build
+------------------------------------------------------------------------
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.4.0.t015
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.4.0.t015
+https://github.com/kiegroup/drools/tree/7.4.0.t015
+https://github.com/kiegroup/optaplanner/tree/7.4.0.t015
+https://github.com/kiegroup/jbpm/tree/7.4.0.t015
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.4.0.t015
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------
+                     Component owners contacts
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+------------------------------------------------------------------------
+                              Notes
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The diff to previous tag 7.3.1.t013 (7.4.0.t014 was incorrect) are these commits:
+
+**************************************************************
+droolsjbpm-build-bootstrap..:
+1bbb026--new branch 7.4.x--Michael Biarnes Kiefer
+b478ccb--PLANNER-888: Create optaplanner-wb-models module in optaplanner project (#567)--Matej Čimbora
+c61672f--GUVNOR-3394: [DMN Editor] Literal Expression: Line breaks for multiple line expressions (#564) (#565)--Michael Anstis
+c237b98--upgraded to jboss-ip-bom 7.0.1.Final--Michael Biarnes Kiefer
+3cea3a6--JBPM-6426: Use of Errai's embedded Wildfly server 10.1.0.Final (#561)--Roger Martínez
+ba9632d--jbpm-case-mgmt is not exist anymore, so remove it from jbpm-bom--Ryan Zhang
+5cf4787--upgrade to xstream 1.4.10--Mario Fusco
+13bfcf9--[GUVNOR-3500] New project creation fails from Guvnor ALA OpenShift Provider (#552)--David Ward
+**************************************************************
+droolsjbpm-knowledge..:
+5fa9f51--new branch 7.4.x--Michael Biarnes Kiefer
+2a58b15--[DROOLS-1726] configure XStream security framework (#267)--Mario Fusco
+**************************************************************
+drools..:
+9961888--new branch 7.4.x--Michael Biarnes Kiefer
+9810a14--DROOLS-1753: fixing replace() function with escape characters (#1524)--Edson Tirelli
+87abd81--DROOLS-1752: Fixing 'substring after' function (#1522)--Edson Tirelli
+a095ce7--PLANNER-865: Workbench: ScoreHolder support in GuidedDecisionTables causes error in server log (#1517)--Matej Čimbora
+c27be95--[DROOLS-1751] NullPointerException on org.mvel2.MVEL.executeExpression() (#1515)--Toshiya Kobayashi
+9140501--[DROOLS-1651] FEEL String marshaller fails on list of null (#1488) (#1511)--Fedor Gavrilov
+ba4a4dd--[DROOLS-1675] Wrong FEEL external function definition throws NPE pt.2 (#1487) (#1510)--Fedor Gavrilov
+0b1d5f3--[DROOLS-1667] FEEL expression fails: 1 + if true then 1 else 2 (#1509)--Fedor Gavrilov
+0808e9c--Fix asSystemSpecificPath method so that windows drive, even in lower case (as 'c:\'), is not removed (#1477)--Benjamin
+0600db7--[DROOLS-1744] avoid adding duplicated resources to dtable configuration (#1502)--Mario Fusco
+800bd08--RHBRMS-2689: Unable to build project if kbase and ksession names are identical (#1496) (#1501)--Michael Anstis
+fba67ed--GUVNOR-3334: Test dsl date marshalling (#1499)--Jozef Marko
+ebf541f--GUVNOR-3482: Assets cannot be open after version of an asset is switched in big repository (#1466) (#1472)--Michael Anstis
+826f1b6--[7.3.x] GUVNOR-3509: Test marshaling of not matches and not soundslike operators (#1491)--Jozef Marko
+92f838b--GUVNOR-3517: Test Dsl with apostrophe (#1493)--Jozef Marko
+a25a03a--[DROOLS-1742] manage change of package in drl file during incremental compilation (#1489)--Mario Fusco
+074c9bd--[DROOLS-1726] configure XStream security framework (#1485)--Mario Fusco
+d0f42d2--GUVNOR-3479 : [GSS-RFE] Add support for missing keywords like "not ma (#1480)--Toni Rikkola
+a8800b3--[DROOLS-1740] read configuration of defualt KieBase and KieSession fr… (#1484)--Mario Fusco
+4941795--[DROOLS-1739] ensure creation of the segment memory of a subnetwork when the main segment memory is created from a prototype (#1483)--Mario Fusco
+ebd9370--DROOLS-1738: test not soundslike operator (#1482)--Jozef Marko
+**************************************************************
+optaplanner..:
+4b8eede--new branch 7.4.x--Michael Biarnes Kiefer
+17c6024--PLANNER-888: Create optaplanner-wb-models module in optaplanner project (#341)--Matej Čimbora
+ac8b4a6--PLANNER-879 Configure XStream security framework--Geoffrey De Smet
+**************************************************************
+jbpm..:
+8adc5f2--new branch 7.4.x--Michael Biarnes Kiefer
+b51aa21--JBPM-6459 - Update taskInstance attributes and variables inside the same REST API call (#1006) (#1010)--Maciej Swiderski
+8c006f7--Fix incorrect update statement in upgrade script for Oracle DB (#1013)--Tibor Zimanyi
+1257b75--RHBPMS-4959 - Tasks: GET request returns SessionNotFoundException when task belongs to aborted process instance (#994) (#1003)--Maciej Swiderski
+cb4ffb5--JBPM-6434 - ProcessInstance is not correctly persisted when loaded with readOnly = true early in the same transaction--Maciej Swiderski
+0ddb601--JBPM-6434 - ProcessInstance is not correctly persisted when loaded with readOnly = true early in the same transaction - Unit test--Toshiya Kobayashi
+0cf9803--JBPM-6292 - Add index to ExecutionErrorInfo PROCESS_INST_ID and ERROR_ACK columns (#1004)--Cristiano Nicolai
+e75e57d--JBPM-6433 - RESTWorkItemHandler - rename Content parameter to ContentData (#999)--Tihomir Surdilovic
+64cae22--JBPM-6429 - Workitem Archetype - allow @Wid parameter inheritance from handler interfaces (#996)--Tihomir Surdilovic
+10f5e95--JBPM-6047: Uploaded documents not visible on Documents tab on process Instance details (#982)--Pere Fernández
+ab727dc--[DROOLS-1726] configure XStream security framework (#980)--Mario Fusco
+4a35775--RHBPMS-4950 - UpdateTimerCommand does not work for timers in embedded sub process (#992)--Maciej Swiderski
+c48a519--JBPM-6425 - Workitem Archetype - generated .wid file should use name based on user project (#991)--Tihomir Surdilovic
+abb77fa--Installer - Add system properties to deploy demo and show Case Management app link (#988)--nmirasch
+0561c88--JBPM-6417 - Kie Server rest Signals API does not resolve mvel expressions (#985)--Tihomir Surdilovic
+**************************************************************
+droolsjbpm-integration..:
+04aef59--new branch 7.4.x--Michael Biarnes Kiefer
+404d053--PLANNER-888: Create optaplanner-wb-models module in optaplanner project (#1229)--Matej Čimbora
+58d188b--JBPM-6459 - Update taskInstance attributes and variables inside the same REST API call (#1223) (#1226)--Maciej Swiderski
+3476cce--JBPM-6449 - Kie Server Router should retry when updating controller config in case of controller's unavailability, JBPM-6448 - Connectivity lost between kie server router and kie server (#1219) (#1224)--Maciej Swiderski
+50d575e--JBPM-6456: Unable to open tasks that contain subforms. (#1221)--Pere Fernández
+ea4df40--JBPM-6445: Maven plugin fails to deploy to server root context (#1218)--Rafael Barriuso
+58819c2--Create client for Smart router operations (#1214)--Karel Suta
+cdc034f--JBPM-6423 - Advanced Queries: input data field comes with wrong values in response (#1206)--Maciej Swiderski
+c2758e7--[7.3.x] RHBPMS-4862: Container started by upgrade doesn't contain process configuration (#1208)--Guilherme Carreiro
+e2a80c0--Rename Dispose command test (#1210)--Karel Suta
+1ea7279--[DROOLS-1726] configure XStream security framework (#1188)--Mario Fusco
+4da59e8--Use Kie server settings.xml for local artifact removal (#1205)--Karel Suta
+ebde686--[DROOLS-1732] use correct plugin classloader for kie-maven-plugin (#1196)--Petr Široký
+2b972f5--Show warning in case server template file isn't found (#1202)--Karel Suta
+9c3f231--RHBPMS-4941 - Smart router returns HTTP 503 - Rewrite HOST header with target host for proxy requests (#1198)--Karel Suta
