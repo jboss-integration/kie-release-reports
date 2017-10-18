@@ -1,0 +1,245 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2017-10-18-12:00
+Code Cutoff Date: 2017-10-18
+Target Product Build: 7.0.0.CR2
+Payload Tracker:
+Source Product Tag: sync-7.4.x-2017.10.18
+Community Tag (if available): based on 7.4.x
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/drools/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/optaplanner/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/jbpm/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/guvnor/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/kie-wb-playground/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/kie-wb-common/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/drools-wb/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/optaplanner-wb/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/jbpm-designer/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/jbpm-wb/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/kie-docs/tree/sync-7.4.x-2017.10.18
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-7.4.x-2017.10.18
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 7.0.1.Final
+Uberfire: 1.4.1.20171018-prod (https://github.com/jboss-integration/uberfire/tree/sync-7.4.x-2017.10.18)
+Dashbuilder: 1.0.1.20171018-prod (https://github.com/jboss-integration/dashbuilder/tree/sync-7.4.x-2017.10.18)
+Errai: 4.0.3.Final (released, tag available at https://github.com/errai/errai/tree/4.0.3.Final)
+
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -T2 -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -XX:MaxPermSize=256m -XX:PermSize=128m -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         cnicolai@redhat.com
+guvnor                          manstis@redhat.com
+kie-wb-playground               manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+drools-wb                       manstis@redhat.com
+optaplanner-wb                  gdesmet@redhat,com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-wb		                cnicolai@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distributions            manstis@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The commits are the same as the commits on 7.4.x branch of cut-off day:
+
+===============================================================================
+repository: droolsjbpm-build-bootstrap
+===============================================================================
+0c2740ce4b2b722b2d448d2f637669b20200f2df RHBPMS-5000: Remove old jBPM-Form-Modeler (#579)
+729a2624184d46071ee69f40071d5d6c28681827 bumped to next SNAPSHOT version
+06d9e4c8989863f8b1be02ece557abad7023e57d Revert "override of version of xnio to align to EAP 7.0.8"
+f9f8414c539009ef33516fbd0f524c3996ba4004 override of version of xnio to align to EAP 7.0.8
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+6145c08370d46cf27f05adffd17fe41b8882e7a6 bumped to next SNAPSHOT version
+5fa9f51bec7d56cb4e28de4f0f713096f48ba3ec new branch 7.4.x
+2a58b15825f757c54471072f644a25be59ac7939 [DROOLS-1726] configure XStream security framework (#267)
+273aa82bcae58e277a6e9705c451cb7f98e822f0 Added Drools Channel support to kmodule XML-Schema. (#265)
+
+===============================================================================
+Repository: drools
+===============================================================================
+d483aa7a8fcb36c9388a18d21e7156b366ea8199 bumped to next SNAPSHOT version
+22759b249110b8fe57970ed824a075369f2d2740 [DROOLS-1730] Cyclic information requirement generates a stackoverflow (#1534)
+3cc7c14c8d9cf5a7efc680ae55970c2cb9a459b7 [DROOLS-1670] FEEL expression 1 ++++++ 2 passes with result 3 (#1541)
+d234901ae4be08d719f71d27a1c6a3a2438d9266 [DROOLS-1691] Add method to the DMNRuntime to execute multiple decisions at once (#1540)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+5830ecbdfb0c5c6bf13577790d26e0f8b9d0c68d bumped to next SNAPSHOT version
+4afafd5bc49344764d9ea90f16fa2c3b0cf71199 RHBRMS-3009 Aggregator fails due to XStream security exception
+4b8eede4f3563a1a3084a5d45eb2c09c9acd2db8 new branch 7.4.x
+17c6024e10a1daf9aa8dd3678d54e536c31724c9 PLANNER-888: Create optaplanner-wb-models module in optaplanner project (#341)
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+49f2bf2ba611a97e6e5996a8d3eb60f1f3720055 bumped to next SNAPSHOT version
+8370cc693eb8ce5b4f0147323a008083c685a5ae RHBPMS-4994 - org.drools.core.WorkItemHandlerNotFoundException doesn't generate an execution error (#1031)
+fa7d0ffeb6215683eb59392e9a34fb675134a81d JBPM-5651 - Add excluded owner task id filter into potential owner preprocessor (#1029)
+1081c6566642a6a0542c064b89ee4eca185c3018 JBPM-6463 - Clustered EJB timers start duplicated process instances when used inside startEvent (#1022) (#1028)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+c224caa609c9c3002fdfb2a8609f915952c01b97 bumped to next SNAPSHOT version
+04aef5985fc5d04f5e20af563db22e052277e0cc new branch 7.4.x
+404d053d4ae02669974a8618d8b28de22f0e5b23 PLANNER-888: Create optaplanner-wb-models module in optaplanner project (#1229)
+58d188bfbbaf07b76addd72e6314c2ad75e8b0d1 JBPM-6459 - Update taskInstance attributes and variables inside the same REST API call (#1223) (#1226)
+
+===============================================================================
+Repository: droolsjbpm-tools
+===============================================================================
+93d6197f67ee5b4246b1345c1a5150ae361854ee bumped to next SNAPSHOT version
+5f5247fe91bb90ebba2357e850296f45171773f2 new branch 7.4.x
+99386ad91f6ccea2451e634de88b32ffe470c0dd upgraded to 7.3.1-SNAPSHOT (#83)
+2b69189295c863e5d01fbe380d94f688db0470eb JBTIS-1045 - update drools target platform to Oxygen-based JBNTIS 4.5.0.Final (#81)
+
+===============================================================================
+Repository: kie-uberfire-extensions
+===============================================================================
+2152ad7fd6f87f52519f9db24a0f99d78c16519b bumped to next SNAPSHOT version
+a92330e62a0bc9ab14eb2cd98bdf559216ed39cc new branch 7.4.x
+6f27a78c21035ebf749708712a2cd7ffbc64a581 upgraded to 7.3.1-SNAPSHOT (#55)
+07b744dc070eb5f5dbb9aaeb7dffb3736d9edddf upgraded to Zanata 7.3.0 (#53)
+
+===============================================================================
+Repository: guvnor
+===============================================================================
+637e36f88de8d959888afc73b49194ad3214ac4a bumped to next SNAPSHOT version
+14bb2c8d6d3af5d49e4d4a57b4803f6a7e57fea6 new branch 7.4.x
+03b8e51d41f038b985b7afc57500d8d09c89f1dc [GUVNOR-3500] New project creation fails from Guvnor ALA OpenShift Provider (#516)
+22d867502e9d69e5da5843b54e9b28598ca701be Support multiple GAVs per Runtime (#514)
+
+===============================================================================
+Repository: kie-wb-playground
+===============================================================================
+b3d80937609d595ad2bb65f6c371dafd56f2f02c RHBPMS-5000: Remove old jBPM-Form-Modeler (#40)
+e3be4d93f33cb735fa599788869c2da96d3df017 bumped to next SNAPSHOT version
+92e8abcef4dd32329b8b8bbe775a13b69d33fd39 new branch 7.4.x
+75fe15c1433aa2be88251c2bc0a1fb84ec8b1653 PLANNER-847: Workbench: Improve description of playground repository examples
+
+===============================================================================
+Repository: kie-wb-common
+===============================================================================
+5d5a26d9c97e89a515b4ba6254dcfcc37ce92ffd RHBPMS-5000: Remove old jBPM-Form-Modeler (#1240)
+74cfcb9826a16e29873234ceec89975cc4af0cf9 GUVNOR-3531: Workbench navigation - An error popup appears, if unsaved data, when navigating to the Projects screen (#1249)
+82ccc15585340e5c9ad9dcc0ec6ec6b0288bcf5b RHBPMS-5014: Remove "None" Form Model on the New Form Wizzard. (#1244)
+eb3937e804bbbd42ec02f93bef12bf20b0f302b7 bumped to next SNAPSHOT version
+
+===============================================================================
+Repository: drools-wb
+===============================================================================
+e8c67cc2d289adc60d21a28ff2c3743ef142ae3c bumped to next SNAPSHOT version
+608221e5561b8ba9c3e6faf82de5d5be134734ad RHBPMS-5008: [Security management] Disabled assets can be edited (#658) (#660)
+ae000b759d4aba119f35a0720b482d62ef56d27f GUVNOR-3431: [Guided Rule] Unable to set literal value of accumulated condition (#657)
+7176849d8758158a10828fd7869df4dd741c3dfd GUVNOR-3513: Guided Decision table V&V: Results are completely random (#653)
+
+===============================================================================
+Repository: optaplanner-wb
+===============================================================================
+d3054c3963104ce56862fd5a0a25b6aec351e61f upgraded version to 7.4.1.20171018-prod
+7d4c4391003062601b23fbea88d1535c596365d3 bumped to next SNAPSHOT version
+5151e4202570643077ca050497993e5d85e47d5a new branch 7.4.x
+c1b69dc7745365c7222fded7cf0d12207f4f8be7 [7.3.x] PLANNER-888: Create optaplanner-wb-models module in optaplanner project (#225)
+d37c52926c03df7b77a3e9740160a2c741310ef2 upgraded to 7.3.1-SNAPSHOT (#220)
+
+===============================================================================
+Repository: jbpm-designer
+===============================================================================
+647ef0f644033fc552092399397f1e53c13d014b bumped to next SNAPSHOT version
+86cd0974459b50b1492769dfd36a740a1b636cda RHBPMS-5008: [Security management] Disabled assets can be edited (#683) (#684)
+674b45b14d37d0ec2925d4bb6f33db59957ee217 JBPM-6499 - Remove .form forms from jbpm-designer (#682)
+ac73f21f315f666ac0025871b67b63ae366c937f JBPM-6492 - Fix JSON issues in designer BPMN2 stencil definition (#678)
+
+===============================================================================
+Repository: jbpm-wb
+===============================================================================
+fa2cc519a1f0a59fdc4603956cd566bc93205835 RHBPMS-5000: Remove old jBPM-Form-Modeler (#918)
+d6506e20cfa3435868c81811a6e70fd1a946e1ec bumped to next SNAPSHOT version
+a1c342c79af7b5af1cdb64cde0b83b59aa2061af JBPM-5651 - Add excluded owner table join to task data set (#917)
+e5c2f864b3e37697606615f0c5b662263978854f new branch 7.4.x
+
+===============================================================================
+Repository: kie-docs
+===============================================================================
+71ec7683c607d2814a9d169d6c579e942b88aa26 bumped to next SNAPSHOT version
+be8a2e1983fda74ca9225541eb80df8ac36d8e68 Merge pull request #9 from emmurphy1/BXMSDOC-1728-master
+a555587538680ce43d1a08b1f4920ecc743b2749 7.4.0.Final N&N (#434)
+d4b3bb3335355e5081dffc250ef9ed55ea6be7de Backport several fixes from master (#341) (#435)
+
+===============================================================================
+Repository: kie-wb-distributions
+===============================================================================
+dd043e4dff003386a7c18f94f74698af04c4a79d RHBPMS-5000: Remove old jBPM-Form-Modeler (#640)
+dc426e5ba74691d68a7b5148d17768a2f5970e52 bumped to next SNAPSHOT version
+48c15c14d82ae377d248575190f032e3772b725b new branch 7.4.x
+93d538bcbc0db691857c561f121b85a4328f8490 GUVNOR-3461: Business Dashboard perspective is not available for admin user (#637)
