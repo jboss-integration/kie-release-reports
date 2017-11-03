@@ -1,0 +1,166 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2017.11.03
+Code Cutoff Date: 2017.11.03
+Source Product Tag: 7.5.0.t016
+Community Tag (if available): build from kie master branch
+
+Product Pages:
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_112"
+Java(TM) SE Runtime Environment (build 1.8.0_112-b15)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_112, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_112/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build
+------------------------------------------------------------------------
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.5.0.t016
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.5.0.t016
+https://github.com/kiegroup/drools/tree/7.5.0.t016
+https://github.com/kiegroup/optaplanner/tree/7.5.0.t016
+https://github.com/kiegroup/jbpm/tree/7.5.0.t016
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.5.0.t016
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 7.0.0.Final
+kie-soup: 7.5.0.t016 (branch available https://github.com/kiegroup/kie-soup/tree/r7.5.0.t016)
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------
+                     Component owners contacts
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+------------------------------------------------------------------------
+                              Notes
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, optaplanner, dashbuilder  and uberfire repositories are removed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The tag is from master branch, the last tag 7.4.0.t015 was from the 7.4.x branch.
+So these are the last 10 commits on each rep.:
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+42a8b37da1ced985b8ffa2e724398e8fbba4a8aa upgraded to 7.5.0.t016
+fe44be5e517f8c86c3e4c31da0e937dd0838676b Change version to check against with revapi to 7.0.0.Final
+030d4c18dbdbc4bc4edc46e5cf326c9ddcc4a8b6 AF-593+: Move uberfire-maven-utils to kie-soup. (#585)
+e093a9624d3e841e9e033967173793b3d2f45538 Upgrade mvel to 2.4.0.Final to support JDK9 (#593)
+e9669c815c4a7ff4d416a33e1115d7848306a766 Remove duplicated uberfir-bom from depMgmt
+17275a0d161f9eda4c431ae0a89aa77233bd18ab [DROOLS-1169] remove Java NATIVE compiler workaround as ECJ works with JDK9
+899015885adea1cf99721752bb611ebcd1724b27 [DROOLS-1779] JDK9: add additional Java EE deps for javadoc plugin
+d67b728a5d323db863026b5a751a727b4daf5dac Upgrade enforcer and javadoc plugins to support Java 9
+2303aeb489895c2efca3e469c28f5e68fae08590 Latest released version is 7.4.1.Final
+9ea4d94d52813ed126be94123fcbca4141d739bf [DROOLS-1779] upgrade revapi-maven-plugin to 0.9.4, to support JDK 9
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+295ca923ee4d325a07bb50774218e9d9e1d74e68 upgraded to 7.5.0.t016
+04185566b51f6c44aaf831e75039b5601a7200e3 Revapi checks against 7.0.0.Final now
+012c6ce912a7732cb3228f34c860a78553355601 AF-593+: Move uberfire-maven-utils to kie-soup. (#274)
+9985ef1564cc491f7fed615e46b236d90b503839 AF-593+: Move XStreamUtils to kie-soup. (#277)
+bddfdd78391ab7c479aebb506e58e14097472a24 [DROOLS-1780] escape invalid chars in javadoc (#273)
+9369fb8623694605b376b70a7943a13585557926 Use XStreamUtils.createTrustingXStream(..) helper - marker interface for KIE class loaders (#272)
+55dfec7b811305c21e760d6cede5ebea7622e72d [DROOLS-1764] add drools commands to whitelisted classes of untrusted xstream
+620e459c8f3efe61e487dce3db879d00bb72aed4 [DROOLS-1764] add drools commands to whitelisted classes of untrusted xstream
+7b0a109ae5eaa2916c48e1b47cd2fecf6474f485 XStreamUtils helper allow to create xstream with reflection provider and driver (#271)
+53ad56f582464d8bc4e8a62930b1626632f1d89f downgraded to 7.5.0-SNAPSHOT
+
+===============================================================================
+Repository: drools
+===============================================================================
+6f8dbd945bdc3a98fe077745873113de02b8d072 upgraded to 7.5.0.t016
+30b2fe6738e3148bf271a4113993353c9b0eb2cf DROOLS-1903 : GRE DSL: Multiline code blocks break the editor (#1574)
+e5eb0e7efad5f155db8f71d44c49718d779a0f9e DROOLS-2101 Proper namespace for functiondefinition other/"kind" attr. (#1577)
+4b6af7ae4c53a925b1119cd5a91d8b5d75eeab82 [DROOLS-2075] Allow empty output cell on DTs (#1565)
+c343782ad3bc24140136bbba8fce98c39bd30c37 DROOLS-2100: adding split() function (#1576)
+0d558acaf94c2ebd820ac9585197ac4879bf0dac Revapi checks against 7.0.0.Final now
+7a6db1342925872a898dee3f1d03f835b198a7eb DROOLS-1598 Support additional Signavio FEEL functions (#1571)
+83fc288d2d1a086f58742db7874925ea3ee90686 AF-593+: Move uberfire-maven-utils to kie-soup. (#1559)
+7fa9700566ce9d197644435d8a66521a7606d01e upgrade to java 9 (#1572)
+3fef9142961d33a945a47e55d2492129e0410fcd DROOLS-2072: Evaluate GDT that uses DSL in runtime (#1568)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+452f00c834b4c9b6f9a352472973759eecbdb3d3 upgraded to 7.5.0.t016
+cce163a1c8c883bbbb850357173917440a122365 revapi for final making of ConstraintMatch, CMTotal and Indictment
+52ba918329c79237100472223e0814542a9b89dd add @Override
+7a50e8576b923672e42e0b9241cb01fc9685dd0d equals/hashCode/compareTo in ConstraintMatch, ConstraintMatchTotal and Indictment
+a1f24f161600d19119fcf347e26525a923cbd8a4 distribution: JDK9 javadoc requires additional deps
+28f1ea791917c69b46dd2d09c94e6112815ecde8 persistence-jpa: add jaxb-api dependency to fix JDK9 build
+3e1becceade970b067c92d8446bf5472fc00a09c Revapi checks against 7.0.0.Final now
+9186790086fa8b7edf37eb48aa516bcce4f27300 reduce UI clutter by removing unneeded shortcuts border
+c9e3c98bc183f573321635936d71fa6455654548 PLANNER-424 Import/open action should clear selection (and other JList selection too).
+91f71d142595e18ff1ba5c2c1cf8edcd2ec22c90 PLANNER-424 Jiri's suggestions
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+eb54969231b553d4c1bd4123971434994a1949bc upgraded to 7.5.0.t016
+106f28283c898ebcd7bedbce9f10e44857c082e0 RHBPMS-5042 - Signal fails with 'Could not find process instance with id' when the Audit mode is NONE (#1050)
+a824afdabf73218449b4e77b4b43e08d53e28749 distribution: JDK9 javadoc requires additional deps (#1052)
+32b73d1774950138d711ca70c32c8c8a7efad87d Jbpm tests stabilisation (#1043)
+9f00e7ac37fba0a93d504ee87ea531f05386ee7d Revapi checks against 7.0.0.Final now
+fbee0936db3eef861ae27d39da15b04fc5081066 AF-593+: Move uberfire-maven-utils to kie-soup. (#1045)
+af6a60ada1831c54d951a4887acabf7c34421225 JBPM-6570 - CDI: wrong UserGroupCallback in RuntimeDataService
+d296f6e8539c12c6cff22bcd98e51ce2d1362df1 JBPM-6518 - RuntimeDataServiceImpl.getTaskEvent throw TaskNotFoundException
+571bd48cf8ade30a4f584a380320045a1a01fc54 Add missing EE spec jars to support Java 9 build
+1e3e2f5c46243a6e4859a18e6449e54cb813a74c AF-593+: Move XStreamUtils to kie-soup. (#1047)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+d4904a822b801121b1c1e6ee2d37269c09e88301 upgraded to 7.5.0.t016
+2dccbfe49ce939e1f840f71bad55a50f7d5ae140 JBPM-6581 - Synchronization issues in controller when Kie servers are unregistered (#1259)
+bdf10d147831cd4eea3d0b02186b6f93c8650fd6 RHBPMS-5042 - Signal fails with 'Could not find process instance with id' when the Audit mode is NONE (#1252)
+f45f238524191f951431fc387530b5275b337c7a Revapi checks against 7.0.0.Final now
+57ee3b50f776bb68abae78c2c5737f23aae4a316 AF-593+: Move uberfire-maven-utils to kie-soup. (#1247)
+0f84a8f4569d49c5a160804e4cd2b393e6e94486 Initial test support for WildFly11 (#1246)
+579cce22558be0871834573a7285f607a566140e Fix indentation in revapi config files
+ab2c174ca26ea90da11e0659a0a41643c91c14f1 revapi: adjust configs after version upgrade
+6ffd9d73441f5bd4892fbbb34a667875cc2eda43 [DO-NOT-MERGE] try removing kie-ci as it's hopefully not needed (#1250)
+22ae796c9667724b6c5430ced98b62e1a2e92ef6 AF-593+: Move XStreamUtils to kie-soup. (#1248)
+
+===============================================================================
+
