@@ -1,0 +1,340 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2017-11-02-12:00
+Code Cutoff Date: 2017-11-02
+Target Product Build: 7.0.0.DR1-GA
+Payload Tracker:
+Source Product Tag: sync-7.5.x-2017.11.02
+Community Tag (if available): based on master
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/drools/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/optaplanner/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/jbpm/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/kie-wb-playground/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/kie-wb-common/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/drools-wb/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/optaplanner-wb/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/jbpm-designer/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/jbpm-wb/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/kie-docs/tree/sync-7.5.x-2017.11.02
+https://github.com/jboss-integration/kie-wb-distributions/tree/sync-7.5.x-2017.11.02
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 7.0.0.Final
+Uberfire: 2.0.0.20171102-prod (sync-6.5.x-2017.11.02 tag on Gerrit)
+Dashbuilder: 1.0.1.20171018-prod (sync-6.5.x-2017.11.02 on Gerrit)
+kie-soup: 7.5.0.20171102-prod (https://github.com/jboss-integration/kie-soup/tree/sync-7.5.x-2017.11.02)
+Errai: 4.1.0.Final (released, tag available at https://github.com/errai/errai/tree/4.1.0.Final)
+
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -T2 -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -XX:MaxPermSize=256m -XX:PermSize=128m -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         cnicolai@redhat.com
+guvnor                          manstis@redhat.com
+kie-wb-playground               manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+drools-wb                       manstis@redhat.com
+optaplanner-wb                  gdesmet@redhat,com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-wb		                cnicolai@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distributions            manstis@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+During the build there failed 25 tests.
+It is not clear if these are intermittend test failures or something more serious.
+Development is checking right now what caused these failures.
+If this has to be fixed we will fix it for the next release.
+
+These are the last 10 commits of master branch on cut-off date:
+
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+fe44be5e517f8c86c3e4c31da0e937dd0838676b Change version to check against with revapi to 7.0.0.Final
+030d4c18dbdbc4bc4edc46e5cf326c9ddcc4a8b6 AF-593+: Move uberfire-maven-utils to kie-soup. (#585)
+e093a9624d3e841e9e033967173793b3d2f45538 Upgrade mvel to 2.4.0.Final to support JDK9 (#593)
+e9669c815c4a7ff4d416a33e1115d7848306a766 Remove duplicated uberfir-bom from depMgmt
+17275a0d161f9eda4c431ae0a89aa77233bd18ab [DROOLS-1169] remove Java NATIVE compiler workaround as ECJ works with JDK9
+899015885adea1cf99721752bb611ebcd1724b27 [DROOLS-1779] JDK9: add additional Java EE deps for javadoc plugin
+d67b728a5d323db863026b5a751a727b4daf5dac Upgrade enforcer and javadoc plugins to support Java 9
+2303aeb489895c2efca3e469c28f5e68fae08590 Latest released version is 7.4.1.Final
+9ea4d94d52813ed126be94123fcbca4141d739bf [DROOLS-1779] upgrade revapi-maven-plugin to 0.9.4, to support JDK 9
+c190f86a23f4e46e7287c7577c84ebab0cc02516 Update Eclipse imports formatter (#563)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+04185566b51f6c44aaf831e75039b5601a7200e3 Revapi checks against 7.0.0.Final now
+012c6ce912a7732cb3228f34c860a78553355601 AF-593+: Move uberfire-maven-utils to kie-soup. (#274)
+9985ef1564cc491f7fed615e46b236d90b503839 AF-593+: Move XStreamUtils to kie-soup. (#277)
+bddfdd78391ab7c479aebb506e58e14097472a24 [DROOLS-1780] escape invalid chars in javadoc (#273)
+9369fb8623694605b376b70a7943a13585557926 Use XStreamUtils.createTrustingXStream(..) helper - marker interface for KIE class loaders (#272)
+55dfec7b811305c21e760d6cede5ebea7622e72d [DROOLS-1764] add drools commands to whitelisted classes of untrusted xstream
+620e459c8f3efe61e487dce3db879d00bb72aed4 [DROOLS-1764] add drools commands to whitelisted classes of untrusted xstream
+7b0a109ae5eaa2916c48e1b47cd2fecf6474f485 XStreamUtils helper allow to create xstream with reflection provider and driver (#271)
+53ad56f582464d8bc4e8a62930b1626632f1d89f downgraded to 7.5.0-SNAPSHOT
+0c64f39f06d4da63ab759aa5dc62f133be39a709 DROOLS-1764 Add method to create a trusted and untrusted XStream instance on XStreamUtils (#270)
+
+===============================================================================
+Repository: drools
+===============================================================================
+e5eb0e7efad5f155db8f71d44c49718d779a0f9e DROOLS-2101 Proper namespace for functiondefinition other/"kind" attr. (#1577)
+4b6af7ae4c53a925b1119cd5a91d8b5d75eeab82 [DROOLS-2075] Allow empty output cell on DTs (#1565)
+c343782ad3bc24140136bbba8fce98c39bd30c37 DROOLS-2100: adding split() function (#1576)
+0d558acaf94c2ebd820ac9585197ac4879bf0dac Revapi checks against 7.0.0.Final now
+7a6db1342925872a898dee3f1d03f835b198a7eb DROOLS-1598 Support additional Signavio FEEL functions (#1571)
+83fc288d2d1a086f58742db7874925ea3ee90686 AF-593+: Move uberfire-maven-utils to kie-soup. (#1559)
+7fa9700566ce9d197644435d8a66521a7606d01e upgrade to java 9 (#1572)
+3fef9142961d33a945a47e55d2492129e0410fcd DROOLS-2072: Evaluate GDT that uses DSL in runtime (#1568)
+a76219dfc6222919ba199911e6773aeba0b5e58b GUVNOR-3576: Creating a guided rule causes java.lang.RuntimeException (#1557)
+173959fd6f1c2e3dbf5145803eefa8da79c84182 AF-593+: Move XStreamUtils to kie-soup. (#1562)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+3e1becceade970b067c92d8446bf5472fc00a09c Revapi checks against 7.0.0.Final now
+9186790086fa8b7edf37eb48aa516bcce4f27300 reduce UI clutter by removing unneeded shortcuts border
+c9e3c98bc183f573321635936d71fa6455654548 PLANNER-424 Import/open action should clear selection (and other JList selection too).
+91f71d142595e18ff1ba5c2c1cf8edcd2ec22c90 PLANNER-424 Jiri's suggestions
+f572b47eadc5f4c06e263a3fe5f8f59f18dec71b [PLANNER-424] Get rid of the unsolved datasets buttons
+c5d2b4e1ed3c4c9e7dd09972948f6d8719078c05 Fix a few typos
+e215791772ad308136aeb1100d2cf0eda393aab3 Added missing slash in closing tag of subSingleCount-example
+c969ba09fb1e5efc005e6d3fbd11aa008cb9f6e9 Corrected wrong selector in example for pillarChangeMoveSelector
+4e978dcd9e11d9f666f786f6ebaa671a6d73204d Syntax error in Indictment-example for-loop
+0ff0383b45776169d6001abedaaf4a168c0a832a Fix a few documentation bugs
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+a824afdabf73218449b4e77b4b43e08d53e28749 distribution: JDK9 javadoc requires additional deps (#1052)
+32b73d1774950138d711ca70c32c8c8a7efad87d Jbpm tests stabilisation (#1043)
+9f00e7ac37fba0a93d504ee87ea531f05386ee7d Revapi checks against 7.0.0.Final now
+fbee0936db3eef861ae27d39da15b04fc5081066 AF-593+: Move uberfire-maven-utils to kie-soup. (#1045)
+af6a60ada1831c54d951a4887acabf7c34421225 JBPM-6570 - CDI: wrong UserGroupCallback in RuntimeDataService
+d296f6e8539c12c6cff22bcd98e51ce2d1362df1 JBPM-6518 - RuntimeDataServiceImpl.getTaskEvent throw TaskNotFoundException
+571bd48cf8ade30a4f584a380320045a1a01fc54 Add missing EE spec jars to support Java 9 build
+1e3e2f5c46243a6e4859a18e6449e54cb813a74c AF-593+: Move XStreamUtils to kie-soup. (#1047)
+c026908e67fe89166048bafa0f85108ea835e37a JBPM-6509 - Support for sub cases both from within case and process (#1041)
+3f6c26a9e3a34a809fd964edca0fed379f072acf JBPM-6514 - [Processes/Tasks dashboard] Charts by date show year only (#1042)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+f45f238524191f951431fc387530b5275b337c7a Revapi checks against 7.0.0.Final now
+57ee3b50f776bb68abae78c2c5737f23aae4a316 AF-593+: Move uberfire-maven-utils to kie-soup. (#1247)
+0f84a8f4569d49c5a160804e4cd2b393e6e94486 Initial test support for WildFly11 (#1246)
+579cce22558be0871834573a7285f607a566140e Fix indentation in revapi config files
+ab2c174ca26ea90da11e0659a0a41643c91c14f1 revapi: adjust configs after version upgrade
+6ffd9d73441f5bd4892fbbb34a667875cc2eda43 [DO-NOT-MERGE] try removing kie-ci as it's hopefully not needed (#1250)
+22ae796c9667724b6c5430ced98b62e1a2e92ef6 AF-593+: Move XStreamUtils to kie-soup. (#1248)
+ad6289c74ee3e101bf1d665838a6ed561c943d5c Fix leftover from version downgrade
+acb24bea6d4e2d35536a571541e463735113847f Revert "AF-593+: Move uberfire-maven-utils to kie-soup. (#1244)"
+9c4d7c0b116a1e516c311dc6e2b2edbb9645204e AF-593+: Move uberfire-maven-utils to kie-soup. (#1244)
+
+===============================================================================
+Repository: droolsjbpm-tools
+===============================================================================
+ebddae967bb518d7a1763fede339c3f1608e1929 AF-593+: Move uberfire-maven-utils to kie-soup. (#84)
+45d12b801af4a1ba74776d4d8c16dba171a1002d downgraded to 7.5.0-SNAPSHOT
+32949f9241bc97a512732d8ba7ecbb84f367772c AF-593: Decouple DMO from Drools (#82)
+afbe33c0d86635c3a2feb1bccd2c67b858c52e17 JBTIS-1045 - update drools target platform to Oxygen-based JBNTIS 4.5.0.Final (#81)
+6633bd708d44eb3753bd4f8105b31e7574f84763 RHBRMS-2784 - XStream: DoS when unmarshalling void type (#75) (#79)
+ab3b0950e20ea5eb4e012b24d04e8c6cc2eb5adb [DROOLS-1650] remove jsr94 support (#78)
+aa46c68779c38b4f64323cd962638421f899393c [DROOLS-1582] split kie-ci (#76)
+9b8ecbaf83f9627b23f0c67d785cd927247d66ba Upgraded to next development version 8.0.0-SNAPSHOT (#74)
+c49c042359dc106861de04093f61d144063edd4d Fix compilation errors in tests
+b9088b3604731dbfc17724c46fdbcf3e83cff34d updated to 7.2.0-SNAPSHOT
+
+===============================================================================
+Repository: kie-uberfire-extensions
+===============================================================================
+ab9a1fb4f43b30e8ea44688e11a6ad8a6edff221 downgraded to 7.5.0-SNAPSHOT
+9ebaf05e8d8efd8f5306b2b9aa22cac8e0ec6797 upgraded to Zanata 8.0.0 (#54)
+9c90146d91fe5c193a7b7f7880142a5e16992ead Upgraded to next development version 8.0.0-SNAPSHOT (#52)
+7b2f4aadfde065fd1c03a7a4ead90be22fad47ef upgraded to 7.2.0 Zanata project (#51)
+00f9e9850a6eb2b12f650db42b6d9dc167e084c6 updated to 7.2.0-SNAPSHOT
+8fa043c3f6e2c3bad515ea931b98e166fca2d00d upgraded src/main/config/zanata.xml to link to new project 7.1.0 on https://translate.jboss.org (#49)
+6f135612a96992989ac10fc96aecba25d3bd1375 Upgraded to next development version 7.1.0-SNAPSHOT (#48)
+6bf8a11ea78ba8b144a3c00320249327a213908b Remove redundant property already defined in kie-parent
+708ac2bc3e15d1a5b93437affdb887f0ac50a171 Fail on duplicated classes
+b7d5226b0ddae8b2677866946e5a82c3c293ef19 Moving Social Activities Framework from kie-uberfire-extensions to uberfire-extensions (#47)
+
+===============================================================================
+Repository: kie-wb-playground
+===============================================================================
+7d94cdd517d828813941b7f0bf4e9010162d545b AF-593+: Move XStreamUtils to kie-soup. (#43)
+fe5de291c77d546a2b282cd9fef7938520a0043c JBPM-6507: Indexing errors on some playground forms. (#42)
+10e897ba35df4b8152b8f2b6b19799d7d5e7dc6a RHBPMS-5000: Remove old jBPM-Form-Modeler (#41)
+c3bacf640308b75e27e16effc7bb1a471290666b downgraded to 7.5.0-SNAPSHOT
+364166b3db5a5e11de601d3da08f9ac11df44829 PLANNER-847: Workbench: Improve description of playground repository examples
+3deca419e10014b0090b309e1fbf7e4315eb0024 Upgraded to next development version 8.0.0-SNAPSHOT (#34)
+c9b08305967a6a146d3acc2344aeac6fff91453c updated to 7.2.0-SNAPSHOT
+d4f0a6216db2ac1f8aae778e936e8b667718651b Improve consistency in curriculum course rule names (#32)
+e08937c3a8cb382290f3bf6c7633df04eac1d668 Update pom.xml (#33)
+c40bfd854b77b26c093768e1da04f127944e1758 PLANNER-590: Workbench: Dinnerparty example should work out of the box (#30)
+
+===============================================================================
+Repository: kie-wb-common
+===============================================================================
+ef41890fa0a559bd05371f5095d2ccc4c4087330 [BPMSPL-744] GIT related enhancements for scalable workspaces (#1257)
+8ffd0bc464265767d945edae365a185802741286 AF-593+: Move uberfire-maven-utils to kie-soup. (#1264)
+770750fd15d7b4e77541cedbef7056c12a047cce JBPM-6543: Execution Servers: Deleting container throws Runtime Exc… (#1260)
+8cd31219073d6d2d068c022c82f6e6d9a02922e7 JBPM-6057: Stunner - fail validation if process can't be loaded after reload (#1258)
+4b95b149eef85e3a5e94a275e02d2d8f228fd60e JBPM-5643: Stunner - Add Catching Intermediate Signal Event (#1273)
+8cc64c0045be50c3024a1b2ef0eb4625e6e69d17 Add system property for disabling the initialization of the by default drivers (#1272)
+562b6cc7c243183a2daac8eb61176290352db689 AF-593+: Move XStreamUtils to kie-soup. (#1269)
+a642e815cf33f36679e0ed216ef977eca11cf81b AF-890: avoid index respositories that aren't really needed. (#1271)
+ba8715264cba395255cfdc465b4aeea21832685c JBPM-6452: Fixing error when trying to create a new Case Management diagram. (#1270)
+8de2b7e8afbbe8a3f932695562596d61a23add53 adapted to the new Zanata server and project (#1262)
+
+===============================================================================
+Repository: drools-wb
+===============================================================================
+ff6cf2b0a35d34e4eee768b36aaf2697ddd0c898 GUVNOR-3448: Use real KieSession during runnning scenario in tests (#640)
+2c5a3696600d294788cbab9341b850fea285946e AF-593+: Move uberfire-maven-utils to kie-soup. (#674)
+cd1a09b31d36142c8a1db361e9f150a4c7ca9fa9 DROOLS-2077: Turn on static code analysis (#696)
+74306bd6832ea5f99631b5a6523d57b37a95b088 adapted to the new Zanata server and project (#672)
+4af794fd1df69664f8f3903397dd8f8699436b3c DROOLS-2094: Prepare drools-wb-guided-template-editor module for static code analysis (#690)
+47844edbc1f6faa7ef34205f67581b9255d09a20 DROOLS-2093: Prepare drools-wb-guided-scorecard-editor module for static code analysis (#689)
+50d2cb29580e3a1105a67f49f6a8b6147dac0f7d DROOLS-2092: Prepare drools-wb-guided-rule-editor module for static code analysis (#688)
+47749168be129af415023d768526bb302108bdbc DROOLS-2091: Prepare drools-wb-guided-dtree-editor module for static code analysis (#687)
+1160dfb6a982a8ae3017ac805f5f704cb7580548 DROOLS-2089: Prepare drools-wb-globals-editor module for static code analysis (#685)
+0ac9ac84ffc5f98fff8091357fe02ea4a6d7a7c8 DROOLS-2088: Prepare drools-wb-factmodel-editor module for static code analysis (#684)
+
+===============================================================================
+Repository: optaplanner-wb
+===============================================================================
+3bb045333a9d4d9f48bd7529192cf90a3e5db23e AF-593+: Move uberfire-maven-utils to kie-soup. (#233)
+60f88fd51ee5b9962ede415bc67697505ed3247b AF-593+: Move XStreamUtils to kie-soup. (#234)
+04b7a7ebb23d47be820022f46202dc1458fd93b2 PLANNER-904: Workbench: Use XStreamUtils to obtain XStream instances
+8d1b35fc676b64fc6402932c055c91e4d79afcd0 AF-593+: Move Guvnor modules to uberfire and kie-wb-common. (#230)
+0caefc153bce81930fc826f6b5ef23e29a0cf6fc Remove optaplanner-wb-upstream-model module (moved to kiegroup/optaplanner as a part of PLANNER-888) (#226)
+f31fd81eff80fb8d219e31faff25c49b6ea24d4d downgraded to 7.5.0-SNAPSHOT
+fb28361e0eb2ffee4bb69ff811e248a87394c26d AF-593: Decouple DMO from Drools (#218)
+10c0d2fba58fd4e2da20dc8a3ef27cf754ba6f39 PLANNER-888: Create optaplanner-wb-models module in optaplanner project (#223)
+4a24f484fa18cdb3d79269f2095cd43a482758ad PLANNER-865: Workbench: ScoreHolder support in GuidedDecisionTables causes error in server log (#222)
+39352e19a799b4d442b53485c81e5eedf3d6fcf1 Revert "Temporarily revert to org.jboss.errai:wildfly-dist:10.0.0.Final"
+
+===============================================================================
+Repository: jbpm-designer
+===============================================================================
+e499b3807e74f277cb565ab259ac04f67f237a4f [BPMSPL-744] GIT related enhancements for scalable workspaces (#686)
+bfa8aa7cd5646af6d7e4fc34b7ee72bce213d605 Fix typo in Process Documentation. (#695)
+b40aa2e305e7e78324e050558c871f2699763864 Remove replaceAll statements which do not take effect (#689)
+0031d6d2ae3b4730fc7ef6125c4ebb881663cca7 adapted to the new Zanata server and project (#690)
+861f7d94b7f90ad3a92bc46b7d0cf3c56c633c87 AF-593+: Move Guvnor modules to uberfire and kie-wb-common. (#687)
+c864c336c6b6f8cbd1da3c7dfe456b32e915ee8a JBPM-6509 - Support for sub cases both from within case and process (#688)
+e5ab12978ecf1de8ad7d974124e891ec3f17f3c8 JBPM-6499 - Remove .form forms from jbpm-designer (#681)
+5a5b257cd1ad3387ff10b7cf6dbb8921fc4d5a40 downgraded to 7.5.0-SNAPSHOT
+eae4167921ecf183125cce3df5f39f82045a80e5 RHBPMS-5008: [Security management] Disabled assets can be edited (#683)
+1fba069f2d485bb859775f10faa660a1e75b5c16 JBPM-6492 - Fix JSON issues in designer BPMN2 stencil definition (#677)
+
+===============================================================================
+Repository: jbpm-wb
+===============================================================================
+a17e4e8d6892c4464ae4cead724da1e8d43e3c22 [AF-543] Refactoring in order to centralize FileSystem Calls and make FS lazy (#925)
+94ec7b246adfe4a9cfabc433cb828a2f9208ad7f AF-593+: Move uberfire-maven-utils to kie-soup. (#934)
+081c1c678fd16d3af9df90919719728337a3c1e4 [JBPM-6571] Write comminity tests to cover JBPM-6469 (#935)
+c7dc3df599e2d00d77e624eeca605566348ee658 JBPM-6509 - Support for sub cases both from within case and process (#929)
+a0c633fa89bfdb61b2c77cdc001b63c377baa34f JBPM-6514 - [Processes/Tasks dashboard] Charts by date show year only (#930)
+ec1a16865f235e50a4deda171383e150def4f7d1 AF-593+: Move Guvnor modules to uberfire and kie-wb-common. (#926)
+4292658417c9aabd580dab8aeb1a62485950112a Showcase deployment integration test (#928)
+88c95a8b908a42062640966d21c773d866b8bcb4 JBPM-5751: Process form dialog too narrow and cannot be resized (#927)
+1a5f92137be29910ff5d1f38d8d9b1409301668a JBPM-5833: Strange units used for displaying data in charts in Process and Task Dashboard (#922)
+b882172571029f59e203736d119fe079631d17c9 JBPM-6505: No default form displayed on task list when using old forms. (#923)
+
+===============================================================================
+Repository: kie-docs
+===============================================================================
+4d165eba26cddb306e2d28df74419aef11861902  Content management tooling N&N (#442)
+d79b304e151f669de2bfe48e6dd0ba4135d6f757 BXMSDOC-1316: all images are now found but problem still with producing a build file with ccutil
+c133be41bee1c22d30dd0cbb7b6e209e0444d954 BXMS-1316: Moved .adoc files out of folders and moved folders containing images to shared folder. Corrected minor asciidoc errors causing problems in docbook conversion
+60c0ab33bfe55e1518edb98f5fb4d0cdbff6e718 BXMSDOC-1316: Added optaplanner-docs folder from optaplanner repo and renamed it to product-business-resource-planner-guide for LA publication.
+fedad8dbc921b8d9e20c4e67c79a14f1b95c56c7 BXMSDOC-1766 Master Update user guide with BC deployment changes (#486)
+6b69f6cfd1152aff1474abb0eee942d0bc3e13fa Minor rewording based on QE feedback.
+9c5d418bb62fac1d8fa3d2ffdbf304391ac84af7 WIP: Updating the Process Simulation chapter for changes in 7.0
+ad643d4be389684dd95f4788d2aa39093ea440e8 BXMSDOC-1837 removed add-ons reference
+20891a90cf02df2ef153bc4912d076765b6d42ea BXMSDOC-1837 updated component and file names for LA release
+5af96bb136ec124aefd8c19e17104b7163e2630b BXMSDOC-1837 changed release name
+
+===============================================================================
+Repository: kie-wb-distributions
+===============================================================================
+200ad9a30c84e5d0ab17ae655b5f0adb42a29d28 AF-593+: Move uberfire-maven-utils to kie-soup. (#646)
+133928297a0db9055f2c53189b96ad8112333790 DROOLS-2076: [DataModelOracle] DSL Sentences are not loaded (#647)
+e050cce8af2ea7e980530e4574ad2dab56f7008c AF-593+: Move Guvnor modules to uberfire and kie-wb-common. (#643)
+04d05fd73b01380164c734205333389270b4655e RHBPMS-5000: Remove old jBPM-Form-Modeler (#641)
+b7bb5e93823d706fcfae482423cf0780b6219f28 downgraded to 7.5.0-SNAPSHOT
+ca96a817f621db90532fbce2edf4f61c0c50b173 DASHBUILDE-252: CMS perspective UI redesign (#638)
+123db7379600e96858c9d2259918ee43ee06287f AF-593: Decouple DMO from Drools (#621)
+5566df808b890454109aa3f6366cb41ba9b93c05 GUVNOR-3461: Business Dashboard perspective is not available for admin user (#636)
+bfb09e683db5819a2e3a47d9d0d7a5f78e71b0fe GUVNOR-3524: Do not expose unsupported features by UI (e.g. scorecards, decision trees) (#631)
+201028796bb8763d21bc57107348c932ce43277d GUVNOR-3200: [Guided Decision Table] Access control to prohibit business users from modifying columns (#628)
+
+
+
