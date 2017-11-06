@@ -4,7 +4,7 @@
 ------------------------------------------------------------------------
 Report Date: 2017-10-09-16:33
 Code Cutoff Date: 2017-10-09
-Target Product Build: 7.0.0.CR1
+Target Product Build: 7.0.0.CR1-LA
 Payload Tracker:
 Source Product Tag: sync-7.3.x-2017.10.09
 Community Tag (if available): based on 7.3.x
