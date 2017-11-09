@@ -20,17 +20,19 @@ https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
                           Build Tools
 ------------------------------------------------------------------------
 JAVA:
-java version "1.8.0_92"
-Java(TM) SE Runtime Environment (build 1.8.0_92-b14)
-Java HotSpot(TM) 64-Bit Server VM (build 25.92-b14, mixed mode)
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
 
 MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
 Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
-Maven home: /usr/local/maven/mavenVer
-Java version: 1.7.0_80, vendor: Oracle Corporation
-Java home: /usr/local/java/jdk1.7.0_80/jre
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
 Default locale: en_US, platform encoding: UTF-8
-OS name: "linux", version: "2.6.32-504.23.4.el6.x86_64", arch: "amd64", family: "unix"
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
 ------------------------------------------------------------------------
                         Sources to build
 ------------------------------------------------------------------------
