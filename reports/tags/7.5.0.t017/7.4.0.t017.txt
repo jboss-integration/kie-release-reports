@@ -1,0 +1,126 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2017.11.13
+Code Cutoff Date: 2017.11.13
+Source Product Tag: 7.5.0.t017
+Community Tag (if available): build from kie master branch
+
+Product Pages:
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build
+------------------------------------------------------------------------
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.5.0.t017
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.5.0.t017
+https://github.com/kiegroup/drools/tree/7.5.0.t017
+https://github.com/kiegroup/optaplanner/tree/7.5.0.t017
+https://github.com/kiegroup/jbpm/tree/7.5.0.t017
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.5.0.t017
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------
+                     Component owners contacts
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+------------------------------------------------------------------------
+                              Notes
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The diff to previous tag 7.5.0.t016 are these commits:
+
+
+**************************************************************
+droolsjbpm-build-bootstrap..:
+dd707d2--Setup fixes in README.md (#600)--Marek Novotný
+19290c3--fixed duplicate kie-platform-bom import--Marek Novotný
+7305c40--Upgrade Errai snapshot version. (#605)--Max Barkley
+b42824f--DROOLS-2123 Signavio extensions module was missing in the kie-dmn-bom (#603)--tarilabs
+f4fd88a--README.md: updated minimal java from 6 to 8 (#602)--Marek Novotný
+e486101--update-versions: few more missing '-s <settings.xml>'--Petr Široký
+4aed36d--AF-593+: Move dashbuilder-dataset to kie-soup. (#597)--Max Barkley
+94b1115--update-versions: use custom settings.xml for all mvn calls--Petr Široký
+**************************************************************
+drools..:
+e965011--[RHBPMS-4312] KeyStore integration into KIE (#1588)--Radovan Stancel
+96a1951--GUVNOR-3432: Test constraints that evaluates some formula (#1552)--Jozef Marko
+af70d1d--DROOLS-2111 Fix a case where mapping function modifies the map (#1587)--Tibor Zimanyi
+84be244--Test for custom Signavio functions to work in the LiteralExpression too (#1596)--tarilabs
+95cd869--DROOLS-2121: adding support for 'weekday' field on dates (#1594)--Edson Tirelli
+f37cea3--DROOLS-2117 Improve Msg.ERROR_EVAL_NODE_DEP_WRONG_TYPE (#1593)--tarilabs
+5c04043--Improving error reporting--Edson Tirelli
+677badc--DROOLS-1598 Fix small problems in Signavio DMN functions (#1584)--Tibor Zimanyi
+c141bba--fix JavaBackendTypeTest.testPerson fails on ConcurrentModificationExcptn (#1583)--tarilabs
+fd8d164--[DROOLS-2080] On Decision Tables with Hit Policy PRIORITY, only one output column needs the output values list (#1581)--Fedor Gavrilov
+**************************************************************
+optaplanner..:
+fd10109--PLANNER-919 Make runnablePartThreadSemaphore fair--Jiří Locker
+eb7dd9c--add the Asset Correlation website--Geoffrey De Smet
+c2943b7--test indictmentMapNeverNull--Geoffrey De Smet
+18c534e--PLANNER-909 Fix my feedback commit...--Geoffrey De Smet
+9dca247--PLANNER-909 feedback (thanks jiri)--Geoffrey De Smet
+**************************************************************
+jbpm..:
+a0fef86--JBPM-6595 - Case Roles: User/group assignments fail when using Case File (#1064)--Maciej Swiderski
+886c14e--JBPM-6602 - Completed HumanTask can be roll back using Resume REST API (#1066)--Maciej Swiderski
+fd02962--JBPM-6487 Jbpm tests stabilisation pr4 (#1065)--dcihak
+069af1e--JBPM-6590 - Isolation of Quartz scheduler / triggers per kjar (#1062)--Maciej Swiderski
+3bafb87--JBPM-6597: Prevent NPE when document storage dir doesn't exist (#1063)--Jan Hrcek
+66fc13e--adding debug log which is useful for trouble-shooting (#1061)--Toshiya Kobayashi
+eb0fa80--RHBPMS-5040 - Human Task should be in Obsolete status when we skip HumanTask (#1056)--Maciej Swiderski
+6f12327--Fix case comment event emitting (#1058)--Radovan Synek
+f2fcd14--Fixes JBPM-6591. ObjectOutputStream and ObjectInputStream are now auto-closed. (#1059)--Duncan Doyle
+ae21127--AF-593+: Move dashbuilder-dataset to kie-soup. (#1055)--Max Barkley
+**************************************************************
+droolsjbpm-integration..:
+4bf96d9--JBPM-6595 - Case Roles: User/group assignments fail when using Case File (#1265)--Maciej Swiderski
+3a875d8--[RHBPMS-4312] Added password loading from a key store (#1267)--Radovan Stancel
+d0dbaaf--RHBRMS-1220 removing drools-verifier (#1216)--ryan zhang
+9b631e8--JBPM-6593 - Clustering support for Standalone controller (#1262)--Maciej Swiderski
+3ee2caa--[DROOLS-2073] Kie server API to evaluate multiple decisions by name/id (#1254)--Fedor Gavrilov
+e263dd6--DROOLS-2112 Fix Missing DMN info/input req dependency fail with NPE (#1263)--tarilabs
+d50f674--JBPM-6469: 'Active User Tasks' are not displayed in Process Definition/ Process Instance page in workbench (#1261)--nmirasch
+8b4fc82--AF-593+: Move dashbuilder-dataset to kie-soup. (#1257)--Max Barkley
+**************************************************************
