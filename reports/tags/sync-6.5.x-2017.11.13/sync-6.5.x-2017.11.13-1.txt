@@ -63,9 +63,9 @@ https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.5.x-2017.11.13
 ------------------------------------------------------------------------
 
 jBoss-ip-bom: 6.0.8.Final
-Uberfire: 0.9.1.20171113-prod (tag available https://github.com/jboss-integration/uberfire/tree/sync-6.5.x-2017.11.13)
-Uberfire-extensions: 0.9.1.20171113-pro (tag available https://github.com/jboss-integration/uberfire-extensions/tree/sync-6.5.x-2017.11.13)
-Dashbuilder: 0.5.1.20171113-prod (tag available https://github.com/jboss-integration/dashbuilder/tree/sync-6.5.x-2017.11.13)
+Uberfire: 0.9.1.20171113-prod (tag sync-6.5.x-2017.11.13 on Gerrit)
+Uberfire-extensions: 0.9.1.20171113-pro (tag sync-6.5.x-2017.11.13 on Gerrit)
+Dashbuilder: 0.5.1.20171113-prod (tag sync-6.5.x-2017.11.13 on Gerrit)
 Errai: 3.2.5.Final (released, tag available at https://github.com/errai/errai/tree/3.2.5.Final)
 
 ------------------------------------------------------------------------
