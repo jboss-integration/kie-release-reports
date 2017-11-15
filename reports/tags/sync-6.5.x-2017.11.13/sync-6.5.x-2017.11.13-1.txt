@@ -36,27 +36,7 @@ OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix
 ------------------------------------------------------------------------
                         Sources to build                         
 ------------------------------------------------------------------------
-https://github.com/jboss-integration/droolsjbpm-build-bootstrap/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/droolsjbpm-knowledge/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/drools/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/optaplanner/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/jbpm/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/droolsjbpm-integration/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/droolsjbpm-tools/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/kie-uberfire-extensions/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/guvnor/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/kie-wb-common/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/jbpm-form-modeler/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/drools-wb/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/jbpm-designer/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/jbpm-wb/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/dashboard-builder/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/optaplanner-wb/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/jbpm-dashboard/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/kie-docs/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/kie-wb-distributions/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/droolsjbpm-build-distribution/tree/sync-6.5.x-2017.11.13
-https://github.com/jboss-integration/kie-eap-modules/tree/sync-6.5.x-2017.11.13
+tags sync-6.5.x-2017.11.13 for all reps are in  Gerrit
 
 ------------------------------------------------------------------------
                           3rd party  versions
