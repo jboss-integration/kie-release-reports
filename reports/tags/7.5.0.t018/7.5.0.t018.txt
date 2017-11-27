@@ -1,0 +1,150 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2017.11.27
+Code Cutoff Date: 2017.11.27
+Source Product Tag: 7.5.0.t018
+Community Tag (if available): build from kie master branch
+
+Product Pages:
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build
+------------------------------------------------------------------------
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.5.0.t018
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.5.0.t018
+https://github.com/kiegroup/drools/tree/7.5.0.t018
+https://github.com/kiegroup/optaplanner/tree/7.5.0.t018
+https://github.com/kiegroup/jbpm/tree/7.5.0.t018
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.5.0.t018
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------
+                     Component owners contacts
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+------------------------------------------------------------------------
+                              Notes
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The diff to previous tag 7.5.0.t017 are these commits:
+
+
+**************************************************************
+droolsjbpm-build-bootstrap..:
+33c8e11--Downgrade logback version to fix SDM error. (#621)--Max Barkley
+902ed14--[DROOLS-1776] configure plugins to include Automatic-Module-Name attribute--Petr Široký
+b650618--update dependencies for FormGenerationIntegrationTest (#607)--Juraj Šoltés
+8e9d630--[JBPM-6639] upgrade GWT to 2.8.2 (#619)--Petr Široký
+4386e43--Update Errai development version to 4.1.2-SNAPSHOT (#618)--Max Barkley
+f5eb8ef--Upgrade to ip-bom 8.0.0.CR2 (#615)--Max Barkley
+98c2310--DROOLS-1828: [Guided Decision Table] New Toolbar (#617)--Guilherme Carreiro
+10da6c2--JBPM-6243 - Kie Server Controller Client API new module (#616)--Cristiano Nicolai
+7433f52--[AF-549-elastic]: modified dependencies to add elasticsearch (#581)--Adriel Paredes
+081bf84--mvn-all: optional clean-up of build artifacts to save disk space--Petr Široký
+5fbf856--Push to gerrit (#611)--Michael Biarnés Kiefer
+972773e--changed URL to closed community releases $ removed script (#610)--Michael Biarnés Kiefer
+**************************************************************
+droolsjbpm-knowledge..:
+4a01fb0--[DROOLS-1776] add Automatic-Module-Name MANIFEST attribute--Petr Široký
+**************************************************************
+drools..:
+e7e70e1--[RHBRMS-3027] avoid ProjectClassLoader creation when creating a new K… (#1610)--Mario Fusco
+39611bb--[DROOLS-1776] add Automatic-Module-Name MANIFEST attribute--Petr Široký
+5cd521d--DROOLS-2143 Fix normalized duration tests (#1623)--Fedor Gavrilov
+ed84442--DROOLS-2143 improve cases for date, time, date and time functions (#1622)--tarilabs
+c7a0560--DROOLS-2147 Fix Type test error (#1618)--tarilabs
+1dd944e--DROOLS-2143: adding a few more tests--Edson Tirelli
+90bd728--Allow ''--1' expression as per FEEL grammar rule 26 (#1620)--Fedor Gavrilov
+b016a33--Fix FEEL date and time() handling of the first parameter `date` (#1621)--tarilabs
+ef008e1--[DROOLS-2116] Improve EvaluationContextImpl memory usage (#1591)--Fedor Gavrilov
+87a7d49--DMN modules: Make util classes final and not instantiable (#1597)--Tibor Zimanyi
+4c0da70--DROOLS-2125 Lists as unary tests should be checked for containment, n… (#1617)--tarilabs
+a631021--DROOLS-2119: fixing append to support singleton element instead of list (#1595)--Edson Tirelli
+8c5a8c8--DROOLS-2144 Fix BaseFEELFunction.getCandidateMethod for non-custom funct (#1612)--tarilabs
+97033af--[DROOLS-2134][DROOLS-2135] fix constraint using declaration bound to oopath (#1613)--Mario Fusco
+d7ad4fb--Use static import for assert methods instead of extending Assert class (#1605)--Tibor Zimanyi
+6214852--DROOLS-1775 Follow up to fix JavaBackendTypeTest.testPerson (#1583) (c141bba) (#1599)--tarilabs
+**************************************************************
+optaplanner..:
+4ae77f0--[DROOLS-1776] add Automatic-Module-Name MANIFEST attribute--Petr Široký
+b02d809--docs about use of opens in module-info.java--Geoffrey De Smet
+29dd7fd--improve partially solved 4 queens explained--Geoffrey De Smet
+594ef98--Fix First fit step 0 green array--Geoffrey De Smet
+322a5dc--Remove apostrophe from 's where the meaning is plural--Jiří Locker
+9957f1d--rename sw to stringWriter + import of PrintWriter--Geoffrey De Smet
+b88cf2d--Simplify construction of uncaught exception message--Jiří Locker
+984e773--DROOLS-2139 - Test class CommonTestMethodBase extends Assert class (#355)--Tihomir Surdilovic
+**************************************************************
+jbpm..:
+84e5ec1--JBPM-6487 JBPM tests stabilisation (#1076)--dcihak
+27115ce--[DROOLS-1776] add Automatic-Module-Name MANIFEST attribute--Petr Široký
+56b84a9--Upgrade to jboss-ip-bom 8.0.0.CR2 (#1075)--Max Barkley
+3626258--JBPM-6487 JBPM tests stabilisation PR5 (#1068)--dcihak
+6178fc2--JBPM-6624 - Task Audit event listener has duplicated logic for release event (#1073)--Maciej Swiderski
+a475f0e--fixed jbpm distribution after removing/moving work items (#1072)--Maciej Swiderski
+d4a5b6c--JBPM-6618 - Enable rule execution limit in business rule task (#1069)--Maciej Swiderski
+2b4b551--updating wid processor to generate index.html using bootstrap css and not custom css (#1070)--Tihomir Surdilovic
+ddb9b30--JBPM-6612 - Remove workitems from jbpm that have been moved to the jbpm-work-items module (#1067)--Tihomir Surdilovic
+**************************************************************
+droolsjbpm-integration..:
+652be53--[RHBPMS-4312] Key store password reading made more general to support (#1281)--Radovan Stancel
+4f12bb7--Remove duplicated dependencies (#1289)--Jan Hrcek
+673288a--[RHBRMS-3027] remove old module from KieRepo when the KieContainer is upgraded to a newer version (#1285)--Mario Fusco
+182dede--[DROOLS-1776] add Automatic-Module-Name MANIFEST attribute--Petr Široký
+dc71956--[RHBMS-4312] Loading pasword from a keystore (#1273)--Radovan Stancel
+0794e4b--Override jboss-remoting version for tests to be compatible with jboss… (#1277)--Max Barkley
+4e9d703--RHBPMS-5041: Human Task should be in Obsolete status when we skip (#1283)--Dominik Hanak
+bb39bd6--NodeInstance builder should have nodeInstance field (#1284)--Marián Macik
+0c2bfa9--WebSocket API minor fix to classes name (#1279)--Cristiano Nicolai
+701dc47--[DROOLS-2145] anticipate loggers and listener registration before eve… (#1276)--Mario Fusco
+780aa1f--JBPM-6625 - Remove advanced queries (BPMQueries) KIE Server extension (#1274)--Maciej Swiderski
+556fad7--JBPM-6243 - Allow REST client configuration (#1275)--Cristiano Nicolai
+d6adc08--Force lucene version for hibernate search (#1242)--Adriel Paredes
+ac3dcb9--JBPM-6243 - New Kie Server Management Client API - REST (#1272)--Cristiano Nicolai
+a536901--JBPM-6615 - Add WorkItemImpl class to list of XStream allowed types (#1271)--Cristiano Nicolai
+234b861--JBPM-6613: Reload templates from file in one step (#1269)--Karel Suta
+4e92c39--Fix duplicated classes in test suites (#1270)--Karel Suta
+**************************************************************
