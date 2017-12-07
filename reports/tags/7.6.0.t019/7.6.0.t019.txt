@@ -1,0 +1,162 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2017.12.07
+Code Cutoff Date: 2017.12.07
+Source Product Tag: 7.6.0.t019
+Community Tag (if available): build from kie master branch
+
+Product Pages:
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build
+------------------------------------------------------------------------
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.6.0.t019
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.6.0.t019
+https://github.com/kiegroup/drools/tree/7.6.0.t019
+https://github.com/kiegroup/optaplanner/tree/7.6.0.t019
+https://github.com/kiegroup/jbpm/tree/7.6.0.t019
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.6.0.t019
+https://github.com/kiegroup/kie-soup/tree/7.6.0.t019
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------
+                     Component owners contacts
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+------------------------------------------------------------------------
+                              Notes
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The diff to previous tag 7.5.0.t018 are these commits:
+
+droolsjbpm-build-bootstrap..:
+06dae03--Remove useles avalon-framework dependency--Jan Hrček
+72174ca--Remove duplicated dependencies--Jan Hrček
+17071ac--upgraded to next development version--Michael Biarnes Kiefer
+cd2aa1f--changed permissions for script (#638)--Michael Biarnés Kiefer
+bf55b3b--fixed update-all-version.sh incl. kie-soup and appformer (#637)--Michael Biarnés Kiefer
+82c76bf--Update Errai to new development version 4.1.3-SNAPSHOT (#635)--Max Barkley
+3e41c0b--upgraded to jboss-ip-bom 8.0.0.CR--Michael Biarnes Kiefer
+ef83691--added jbpm work items to repository list and to script to copy it to filemgmt server (#626)--Maciej Swiderski
+8101778--[DROOLS-1779] upgrade tycho plugins to 1.0.0--Petr Široký
+c70bc53--excluded appformer and kie-soup from update kie versions (#628)--Michael Biarnés Kiefer
+c286e0a--JBPM-6637 - add deps needed to fix JDK9 (#625)--Maciej Swiderski
+e4032be--AF-593+: Move uberfire to appformer. (#627)--Max Barkley
+1e6be51--AF-593+: Move dashbuilder to uberfire. (#620)--Max Barkley
+ec4e187--JBPM-6274 - adding back xmlgraphics:commons (updated version to 2.2) until new ipbom release--Tihomir Surdilovic
+e84ba7e--RHBPMS-4819: upgraded and moved batik and org.apache.xmlgraphics dependencies to jboss ip-bom (#604)--Michael Biarnés Kiefer
+**************************************************************
+droolsjbpm-knowledge..:
+aedd33f--DROOLS-2122 skip service entry when Properties.load a Drools v6 kie.conf (#282)--tarilabs
+cf38a19--upgraded to next development version--Michael Biarnes Kiefer
+f9f2075--JBPM-6640 - Allow pluggable notifications for case comments (#280)--Maciej Swiderski
+**************************************************************
+drools..:
+2f7fda5--[DROOLS-2167] implement stacked rule unit invocations (#1640)--Mario Fusco
+a5c753e--[DROOLS-2166] avoid NPE when trying to extract the meta data from a project with an invalid pom--Mario Fusco
+296d9b1--DROOLS-2161 Recursive function definitions in context entries are raising compile time errors (#1638)--Fedor Gavrilov
+c167c5b--Don't ignore nThreads parameter (#1615)--Jiří Locker
+f434ff3--[DROOLS-2152] fixes after mockito upgrade (#1628)--Petr Široký
+0028cba--Clarify error messages for wrong "name" attributes (#1629)--Tibor Zimanyi
+35d69ee--upgraded to next development version--Michael Biarnes Kiefer
+d819ecf--avoid split packages in new kie-pmml module (#1637)--Mario Fusco
+57e2c71--[RHBRMS-3034] kie-server fails with SimpleDateFormat generated from GDST (#1632)--Toshiya Kobayashi
+ea3906a--PMML Update with both old and new version of PMML4Compiler (#1636)--Lance Leverich
+eb34023--DROOLS-2151 DMN default disable Runtime type-check, ... (#1627)--tarilabs
+6929b7f--[DROOLS-2146] include complete file path in error message (#1616)--Mario Fusco
+646524a--DROOLS-2153 Fix DMN compiler NPE if underlying compilation returns null (#1625)--Tibor Zimanyi
+e3cd249--add tests demonstrating that kie-ci is taking count of dependencies exclusion--Mario Fusco
+d5e8b0f--DROOLS-1799: [GDT] Enable field binding for formula calculation type (#1608)--Jozef Marko
+9b4e94a--[RHBPMS-4312] Key store password reading made more general to support reading multiple passwords (#1619)--Radovan Stancel
+**************************************************************
+optaplanner..:
+e8e49f2--Rename SolutionDaoTest to OpenDataFilesTest--Geoffrey De Smet
+c464f8f--PLANNER-930 factorial bug--Geoffrey De Smet
+c26aa0f--If factorial calculation takes too long, return null--Geoffrey De Smet
+8db257c--Refresh nurse rostering xml's with XStream's java.time support--Geoffrey De Smet
+b8fb448--PLANNER-929 remove SolutionDao by replacing it with SolutionFileIO--Geoffrey De Smet
+b9c06c5--remove unused field--Geoffrey De Smet
+7fa56fd--extract roomsPerFloor--Geoffrey De Smet
+bbba7a0--upgraded to next development version--Michael Biarnes Kiefer
+a04b368--Fix a few typos--Jiří Locker
+b59a420--Logging verbosity: limit all threadnames to 12 characters--Geoffrey De Smet
+f20f103--PLANNER-910 toString for PartitionChangeMove--Geoffrey De Smet
+a2b7a76--PLANNER-910 Improve logging related to Partitioned Search--Jiří Locker
+b74f409--Rename remaining occurrences "locate" to "look up"--Jiří Locker
+f395615--Improvements for PLANNER-922 Variable Neighborhood Descent (thanks Jiri)--Geoffrey De Smet
+fd59ff2--PLANNER-922 Variable Neighborhood Descent--Geoffrey De Smet
+eec6a01--update governance section: facebook, twitter, etc--Geoffrey De Smet
+f0e58ab--Rename questions.html to getHelp.html (thanks Alex)--Geoffrey De Smet
+1c00920--improve javadoc to clarify when true for (im)movable entities (thanks Sunil)--Geoffrey De Smet
+3cf403d--Website redesign: add questions and services to replace menu community and code--Geoffrey De Smet
+**************************************************************
+jbpm..:
+b7284b4--upgraded to next development version--Michael Biarnes Kiefer
+a21d9cd--Remove duplicated jaxb-core dependency declaration (#1090)--Jan Hrcek
+8a8fca4--JBPM-6670 - Allow to search tasks assigned by potential owner through (#1084)--mcivantos-tribalyte
+f3c698d--RHBPMS-5067 - Amend AUTO_INCREMENT on MySQL/MariaDB restart (#1088)--Toshiya Kobayashi
+eeeacae--add json generation to wid processor and update html template look/feel (#1087)--Tihomir Surdilovic
+f9123fa--JBPM-6487 JBPM tests stabilisation (#1086)--dcihak
+87608ea--StartEventTest stabilisation (#1083)--dcihak
+612cc92--JBPM-6637 - JDK9: fix failing jbpm tests (#1085)--Maciej Swiderski
+7eb13cd--AF-593+: Move dashbuilder to uberfire. (#1080)--Max Barkley
+5b58bd3--JBPM-6648 - Inclusive converging gateway fails with NPE if process instance has dynamic nodes (ad hoc) (#1082)--Maciej Swiderski
+a20460c--JBPM-6640 - Allow pluggable notifications for case comments (#1077)--Maciej Swiderski
+c610f00--JBPM-6487 (#1078)--dcihak
+e80cb72--Fix large jbpm-container archives--Marián Macik
+**************************************************************
+droolsjbpm-integration..:
+39bc59c--upgraded to next development version--Michael Biarnes Kiefer
+b9a80a3--JBPM-6670 - Allow to search tasks assigned by potential owner through (#1295)--mcivantos-tribalyte
+fa7621b--[JBPM-6647] Jobs: NPE when selecting already deleted job (#1290)--Bojan Sremac
+2cfc007--JBPM-6243 - Use model classes for serializing collections (#1292)--Cristiano Nicolai
+7aa8e1d--JBPM-6656 - NoSuchMethodError when starting Kie server on WebLogic (#1296)--Maciej Swiderski
+b906d09--RHBPMS-4819: renamed groupId batik to org.apache.xmlgraphics--Michael Biarnes Kiefer
+aa615f2--AF-593+: Move dashbuilder to uberfire. (#1287)--Max Barkley
+be85a65--JBPM-6646 - ForbiddenClassException thrown when accessing case documents (#1291)--Maciej Swiderski
+
+
+
