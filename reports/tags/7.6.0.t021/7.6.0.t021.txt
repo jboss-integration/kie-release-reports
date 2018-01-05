@@ -1,0 +1,172 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2018.01.05
+Code Cutoff Date: 2018.01.05
+Source Product Tag: 7.6.0.t021
+Community Tag (if available): build from kie master branch
+
+Product Pages:
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build
+------------------------------------------------------------------------
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.6.0.t021
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.6.0.t021
+https://github.com/kiegroup/drools/tree/7.6.0.t021
+https://github.com/kiegroup/optaplanner/tree/7.6.0.t021
+https://github.com/kiegroup/jbpm/tree/7.6.0.t021
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.6.0.t021
+https://github.com/kiegroup/kie-soup/tree/7.6.0.t021
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------
+                     Component owners contacts
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+------------------------------------------------------------------------
+                              Notes
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The last commits of this tag 7.6.0.t021 are:
+
+===============================================================================
+Repository: kie-soup
+===============================================================================
+60668bf215f5ed3464dc4580683ca083a864560c upgraded to 7.6.0.t021
+7d483fdc0cd463791de34978ae8517a2ea3cfc21 [RHBPMS-5076] ensure to always update snapshots (#21)
+a6ca6ee135a5276f18f4a57490eb60822b63707c upgraded to next development version
+b621ae8f4a4bf2f070f342654b52b1d5d087e7d1 upgraded to jboss-ip-bom 8.0.0.CR3
+ca01485de7a568fe53d9aae84530d7fd793a782f DROOLS-1798: Add constructor of an Import class (#17)
+207cad350ecf59228de910a4cae9f17b1597bc27 Upgrade ip-bom to 8.0.0.CR2 (#15)
+001620b979ab6ef007ab7f16ed264c22ad77d5bd [AF-549-elastic]: Upgraded Elasticserch version to 5.6.1. (#12)
+0a278b85e40ed71729eeb4010042b3e9e1f133a0 AF-593+: Move dashbuilder-dataset to kie-soup. (#11)
+aaf711c1e85b3abb5c158a06614fe40798586701 AF-593+: Move uberfire-maven-utils to kie-soup (#8)
+7a137b90e1de625bbfdd3b09a273fc3e62925d68 DROOLS-2076: [DataModelOracle] DSL Sentences are not loaded (#10)
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+3d34b1df9e878ed8e0959e39afe5467e455afb82 upgraded to 7.6.0.t021
+4b14f16e6dfa293f71f4bb97a79c53ca4a3d11ae JBPM-6243 - Rename new controller module dropping the mgmt part (#652)
+2fcf1e39fab1f20a8459d8fb9bfa036d3a019a60 upgraded scripts (#651)
+6abe6a7cdda1114845e7e849b92e5fef6f0f9c23 JBPM-6102: Upgrade Lienzo to 2.0.294-RELEASE (#629)
+4c63a6fe3b9b039ccff886191249b136d6e3f877 Push to gerrit (#648)
+c6a4cb5ee7124666d72e0ab32bd0ecd8c8d1fea8 Add drools-model to Drools BOM (#646)
+cdbc6f460a4c702309d86881309f937e45fbf671 Add org.drools:drlx-parser to Drools BOM (#643)
+9ae33c3568c7c175096013f93f82a3c13207d637 fixed upload script for uploading jbpm-work-items (#644)
+8e25025b40d4cdc380bbe826c7d009eb6e8a501b upgraded appformer version (#642)
+d8903b1bc72c6df5b2454f03d342aa326793bdef tweaked update-all-versions for drlx-parser (#636)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+1bd9d2cecc0cb99f96f0ca0f6519cce34f3020f8 upgraded to 7.6.0.t021
+f49f97dc056f876712f5ceddb6b05cab30f090d9 [DROOLS-2183] allow to create RuleUnitExecutor from KieContainer with a declarative configuration (#284)
+9d9c36d78d6a62e2e606ef53d514f15c4709f4ea JBPM-6665 - Add 'before' TaskInputVariableChanged and TaskOutputVariableChanged events to TaskLifeCycleEventListener (#281)
+12f5f795fc3bc00038074a91411a8357c70ab482 JBPM-6681 - Support for lazy loaded variables (#283)
+aedd33f85b4fa73bd044fce8c7b58f167423b3bf DROOLS-2122 skip service entry when Properties.load a Drools v6 kie.conf (#282)
+cf38a198a965c42cbeb5ec698f495855dd1c9920 upgraded to next development version
+f9f2075e755dc86bc2406b74528d2e1dffadc916 JBPM-6640 - Allow pluggable notifications for case comments (#280)
+4a01fb044f525813c40debd3979730b3fa6a7423 [DROOLS-1776] add Automatic-Module-Name MANIFEST attribute
+04185566b51f6c44aaf831e75039b5601a7200e3 Revapi checks against 7.0.0.Final now
+012c6ce912a7732cb3228f34c860a78553355601 AF-593+: Move uberfire-maven-utils to kie-soup. (#274)
+
+===============================================================================
+Repository: drools
+===============================================================================
+d8422f40be9da67c6679f104f06bc42636b1cf99 upgraded to 7.6.0.t021
+9b31779546171cd680f20d3fd960eea7eaf191db add data binding for rule units fields when generating the executable model
+faf095c618438153d3de8c6327a27b4da3fb9dea [DROOLS-2213] avoid attempting unnecessary cloning of a knowledge package if it has been generated from an executable model or if the class loader isn't changed
+3aa948aef83f6c725025be75980b5fd197bbaf42 Exec model MVEL script fix DSL for on() with varargs and imports (#1680)
+9694340ed2fcef65d6803adede4b59f4899ab955 [DROOLS-2211] fix creation of default entry-point when using rule units
+4ebbf316548a85f6841800a9d9d20715eb0d72b2 implement rule unit in executable model (#1678)
+9fbb6deef094e56d18807c50f667a1eaac1a3bf5 [DROOLS-2209] fix accumulate on rule unit's data source (#1677)
+af3fe1785c81a30979b4c169a3181d08348825a6 [DROOLS-2208] check if a group has no activations before stop firing it (#1676)
+7995326c252131c49429ff7344e39ce491df926f Remove unused test code from persistence (#1665)
+5d28878eddd9114b6b1c00a089e752f341c2e6c6 when generating the executable model use == when comparing with primitive expression
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+e22577da0c2ae119d49b655e329e9e5c15eb2514 upgraded to 7.6.0.t021
+77bd8789371cb72c524e2ebe5be19af8fe38f449 PLANNER-931 Cloner now supports arrays too
+845ee9525996c3361218f8d1f49e7d496114e28e project job scheduling: Fix drl bug reported on stackoverflow
+3d38356eb4fd70edc265ea980519137b59b55aa1 conference scheduling: docs in overview section
+be5c62930a313f7bc4e4fd5804ece51d3e21135b conference scheduling: docs
+0a9aa2095fc213abbd727419e1266611bd95b894 OptaPlannerExamplesApp: Hook in conference scheduling
+9225962ef03131392a78d0bb603d40868b383c78 Conference scheduling example: add tests
+6dd474c8c1261150148d9152b2d73a88dd68d333 Conference scheduling example: open in excel
+f9ff5a9446954ef224c18a37f52d1f508ac0a626 Conference scheduling example: fix parametrization
+8742912789a683ad7e1b4a9dd6c4cfb7f8301cf0 Conference scheduling example: fix bug that editing the xlsx file with LibreOffice breaks opening it
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+948bb5e4b661523985d2bbd03302120dbc84d339 upgraded to 7.6.0.t021
+9eb5b1bc3b365bf38cf77d323df377a81019882c JBPM-6720 Add timeout to test and replace wait notify with a latch (#1107)
+5d877603e8e4da3372117d1de1593710ed2d6125 JBPM-6718 - Cleanup AuditLoggerFactory from unused import and fix (#1105)
+13eb98829fb6eab6061b258c67de1a2dae77b2ff Add missing .gitignore files in several modules (#1106)
+9a006f96a4549e9295212cdc06c093afa0e53a2a JBPM-6710 - Create comment operation should directly return comment id (#1103)
+49c4ed767f677b135bff8082993c4d79f6289a1d JBPM-6690 - Typo for human task notification
+d25305ff856b722243c7b474433d549789cd8073 RHBA-360 - initial delay is not set for the first executor thread
+4376d0879e59696d228ad647334958a294e04a58 JBPM-6699 - fix for wid path and file (#1104)
+588ddc69ecb5bb38de9cbcf59574e4f1e50d1125 JBPM-6699 - Single directory workitem repository (#1101)
+a95390229a224d6fe76baa225e589051dbe20af0 RHBPMS-5074 - ConcurrentModificationException in hibernate with SINGLETON deployments under load - osgi fix (#1100)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+df12576979f55c951e283810353897e935123e8c upgraded to 7.6.0.t021
+c4688500bcbb75d32c4fa7a8f668973a1700c10f Fix Windows-specific test failures (#1303)
+2f72e1553cc489c0213749dbb3896cca9cb17be2 JBPM-6243 - Add missing Java 9 module name (#1318)
+712d89b7475f2d0549dbfc6d7dac352baa33b6a0 JBPM-6243 Simplify WebSocket marshalling utils (#1315)
+1ac2140984c133de348d686f4e2035b1c1b23cf4 JBPM-6243 - Rename new controller module dropping the mgmt part (#1314)
+03348ff0523e1bac9943622a95860f500f20d290 JBPM-6710 - Create comment operation should directly return comment id (#1313)
+95bf2dd7ec81840e4abbe3ee3324eaa40fb48104 JBPM-6243 - Exclude KieServerControllerServiceResponse from GWT classpath (#1312)
+4d29a811151f559daa8c77f3750410e8e47d1e21 [DROOLS-2183] allow to create RuleUnitExecutor from KieContainer with a declarative configuration
+14a54fb14a675939b932530396cfb3cb82259661 JBPM-6243 - New Kie Server Controller Management WebSocket API (#1304)
+475978e5db62d5a49e3b0a145c2b78da04580496 JBPM-6243 - Handle ContainerSpec and KieServerControllerDescriptorCommand serialization (#1302)
+
