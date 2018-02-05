@@ -1,0 +1,354 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2018-02-05-15:45
+Code Cutoff Date: 2018-02-05
+Target Product Build: RHBA 7.0.0.DR3
+Payload Tracker:
+Source Product Tag: sync-7.6.x-2018.02.05
+Community Tag (if available): based on 7.6.0.Final
+
+Product Pages:
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build
+------------------------------------------------------------------------
+All tags sync-7.6.x-2018.02.05 are on Gerrit
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 8.0.0.CR3
+errai: 4.1.2.Final (https://github.com/errai/errai/tree/4.1.2.Final)
+appformer (uberfire&dashbuilder): 2.3.1.20180205-prod (tag sync-7.6.x-2018.02.05 tag on Gerrit)
+
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -T2 -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -XX:MaxPermSize=256m -XX:PermSize=128m -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------
+
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+
+-----------------------------------------------------------------------
+                     Component owners contacts
+------------------------------------------------------------------------
+kie-soup                        mswiders@redhat.com
+appformer                       porcelli@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         cnicolai@redhat.com
+kie-wb-playground               manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+drools-wb                       manstis@redhat.com
+optaplanner-wb                  gdesmet@redhat,com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-wb		                    cnicolai@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distributions            manstis@redhat.com
+jbpm-work-items                 mswiders@redhat.com
+
+------------------------------------------------------------------------
+                              Notes
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+
+-----------------------------------------------------------------------------------------------
+
+These are the last commits of bsync-7.6.x-2018.02.05 release branch.
+
+===============================================================================
+Repository: kie-soup
+===============================================================================
+88d843f--DROOLS-2263: Cover case when not all enums use quote character (#31)--Jozef Marko
+741da1a--DROOLS-2263 : Unexpected results in GDST when using enumerations with commas (#29)--Toni Rikkola
+03df7c7--RH-237: [Guided Decision Table] Old tables don't recognize imports properly (#22)--Max Barkley
+7d483fd--[RHBPMS-5076] ensure to always update snapshots (#21)--Mario Fusco
+a6ca6ee--upgraded to next development version--Michael Biarnes Kiefer
+b621ae8--upgraded to jboss-ip-bom 8.0.0.CR3--KIE user for realeases: kiereleaseuser
+ca01485--DROOLS-1798: Add constructor of an Import class (#17)--Jozef Marko
+207cad3--Upgrade ip-bom to 8.0.0.CR2 (#15)--Max Barkley
+001620b--[AF-549-elastic]: Upgraded Elasticserch version to 5.6.1. (#12)--Adriel Paredes
+0a278b8--AF-593+: Move dashbuilder-dataset to kie-soup. (#11)--Max Barkley
+===============================================================================
+Repository: appformer
+===============================================================================
+9e30b9a--AF-930: [Layout Editor] Use dock panels to increase the editor content area (#125)--David Gutierrez
+b9c69a5--[RHDM-308]: Fixed issue with thread names. Removed those names--Adriel Paredes
+066c571--[RHDM-306-ES]: Fixed filtering issues and duplicated assets in different projects. Only include not null sort fields.--Adriel Paredes
+85877ce--AF-927: [Layout Editor] Expose all the Displayer types as individual components--David Gutierrez
+2d88b1a--fix AF-497:Latest Version selector set to "Version -1" after rename and save.--Juraj Soltes
+cb6218a--RHDM-233: Do not register the KC security management authentication client interceptor (for all requests).--Roger Martinez
+1ea37a5--AF-972: Wrong order of the validation messages (#144)--Michael Anstis
+3fe96ad--AF-934 - Asset upload / download to not work inside projects which name contains spaces (#117)--Tihomir Surdilovic
+41e056a--RHBA-31:Unable to type Due Date when scheduling a Job (#138)--nmirasch
+39c2297--RHDM-239: Not possible to make changes in an imported project that would be visible in business-central.--Paulo Martins
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+f97cd78--fixed missing jbpmInstaller URL (#685)--Michael Biarnés Kiefer
+213cbf4--Release readme (#650)--Michael Biarnés Kiefer
+931213c--Add --target-repo option to git-all.sh and mvn-all.sh (#683)--Jiří Locker
+9847ade--JBPM-6748: Removed Stunner's BasicSet artifacts from KIE BOM (#672)--Roger Martínez
+532fcde--JBPM-6700: Upgrade to Lienzo 2.0.295-RELEASE (#668)--Roger Martínez
+12b1f95--Allow reuse of kie-wb-common-ala-build-maven test classes (#657)--Cristiano Nicolai
+ee59ba9--Reverted d3fbcfe RHBPMS-5026 - Version difference of jackson artifacts (#671)--Marek Novotný
+c92612e--JBPM-6243 - Update WebSocket javax API version (#654)--Cristiano Nicolai
+53833de--fixed jbpm installer for internal reps (#665)--Michael Biarnés Kiefer
+fd0f7f7--RHBPMS-5026 - Version difference of jackson artifacts (#583)--Maciej Swiderski
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+bae357b--JBPM-6770 - Information not available in TaskLifeCycleEventListener and ProcessEventListener (#286)--Maciej Swiderski
+fc6a4f4--allow to delete a fact from a datasource from inside a consequence--mariofusco
+bceb72b--allow to delete a fact from a datasource from inside a consequence--mariofusco
+f49f97d--[DROOLS-2183] allow to create RuleUnitExecutor from KieContainer with a declarative configuration (#284)--Mario Fusco
+9d9c36d--JBPM-6665 - Add 'before' TaskInputVariableChanged and TaskOutputVariableChanged events to TaskLifeCycleEventListener (#281)--Maciej Swiderski
+12f5f79--JBPM-6681 - Support for lazy loaded variables (#283)--Maciej Swiderski
+aedd33f--DROOLS-2122 skip service entry when Properties.load a Drools v6 kie.conf (#282)--tarilabs
+cf38a19--upgraded to next development version--Michael Biarnes Kiefer
+f9f2075--JBPM-6640 - Allow pluggable notifications for case comments (#280)--Maciej Swiderski
+4a01fb0--[DROOLS-1776] add Automatic-Module-Name MANIFEST attribute--Petr Široký
+===============================================================================
+Repository: drlx-parser
+===============================================================================
+04ba286--Merge pull request #13 from lucamolteni/OOPathMultipleCondition--Mario Fusco
+f16dec2--Support multiple condition in OOPath Expressions such as `$address : /address[street == "Elm",city == "Big City"]`--Luca Molteni
+759266c--Merge pull request #12 from lucamolteni/FourTemporalOperators--Mario Fusco
+cea4a15--HalfPointFreeExpression and PointFreeExpression with four arguments--Luca Molteni
+a6fe865--Merge pull request #11 from lucamolteni/HalfBinaryPointFree--Mario Fusco
+3183e2e--PrimaryExpression is better than PrimaryPrefix--Luca Molteni
+14509a9--Reimplement semantic lookahead to better match HalfPointFreeExpr--Luca Molteni
+2cfa129--Regression test--Luca Molteni
+a6cc39c--HalfPointFreeExpr--Luca Molteni
+4b5ed3f--Moved Visitor of HalfBinary to VoidRuleVisitor--Luca Molteni
+===============================================================================
+Repository: drools
+===============================================================================
+3354409--fix parsing of enclosed expressions in executable model--mariofusco
+5509e37--DROOLS-2280 Remove File.separator from rule unit resolution (#1736)--Tibor Zimanyi
+d4096b2--fix dsl generation for or patterns in executable model--mariofusco
+361848b--DROOLS-2263: Cover marshalling of enums with comma inside (#1732)--Jozef Marko
+6ae62ac--Transform fromCollect to collectList (#1734)--Luca Molteni
+7c8132b--DROOLS-2263 : Unexpected results in GDST when using enumerations with commas (#1727)--Toni Rikkola
+76df9bd--add test for inline accumulate in executable model--Mario Fusco
+578bc15--Oo path multiple condition (#1731)--Luca Molteni
+ad1dfd3--fix binding of accumulate as source of its own pattern when building from the executable model--mariofusco
+7997f85--DROOLS-2279 Realign extension registers test to master using DMNProfile--tarilabs
+===============================================================================
+Repository: optaplanner
+===============================================================================
+6a0ed25--conf scheduling: define all hard constraint names and explain in xlsx--Geoffrey De Smet
+a8b2a32--conf scheduling: fix changing the configuration tab should not crash the read + fix rewards shouldn't undo penalty orange coloring--Geoffrey De Smet
+c6a7e30--conf scheduling: xlsx ignore fix--Geoffrey De Smet
+728edcb--conf scheduling: view tab color--Geoffrey De Smet
+facdf8e--conf scheduling: no indictments on empty cells--Geoffrey De Smet
+cbae3d0--conf scheduling: Rooms view should show presentation title--Geoffrey De Smet
+5da000c--conf scheduling: extract soft constraint names in constants--Geoffrey De Smet
+b62909b--conf scheduling: Show indictments in all views--Geoffrey De Smet
+1928816--conf scheduling: Language diversity is a soft constraint -> fix test--Geoffrey De Smet
+d42760e--conf scheduling: docs new constraints--Geoffrey De Smet
+===============================================================================
+Repository: jbpm
+===============================================================================
+d3e6e1a--RHBA-382 - Redundant records are inserted by JPAPlaceholderResolverStrategy (#1120)--Maciej Swiderski
+4470124--JBPM-6770 - Information not available in TaskLifeCycleEventListener and ProcessEventListener (#1123)--Maciej Swiderski
+5f9df1e--Fix CDI Tests by adding AssertJ as a test dependency (#1124)--Marián Macik
+28a7f17--JBPM-6706 - Task related REST api do not respect container-id in URL (#1114)--Maciej Swiderski
+f392fa7--JBPM-6732 - Return the input&output data of tasks when using Advanced (#1118)--María Civantos
+1f63c28--JBPM-6713 - Fluent Rule Flow API - allow setting of custom Action implementation (#1119)--Tihomir Surdilovic
+953c908--dependency cleanup - marked assertj-core as test scope (#1116)--Maciej Swiderski
+da59925--JBPM-6713 - Fluent Rule Flow API - signal example (#1115)--Tihomir Surdilovic
+977b1c0--RHBA-365 - Pagination displays incorrect amount of tasks when custom advanced query returns duplicate records (#1110)--Maciej Swiderski
+8241222--JBPM-6720 - Test AsyncIntermediateCatchSignalTest.testCorrectProcessStateAfterExceptionSignalCommandMulti fails randomly (#1108)--Maciej Swiderski
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+f520ab3--JBPM-5624 - Added spring boot - added readme for starters and samples (#1358)--Maciej Swiderski
+4ecc33a--JBPM-5624 - Added spring boot - additional simplification to work nicely with start.spring.io (#1357)--Maciej Swiderski
+ee46cbd--[JBPM-5624] Added spring boot (#1350)--Radovan Stancel
+c0f7b6a--JBPM-6243 - Move deleteServerInstance to SpecManagementService (#1354)--Cristiano Nicolai
+cada9dc--JBPM-6243 - Fix marshalling issue when retrieving container list (#1351)--Cristiano Nicolai
+9d46674--JBPM-6706 - Task related REST api do not respect container-id in URL (#1341)--Maciej Swiderski
+217ef57--JBPM-6751 - Allow to disable management api of KIE Server (#1344)--Maciej Swiderski
+1050899--dependency cleanup - removed unneeded uberfire-commons (#1345)--Maciej Swiderski
+fb9bb99--RHDM-283 - Use storage and notification service from CDI if available (#1343)--Cristiano Nicolai
+dccaa60--JBPM-6740 - Expose readiness and liveness checks in KIE Server (#1332)--Maciej Swiderski
+===============================================================================
+Repository: droolsjbpm-tools
+===============================================================================
+b8dc985--DROOLS-2122 skip service entry when Properties.load a Drools v6 kie.conf (#87)--tarilabs
+ff4bb16--upgraded to next development version--Michael Biarnes Kiefer
+eeb6deb-- - updating target platform to 4.5.1.Final--krisv
+baab67d--DROOLS-2122 Use embedded Drools to compile and validate DRL. (#86)--tarilabs
+ebddae9--AF-593+: Move uberfire-maven-utils to kie-soup. (#84)--Max Barkley
+45d12b8--downgraded to 7.5.0-SNAPSHOT--Michael Biarnes Kiefer
+32949f9--AF-593: Decouple DMO from Drools (#82)--Max Barkley
+afbe33c--JBTIS-1045 - update drools target platform to Oxygen-based JBNTIS 4.5.0.Final (#81)--Paul Leacu
+6633bd7--RHBRMS-2784 - XStream: DoS when unmarshalling void type (#75) (#79)--Michael Biarnés Kiefer
+ab3b095--[DROOLS-1650] remove jsr94 support (#78)--Mario Fusco
+===============================================================================
+Repository: kie-uberfire-extensions
+===============================================================================
+4aeafd3--upgraded src/main/config/zanata.xml to link to new project 7.6.0 on https://vendors.zanata.redhat.com/ (#61)--kiereleaseuser
+b606b04--upgraded to next development version--Michael Biarnes Kiefer
+9762d7e--[DROOLS-1776] add Automatic-Module-Name MANIFEST attribute--Petr Široký
+9e2c6f5--adapted to the new Zanata server and project (#56)--Michael Biarnés Kiefer
+ab9a1fb--downgraded to 7.5.0-SNAPSHOT--Michael Biarnes Kiefer
+9ebaf05--upgraded to Zanata 8.0.0 (#54)--Michael Biarnés Kiefer
+9c90146--Upgraded to next development version 8.0.0-SNAPSHOT (#52)--kiereleaseuser
+7b2f4aa--upgraded to 7.2.0 Zanata project (#51)--Michael Biarnés Kiefer
+00f9e98--updated to 7.2.0-SNAPSHOT--Michael Biarnes Kiefer
+8fa043c--upgraded src/main/config/zanata.xml to link to new project 7.1.0 on https://translate.jboss.org (#49)--kiereleaseuser
+===============================================================================
+Repository: kie-wb-playground
+===============================================================================
+e0321c8--upgraded to next development version--Michael Biarnes Kiefer
+7d94cdd--AF-593+: Move XStreamUtils to kie-soup. (#43)--Max Barkley
+fe5de29--JBPM-6507: Indexing errors on some playground forms. (#42)--Pere Fernández
+10e897b--RHBPMS-5000: Remove old jBPM-Form-Modeler (#41)--Pere Fernández
+c3bacf6--downgraded to 7.5.0-SNAPSHOT--Michael Biarnes Kiefer
+364166b--PLANNER-847: Workbench: Improve description of playground repository examples--Matej Cimbora
+3deca41--Upgraded to next development version 8.0.0-SNAPSHOT (#34)--kiereleaseuser
+c9b0830--updated to 7.2.0-SNAPSHOT--Michael Biarnes Kiefer
+d4f0a62--Improve consistency in curriculum course rule names (#32)--Jiří Locker
+e08937c--Update pom.xml (#33)--Kris
+===============================================================================
+Repository: kie-wb-common
+===============================================================================
+45ac137--AF-930: [Layout Editor] Use dock panels to increase the editor content area (#1335)--David Gutierrez
+df86d54--add FormValueProcessorTest (#1389)--Juraj Šoltés
+9e921ed--[RHDM-306-ES]: Fix distinct issue (#1387)--Adriel Paredes
+5b7d416--DROOLS-2270: [DMN Editor] Replace 'Return to DRG' button with Link (#1386)--Michael Anstis
+6de4811--DROOLS-2260: [DMN Designer] Background Color change throws an Exception (#1382)--Michael Anstis
+f56eeb1--DROOLS-2266: [DMN Designer] Override newSizeHandler for DMNSVGShapeDefImpl (#1385)--Michael Anstis
+bd7e6a5--DROOLS-2261: [DMN Designer] Context Entry Default Value Column width does not fill parent (#1384)--Michael Anstis
+1dcea19--JBPM-6243 - Move deleteServerInstance to SpecManagementService (#1383)--Cristiano Nicolai
+20a4df8--JBPM-6748: Stunner - Improve domain model declaration by making some annotations not mandatory. (#1362)--Roger Martínez
+1f467b1--JBPM-6512 - Support for resize constraints and Arc Resize (#1340)--Wagner Scholl Lemos
+===============================================================================
+Repository: drools-wb
+===============================================================================
+3546008--DROOLS-2263: Increase coverage (#783)--Jozef Marko
+70fb1bb--DROOLS-2263 : Unexpected results in GDST when using enumerations with commas (#777)--Toni Rikkola
+30d317d--BAQE-336: Increase coverage of drl file validation (#779)--Jozef Marko
+7e7252f--Add reproducer tests into guided decision table backend (#775)--Jozef Marko
+4e75b2f--DROOLS-2160: Collapse the scenario designer to remove blank space on left side (#773)--Jozef Marko
+0e4217b--DROOLS-2160: Add spacing between table cells (#770)--Jozef Marko
+4e9a1fc--DROOLS-2160: Introduce tabs for KieSessionSelector and AuditLog (#754)--Jozef Marko
+f03b990--BAQE-336: Test resources cleanup--Jozef Marko
+f67049e--BAQE-336: Cover the plain drl service--Jozef Marko
+8286d29--BAQE-334: Cover the Add Enum button callback (#763)--Jozef Marko
+===============================================================================
+Repository: optaplanner-wb
+===============================================================================
+49c7fd2--Add missing dependency on drools-cdi (#246)--Jiří Locker
+aa440e6--RHDM-228: Add UI support for Variable Neighborhood Descent LS type (#244)--Jiří Locker
+a01a39e--upgraded src/main/config/zanata.xml to link to new project 7.6.0 on https://vendors.zanata.redhat.com/ (#242)--kiereleaseuser
+9170910--upgraded to next development version--Michael Biarnes Kiefer
+8fdc212--added exclusion for ant:ant--Michael Biarnes Kiefer
+ad0f13d--AF-593+: Move dashbuilder to uberfire. (#240)--Max Barkley
+142c65e--[DROOLS-1776] add Automatic-Module-Name MANIFEST attribute--Petr Široký
+3917df8--exclude duplicated ant dependency (#238)--Mario Fusco
+23a9d34--Added elasticsearch dependency (#228)--Adriel Paredes
+35e4a92--adapted to the new Zanata server and project (#231)--Michael Biarnés Kiefer
+===============================================================================
+Repository: jbpm-designer
+===============================================================================
+e72977d--JBPM-6778 - Data Object in script can not be resolved (#738)--Tihomir Surdilovic
+337abeb--JBPM-6768 - Designer says 'Succesfully generated process and tasks taskforms' even though they were not (#737)--Tihomir Surdilovic
+b27e821--JBPM-6745 - Not possible to download patterns.json and other resources from Project with spaces in name (#734)--Tihomir Surdilovic
+814833c--JBPM-6744 - Process name is unreadable in Called Elements editor for Reusable SubProcess (#735)--Tihomir Surdilovic
+98eb8e0--JBPM-6714 - Designer column sorting in editors should be case insensitive (#729)--Tihomir Surdilovic
+9c354fd--JBPM-6707 - Subprocess variables do not show up in Condition Expression dialog for Sequence Flow (#730)--Tihomir Surdilovic
+784a7dd--JBPM-6733 - Support imports with eventDefinitionRef (#733)--Tihomir Surdilovic
+0bd3425--Revert "[AF-913]: Changed category to BPMN Type Definition. (#728)" (#731)--Cristiano Nicolai
+a88740f--[AF-913]: Changed category to BPMN Type Definition. (#728)--Adriel Paredes
+f081199--JBPM-6677 - Designer generates invalid task I/O when you open a process with task I/O containing underscore (#715)--Tihomir Surdilovic
+===============================================================================
+Repository: jbpm-wb
+===============================================================================
+04f490a--AF-930: [Layout Editor] Use dock panels to increase the editor content area (#968)--David Gutierrez
+dc06f5d--Add nio git folder to Maven clean (#978)--Cristiano Nicolai
+4004e92--[JBPM-6783] Jobs: Test new job dialog (#977)--Bojan Sremac
+a46e363--JBPM-6748: Removed Stunner's BasicSet dependencies from the webapp (#971)--Roger Martínez
+5fd0e61--RHBA-31 RHBA-296: Unable to type Due Date when scheduling a Job (#970)--nmirasch
+658b213--Add embedded controller dependencies for running websocket (#972)--Cristiano Nicolai
+0803394--JBPM-6015: Process instance log makes no sense. Changed created by started (#973)--nmirasch
+245ace9--[JBPM-6742] Case Roles: Test case roles assignment during case life cycle (#969)--Bojan Sremac
+8558304--upgraded src/main/config/zanata.xml to link to new project 7.6.0 on https://vendors.zanata.redhat.com/ (#959)--kiereleaseuser
+74a4d60--RHBA-338: “Process 'Evaluation' was created” is shown twice in process instance logs (#948)--nmirasch
+===============================================================================
+Repository: kie-docs
+===============================================================================
+9532e5c--Content management 7.6 releases notes (#594)--David Gutierrez
+18b0c09--DROOLS-2281 fix OOPath doc EBNF (#597)--tarilabs
+51f9312--BXMSDOC-1452 master Migration Guide: drools-cdi (#601)--emmurphy1
+194555b--jBPM N&N for 7.6.0.Final (#599)--Maciej Swiderski
+f06b338--JBPM-6782: Stunner - Release notes for 7.5.0.Final. (#590)--Roger Martínez
+28f38be--Avoid duplicate GAVs across repositories--Jiří Locker
+81b3ba3--Bxmsdoc 2032 master final > upstream Master (#592)--michelehaglund
+5e4192e--AF-483: Keycloak SSO docs - Some updates (#537)--Roger Martínez
+eede76a--JBPM-6782: Stunner - Release notes for 7.6.0.Final. (#591)--Roger Martínez
+55f3472--BXMSDOC-2130 added DRAFT to title--Emily Murphy
+===============================================================================
+Repository: kie-wb-distributions
+===============================================================================
+0b5ec58--AF-930: [Layout Editor] Use dock panels to increase the editor content area (#665)--David Gutierrez
+047cce3--RHDM-252 Updated branding for RHDM. (#666) (#682)--Ant Stephenson
+874188d--RHDM-318: Replace DevOps word by Deploy on Navigation/Menu/Mega Menu (#681)--Paulo Martins
+ac25723--JBPM-6748: Removed Stunner's BasicSet dependencies from the webapps (#670)--Roger Martínez
+c4d76d5--RHDM-271: Disable CMS perspective in RHDM (#671)--David Gutierrez
+af7497c--RHDM-219: [Content Management] HTML panel causes errors when saving & when adding page to navigation tree (#669)--Guilherme Carreiro
+5953e88--upgraded src/main/config/zanata.xml to link to new project 7.6.0 on https://vendors.zanata.redhat.com/ (#663)--kiereleaseuser
+59a0b08--JBPM-6511: Remove the Business Dashboards entry from mega menu (#653)--David Gutierrez
+94f5561--upgraded to next development version--Michael Biarnes Kiefer
+f140717--Prevent gwtbootstrap3-extras ending up in WARs (#660)--Jan Hrcek
+===============================================================================
+Repository: jbpm-work-items
+===============================================================================
+f7d0451--jira workitems (#22)--Tihomir Surdilovic
+d00fc0f--github workitems (#21)--Tihomir Surdilovic
+1ba2f3f--Twitter workitem (#20)--Tihomir Surdilovic
+491c4a2--workitem handlers integration tests (#19)--Tihomir Surdilovic
+18d8944--adding repository integration test (#18)--Tihomir Surdilovic
+4ff2419--Adding repository index.conf (#16)--Tihomir Surdilovic
+dba5160--upgraded to next development version--Michael Biarnes Kiefer
+0aded05--google drive workitems (upload/download) (#15)--Tihomir Surdilovic
+333671c--added missing junit Assert static import (#14)--Maciej Swiderski
+95ec41c--generate zip assembly of repository module and the repository main index file (#13)--Tihomir Surdilovic
