@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 Report Date: 2018-01-09-15:45
 Code Cutoff Date: 2018-01-08
-Target Product Build: RHDM 7.0.0.CR1
+Target Product Build: RHDM 7.0.0.ER2
 Payload Tracker:
 Source Product Tag: sync-7.5.x-2018.01.08
 Community Tag (if available): based on HEAD 7.5.x branch
@@ -416,4 +416,3 @@ b1f19eb--adding IFTTT workitem--Tihomir Surdilovic
 e6529b4--dropbox workitem--Tihomir Surdilovic
 3688063--Merge pull request #8 from tsurdilo/watson--Tihomir Surdilovic
 2a706e2--ibm watson workitems--Tihomir Surdilovic
-

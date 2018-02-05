@@ -92,6 +92,11 @@ It is not clear if these are intermittend test failures or something more seriou
 Development is checking right now what caused these failures.
 If this has to be fixed we will fix it for the next release.
 
+A new release tag sync-7.5.x-2017.12.08-1 was done for selected rpositories adding these three commits:
+https://github.com/kiegroup/droolsjbpm-integration/commit/001c13b0ec90fde38d26d00d633f0751431d1385
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/commit/01155c6ba1abda576e34f3f0925aa87e142551c7
+https://github.com/kiegroup/kie-wb-distributions/commit/1b123453bc9aa73990a12866660293c7510c922f
+
 These are the last 10 commits of master branch on cut-off date:
 
 ===============================================================================
