@@ -1,0 +1,171 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2018.03.05
+Code Cutoff Date: 2018.03.05
+Source Product Tag: 7.7.0.t025
+Community Tag (if available): build from kie master branch
+
+Product Pages:
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build
+------------------------------------------------------------------------
+https://github.com/kiegroup/kie-soup/tree/7.7.0.t025
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.7.0.t025
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.7.0.t025
+https://github.com/kiegroup/drools/tree/7.7.0.t025
+https://github.com/kiegroup/optaplanner/tree/7.7.0.t025
+https://github.com/kiegroup/jbpm/tree/7.7.0.t025
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.7.0.t025
+https://github.com/kiegroup/drlx-parser/tree/7.7.0.t025
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------
+
+MAVEN_OPTS=-Xms2g -Xmx3g
+
+-----------------------------------------------------------------------
+                     Component owners contacts
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+drlx-parser                     mfusco@redhat.com
+------------------------------------------------------------------------
+                              Notes
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, optaplanner repositories are removed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The last commits of this tag 7.7.0.t025 are:
+===============================================================================
+Repository: kie-soup
+===============================================================================
+11cc642ecc0da28416c4ca24eac1081ad91209a8 RHDM-24: updated jackson version to be the same as in kie-parent (#25)
+60f45d70fe6b80d2d964bc3b7afd629d0698d246 Use AssertJ instead of Fest (#36)
+44676f0feee05ac319a668daaa181a9481e7e828 Fix some deprecation warnings (#14)
+8454d1050d74d5bc06a35498b18700f6d0e106f9 Revert "[DO NOT MERGE yet] RHDM-251 Upgrading to Wildfly 11 (#28)"
+da8aa3455ecb9e62a7696b67329d4d52250fd919 [DO NOT MERGE yet] RHDM-251 Upgrading to Wildfly 11 (#28)
+6c71a3764ec8159fc7e5b6985acc4d6f4a25bfc5 AF-648 :  Change Project from a folder in a repo to a repository (#27)
+652dabbda161f14d8ec3ddc35e4c5d4fd41e8d46 Upgraded to next development version 7.7.0-SNAPSHOT (#33)
+88d843f1de6e01161483c47b78d99a3ac7d7700d DROOLS-2263: Cover case when not all enums use quote character (#31)
+741da1aca52a4093e0beacd3537b29852daca2e5 DROOLS-2263 : Unexpected results in GDST when using enumerations with commas (#29)
+03df7c750b938eec9be13fea17f229681a03bf4c RH-237: [Guided Decision Table] Old tables don't recognize imports properly (#22)
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+711c90ce2fa1184c97c40450793929a46c6a5e62 RHDM-251 - Wildfly 11 upgrade (#711)
+1de66e62a0625fbb03a52ebc0c7d98181baf1201 add version for kie-wb-common-data-modeller-backend test-jar (#715)
+2d93c539690d6cede8652b23b85be6906d3596a7 Integration with AF-933 (#686)
+238ff32431c4fac6caaeb767c2c7a3dc57c6b38e JBPM-6815: Stunner - Ability to import/export process (#710)
+6159e099172fc2e16e2b227aa2325245d528462d Revert "RHDM-250: adding enforcer ignore for ASM classes (#684) (#709)"
+f66e76cd18c7c0672083bd641a2a33dda30c589c Revert "[Do not MERGE yet] RHDM-251 Wildfly 11 (#682)"
+497dcfcb661a6c10be89aa9898b0ec53b6ec5db4 RHDM-250: adding enforcer ignore for ASM classes (#684) (#709)
+2d589ded1b9e3081c1d280451da350284230df0b [Do not MERGE yet] RHDM-251 Wildfly 11 (#682)
+7222242087218cb3634b188398e1c0f4b152e1ee DROOLS-2314 : Standalone decision central is not branded (#707)
+921595d72b7722aec5707758af223ff84a015a74 fixed version change for optashift-employee-rostering (#701)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+a20adec24156b8bad2a3ba8222de28cd0704a36a DROOLS-2345 Allow multiple services on same line in kie.conf (#296)
+c13823f46da95bd96af4705d4ace49c505ed46d5 JBPM-6842 - Redesign jBPM executor to replace polling mechanism with more efficient approach (#293)
+92648d4656e6d5c7835064cfb5082f703dfb2947 Remove unused sys. prop. org.uberfire.cluster.local.id (#294)
+eea653e0d548f6a9f7e8e6ce7a91b85c6bb71d3f [DROOLs-2284] allow to programmatically build an executable model based project
+a2d0b9ead637cbebbbf3ea9bf596bbda6998db54 JBPM-6807 - Extend UserInfo to allow look up of user id by email (#291)
+81169c9de5de1283e7f6c2c6634fe8eb8aa137f5 Kie pmml (#292)
+bf810d5642b0fcd2e6c131e1e7fdcf50b0fd29da Upgraded to next development version 7.7.0-SNAPSHOT (#290)
+bae357b9fa2d54b41fee663b2f8fcff7aabd1d9d JBPM-6770 - Information not available in TaskLifeCycleEventListener and ProcessEventListener (#286)
+fc6a4f4be54c99dcb64bbdb33fdb074b541046d0 allow to delete a fact from a datasource from inside a consequence
+bceb72b07d7b03753990741ecc5055a1bd4938f2 allow to delete a fact from a datasource from inside a consequence
+
+===============================================================================
+Repository: drlx-parser
+===============================================================================
+f1e3867f1bf38951973dca684abc5a34e1c7e065 Merge pull request #17 from evacchi/remove-not-with-space
+9b26bfcf8879d8d8c3373562c6b7d172e3a2d896 drop NOT_WITH_SPACE as it no longer conflicts with other rules
+7af812371dfeb1db08f5edf42cbbe94b315997b8 Merge pull request #16 from lucamolteni/GenericVisitor
+782917d96261d2b7acb6c55d700878af2461ff23 Support Generic Visitor in our expressions
+00e38a25670c40478c1a42b372939c143889754c Merge pull request #15 from lucamolteni/mvel-operators2
+66538c190460eeafc1897e78a52c96ab865865fe Support MVEL operators str[startsWith], endsWith and length
+c9862983ef632466f5ebcbcf6de86f62e2c0ca53 Merge pull request #14 from kiereleaseuser/UPDATE-VERSION-2018-02-01
+118729414836044f427039e056264d10504345cc Upgraded to next development version 7.7.0-SNAPSHOT
+04ba2869105fbdaeabf7b1fd2b7877e25b3724e2 Merge pull request #13 from lucamolteni/OOPathMultipleCondition
+f16dec27c841991189aef6d62cc56fb5d334e387 Support multiple condition in OOPath Expressions such as `$address : /address[street == "Elm",city == "Big City"]`
+
+===============================================================================
+Repository: drools
+===============================================================================
+19eb7e968350ecbcc5da81656f02991baec06b92 Proper parsing of the Decision Services (#1781)
+2817206096ecc47096226db80571cd156b37a958 DROOLS-2359 DMN DecisionTable output validation when type is collection (#1799)
+1c8af6a92b5754c6ed0d1fde0697f6d9eaf5e84a DROOLS-2357 DMN expand test case for allowed values of simple type ... (#1797)
+fb81c67e9f36ae2946c38b41c6df8fab913882f5 [DROOLS-2284] fixes and refactor for generation of complex constraints in executable model
+acf372c96742ed82009e669ee5403d4ce8b72289 DMN adjust logging level for ItemDefinitionDependenciesGeneratedTest (#1794)
+57f58b0961dff8aafa6751b1c14130ece6dcad00 DMN FEEL fix typing mistake in test (#1791)
+79969716f234e3847908073af0bd27cc38ae0ef9 [DROOLS-2354] minor optimizations
+974d513dde3b8e1d296219ffc28aa7f8bdcdc0bc [DROOLS-2284] rules with more than three variable references in consequence require functions and objects with higher arity (#1796)
+22f96ce8356f9f4b79bd8f431da98cb8d6e4737d [DROOLS-2354] simplify NetworkNodes equality and index nodes in CompositeSink
+9bc27c340c692084824d52201a6ef11f04210289 RHDM-341 Last prediction missing value strategy does not work correctly in PMML tree models (#1792)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+ceef83bdc1f8d78645b01206d53ea84495c83b44 conf scheduling: Allow names such as "O'Neil" (luck of the Irish) and "IoT/Mobile"
+c989e1afceedf4650e7f5025c136f42e0659c8a8 conf scheduling: audienceTypes (plural)
+7187757022d7953d8827fd71583fa73be13d1998 conf scheduling: talkTypeSet on timeslot and room - fix tests
+52011afa363846a3b8d7263091479978910d25fa conf scheduling: talkTypeSet on timeslot and room
+5ae79c9886eeebcf7d38f475e4fcff93ab9649c3 conf scheduling: introduce talk type set (for RH Summit)
+6d65b96fab6183ed729628743750f26d77000612 RHDM-251 - wildfly 11 upgrade
+f66b33b580af92ec4b55f9ec2ac926a27dab3b1c Conferen scheduling for RH Summit: support google docs xlsx generated file
+380b04a45e233a171e450dac5ce443bc4d0ca1ca Conference scheduling examples: improvements to help schedule RH Summit (thanks Arrie)
+fc6d1009f0105ebb9434e8fc6822ac4a8dbab1bd Declare used dependency
+ed277780213dfa222e4a941ef9df3fee7de554b8 Add comment to explain who they !terminatedEarly check is there so we don't remove it later
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+300660a86dde8573398b1845d46dbcb0121c14f5 Revert "JBPM-6890: Adding the customTaskID as a unique identifier for an active (#1146)"
+a73e40af855e61906b8ccdf9c30db1d581260fda JBPM-6890: Adding the customTaskID as a unique identifier for an active (#1146)
+51d13763c20a8c9907992347322fad8b8bf5dfca RHDM-251 - Wildfly 11 upgrade (#1139)
+8d6be66a5086535c1ae18fe0d1722ee674e9c196 RHBA-400 - Unable migrate process instance with active timer (#1141)
+08f318e2e6b14256cdeab7bcb1b4bcc5657ff1d7 JBPM-6771: Information not available in ProcessEventListener (#1145)
+23e290f833c31f3a3b82689efc2a2e998dbbfd84 JBPM-6770: Information not available in TaskLifeCycleEventListener (#1140)
+97398411e76b6a6bcc43709f0dd80be848d023fe JBPM-6842 - Redesign jBPM executor to replace polling mechanism with more efficient approach (#1135)
+328daaa5a25b571d8497dec08301d73292fe7dd5 update to wid processor - externalize resource templates to repository (#1138)
+3c3744e6319fa132bcfda7f41885dc21447670a2 Revert "Installer - upgrade wf10 --> wf11 (#1113)"
+e6559d572b95dbe623738f2f57d640a965ad66ec Revert "[Do not MERGE yet] RHDM-251 Wildfly 11 upgrade (#1122)"
