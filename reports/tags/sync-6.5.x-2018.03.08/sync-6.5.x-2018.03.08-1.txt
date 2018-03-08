@@ -1,0 +1,139 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2018-03-08
+Code Cutoff Date: 2018-03-08
+Target Product Build: BxMS 6.4.9.CR2
+Payload Tracker:
+Source Product Tag: sync-6.5.x-2018.03.08
+Community Tag (if available):
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+tags sync-6.5.x-2018.03.08 for all reps are in  Gerrit
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.8.Final
+Uberfire: 0.9.1.20180308-prod (tag sync-6.5.x-2018.03.08 on Gerrit)
+Uberfire-extensions: 0.9.1.20180308-prod (tag sync-6.5.x-2018.03.08 on Gerrit)
+Dashbuilder: 0.5.1.20180308-prod (tag sync-6.5.x-2018.03.08 on Gerrit)
+Errai: 3.2.5.Final (released, tag available at https://github.com/errai/errai/tree/3.2.5.Final)
+
+------------------------------------------------------------------------
+                             INTPACK
+------------------------------------------------------------------------
+
+
+the intpack related to this tag is:
+
+information will be updated
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -XX:MaxPermSize=256m -XX:PermSize=128m -Xss1M" -Dgwt.compiler.localWorkers=3
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         cnicolai@redhat.com
+guvnor                          manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+drools-wb                       manstis@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-wb		                cnicolai@redhat.com
+dashboard-builder               dgutierr@redhat.com
+optaplanner-wb                  gdesmet@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,csadilek@redhat.com
+kie-eap-modules                 romartin@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+
+This tag is based on previous tag sync-6.5.x.2018.02.20 + these cherry-picks:
+
+
+===============================================================================
+Repository: drools
+===============================================================================
+15962c374a4c498127bbc3caa39709bafc94139e DROOLS-2263: Increase coverage (#1790)
+4406d9fc5c22b514d2055ba1238f460490fab94b RHDM-254 RHBRMS-3057 DrlParser/DrlDumper will break valid DRL containing accumulate statements (#1789)
+f9425fb103cf068e3d851bb258f627549c92a756 DROOLS-2346: ProtobufOutputMarshaller.orderFacts should use Integer.compare to avoid IllegalArgumentException (#1786)
+
+===============================================================================
+Repository: guvnor
+===============================================================================
+ee187447d38a1cfc3b3fe40df7be2b2adea0520c AF-1037 : Business-central maven artifacts available at maven2wb without authorization (#535)
+
+===============================================================================
+Repository: drools-wb
+===============================================================================
+4fc5db52bff63493a31178f55b132e80f13707ab RHBPMS-5096: Cover validation of table with predicate calculation type (#819)
+4cc8837c0b61c28606d18cd1f6cfb954d0ef5d45 AF-1037 : Business-central maven artifacts available at maven2wb without authorization (#816)
+
+===============================================================================
+Repository: optaplanner-wb
+===============================================================================
+609cd328f1eb7925a6c5a8147aa71e49dcd8ca2b AF-1037 : Business-central maven artifacts available at maven2wb without authorization (#257)
+
+
+===============================================================================
+Repository: kie-wb-distributions
+===============================================================================
+15f493bd2db6fde214a28a1f8d8ab06d78edfa30 AF-1037 : Business-central maven artifacts available at maven2wb without authorization (#694)
+
+
