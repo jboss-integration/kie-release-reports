@@ -2,11 +2,11 @@
 ------------------------------------------------------------------------
            Engineering to Productization Handoff Report
 ------------------------------------------------------------------------
-Report Date: 2018-03-08
+Report Date: 2018-03-12
 Code Cutoff Date: 2018-03-08
 Target Product Build: BxMS 6.4.9.CR2
 Payload Tracker:
-Source Product Tag: sync-6.5.x-2018.03.08
+Source Product Tag: sync-6.5.x-2018.03.12
 Community Tag (if available):
  
 Product Pages: 
@@ -36,7 +36,7 @@ OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix
 ------------------------------------------------------------------------
                         Sources to build                         
 ------------------------------------------------------------------------
-tags sync-6.5.x-2018.03.08 for all reps are in  Gerrit
+tags sync-6.5.x-2018.03.12 for all reps are in  Gerrit
 
 ------------------------------------------------------------------------
                           3rd party  versions
@@ -103,8 +103,8 @@ NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, opta
       repositories for production release are build with: mvn clean install -Dfull -Dproductized 
       to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
 
-IMPORTANT: this tag is not anymore the recent one for 6.4.9.CR2. There were two commits for drools that had to be cherry-picked.
-Please look at tag sync-6.5.x-2018.03.12.
+Important: the tag has two commits more in drools (df2f27c94e94a60715ebc01a114c6c05caaf4a1f and 73458ee3ab01537ec8c8ef0c76468b3f4cf68cd1)
+and is the valid tag for 6.4.9.CR2
 
 This tag is based on previous tag sync-6.5.x.2018.02.20 + these cherry-picks:
 
@@ -112,6 +112,8 @@ This tag is based on previous tag sync-6.5.x.2018.02.20 + these cherry-picks:
 ===============================================================================
 Repository: drools
 ===============================================================================
+df2f27c94e94a60715ebc01a114c6c05caaf4a1f [RHDM-486] fix rule association check for RIA nodes when merging 2 path memories
+73458ee3ab01537ec8c8ef0c76468b3f4cf68cd1 [RHDM-486] fix rule association check for RIA nodes when merging 2 path memories
 15962c374a4c498127bbc3caa39709bafc94139e DROOLS-2263: Increase coverage (#1790)
 4406d9fc5c22b514d2055ba1238f460490fab94b RHDM-254 RHBRMS-3057 DrlParser/DrlDumper will break valid DRL containing accumulate statements (#1789)
 f9425fb103cf068e3d851bb258f627549c92a756 DROOLS-2346: ProtobufOutputMarshaller.orderFacts should use Integer.compare to avoid IllegalArgumentException (#1786)
