@@ -2,7 +2,7 @@
            Engineering to Productization Handoff Report
 ------------------------------------------------------------------------
 Report Date: 2018-03-12-15:45
-Code Cutoff Date: 2018-03-212
+Code Cutoff Date: 2018-03-12
 Target Product Build: RHBA 7.0.0.ER1
 Payload Tracker:
 Source Product Tag: sync-7.7.x-2018.03.12
