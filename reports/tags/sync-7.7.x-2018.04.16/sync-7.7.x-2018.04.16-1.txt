@@ -1,0 +1,439 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2018-04-16-15:45
+Code Cutoff Date: 2018-04-16
+Target Product Build: RHPAM 7.0.0.ER4
+Payload Tracker:
+Source Product Tag: sync-7.7.x-2018.04.16
+Community Tag (if available): based on 7.7.x branch
+
+Product Pages:
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build
+------------------------------------------------------------------------
+All tags sync-7.7.x-2018.04.16 are on Gerrit
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 8.0.0.CR3
+errai: 4.2.1.20180416-prod (sync-7.7.x-2018.04.18 tag on Gerrit)
+appformer (uberfire&dashbuilder): 2.4.1.20180416-prod (sync-7.7.x-2018.04.16 tag on Gerrit)
+
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -T2 -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -XX:MaxPermSize=256m -XX:PermSize=128m -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------
+
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+
+-----------------------------------------------------------------------
+                     Component owners contacts
+------------------------------------------------------------------------
+kie-soup                        mswiders@redhat.com
+appformer                       porcelli@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         cnicolai@redhat.com
+kie-wb-playground               manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+drools-wb                       manstis@redhat.com
+optaplanner-wb                  gdesmet@redhat,com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-wb		                    cnicolai@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distributions            manstis@redhat.com
+jbpm-work-items                 mswiders@redhat.com
+
+------------------------------------------------------------------------
+                              Notes
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+
+-----------------------------------------------------------------------------------------------
+
+These are the last commits of tag sync-7.7.x-2018.04.16 [bsync-7.7.x-2018.04.16 release branch] (on Gerrit):
+
+===============================================================================
+Repository: lienzo-core
+===============================================================================
+f05d542d18810cf5be28bf91801acfde43f8435a Upgraded versions for release 7.7.1.20180416-prod
+12f26c31c5b0e63ded8a7d63d3dd9534fa764f08 RHPAM-792 (JBPM-6898): Stunner - Process is deleted when resizing task (#17)
+dbd672a1012a454d17325e6567bfcdfc24dd4ffd RHPAM-754 Docking issues
+43b00e405c0da03e35d4d25b404fc617bb15a5cb RHBA-684: Do not throw exception on size constraints validation. (#14)
+f1b12042683d35211aca4fb59e71c3b93be47b89 updated to next SNAPSHOT version
+2c3c408779e4b33c7e9f050bb32832e0a83676ac JBPM-6110 Refactor to support injecting a INativeContext2D for SVG export (#12)
+8b6e26b07bcee55d765e5b1c8cbd841b39878ca4 JBPM-6110 splitting Context2D save/restore to save/restore group (#11)
+a2a38802200490d79dcd92b7d9f482dd4f6dce79 Disable select action for Middle and Right mouse buttons (#10)
+8531f2b0f2490805396a50a6aa87bfd4e20f5c02 Disable blue border around canvas in Google Chrome (#9)
+c11cad25c6693f16f6c34174b67a329b4ca43747 JBPM-6798: Stunner & Forms - Field updates are not fired when selecting a canvas shape #6: (#7)
+8cd84c0bd6befe2db8e2cee2af43be02afd4d2ed JBPM-6672: Stunner - Add support for poly-lines (#6)
+
+===============================================================================
+Repository: lienzo-tests
+===============================================================================
+abef3b9154f1e58632915dfd0a17bbab455adac4 Upgraded versions for release 7.7.1.20180416-prod
+a5e5189982a1c8d1dda5d3ed28389dc60b05f1f2 RHPAM-792 (JBPM-6898): Stunner - Process is deleted when resizing task (#13)
+47bbe116f0d5a4edcba4c43f581caee4230a6dd3 updated to next SNAPSHOT version
+631ad428382deba22315f6e35282a3f7e394ee38 JBPM-6391: Added missing stub class for the overlay ShadowJSO (#11)
+e4d1a9887733b77a26f75a4f476647a8f871c603 Disable select action for Middle and Right mouse buttons (#10)
+7a0fcfbd8d9de815aff289150778934f58970ce4 JBPM-6672: Stunner - Add support for poly-lines (#8)
+d95ea82dbdd9191ad01e6890d74c48f39bb21eeb JBPM-5962 Adding support for Control Point handling (#4)
+abb8f3294154920fb4fa2615786ce3a18efa9950 Merge pull request #6 from mareknovotny/adding_sources_jar
+b3cdff18e85235f84c1cf7edf623f75185c11fa0 adding producing of sources jar as good standard
+2f2043dfa033fe57dab4fda8d0af21e4828eef0f Merge pull request #5 from mbiarnes/addLicense
+e8c9d0f2639bdf4e0ba4f147f8e07c3fab961f59 added missing license for deploying to Nexus
+
+===============================================================================
+Repository: kie-soup
+===============================================================================
+b8bee4cd364a14b9d63883fde0fa8fee1f7a9b88 Upgraded versions for release 7.7.1.20180416-prod
+93657e9c34999730f1da4ecc3caf692f11b63515 updated to next SNAPSHOT version
+fec4cb1581d33d057cbd9ff3dd852814d9f98eb3 Added more time to compile elasticsearch scripts
+53e440ebe49e9c6a1f2d2ee53fdf3f25aa4fe4ef AF-1048: "Data Sets" screen allows discarding data without warning (#37)
+d583e442ae8021547ccbfbf89b9e57bdeba69e8c JBPM-6849: Creating and using default POM if no POM is available. (#38)
+11cc642ecc0da28416c4ca24eac1081ad91209a8 RHDM-24: updated jackson version to be the same as in kie-parent (#25)
+60f45d70fe6b80d2d964bc3b7afd629d0698d246 Use AssertJ instead of Fest (#36)
+44676f0feee05ac319a668daaa181a9481e7e828 Fix some deprecation warnings (#14)
+8454d1050d74d5bc06a35498b18700f6d0e106f9 Revert "[DO NOT MERGE yet] RHDM-251 Upgrading to Wildfly 11 (#28)"
+da8aa3455ecb9e62a7696b67329d4d52250fd919 [DO NOT MERGE yet] RHDM-251 Upgrading to Wildfly 11 (#28)
+6c71a3764ec8159fc7e5b6985acc4d6f4a25bfc5 AF-648 :  Change Project from a folder in a repo to a repository (#27)
+
+===============================================================================
+Repository: appformer
+===============================================================================
+3e6321b4b4192544ca38534ea4ef358320302db7 Upgraded versions for release 7.7.1.20180416-prod
+5f288c3fa492c982c96ef064193a08f6e9742f5b AF-1120: Support standalone repositories as targets for the migration tool (#285) (#290)
+652e46605d3ad90a1dbf23b6b16be3a0bf00566a AF-1105: [Project Oriented] Lucene index does not re-use existing index on startup (#282)
+d5af535815bab6800b484925df91912cee33f83d AF-1084: Perform simple indexing of filenames separate from full indexing that requires a build (#255)
+22aca28175409eae6df9f540f5ff85f4092c1496 [AF-1087]: Added VisibleAssetQualifier to ResourceTypeDefinitions (#269)
+afabed7ee5d301d5e07aaaac2953c4d99fa70edf RHPAM-777: Fix VFSService missing filter delegate (#289)
+6303a37c0ff917605ffb37bd92a0185e95bbfd0c AF-1119: "Are you sure you want to discard unsaved data?" Displayed when saving newly created dataset (#280)
+b4f5d3e019d6491a948ed3516946084dea1e2df8 RHBA-415: After rename, designer is not marked as dirty more (#275) (#284)
+c09d22a8bb38869d19587573dfc0182ab71dfb12 AF-1079 : Empty 'Validation errors' popup in Decision/Business Central (#272)
+9c4d3e1bfbb1c49f702f7b7c7763a3e3504ea5bf Fix for internal QE Jenkins (#277)
+5857164f7068e23f23eb3050bb0f97e3f0540683 BAPL-939: Forms & Stunner - Improve the usability for task' actors fields (#270)
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+ce6f03568bb6c1b0d41877552f855f7070ce5dd2 Upgraded versions for release 7.7.1.20180416-prod
+121a464b9acc77b7f90c610abff7557bc68634ef AF-1079: Empty 'Validation errors' popup in Decision/Business Central (#731)
+3958a1e9627baa5a00aa5fd04fd42b155edebbc5 Use the Uberfire 2.4.1-SNAPSHOT version for the 7.7.x branch. (#730)
+40c211a962351960fb3d9b0c6bbef93d0b88b81c updated to next SNAPSHOT version
+8e372a223999ac7c747104dbbf9a72f5370c5397 Added new dependencies for embedded apache camel component (#724)
+373a4a4ea460571335b50450e982f94144ba793b AF-1080: New project with the same name as another project in different space disappear after server restarts (#723)
+cb738ab6bb092eaa7023d76bc6d091a566033bf0 BAPL-764-migration-tool: Provide migration path from old Form Modeler to the new one
+e4e54f433b28eb99e250c48a64d94d3d8421257b JBPM-6876: Stunner - easy way to migrate from Stunner to current Designer (#721)
+dee76e8e08f93eb2de18a07c411a0ee4e020e3f6 fixes: removed unnecessary SETIINGS_XML and typo (#719)
+503ba575fd482361c0e271da7fb3eae559312215 added script for errai prod version (#718)
+2e39c290bb328f40ca8924b720a4cd4a39b29724 increased gwt compile memory (#716)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+725ba5c56e17951e846d0b9509f37e130e7a258b Upgraded versions for release 7.7.1.20180416-prod
+5d917077e2266e5e7c9252acc3b6e1317c1e13c0 updated to next SNAPSHOT version
+b1304e05ab1fb2357e3935fc456eb9444061b91c JBPM-6894 - User should be able to define case, process, activity level SLA (#298)
+a20adec24156b8bad2a3ba8222de28cd0704a36a DROOLS-2345 Allow multiple services on same line in kie.conf (#296)
+c13823f46da95bd96af4705d4ace49c505ed46d5 JBPM-6842 - Redesign jBPM executor to replace polling mechanism with more efficient approach (#293)
+92648d4656e6d5c7835064cfb5082f703dfb2947 Remove unused sys. prop. org.uberfire.cluster.local.id (#294)
+eea653e0d548f6a9f7e8e6ce7a91b85c6bb71d3f [DROOLs-2284] allow to programmatically build an executable model based project
+a2d0b9ead637cbebbbf3ea9bf596bbda6998db54 JBPM-6807 - Extend UserInfo to allow look up of user id by email (#291)
+81169c9de5de1283e7f6c2c6634fe8eb8aa137f5 Kie pmml (#292)
+bf810d5642b0fcd2e6c131e1e7fdcf50b0fd29da Upgraded to next development version 7.7.0-SNAPSHOT (#290)
+bae357b9fa2d54b41fee663b2f8fcff7aabd1d9d JBPM-6770 - Information not available in TaskLifeCycleEventListener and ProcessEventListener (#286)
+
+===============================================================================
+Repository: drlx-parser
+===============================================================================
+bc87689ec686f001173c2d8a560c3d291ad47054 Upgraded versions for release 7.7.1.20180416-prod
+5bdf12c21448df5de17e12c19b216ce82854475b updated to next SNAPSHOT version
+f1e3867f1bf38951973dca684abc5a34e1c7e065 Merge pull request #17 from evacchi/remove-not-with-space
+9b26bfcf8879d8d8c3373562c6b7d172e3a2d896 drop NOT_WITH_SPACE as it no longer conflicts with other rules
+7af812371dfeb1db08f5edf42cbbe94b315997b8 Merge pull request #16 from lucamolteni/GenericVisitor
+782917d96261d2b7acb6c55d700878af2461ff23 Support Generic Visitor in our expressions
+00e38a25670c40478c1a42b372939c143889754c Merge pull request #15 from lucamolteni/mvel-operators2
+66538c190460eeafc1897e78a52c96ab865865fe Support MVEL operators str[startsWith], endsWith and length
+c9862983ef632466f5ebcbcf6de86f62e2c0ca53 Merge pull request #14 from kiereleaseuser/UPDATE-VERSION-2018-02-01
+118729414836044f427039e056264d10504345cc Upgraded to next development version 7.7.0-SNAPSHOT
+04ba2869105fbdaeabf7b1fd2b7877e25b3724e2 Merge pull request #13 from lucamolteni/OOPathMultipleCondition
+
+===============================================================================
+Repository: drools
+===============================================================================
+3013579dd57c8789ebe220d9153e55658f5cb53a Upgraded versions for release 7.7.1.20180416-prod
+a0beaff9e7eef783843cf33dac6c186f5d9495ad Use stable comparator for InternalKnowledgePackage (#1867)
+31a97f7153fec9f4dcffc794c7834916bae6d169 [DROOLS-2471] fix dsl generation of constraints invoking method on a variable bound from a different patter in executable model
+88d204ffac25f4406f23e6c9c31c7e64715fa82c [DROOLS-2466] avoid static import of dsl methods in generated executable model
+b0cfa0f717453280c4349caedec36cc8819a9a06 DROOLS-2422 Fix fireUntilHalt() handling in tests (#1842)
+17cdb99fb4b13f15782b583ddf641c016400ac41 [DROOLS-2549] fix generation of constraint using globals + improve compilation errors management in executable model
+8e13c5a6a597f04412f0eb8a347856f2ed11799e RHDM-522_7.7.x Add sum mode for MiningModel (#1859)
+81d2f38191d39ec30fa17b9b56cb4c4506f3c164 [DROOLS-2455] fix beta nodes sharing
+a573cbb69e7a4a1441911b3bbef9f74c17b99e6b RHDM-515 Add weighted average mode to MiningModel (#1855)
+fb0563af3495b1a487df68e73b2b88eb102f9af9 [DROOLS-2449] fix merging of jbpm processes into KieBase generated from executable model + share nodes in different packages + fix generation of property rectivity mask i
+4fc4f442aacd512be892bcc4b51535a8a751e507 RHBA-626 Tree model does not work on models expecting numeric output (#1847) (#1852)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+7a8c058b49a24ccb0f046ddcbe69475ba2aa5f96 Upgraded versions for release 7.7.1.20180416-prod
+7590420da8cd13c9b19030382e6ba780c7ee7f3b updated to next SNAPSHOT version
+50618a4cc4b54e67d5004d5a7ba2dec5ea0254ab Deprecate ScoreJacksonJsonSerializer + add jackson changes in upgrade recipe
+2d6eefba61b2991f0b1fa1fe5207ea883ed6d106 typo (thanks Radovan)
+752c3630c6cc029095b6aef43b77440c1518761b PLANNER-1064 Solver.getTimeMillisSpent() and Solver.getBestScore() need to be thread safe
+f19a0967ca42759f2bafe8b9dbb3343c27db917a PLANNER-1041 Jiri's feedback
+464b578daf93fe72fe32ef5771de42872bb3ecaf Add optaplanner-persistence-jackson dependency on optaplanner-examples
+f44b316b9092800b47e03b546977392d9852a4be PLANNER-1041 Jackson support for non-subtyped Score field: use streaming api instead of dom tree parser
+348069a44552e9a68bc313857a914febbb176758 PLANNER-1041 Jackson support for non-subtyped Score field + jackson module
+2fbae855ee21299b462218da8c4d4bd7eb4b2bf1 PLANNER-983 Include ConstraintMatch API in optaplanner-core-gwt Module (thanks Christopher)
+bbef1e7b9ad11c1b511c264975a82f9f0676872c Change formulation of DoD
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+ded1384306cc87c9a5293761cbdb749625e9727c Upgraded versions for release 7.7.1.20180416-prod
+901d8c2adc041ae8313972ba28d8afda7aabed0c RHBA-71 - Allow forward operation for Business Administrators (#1167)
+fe8c8df98c66bbfaeb7faada6aa326d18e9f6ca5 Update XSD Schema locations in BPMN2 definitions (#1174)
+ee52a5a573f7561761e94b68ac1d862a991d64f5 updated to next SNAPSHOT version
+e14531086c60ee39118b2966230fa321d24fda33 JBPM-7069 - Manage Tasks only display tasks if user is set/member of Kie Server Human task admin system property (#1166)
+9f0efe09d2fbc6c2220d334789d1f9479dfef1bd JBPM-7047 - case-data not saved in CaseFileDataLog
+ac098bccd008716223b6920a057ad798a3541572 JBPM-7043 - Process migration should fail if strategy differs
+121be21c6291331ac369395be09eb307677633d4 Stabilize Audit tests (#1163)
+ffbc13c117df43eac798c81d3efb4a42e453a500 RHBA-519: Cache AsyncAuditLogProducer in DefaultRegisterableItemsFact… (#1155)
+68193bfb5304e772a3f69bd0e3acfef4ddc1ad70 jbpm-test-coverage -  improved tests as it seems instability is related to not really pool data source (#1162)
+713bc304a63b5bf75dfc8506f2a98b92bd9dd736 RHBA-592 - KieSession already used when starting process with PER_PROCESS_INSTANCE strategy (#1161)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+157d6a927cfbec56c86a5d481cf2b1a7c210eab4 Upgraded versions for release 7.7.1.20180416-prod
+61c5d703830ba3d72090e6ea9b9db93f01d0dc79 JBPM-6935 Adding test coverate for Case mtmg operations (#1420) (#1430)
+4dd46719871ba414d52b2b585f9e3f739cfd3982 Skip unstable tests on Jenkins PR builder (#1427)
+018fef487f603cce45c8f5dec12830efb195e5b0 [7.7.x] Test stabilizations (#1426)
+d7d1ed0a6a9b05721d1d6d6c7dbf33e5ce1e7fe9 RHBA-481 RHBA-480 - WebSocket controller client methods do not throw exception when get wrong input (#1419)
+d7100c0fd82ff12236be2c1bc87061f1170ba329 RHBA-478 - WebSocket controller client method getContainers return Kie container with wrong name (#1416)
+8a64c174092accf7fa935ff41280ada24f4afa6f [RHBA-667] Move storage and notification services definitions to WEB-INF/classes (#1413)
+6530e8124117b5e82833124c746ea629c2f4215e JBPM-6743 - Move services folder and synchronize sending messages to avoid errors in Tomcat (#1408)
+f538f838641a2c0fbebb559a933572f5aef568ef [BAPL-511] fix tests for local camel component
+ebcbade5b770d2a075f810c5f93f9fe30ab300bd Fix some kamel integration tests (#1406)
+8109432190b082c3acf5dd6378df560f37c7e97a updated to next SNAPSHOT version
+
+===============================================================================
+Repository: droolsjbpm-tools
+===============================================================================
+7af2b4967bdf76ca867bf91f9a4928de3de946f2 Upgraded versions for release 7.7.1.20180416-prod
+dd360d17abbca3f685eee24898ac4b12ae91f692 DROOLS-2342: Update Kie Navigator to the new git/rest structure (#89)
+1a218ed621b32258d259d280201e8aa1f0a202bf updated to next SNAPSHOT version
+141cc545904462fdc14f8dc795d81278c6143eca Upgraded to next development version 7.7.0-SNAPSHOT (#88)
+b8dc98591075b7f050d96666aa71cdb4f8031388 DROOLS-2122 skip service entry when Properties.load a Drools v6 kie.conf (#87)
+ff4bb165b0197101e5ea014f683bc81662cc0ba6 upgraded to next development version
+eeb6deb364a180b57eb46fa35be2ac314ee95519  - updating target platform to 4.5.1.Final
+baab67d60c2b1715eb4124c30bb0511a01b65075 DROOLS-2122 Use embedded Drools to compile and validate DRL. (#86)
+ebddae967bb518d7a1763fede339c3f1608e1929 AF-593+: Move uberfire-maven-utils to kie-soup. (#84)
+45d12b801af4a1ba74776d4d8c16dba171a1002d downgraded to 7.5.0-SNAPSHOT
+32949f9241bc97a512732d8ba7ecbb84f367772c AF-593: Decouple DMO from Drools (#82)
+
+===============================================================================
+Repository: kie-uberfire-extensions
+===============================================================================
+20a214b8c21e712a102dacd9e2fd12fa52a10703 Upgraded versions for release 7.7.1.20180416-prod
+aa6db9c3bb2006e2a27e063b49e7cf2c0e8c0da4 updated to next SNAPSHOT version
+16370bb6017ffe06260179e6b23b48f4a3c469b2 upgraded src/main/config/zanata.xml to link to new project 7.7.0 on https://vendors.zanata.redhat.com/ (#63)
+21cde73ca7805f13b402eb0549573e0c414d4003 Upgraded to next development version 7.7.0-SNAPSHOT (#62)
+4aeafd317cc65569eca9f9a1f82a73c8a75863dc upgraded src/main/config/zanata.xml to link to new project 7.6.0 on https://vendors.zanata.redhat.com/ (#61)
+b606b04bf35bdf782f8899607841c7040541e904 upgraded to next development version
+9762d7e5f833340b5cc3ba42b1fb0fbe78cbc914 [DROOLS-1776] add Automatic-Module-Name MANIFEST attribute
+9e2c6f549d2b2e5e6cd62924b1f5243747f40346 adapted to the new Zanata server and project (#56)
+ab9a1fb4f43b30e8ea44688e11a6ad8a6edff221 downgraded to 7.5.0-SNAPSHOT
+9ebaf05e8d8efd8f5306b2b9aa22cac8e0ec6797 upgraded to Zanata 8.0.0 (#54)
+9c90146d91fe5c193a7b7f7880142a5e16992ead Upgraded to next development version 8.0.0-SNAPSHOT (#52)
+
+===============================================================================
+Repository: kie-wb-playground
+===============================================================================
+881ff5a17316bdac1819f9a5c5ea283fe90c1974 Upgraded versions for release 7.7.1.20180416-prod
+dd03ecd68431e5cee1ed96b28be7977ec27983bf New getting started Loan app project (#54)
+eb1aaf048a341348f495920d94a2af54738ec66d RHPAM-777: Removed wrong WID declarations from examples. (#56)
+159ff56ee01b4419fd3edf3e9e60a8fbf58b7f2d updated to next SNAPSHOT version
+c93341e6bdbfaffebe498c71806690b484298eaa Make example project names consistent. (#49)
+9e0d4431123c5d0a90c7304c5c158684c14c4b92 Fix license header format
+3c49f43efa88b8251e97c002ab0bf4db754bffd2 New Playground projects (#46)
+21212239c88e3166dee3509ae38a5cab1784f3ff Upgraded to next development version 7.7.0-SNAPSHOT (#45)
+e0321c819555d91e12db11affb410912672161eb upgraded to next development version
+7d94cdd517d828813941b7f0bf4e9010162d545b AF-593+: Move XStreamUtils to kie-soup. (#43)
+fe5de291c77d546a2b282cd9fef7938520a0043c JBPM-6507: Indexing errors on some playground forms. (#42)
+
+===============================================================================
+Repository: kie-wb-common
+===============================================================================
+77d1801aeceeed89d7c9933ccd50b7fcc6c35832 Upgraded versions for release 7.7.1.20180416-prod
+da85c0f99eadb6da3fdf440e2906c59e593e2f15 AF-1157: Migration Tool only displays selected migration steps after first prompt
+90a0f52105d9046d795fcff2134a8f7448cf9c20 Forms & Stunner - Add support for Field Groups (#1591) (#1626)
+3273ff1c1bd5831a97b3251f3b209e3616084b44 RHPAM-777: Stunner - Service Tasks deployments (#1623)
+a943dfd1fc08bbc0cd9ec6eaf2b7417b2dd0e1cf AF-1120: Support standalone repositories as targets for the migration tool (#1593) (#1627)
+275a0d66864afe60264ac388d50bdf9008223548 RHBA-678 Export diagrams to SVG (#1577)
+e37e6a76410b91130dfd3f7753d8024c64eda316 AF-1084: Perform simple indexing of filenames separate from full indexing that requires a build (#1529)
+6374332d1b8d9d02bda125b85103e64cd0630f3f [AF-1087]: Added VisibleAsset Qualifier to ResourceTypeDefinitions (#1550)
+c9f791894d800abea0faa4c19445362b4a22190a RHPAM-776 (JBPM-7138): [Stunner] Error while removing connected decision (#1605) (#1621)
+68a28b63ea8e81faf22eb9a872864afe3a7bdd2e RHPAM-771 (JBPM-7082): Stunner - Designer doesn't restore previous version of a process (#1589) (#1620)
+d4ecba148ef8c4e552169a3980450d17ae730e65 JBPM-6753: Rename server capabilities (#1604)
+
+===============================================================================
+Repository: drools-wb
+===============================================================================
+725591bce2282d1a50799acb89ec532122198d68 Upgraded versions for release 7.7.1.20180416-prod
+f2278cf0bcb38cab4dd0d59e5f4744ca83ea8635 AF-1084: Perform simple indexing of filenames separate from full indexing that requires a build (#833)
+9a338e660414e0c2fe7c93f4e38c49de4797511e [AF-1087]: Added VisibleAsset Qualifier to ResourceTypeDefinitions (#838)
+33d89bcac792b8e066e4517473c66e3a1ac52384 RHBA-526: Rename Deployments to Provisioning (#845)
+89e0ccc5dace5013bad7abf102618271500fafdc RHBA-415: After rename, designer is not marked as dirty more (#842) (#844)
+38dba6e4f3dc9694773211e278310c993ad7ba9a AF-1079 : Empty 'Validation errors' popup in Decision/Business Central (#841)
+9c117a8b871c00f311b6ae86c77858ce0a62563e updated to next SNAPSHOT version
+e578ef86febf83033fa274b8accf39cce2516950 [AF-1074]: Removed remaining dependency (#832)
+bf8ee7bb7b5cbc7f88fc059246e5771fe61b3766 Use a toggle button to show/hide messages (#829)
+f48207a0662c7d239398ba155a0ee7e8dc3d25aa BAQE-380: Cover validation of calendar and timer attributes (#826)
+52edf69c27de519d1fff9465f10461d5533f8c06 DROOLS-2371: Unable to complete your request. The following exception occurred: (TypeError) in Guided Decision Table Graph (#824)
+
+===============================================================================
+Repository: optaplanner-wb
+===============================================================================
+cd74f1b4eca5979d76857e51b8813eb9659f3efa Upgraded versions for release 7.7.1.20180416-prod
+5ce6a3c0665df7504b2475c3344ee5695157b618 AF-1084: Perform simple indexing of filenames separate from full indexing that requires a build (#265)
+124583c7bc1a0011e514f40ae72468f7b7d4c88e [AF-1087]: Added VisibleAsset Qualifier to ResourceTypeDefinitions (#269)
+eaf4caf88c71e166b971ed74330d4d7453d7fec0 updated to next SNAPSHOT version
+69cfa482e287abb7503fad20808c570fa3075502 Removed unused dependencies (#264)
+ee05bb57c30c87766ba3c02ef6b38bac55eaf406 Use a toggle button to show/hide messages (#263)
+879d462a26fb725891e423759be1037b8a58f315 AF-1035 : [Project Oriented] Path trimming should be consistent with file:// and git:// (#260)
+9841102d1a0698285a9af4f11fed92d794ea1e7b PLANNER-1014 Increase maxRank for findbugs plugin
+715d0e1b765f7b39232de1032ecdfab322597a64 BAQE-339: Refactor according to review comments
+44bdfe8b9768528b2c076387fbd11c18a5312e32 BAQE-339: Introduce util method for exception assertion
+3647fe6b8c421511cd0d31063c9df90dcc23762b BAQE-339: Post review actions
+
+===============================================================================
+Repository: jbpm-designer
+===============================================================================
+f2c74989090edcc5f1a66f1cddd694435c074af4 Upgraded versions for release 7.7.1.20180416-prod
+cb4516c8b50f85dd011d1d74e8c8341fd8eea6b1 [AF-1087]: Added VisibleAsset Qualifier to ResourceTypeDefinitions (#760)
+5f937f4d13eac38f71997e12de6d4172aa77362c JBPM-7142 - Allow underscore in workitem name attribute (#766)
+8527a27a422cdb87d5938bef90eb38b528860b82 updated to next SNAPSHOT version
+a834ca0c93660c231ed2643a3e8c942056f382f2 RHBA-584 - Not possible to create Business Process if Project name contains spaces (#757)
+88545a1bbab2ce2f4a3e83f5140d390bc805fe15 BAPL-764-migration-tool: Provide migration path from old Form Modeler to the new one
+66e1686250ff5c1590cdc35c86acd2eda71628f5 JBPM-6934 - Activation condition for case stage (#756)
+53f2e6f88405b1b2075a5c5f28ee13815dedbaeb Use a toggle button to show/hide messages (#755)
+b20f27de66c861f76388581e7f4262ef91ba9e52 AF-1065: [Project Oriented] Unable to create new Process or Case Definition in the second project (#753)
+69cecd1bf670a60377c7a3f8718dee4b7e606734 AF-1059: [Project Oriented] Error dialog when creating Business process in new project (#752)
+8cbde28c41737184d619a1362ac73b939e317a5c JBPM-6894 - User should be able to define case, process, activity lev… (#750)
+
+===============================================================================
+Repository: jbpm-wb
+===============================================================================
+a47d885dbbe0fa1d2485984a044a44087803573a Upgraded versions for release 7.7.1.20180416-prod
+18e681f51bc77fbfe023fb6d0251d72d2232d4e7 [JBPM-7139] Process Instances: Add backend tests for bulk actions (#1050)
+500e497533140c9c0b484a82749208802b090479 [JBPM-7115] Case audit: Review tests (#1055)
+3e173b6c2f202fc44d10bfe63b122919dcbe9f11 RHBA-616 - Error shown every time user opens process instance details for process which doesn't have svg image generated. (#1038)
+84e56677c69ffa13a6c6921ff06da25a79694715 RHPAM-762 - Fix SVG regex to match inner tag content only (#1043)
+fb9dd7deba224b2f7d6c1266fd0a5ecd5e403430 Update Wildfly standalone configuration for version 11 (#1047)
+3551d94f142df4896f1c7f0ee8884490d1711339 RHPAM-744 - Add cursor pointer style to list table columns (#1045)
+b82ecee73066df1d147bcc994c02ba5e9368725f RHBA-717 - Selecting all radio buttons in "Manage" screen causes active filters to vanish (#1040)
+f077a30c072416e2732a9e6701466e75a3f208c2 RHBA-71 - Task is still in the reserved state after forwarding it to another user (#1021)
+ff3f169215aa435a0987550cc4242f18dfedf140 RHBA-614 - Process/Task Reports always show "No Data" on first visit after login (#1034)
+e6c92e0bb340bba827a2bf7b19e146df4e57b92e RHBA-637 - Bulk operations failing (#1036)
+
+===============================================================================
+Repository: kie-docs
+===============================================================================
+1c445d71a32b586378f2d2272ca0ad3dd25eaa82 Upgraded versions for release 7.7.1.20180416-prod
+a0bc2f9877e05dd9c645baf0c900f7d0d15e6782 JBPM-7018: Update documentation regarding changes in Manage section (#770)
+2bca370f64603652a030c1c23785267b21b8e624 BXMSDOC-2353 (for upstream 7.7.x): 7.7.x-related changes per DM 7.0 patch 3 publish (#777)
+12a5adf1ec0ac85939239ef02370c211263df204 BXMSDOC-2516 (for upstream 7.7.x): Implement SME and QE changes in DMN doc for DM 7.0 and PAM 7.0. (#772)
+191c9f5a29787b6360b28172302960b1d0a37003 Merge pull request #23 from sterobin/BXMSDOC-2493-master (#769)
+5f83c62490e814c6ea8f649d1fff78d6eeec2dc3 BXMSDOC-2508-7.7.x Cherry-picked from 2508-master and resolved conflicts. (#766)
+aa857c855ef07117e7a0a7e3d3f0239fee70c760 Merge pull request #22 from sterobin/BXMSDOC-2391 (#762)
+95a0e037e13b024d88818f4bbf61c9fc860512ee BXMSDOC-2494 (for upstream 7.7.x): Updated Employee Rostering sample on OpenShift doc to fix output issues (#760)
+8f80b84efecee72ac4140c34e25120e29f8c0f8f Upstream PR to 7.7.x Bxmsdoc 2446 7.7.x final - Modularize and add base draft content (#756)
+b630a126c50a0c475d6132f87bac0038cf1dadc0 BXMSDOC-2480-master Updated document-attributes.pam.adoc file name, all BA ifdefs, and the corresponding :PAM: attribute in each PAM build folder. (#752)
+57d63cb2e49e4b98eed23d6057ebf9a906a6d3d1 BXMSDOC-2478 (for upstream 7.7.x): Update BA folders to PAM in docs content directories (#750)
+
+===============================================================================
+Repository: kie-wb-distributions
+===============================================================================
+5df3a2832977c93af27d874784ca6041b9585acc Upgraded versions for release 7.7.1.20180416-prod
+061bcbb0609a40918b6759311fb5007a31940e35 RHPAM-51 RHBPMS-1622 Backport the Errai shortname issue (Fix the previous backport commit since kie-wb-distribution-home moved)
+d008434b88ecabb5d4f255de0c39830a35ce6d3f RHBA-526: Rename Deployments to Provisioning - product version (#731)
+e785e67683f5bdf2f9537999af1692cdd0dfb1a1 [RHBPMS-1622] Set property for very short Errai marshaller class names. (#434) (#733)
+0ced0204d45f644d1fd8d2a7bfbba9a7e250363e RHBA-524: Rename Library to Projects (#729)
+5a1fbfba21d289e40f3d756e7b97cc843e25363b RHBA-526: Rename Deployments to Provisioning (#730)
+442103260649fa0de248996e1180301353a62aad JBPM-7034: [Content Management] deleting Pages perspective -> unable to return it back (#725)
+0535f744964b9e6b6987f4731591bf001cc3f55a RHPAM Changes (#727)
+dbceb0ea3ba6b0869c5d7b05f0855f3400814231 RHDM-363 RHBA-507 - Add NotificationServiceFactory into kie-wb, kie-drools-wb and kie-wb-monitoring wars (#722)
+ab5e1684dee1215252b1389c6f98c350f64dacce JBPM-7003 - Update page size selector style to match PatternFly dropdown (#718)
+8385c0329ffbc80a4d1292a4dcb94eda308c4e4c updated to next SNAPSHOT version
+
+===============================================================================
+Repository: jbpm-work-items
+===============================================================================
+430e2b2d4a311ca5263c1e779d10494f3eeec61a Upgraded versions for release 7.7.1.20180416-prod
+a09a84129049331a4301edd89ed57a12e34b4a7b updated to next SNAPSHOT version
+743346a84cc8c2972fa7e9632c3ccaaea2ad03d0 update to wid processor - externalize resource templates to repository (#24)
+bc004095b4b50de84a57daaa0b17a38b2164a373 Upgraded to next development version 7.7.0-SNAPSHOT (#23)
+f7d045148e4a7aaa56c46ce58c7d601f3d84dcc4 jira workitems (#22)
+d00fc0fc7bf3bc88eaa62645af6a8f4a80ac4e7b github workitems (#21)
+1ba2f3fbed67a1587deab095ffa42d5ce3052358 Twitter workitem (#20)
+491c4a2193b0743f9d8de5b69f3b4e8b6cfc83e9 workitem handlers integration tests (#19)
+18d89444d00670e9ea7a2627ee458fab536beb0a adding repository integration test (#18)
+4ff24198129bd5a8245597045f612718355790ff Adding repository index.conf (#16)
+dba5160c193a5d708f5bee37b0d7d92b31388bd5 upgraded to next development version
+
+===============================================================================
+Repository: optashift-employee-rostering
+===============================================================================
+183b8c4f04e73993d28a59b23cf9e81ece79c97c Upgraded versions for release 7.7.1.20180416-prod
+71dc1408f348fb04d11f00d1deef6806e6f3667e Use Window as viewport frame
+d9202b501d19ea3ab4952ae1fbaabb18546ccf91 Fixed blob highlight
+40cc68488aae9ce36adf17c8893aaadbe48b77b1 Removed commented code, renamed variables and remove uneeded parameters for methods
+b340b68cbdbb81488f67188f08a7089f84066dac Fixed date/time displays
+19d0f6d20149137013a9bf8ceb68cac3229ec4a3 Readded Tiago blob style
+9b515455aab515e10b4f0501bc5c5124d6b9fa5d Use grid positioning instead of pixel positioning
+2a9b5c8ee3227cc94d9f1f41f91141a30d182156 Remove the class EmployeeSkillProficiency because it's unused
+febea17c453cb1e31ac5096a7eb121652ae1d16e Generate draft ShiftTemplates as unassigned by default
+afcbd50e4eca276d07ebfac133f9428c65ab88e8 Fix drools file
+8407389440aee90faa9060cd5cea5ad2c7b8478a PLANNER-1086: Use OffsetDateTime for Employee Avaliabilities
+
