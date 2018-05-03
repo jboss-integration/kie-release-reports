@@ -1,0 +1,203 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2018.05.03
+Code Cutoff Date: 2018.05.03
+Source Product Tag: 7.8.0.t028
+Community Tag (if available): build from kie master branch
+
+Product Pages:
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build
+------------------------------------------------------------------------
+https://github.com/kiegroup/kie-soup/tree/7.8.0.t028
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.8.0.t028
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.8.0.t028
+https://github.com/kiegroup/drools/tree/7.8.0.t028
+https://github.com/kiegroup/optaplanner/tree/7.8.0.t028
+https://github.com/kiegroup/jbpm/tree/7.8.0.t028
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.8.0.t028
+https://github.com/kiegroup/drlx-parser/tree/7.8.0.t028
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------
+
+MAVEN_OPTS=-Xms2g -Xmx3g
+
+-----------------------------------------------------------------------
+                     Component owners contacts
+------------------------------------------------------------------------
+kie-soup                        mswiderski@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+drlx-parser                     mfusco@redhat.com
+------------------------------------------------------------------------
+                              Notes
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, optaplanner repositories are removed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+
+The last commits of this tag 7.8.0.t028 are:
+===============================================================================
+Repository: kie-soup
+===============================================================================
+69d97575070dcd2a321d46b9251f6c061e7c1887 upgraded to 7.8.0.t028
+7dfa5e3554518fabc6bf153c7583a5fd797c8cf4 RHPAM-763: Exception on task list when navigating to next page with empty results (#44)
+89c08e66ccccd42b31484c130e1be11c842c1c92 AF-1145: Container removed if exist before test (#41)
+5d4d6361ecda407618607ae5644625666991beb4 upgraded to next development version
+fec4cb1581d33d057cbd9ff3dd852814d9f98eb3 Added more time to compile elasticsearch scripts
+53e440ebe49e9c6a1f2d2ee53fdf3f25aa4fe4ef AF-1048: "Data Sets" screen allows discarding data without warning (#37)
+d583e442ae8021547ccbfbf89b9e57bdeba69e8c JBPM-6849: Creating and using default POM if no POM is available. (#38)
+11cc642ecc0da28416c4ca24eac1081ad91209a8 RHDM-24: updated jackson version to be the same as in kie-parent (#25)
+60f45d70fe6b80d2d964bc3b7afd629d0698d246 Use AssertJ instead of Fest (#36)
+44676f0feee05ac319a668daaa181a9481e7e828 Fix some deprecation warnings (#14)
+8454d1050d74d5bc06a35498b18700f6d0e106f9 Revert "[DO NOT MERGE yet] RHDM-251 Upgrading to Wildfly 11 (#28)"
+da8aa3455ecb9e62a7696b67329d4d52250fd919 [DO NOT MERGE yet] RHDM-251 Upgrading to Wildfly 11 (#28)
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+d879247fb9574e7f968075948dc9fd08bbdd67ec upgraded to 7.8.0.t028
+beb5995e81b22bff081237899da5b4295e1fe184 cd into errai directory for resolving git commands (#748)
+55ad4cabb84ed830a42be94d92fc71bb5964d770 DROOLS-2503 Switch Maven repository to repository.jboss.org. (#744)
+1a18108cacef28d180cfe5a6d7a5e27d887f0649 DROOLS-2390 Add drools-test-suite tests jar to drools-bom (#743)
+f6ffdd1efd33e3f1fa7284923a105b86a73ca56b RHPAM-670 Upgrade wildfly swarm to 2018.3.3 (for matching Product 7.1.0) (#737) (#738)
+0d0710bcbaa9a71618500ca4e5b92e7d82eddc15 AF-1079: Empty 'Validation errors' popup in Decision/Business Central (#725)
+8ab5dc81b6bd8ba386e742323fac879222afbd32 RHDM-390,RHDM-391: Work around ERRAI-1101 using antrun
+f62dc2333f600e5f491f717280410271ef61d35c updated to wildfly 11 (#732)
+80e0da62fbfdb921757c93200f6d1dd9898dc8ff BAQE-400: Turn on UnusedImports checkstyle module (#726)
+a018a0bed41ee76d509537243842d832ff8e9ae8 upgraded to next development version
+8e372a223999ac7c747104dbbf9a72f5370c5397 Added new dependencies for embedded apache camel component (#724)
+373a4a4ea460571335b50450e982f94144ba793b AF-1080: New project with the same name as another project in different space disappear after server restarts (#723)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+152b2fe2f7c9880d5c21db091c1a9bbb15680df9 upgraded to 7.8.0.t028
+7ede2ccdb9de9d94fa7cda8850e85c13d7691a93 DROOLS-2487: Added new drools.parallelRulesBuildThreshold option for the builder. (#304)
+3e3d0abd09faad91b7200d45cae9fb5036bdc907 [DROOLS-2461] Reintroduced output scope for request (#302)
+77781dc599d686463eab64145bf33e973597e965 BAQE-400: remove unused imports (#301)
+7819a4aa3c98978d6b389d5b1f02f05fa641d1b2 DROOLS-1663 Kie DMN doesn't support IMPORT decisions between DMN files (#300)
+51fc7b6caa500a6df03d3c605e66d1f5c5953376 upgraded to next development version
+b1304e05ab1fb2357e3935fc456eb9444061b91c JBPM-6894 - User should be able to define case, process, activity level SLA (#298)
+a20adec24156b8bad2a3ba8222de28cd0704a36a DROOLS-2345 Allow multiple services on same line in kie.conf (#296)
+c13823f46da95bd96af4705d4ace49c505ed46d5 JBPM-6842 - Redesign jBPM executor to replace polling mechanism with more efficient approach (#293)
+92648d4656e6d5c7835064cfb5082f703dfb2947 Remove unused sys. prop. org.uberfire.cluster.local.id (#294)
+eea653e0d548f6a9f7e8e6ce7a91b85c6bb71d3f [DROOLs-2284] allow to programmatically build an executable model based project
+a2d0b9ead637cbebbbf3ea9bf596bbda6998db54 JBPM-6807 - Extend UserInfo to allow look up of user id by email (#291)
+
+===============================================================================
+Repository: drlx-parser
+===============================================================================
+157a79ef597826475507af704f4228ff9d9553b7 upgraded to 7.8.0.t028
+b35d9c223d20aad7bd70b0fbbfe5452a6cfca336 upgraded to next development version
+f1e3867f1bf38951973dca684abc5a34e1c7e065 Merge pull request #17 from evacchi/remove-not-with-space
+9b26bfcf8879d8d8c3373562c6b7d172e3a2d896 drop NOT_WITH_SPACE as it no longer conflicts with other rules
+7af812371dfeb1db08f5edf42cbbe94b315997b8 Merge pull request #16 from lucamolteni/GenericVisitor
+782917d96261d2b7acb6c55d700878af2461ff23 Support Generic Visitor in our expressions
+00e38a25670c40478c1a42b372939c143889754c Merge pull request #15 from lucamolteni/mvel-operators2
+66538c190460eeafc1897e78a52c96ab865865fe Support MVEL operators str[startsWith], endsWith and length
+c9862983ef632466f5ebcbcf6de86f62e2c0ca53 Merge pull request #14 from kiereleaseuser/UPDATE-VERSION-2018-02-01
+118729414836044f427039e056264d10504345cc Upgraded to next development version 7.7.0-SNAPSHOT
+04ba2869105fbdaeabf7b1fd2b7877e25b3724e2 Merge pull request #13 from lucamolteni/OOPathMultipleCondition
+f16dec27c841991189aef6d62cc56fb5d334e387 Support multiple condition in OOPath Expressions such as `$address : /address[street == "Elm",city == "Big City"]`
+
+===============================================================================
+Repository: drools
+===============================================================================
+b310f4ee9d01f0b1b793bfab1334eb009aad5e9f upgraded to 7.8.0.t028
+9a0a0dd3d9be65c1660fad9f30a989c3185e9086 DROOLS-2274 : adding support for extended unary tests (#1890)
+e0d33a26dc557d55b63abc023a41a2b7fafa7259 DROOLS-2514 Make packages map a ConcurrentHashMap (#1889)
+0212196ca4c98ec6a1374f45bd8c577870a99fbb DROOLS-2520 Fix executors and threads handling in drools-compiler tests (#1887)
+079248bd783d4ad0b7fbb929c884401d63748b9a [DROOLS-2517] NullPointerException in BaseClassFieldReader.writeExternal() when a global method is used in LHS and serialize package (#1885)
+611bfacf2c1fc4d5776ca03d7411c992011db2f3 DROOLS-1480 Support timezones in date and type variables (#1870)
+08034b007f737aaa3eb81e90c2ededad2d5b98cc RHPAM-289 - Real exceptions are swallowed in JtaTransactionManager (#1878)
+1b1e8efbb8f384f31e8a573dec058ecc7a0bef3d [DROOLS-2509] fix executable model generation for from clause (#1881)
+ba61e85a1a38155911adf60f06bd86650cb5eade [DROOLS-2510] fix parsing of timer attribute in executable model
+17154e3d1ccfc20e332f432d3827cf683054dd81 Support null comparison in executable model's alpha nodes (#1876)
+efd463c1daae3d1a7188be634edfabf95913fe01 DROOLS-2506 Lexical scope for FEEL Function invocation (#1880)
+4f5dfdda9b04ebff60e2a320b51c5d6e83691715 Remove $context field from enums (#1877)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+2de2443ae4ae4d24bf6576ece229be59bf3b3cc9 upgraded to 7.8.0.t028
+db31eaba859a0764ccb02765a66f68ef4178e38d useCaseOverview: prettier VRP example
+4c811add3f51591df48c19b432b13864f329e9f2 PLANNER-1107 radovan's review
+e2e6ab11308e3a8a23ab99426a764ecd4440e2d8 PLANNER-1107 revapi + turn protected fields in final class into private fields
+e4123f1c380d24df671786ae5e727e82be297173 PLANNER-1107 Solver.explainBestScore() docs
+e25dc3eb43f08722acb3ecee471eea8080a09a52 PLANNER-1107 Solver.explainBestScore()
+93c8de1ef2b1a7c688a69b2698146be9617a6d48 Rename BRMS to RHDM
+842f034c1a0a2d6423eb523c16a33bdaebe9b04e Preperation multithreaded incremental solving: typo's
+2df24cc691cf7f6a91ece4fb1f08018103b27a0e PLANNER-76 preparation for multithreaded incremental solving
+11c52f9771d04d0c27966125d1a1082de73ab4fd PartionedSearch clean up
+ff4d57b50e9755dcac949132336892ef0842a088 PLANNER-1076 optaplanner-persistence-jpa dependency bloat: kie-test-util should be test scope
+5102d24ff0a9dcadfb60a0dcfc1e4d091fc018f1 Activate findbugs
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+e482e306985f4ab5237b7f2549959b344a12d9d6 upgraded to 7.8.0.t028
+664816c2caddc1ad8aa97c4514d3f5452a48e545 JBPM-7192 - case management - stage and milestone conditions do not support multiple instances (#1207)
+ad3a70586c62cc5167767e0f02dafa0d383a8221 RHPAM-275: A user can display tasks for which he is not Potential Owner or Bussines Admin (#1201)
+c4cd7fd1ccae8cd8a5bbaa9ee46408501534cefa update wid parameter and wid result type definition (#1204)
+096f3df1826e57c3cb2cef8c8662996d271cefbe JBPM-7171: New custom query mapper for processes (#1195)
+263fc71f23cf80cf4f0de8a6b57c4400949bc20a JBPM-4646 - Covered remaining methods (#1203)
+e3046a102131dfc4b5ce74e9a5e15a762398a622 RHDM-544 - WorkflowRuntimeException wraps only the most bottom root cause Exception in RuleSetNodeInstance (#1190)
+4f17af88f49548d3af9817f25edbd4b75392cf83 JBPM-7174 - CaseFileInstanceMarshallingStrategy calls wrong method on finishing transaction (#1197)
+6f2b90690b088f1f84be1147576000ed476d4b2e JBPM-7158 - Support FEEL as expression language for sequence flows - osgi fix (#1199)
+e3bc887dc43036cac2e71d3de6f6c10e1418bbbe automation of building the workitem repository (#1191)
+d6807482a5134db06e2aa5efc6d33c96c086592a JBPM-6235 TaskInstanceView Test (#1194)
+1d388bf03b0d0df5fe1d86648f8fc129667d5140 JBPM-7168 - log tables are not updated upon case reopening (#1192)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+62c08e16860aec1bd3e1a5fbeb1f48647dfe64ff upgraded to 7.8.0.t028
+7d0933730072546bfcdf2051340c7977edc66d2d RHPAM-275: A user can display tasks for which he is not Potential Owner or Bussines Admin (#1444)
+9db5a32e790a51ebd67566c409e9100400116641 JBPM-7190: filter parameter is not a required param in Swagger definition. (#1449)
+e01ba3e59f8e8d7933fe98b1b9ca6905171f69aa RHPAM-738 - Add QueryDefinition toString for logging (#1447)
+481ce2552acd6f44e806cf37e022a9dcd711b292 JBPM-7171: New custom query mapper for processes (#1441)
+992913ff4b7f7e2d67acda473138530b5dcc5006 JBPM-4646 - API corrections (#1448)
+8eba8def5831244e002933c40ad98917e2db805f RHPAM-479 - WebSocket controller client method scan now not working (#1437)
+de0c293c7413e4fa529154dc17622150012041ed RHPAM-579 - Add method to retrieve all containers in a server template (#1440)
+e17777fbe384d2c4af838189d862f3e8f819ad26 RHPAM-482 - Extended test for checking exception messages (#1434)
+4c3a043ec99a028a6fbe92a85c59638513afb5f9 JBPM-6894 - Tests added (#1431)
+b898f2e8d071abd269761e3790eecb5c19a360da RHPAM-673 - Ensure only one message is sent at time in the websocket session (#1424)
+5788f5fc0a151dc1b2c005172c1dd3007de12994 RHPAM-687 - Immutable KIE servers cannot be directly monitored (#1422)
