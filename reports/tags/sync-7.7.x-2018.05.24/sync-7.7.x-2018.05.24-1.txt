@@ -43,7 +43,7 @@ All tags sync-7.7.x-2018.05.24 are on Gerrit
 
 jBoss-ip-bom: 8.0.0.CR3
 errai: 4.2.2.20180524-prod (sync-7.7.x-2018.05.24-3 tag on Gerrit)
-appformer (uberfire&dashbuilder): 2.4.1.20180524-prod (sync-7.7.x-2018.05.18 tag on Gerrit)
+appformer (uberfire&dashbuilder): 2.4.1.20180524-prod (sync-7.7.x-2018.05.24 tag on Gerrit)
 
 ------------------------------------------------------------------------
 
