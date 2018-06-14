@@ -1,0 +1,196 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2018.06.14
+Code Cutoff Date: 2018.06.14
+Source Product Tag: 7.8.0.t030
+Community Tag (if available): build from kie master branch
+
+Product Pages:
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build
+------------------------------------------------------------------------
+https://github.com/kiegroup/kie-soup/tree/7.8.0.t030
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.8.0.t030
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.8.0.t030
+https://github.com/kiegroup/drools/tree/7.8.0.t030
+https://github.com/kiegroup/optaplanner/tree/7.8.0.t030
+https://github.com/kiegroup/jbpm/tree/7.8.0.t030
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.8.0.t030
+https://github.com/kiegroup/drlx-parser/tree/7.8.0.t030
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -Xss1M" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------
+
+MAVEN_OPTS=-Xms2g -Xmx3g
+
+-----------------------------------------------------------------------
+                     Component owners contacts
+------------------------------------------------------------------------
+kie-soup                        mswiderski@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+drlx-parser                     mfusco@redhat.com
+------------------------------------------------------------------------
+                              Notes
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, optaplanner repositories are removed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+
+The last commits of this tag 7.8.0.t030 are:
+
+===============================================================================
+Repository: kie-soup
+===============================================================================
+190fbbf4a6139076f02a1b4712cbc35ed4b854db upgraded to 7.8.0.t030
+7dfa5e3554518fabc6bf153c7583a5fd797c8cf4 RHPAM-763: Exception on task list when navigating to next page with empty results (#44)
+89c08e66ccccd42b31484c130e1be11c842c1c92 AF-1145: Container removed if exist before test (#41)
+5d4d6361ecda407618607ae5644625666991beb4 upgraded to next development version
+fec4cb1581d33d057cbd9ff3dd852814d9f98eb3 Added more time to compile elasticsearch scripts
+53e440ebe49e9c6a1f2d2ee53fdf3f25aa4fe4ef AF-1048: "Data Sets" screen allows discarding data without warning (#37)
+d583e442ae8021547ccbfbf89b9e57bdeba69e8c JBPM-6849: Creating and using default POM if no POM is available. (#38)
+11cc642ecc0da28416c4ca24eac1081ad91209a8 RHDM-24: updated jackson version to be the same as in kie-parent (#25)
+60f45d70fe6b80d2d964bc3b7afd629d0698d246 Use AssertJ instead of Fest (#36)
+44676f0feee05ac319a668daaa181a9481e7e828 Fix some deprecation warnings (#14)
+8454d1050d74d5bc06a35498b18700f6d0e106f9 Revert "[DO NOT MERGE yet] RHDM-251 Upgrading to Wildfly 11 (#28)"
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+350d7614fc56a9fb0edb30b60f083dcb8a626085 upgraded to 7.8.0.t030
+e27fbab450dadeb2756f647e1fa21be0958ff4d0 JBPM-7323 - CMMN excution support for case management (#762)
+00c8c015c3ae03cb9e6cc0e227bb43295f919c8b JBPM-7252 - Upgrade camel version to 2.21.0 (#752)
+735901a22b5ca4a5249198902f54876861d7a15f Use a color to highlight dependencies of the target repository
+9bca48c35022f92e715b4e1630614c4ca19523e8 Added infomation on how to setup Eclipse formatter
+9df216670bff44739fbbb26b2ccf6ad57af4a5c8 Remove broken link from release readme
+6750b2dcde56ecbb55f8ed8fdf25e33c59650b03 [RHDM-594] Remove drools-pmml dependency
+7f0b489dd04804e8fb984f6c2794162a2e873f89 Update Errai version to 4.3.0-SNAPSHOT
+b05a7ad659b3c9bf8a2052f7a6a41fcfd1d4288b PLANNER-1026 Add dependencies needed to build optaplanner-wb-webapp
+aec100a079213b3849475d2f9297c0f3c35560a3 fixed script to use right branch (#754)
+18fbc093c17394e95e0bb0e13e7a777ad759202d JBPM-7226: Delete Kie server ee6 assembly and references (#750)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+4534e5db56377565f38e14fb32462d6d8d152e90 upgraded to 7.8.0.t030
+39a0db88718a7b227c9b40f52a3f2c6f4136538c [DROOLS-2527] Added fluent builder classes for Rule Units (#306)
+94f789ed443451369be5ac4111bbee46c0801285 [JBPM-4947] Add userInfo() for RuntimeEnvironmentBuilder to be able to set a custom UserInfo (#312)
+85b9996518b4cf34043e35cd9e5c1b0f80d1296e JBPM-7323 - CMMN excution support for case management (#311)
+9c26878f8ecda6f04a5a3764240f294d37b06afa [DROOLS-2559] allow the read a kie.conf file with duplicated keys (#309)
+04fd7ab1a296e7d39da2ac630d31dd6aead3bae4 JBPM-7286 - TaskVariableImpl table is not maintained by LogCleanupCommand (#307)
+7ede2ccdb9de9d94fa7cda8850e85c13d7691a93 DROOLS-2487: Added new drools.parallelRulesBuildThreshold option for the builder. (#304)
+3e3d0abd09faad91b7200d45cae9fb5036bdc907 [DROOLS-2461] Reintroduced output scope for request (#302)
+77781dc599d686463eab64145bf33e973597e965 BAQE-400: remove unused imports (#301)
+7819a4aa3c98978d6b389d5b1f02f05fa641d1b2 DROOLS-1663 Kie DMN doesn't support IMPORT decisions between DMN files (#300)
+51fc7b6caa500a6df03d3c605e66d1f5c5953376 upgraded to next development version
+
+===============================================================================
+Repository: drlx-parser
+===============================================================================
+f5439eeec7e3b033910baf14580b6a8c2bf649ff upgraded to 7.8.0.t030
+bbeb6130e11505a7790061887231b9602908815e Include in '-sources' classifier JAR also upstream JP sources as shaded (#20)
+4be4626b26e523f5ab6936b9bb5df00cbf6404de New literals for BigDecimal and BigInteger (#19)
+e957dc0e4ce9ae287c31adf2df84979e1d8aac55 Dotfree enclosed (#18)
+b35d9c223d20aad7bd70b0fbbfe5452a6cfca336 upgraded to next development version
+f1e3867f1bf38951973dca684abc5a34e1c7e065 Merge pull request #17 from evacchi/remove-not-with-space
+9b26bfcf8879d8d8c3373562c6b7d172e3a2d896 drop NOT_WITH_SPACE as it no longer conflicts with other rules
+7af812371dfeb1db08f5edf42cbbe94b315997b8 Merge pull request #16 from lucamolteni/GenericVisitor
+782917d96261d2b7acb6c55d700878af2461ff23 Support Generic Visitor in our expressions
+00e38a25670c40478c1a42b372939c143889754c Merge pull request #15 from lucamolteni/mvel-operators2
+66538c190460eeafc1897e78a52c96ab865865fe Support MVEL operators str[startsWith], endsWith and length
+
+===============================================================================
+Repository: drools
+===============================================================================
+af5d5a2f690c8ddd835bdcda95c69f6dd92a641e upgraded to 7.8.0.t030
+40084c2e2251025fe48aa04bba5f18939b9796d2 JBPM-7368 - CMMN ProcesTask and DecisionTask reference support (#1946)
+89c9e96ecfbaf6cdb5f8c5848fb4cfd04adb9738 [DROOLS-2633] fix type coercion for numeric boxed type in executable model
+3c00d4ed93166c10c449c7347fd7b1b509abc9d5 DROOLS-1663 Kie DMN support for IMPORT decisions between DMN files (#1943)
+bbe48b9597c8f888032c5b044e7fdfe74966f5b8 [DROOLS-2625] partial fix of queries generation in executable model
+d41c3c17d3922f3a23172d30d3a80ddf2df0b097 [DROOLS-2625] fix annotations usage and array access in executable model (#1944)
+40b2d1073e30bba026e20dce52b73ec0c2472eb0 [DROOLS-2527] Add support for Unit in simulation fluent API (#1910)
+3a840b840d12bbb47896c552d3b0f1f3bfdde36a JBPM-7323 - CMMN excution support for case management (#1930)
+61eccdc19281ea4196ac35801b385d5bcfef87b0 DROOLS-2390 Migrate tests from drools-compiler module (#1941)
+3a414129cc462aa94fb17cc189c09633cbfa39af DROOLS-2614 Remove snapshots from tests (#1940)
+3d17f6349b196835bb258eeb54fd67343fb61307 [DROOLS-2621] Support up to 12 arguments in RHS of executable model
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+aaf2d50d0aca1fc33f66faf292c31295083cdfc7 upgraded to 7.8.0.t030
+a341de1b196eacf26c44a2718ad9cd39a225bab7 Rename Employee Rostering to Nurse Rostering
+9282aabdab19344fbb8e558ccf963cb5f021f69c remove unused class diagrams
+a6d3328a9532ec500a65a6433a1cd72ffb2dfebc examples app: new screenshot
+e0e12ed12d98f78982b4f78d3556a7ae022b1384 ScrabblePerformanceTest
+b4cb3df7c5a6b5de0b88c41a679d85380c63538c Add examples in examplesApp: rock tour, scrabble and coach shuttle gathering
+f7b0fb0f99b940c96078a1191ccd6eb794651465 Add start and end on same day rule
+e5400da1acaeb707b9875033a356a540f0b22b4d docs: fix typo JAXB -> Jackson
+78fd43ce06f81c58d31382b408bed9f8b02ce0ac docs: shadow variable in class not registered as entity class (thanks Donato)
+041c245096aa00d02e630876fe6be3934297a7d9 PLANNER-1110 Docs: use BTM and GA instead of GTM
+f6d09eb23d3300035fb48de455af8f3621f062e8 fail fast if EasyScoreCalculator or IncrementalScoreCalculator return a null score
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+13edc60d3ee7bc51a99f82561b1450208a36b7a2 upgraded to 7.8.0.t030
+378354028e7ab63011dcf1ffd83c509e3263a360 JBPM-7355 - Missing 'import' doesn't always produce a compilation error in BPMN2 process (#1249)
+61c70f2b7912160a7735ee4ae8e1599865d82dc1 updates for workitem repo update + fixes (#1252)
+b4a68043351dde7f564016bc1e525739984eb417 JBPM-7356: Ignore peopleAssignments with empty strings (#1248)
+dd4432e65155e512c8f8fe81c046a99994d6c8ec [JBPM-4947] Add userInfo() for RuntimeEnvironmentBuilder to be able to set a custom UserInfo (#1237)
+fbd2dea7dab032de615f53a9093e99a107348854 SimpleRuntimeEnvironmentTest shouldn't extend SimpleRuntimeEnvironment (#1244)
+70361c7265becffcf4593de5e81940e647db7515 JBPM-7323 - CMMN excution support for case management (#1233)
+7ae4469d3eb1e5c2c581bf072ba8db82066b3be4 JBPM-7346 Remove SNAPSHOT versions from tests where possible (#1243)
+6f926115a29e27c1233deb45b28bcfe455b5c656 jbpm-container: Upgrade to Tomcat 9 (#1242)
+4b5895028198c2ba6d3abf06ce2bd8c1a05d3c33 workitem archetype update for repository icons (#1245)
+8018373e347e31a8169ba8c2ab7a6bd59447950f [RHBPMS-5156] Exisiting deployments from 6.4.2 are always deactivated after server restart in 6.4.6+ (#1236)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+3a8f3d4787388941bc61794f02f0f26a3b033fe8 upgraded to 7.8.0.t030
+9cbc96cffd5988f101bd6ab179c697e8e96e3dcc DROOLS-1663 Kie DMN support for IMPORT decisions between DMN files (#1495)
+1a338ce19495a29ac184c94c5e9599d0b3698d84 JBPM-7206: New custom query mapper for processes (#1455)
+3c2ed52395599638930ed20910d494c2ea683c92 JBPM-7344: Use Tomcat 9 for Kie server integration tests (#1485)
+e9a9d24f3e26474acb9348fd2f935efd606e0c6c RHPAM-1149 - Synchronization issue for concurrent registrations in Smart router (#1492)
+a1f1f7605bde99f51e81d023ab7d24eb14ada581 Skip several tests on Jenkins as they tend to be unstable there (#1489)
+8e0f4a594f8e20e604ceb36a7359e98319b4dc4a RHPAM-1029: Smart Router Servers view error (#1486)
+515dacc7d305cfa5655869ec1096c4bdc309ef82 DROOLS-2618 Remove SNAPSHOT versions from tests where possible (#1487)
+5ec75da4593bd5750ddba63b6b06cae5eb833896 JBPM-7252 - Upgrade camel version to 2.21.0 (#1469)
+672881ef1df1ac9c0e9cf15694a37dbb62b597e6 Fix kie-spring and kie-aries-blueprint and kie-camel tests (#1483)
+fc0bdf37bf5741351c37ef4e2840293a8b548a85 Fix KIE Server REST API description typo (#1480
