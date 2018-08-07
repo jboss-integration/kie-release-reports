@@ -1,0 +1,421 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2018-08-07
+Code Cutoff Date: 2018-08-06
+Target Product Build: BxMS 6.4.11.CR2
+Payload Tracker:
+Source Product Tag: sync-6.5.x-2018.08.06
+Community Tag (if available):
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+tags sync-6.5.x-2018.08.06 for all reps are in  Gerrit
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 6.0.8.Final
+Uberfire: 0.9.1.20180806-prod (tag sync-6.5.x-2018.08.06 on Gerrit)
+Uberfire-extensions: 0.9.1.20180806-prod (tag sync-6.5.x-2018.08.06 on Gerrit)
+Dashbuilder: 0.5.1.20180806-prod (tag sync-6.5.x-2018.08.06 on Gerrit)
+Errai: 3.2.5.Final (released, tag available at https://github.com/errai/errai/tree/3.2.5.Final)
+
+------------------------------------------------------------------------
+                             INTPACK
+------------------------------------------------------------------------
+
+
+the intpack related to this tag is:
+
+information will be updated
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx4g -Xms1g -XX:MaxPermSize=256m -XX:PermSize=128m -Xss1M" -Dgwt.compiler.localWorkers=3
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms512m -Xmx3g -XX:MaxPermSize=512m
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         cnicolai@redhat.com
+guvnor                          manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+jbpm-form-modeler               pfernan@redhat.com
+drools-wb                       manstis@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-wb		                cnicolai@redhat.com
+dashboard-builder               dgutierr@redhat.com
+optaplanner-wb                  gdesmet@redhat.com
+jbpm-dashboard                  dgutierr@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distribution             manstis@redhat.com
+droolsjbpm-build-distribution   manstis@redhat.com,csadilek@redhat.com
+kie-eap-modules                 romartin@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+This tag sync-6.5.x-2018.08.06 has these last commits:
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+dc684ced81e93e312d5b889c9ebd816674143fdf upgraded-to-6.5.1.20180806-prod
+602a1c3f5fb19cfa0d58bb385986a22a0968458a RHBPMS-5184: upgrades POI due OOM (#772)
+c455d56c9a4bbd99bd2407abc47f1b13be6dedcc DROOLS-2503 Switch Maven repository to repository.jboss.org. (#747)
+5fea6a5bc64222ddcc8c719223fd5772ddf16c7f JBPM-6794 - updating eclipse.bpmn2 version (#713)
+7f9ab71163f14412159693d3e4a5352981afb805 added exception for kie-eap-modules (#664)
+935d4cb9410350c9cd175544f2af7f1197abb22d removed the skipping of kie-eap-modules (#655)
+5d5fbbc53559488f78b7528a62a5d70717065627 added missing permissions
+51ec914b7f1de3a5c6868135018990a86ddba725 mvn-all: optional clean-up of build artifacts to save disk space
+c17f975f20aa85c74efe61baee8a04bd0d92fc0c git-all,mvn-all: allow spaces as part of arg. lines
+1468be7c0d0f4cf81646009be6e26d08a4ffbfa4 Fix arg line concat in mvn-all and git-all
+74ffaec4d06dc82739017caef070770263d4bcc5 Allow custom repo lists for git-all and mvn-all scripts (#269)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+d92cca19a3f2e5b8e6cf47341c51176652abda6d upgraded-to-6.5.1.20180806-prod
+a8ea70a510a44d9a50189cfbbab0d275be75fe47 RHBPMS-5204 - Cannot send email notifications for users defined in properties file (#316)
+4c8ad099a7c4e65295bebffc039c3427ae5bb084 JBPM-7286 - TaskVariableImpl table is not maintained by LogCleanupCommand (#307) (#310)
+ed09277c1cb3da4bdf5642d7bffb60309240f143 [JBPM-5019] DisposeCommand is not part of the public API (#266)
+9acf1f0c4471f101b576cd5d2ef34add68595ee0 RHBPMS-4860 - Insufficient synchronization in ObjectModelResolverProvider (#206) (#262)
+dd2550ad4c1bcac0b0e02d53e3a6247e9d2a6bc1 RHBPMS-4802 - InMemorySessionFactory has apparent memory leak (#245)
+ada9164f7d05ca5f4850e4671bf02bfbc143e14f DROOLS-1565 Implement a KieScanner listener (#232)
+5a60e630272f91f8de3b5b26a1bfcb33c5c65716 fix osgi import of kiescanner (#225)
+9c8209863c46390c86bd73cd3b239fb23c046bd0 kie-[api|internal]: always build the javadoc jar
+a81433293ec4c9f8bc505cbb4ce0ee5a03352b44 upgraded to next SNAPSHOT
+e818e6d0f29de0bc1c8e953621fda091f35f5df8 RHBRMS-2630 DROOLS-1316 Missing MBean for Classpath KieContainer causes RHQ/JON plug-in failure to display the whole hierarchy (#175)
+
+===============================================================================
+Repository: drools
+===============================================================================
+3c3fb2d2e2f756c2a59545f3eed99a76c6f47160 upgraded-to-6.5.1.20180806-prod
+2547bb8bafef02096afc5c64327517c10cb2e69f [DROOLS-2710] fix clone of forall
+4381219ecf0e2fa95a6e03b4252d5a7d0d44dd89 RHPAM-795 RHPAM-55 Register project classloaders as parallel capable (#1874)
+e8017a41d09923ed17a19e964bf85a2b7a18badc GUVNOR-3482: Assets cannot be open after version of an asset is switched in big repository (#1466)
+7b239d2c5cc83424a9b2680bed781530119972b8 [DROOLS-2557] delete left tuple propagated from a FromNode when a left update makes an alpha constraint to no longer match (#1917)
+c95c136a53c048efa9fe769847ea432e31c30f0f [RHBRMS-3099] NullPointerException in BaseClassFieldReader.writeExternal() when a global method is used in LHS and serialize package (#1931)
+335aaa23c7335751d8340fe5115171e2319dd21d [DROOLS-2488] reorder child left tuples when property reactivity skips an update in beta node
+8cf6d37e2fe8ebac111dc05f7ba27f0ed40af9c7 RHBPMS-5107 - Redundant records are inserted by JPAPlaceholderResolverStrategy (#1868)
+a634f68883140261645f10ed0bcaa4931ce7ea7e [DROOLS-2468] put stateful session under control of kbase coordination for incremental update even when wrapped by a stateless session (#1866)
+ff4daae355c81cc6283a93094ea49fbf19f61bed [RHBRMS-3092] Wrong error message on KieScanner update (#1860)
+233608f5a235140a2e5b591aafc292023523871f [RHDM-486] fix rule association check for RIA nodes when merging 2 path memories
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+e7a4d7d30595cfff25d181de3ae09ce51a1df737 upgraded-to-6.5.1.20180806-prod
+eddaeb347da5a75031a4805ccd4a24dfdca682d7 RHBRMS-2784 - XStream: DoS when unmarshalling void type (#328)
+3c575fbce2446371293836f701dcc28d4298a3b7 upgraded to next SNAPSHOT (#227)
+ea7175d334803235fff355734097329b2e788930 RHBRMS-2604 FreeMarker exception when using single statistics only
+dbbffeedd4f5af03c7d1fc0b2be0057c69cacec0 RHBRMS-353 Limited Selection with Nearby Selection in random order: fix NPE and fix NegativeArraySizeException
+a9573fb493b4698a283370eb6de5b32193aa1326 Benchmark report consistency fix (#213)
+942582c7d2848e623b96c2d1cd9fc5c5d9d41354 upgraded to development version 0.5.0-SNAPSHOT
+ea74cbeb6124a5f9cded6f9d882827f942c0d187 RHBRMS-2441 Nearby selection does not work on non-chained PlanningVariables
+500720cba0f3ca120881287c2bab3a1a52bcf4ff PLANNER-239 Fixes to make cherrypicks to 6.4.X compile and run properly.
+c385f3c726fa5d82ae5920ee110db71b6ed44a67 PLANNER-239 Immovable support for chained entities: unit tests (cherry picked from commit 82585f2)
+ebe85236aaa98d5b0c8a6ea96d153274ad1828ab PLANNER-239 Immovable support for chained entities (cherry picked from commit 78adf06)
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+2a44608df24a16325d05f3541d860655b30efa86 upgraded-to-6.5.1.20180806-prod
+2b9fe30ace384ed81bbc30242c7d3cc64794e351 RHBPMS-5204 - Cannot send email notifications for users defined in properties file (#1292)
+dcb51a9262206b3720fc2e3edf1075a732e9fc5f RHBPMS-5203 - Timers in composite nodes are not migrated (#1285)
+2816ff70d3b91af572b23203c00396897f06b293 RHBPMS-5154: disabling test which should not run by default
+d1d20e701099f3e6c5822a552ea01f33f8effbfc RHBPMS-5154: Test case for DisabledFollowOnLockOracle10gDialect
+79c56602dce78174e1ea6caffcf71a1967fb26bc RHBPMS-5164 - backport of 'JBPM-7307 - 'IllegalArgumentException: Unknown node id' when migrating MultiInstance' (#1266)
+e27b30e813f90d753b02b7a9e9b97a5ec5b33a16 RHBPMS-5158 - Wrong execution counter in Kie Executor when use retries (#1274)
+234a405c7da7ba04c09737a451083a2a965e5982 RHBPMS-5181: missing import can produce a compilation error (#1264)
+787c6e470c2ed1916c97b7c43a7dcb4434af5df6 RHBPMS-5178: backport of JBPM-7356: Ignore peopleAssignments with empty strings (#1267)
+870fff87cce2e415f1b4c7f1b7927aea66af7e24 RHBPMS-5182 - Methods of org.jbpm.services.task.lifecycle.listeners.TaskLifeCycleEventListener are not called (#1256)
+71b969a2243f7a3642fc13b3a97cba8b67ce6494 [6.5.x] RHBPMS-5167 - Follow-up: Not possible to migrate process with recurri… (#1265)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+82ee0bc371a22a3e289e91ab84bbf2dc10eb881d upgraded-to-6.5.1.20180806-prod
+1fb0091e8d664f1c5354f525bd69f0db734211a9 Stabilize RuntimeDataServiceIntegrationTest.testFindTasksSortedByProcessInstanceId() (#1381)
+5c5d26aef445c5fa1952059c6614906bb6225b60 RHBPMS-5117 - orderBy not possible when using QueryParamBuilder in kie-server (#1369)
+b28e6a23f7f645b90b19072a463966f4bcbe5d2c RHBRMS-3050 - Print request payload into the log
+53b8677b2927b9074674f6708c54f6f08b866fbc RHBPMS-5103 - Reusable subprocess node doesn't get highlighted in red when current process image is retrieved over kie rest url
+8ec9ae765f5efd1da75de97add3355e6b910cb61 [RHBRMS-3027] remove old module from KieRepo when the KieContainer is upgraded to a newer version (#1285) (#1307)
+abcd3c2183b0491680b121b7155d5c5c118d8bfa RHBPMS-5041: Human Task should be in Obsolete status when we skip (#1282)
+b41db5afa82224c81d3143efab17ce407e65bc1a RHBPMS-4964 - Deserialization error in query method of QueryServicesClient with advanced custom query in BPMS 6.4.5 (#1245)
+418a722717909ca2330a4f6320147945e0924bff [6.5.x] RHBPMS-4862: Container started by upgrade doesn't contain process configuration (#1207)
+d097d12e5225b9e9c8570f25aeec571e9e55df3c Rename Dispose command test (#1211)
+38e93669650a1d8941be1f4e53fd832db362a8f5 remove wrong test cases
+
+===============================================================================
+Repository: droolsjbpm-tools
+===============================================================================
+062e05a33c0f04390879a1aec0a02cc250b88a53 upgraded-to-6.5.1.20180806-prod
+3d84cd2d0f4726891fdc415101c52e33b70fe8e6 RHBRMS-2784 - XStream: DoS when unmarshalling void type (#75)
+85465b4b2c96f4a7def1ac572156186f1ec1fdd2 upgraded to next SNAPSHOT (#56)
+f22a47784e48d15f7a9d15a10c9a15a8838c0db4 Upate JBoss TP to 4.0.0.CR1
+f34c344586750039a2ddc84d63dcb06d1952ef89 Update to 4.4.0.CR1-SNAPSHOT of JBoss Tools TP
+fadedbeb1a4f68fa93ebfc321e45865841d650d8 Fix Export-Package list in MANIFEST
+6e9be6d20ee22feb3559953cbf21ad333050f2c2 Add Drools and BPMN2 model validation builder to new projects
+f7452b3d9f6f42d1bbd9ebdbd2a8d0bc88528df1 upgraded to development version 0.5.0-SNAPSHOT
+8058332d95ce2f782fd49d5593b8bd83559da42a Update JBDSIS TP from 4.3.1-SNAPSHOT to 4.3.1.Final
+75f17e78622260867430c0b04b41b2edbf8dfd63 Various last-minute fixes:
+36b08b77525bc868883e046ee891416e67e61dbb https://issues.jboss.org/browse/DROOLS-1154 https://issues.jboss.org/browse/DROOLS-1153
+
+===============================================================================
+Repository: kie-uberfire-extensions
+===============================================================================
+83cc2819a6dc7ac8b8e2906a5aa19f44ace25664 upgraded-to-6.5.1.20180806-prod
+56bc93d56c2af0047df7ac6d9edfd0a501243bf1 Zanata translation changes 2016-11-02 (#43)
+513d4ec636e96b2fb6b0d12a79b65c92710436bf upgraded to next SNAPSHOT (#42)
+eaf0b7c9457629574deff6fff173381e536fc46f Zanata translation changes 2016-10-06 (#41)
+a8b5ac2735c2aad212c4773972ee53a83ebce978 RHBPMS-857: [ALL LANG] Unlocalized strings in page Home -> Timeline. (#38)
+3f4c11ddfee945eb2eef2fcbfb45a64c21e3411a Social activities - Fix missing i18n (#36)
+5e0e273cdba56b088a952cad34212ee38bd2cf1f Zanata translation changes 2016-09-07 (#35)
+47fc3584f52e22982fbe40daf6278bf3a3654962 RHBPMS-857: [ALL LANG] Unlocalized strings in page Home -> Timeline. (#33)
+08368efded351d005d1ef54f466ba645dc0272c4 linked modules to new 6.5.0 Zanata project
+21e62e3bcb15d640f7927a30886015ae7b4c1016 upgraded to development version 0.5.0-SNAPSHOT
+b5dec509f5fea0340efd656b6dd319c29835be4f upgraded to 6.4.1-SNAPSHOT (#27)
+
+===============================================================================
+Repository: guvnor
+===============================================================================
+e09deec9579ed4bc387a38109cf128c59aa56f02 upgraded-to-6.5.1.20180806-prod
+53fe4a4012ee40c447431bb4cb4c506ebfb3648b AF-1037 : Business-central maven artifacts available at maven2wb without authorization (#535)
+24b64ee287af40b01f9aafce2d469006b4d3951c RHBRMS-2784 - XStream: DoS when unmarshalling void type - leftovers (#497)
+8b149f361c68f5b0c75cc72882834ec5741f9ffe RHBRMS-2784 - XStream: DoS when unmarshalling void type (#483)
+122fe717a98431d201208e94888e7d3f25fd106b RHBPMS-4797 - Managed repository can't be created in business central on WAS server (#468)
+a9e996ea9abb06b235388cf7caa6443846313beb GUVNOR-3095 : Make 6.4.x Inbox optional (#454)
+ed8b4f58426228b7ca5248c500a935331069e8aa RHBRMS-2792: [GSS] (6.4.z) ContextNotActiveException: WELD-001303 No active contexts for scope type javax.enterprise.context.RequestScoped in Tomcat (#445)
+8afc06d145ea2218ff8b3deb4d6780b8a7486ab2 GUVNOR-2971 : [GSS](6.4.x)Artifact repository upload functionality allows malicious code injection (#432)
+0b35845b766e952487dfb46c3c6f130cebe6bca3 [6.5.x] RHBPMS-4640: Unable to load repository in business central in administration (#433)
+312108329316f4bc13c40365bb5d472dccbe0e6f GUVNOR-2893 [GSS] (6.4.z) Slow InboxBackendImpl.recordUserEditEvent() (#429)
+c485c88564a7e428defc3151578e9ba7ec1e86a8 RHBRMS-2736: [GSS] (6.4.z) Unable to download JAR by Users without admin role (#408)
+
+===============================================================================
+Repository: kie-wb-common
+===============================================================================
+01f861681ad4808f215e25335a2c7ab8f8f98e3f upgraded-to-6.5.1.20180806-prod
+45c83de1989c8044005105ff8c007af7bf23c369 RHBRMS-3120: backport of DROOLS-2705 Files having '+' sign in name are getting ignored in Build. (#1947)
+3119118f7145694d91e63574bc3045927446fe0d DROOLS-2263: Increase coverage (#1697)
+bd9a8c9a9b7c26c2016cbccf955a090eeafe9a59 DROOLS-2263 : Unexpected results in GDST when using enumerations with commas (#1687)
+6623c203d6f62f1e22dad0df4b4e91251c6c406e [RHBRMS-2597] Unlocalized string "Nothing selected" in data object new field dialog. (#1611)
+bda59e3fb0b2f66ba712cc8259e740c4eee9d233 DROOLS-2446 : Concurrent spreadsheet table validation doesn't work properly (#1570)
+ebc2f54912d49151a91d5322a135761875f6f003 [6.5.x] AF-1079 : Empty 'Validation errors' popup in Decision/Business Central (#1489)
+0035a34d524b9460c4deac5e54d01c493ecb4bb2 RHBRMS-3022: Cannot disable Delete button for Analyst role in business central (#1284)
+c2f86260594b1c2a02b6cbebb1914a13887ff9c2 AF-889: [GSS] (6.4.z) 'Reimport' doesn't invalidate LRUPomModelCache (#1265)
+5277c944e76a31227c40f1ddbdb7420849cf2f61 RHBPMS-4856: [GSS](6.4.z) Calendar is not visible on screen if guided decision table data grows BPM Suite 6.4 (#1171)
+c9d34d93218c4635b3a2bf1f1298ba010445434f GUVNOR-3480: [Guided Decision Table] Validation errors are duplicated (#1144) (#1155)
+
+===============================================================================
+Repository: jbpm-form-modeler
+===============================================================================
+19618eea3ebb357c7d310241c66b334311c9f7bb upgraded-to-6.5.1.20180806-prod
+654879d8dff79eea35c8960d81485e670ed56505 RHBPMS-5099: Date selector popup not showing up in sub-form (#154)
+156a57d3c7512622eeefb9d63043f1e0f943059b RHBPMS-5065: In Form Modeler when we select option From Java Class and provide fully quilified class name (having more than 64 char) so can't generate a form. (#153)
+d58b5b922a51ee3ce3837858964f1dc5956b4ace RHBPMS-4768: "On Change Script Code" does not work properly for Short Date/Timestamp fields in Form Modeler (#152)
+2c66b8bd7f2b73feb9bd797796c499e5745e5187 RHBPMS-4768: "On Change Script Code" does not work properly for Short Date/Timestamp fields in Form Modeler (#146)
+c75d983817bac1d86fbe3baa13c6bbc270e4cd59 RHBPMS-4768 - On Change Script Code does not work properly for Short Date/Timestamp fields in Form Modeler - adding onSelect event handling (#137)
+7d8e992db0674e45bad1413a8988766abd804818 RHBPMS-4768: "On Change Script Code" does not work properly for Short Date/Timestamp fields in Form Modeler (#121)
+994a233e44bed8e201e50148cad343426d11cdf5 RHBPMS-4675: List variable is converted to an array of Maps in a User Task if multiple forms (#106) (#110)
+7517eb63d457f9cffad777d382f861fdebb67f01 RHBPMS-4681: Wrong Date is loaded to Date fields when using a default value formula. (#108) (#109)
+a433de4581bedb84b5a140de9051cbe6c23ff945 RHBPMS-4239: adding new commits to "Latests Version" control. (#82)
+f546568a94a9e347ff926b72d6624677173649c0 Zanata translation changes 2016-11-15 (#77)
+
+===============================================================================
+Repository: drools-wb
+===============================================================================
+5c556646d6512b89f156a9126564d5810417bd02 upgraded-to-6.5.1.20180806-prod
+47abd5874415ea6f9f924b3df9d5e3ec727ddc04 [6.5.x] GUVNOR-3244 (RHBRMS-3103): [GSS] (6.4.z) "Parameter named 'fieldName' should be not null" when indexing a GDST with BRL fragment eval (#881)
+ee2e0990d7115828e68d7e923804d28b5990bef0 AF-1079: Use default asset validated callback
+b1435e230cec143679017301596fe1dafa9880dc AF-1079 : Empty 'Validation errors' popup in Decision/Business Central
+4b6fda9a84e9be6d26a8d625d90ead4dc0f2f4d1 RHBPMS-5096: Cover validation of table with predicate calculation type (#819)
+3b6819bdc356a0e849aaabb0f7c2a9a4a95b14c1 AF-1037 : Business-central maven artifacts available at maven2wb without authorization (#816)
+9d7a5a48d41b1a6c96f79d373020858ed4358d10 [6.5.x] DROOLS-2306 post review actions (#806)
+7ca7bc779adbbfa8707d92422d6d5391ab9af0e4 DROOLS-2306 : Decision Table Verification does not update correctly (#805)
+1b944aa445fb0f851742386f3bab2d0713d5cbe6 DROOLS-2263 : Unexpected results in GDST when using enumerations with commas (#767)
+2dfe14d320b319537af4346cabd6c6417582baa5 RHBPMS-5096: [GSS](6.4.z) Guided decision table in Business Central failed to load when using functions in BPM Suite 6.4 (#743)
+9c5bf3c4ad43778b17cba89b604721d6f0ed9a76 DROOLS-2189 : Business central shows redundant warning messages from validation.
+
+===============================================================================
+Repository: jbpm-designer
+===============================================================================
+ddb0cb2782f50545e25cf945ea3c70ae23d9ef1b upgraded-to-6.5.1.20180806-prod
+ef34d0c598bd31104026246d687725461e3abc39 JBPM-6904 - service tasks tab missing on project with spaces and process with spaces (#751)
+aa1c40ebe11d49ec3444d156edea5dc2e766737c JBPM-6794 - Invalid content was found starting with element caused by 'documentation' ordering (#747)
+f63b9207a2688c5e3c4692ecfba5c260633ff734 JBPM-6679 - NPE in parser then bpmn2 contains empty onEntry/onExist script elements (#719)
+5ed8a01960efde2ef927e99b27c7c7a941f39803 JBPM-6653 - Use real defaults contents on new project creation - fix for tomcat (#722)
+4a13a01ef031b71461b54192a98d3c68e6b03e6d JBPM-6661 - Sorting of 'Called Element' in reusable subprocess is always disabled (#707)
+11f60fd1c382f532419a3afeba3eff3b072324dc JBPM-6653 - Use real defaults contents on new project creation (#705)
+46ba8ffce479b9ffa8a805154eee1b4c4afb51df JBPM-6642: removed jpdl resources (#701) (#703)
+00562de1979e109d68cc5d213550869be425bc48 JBPM-5995 - Missing icon in WID cause that task is not shown in Designer (#603) (#692)
+a143f3b92a6a5a527d929d68c02a0c5d914ab81d JBPM-6415 - Remove jPDL migration plugin and its use from jbpm-designer (#658) (#673)
+1e011a2e121aa4c6b3a6a2543265d82ee701544c JBPM-5437: Escape quotes inside of entry/exit actions (#515) (#661)
+
+===============================================================================
+Repository: jbpm-wb
+===============================================================================
+ff4cabb57dd43df18c7bcf4c1326e7bf14464de9 upgraded-to-6.5.1.20180806-prod
+ec11ab49f4006789bc42c20f381a3a2abe84a54e RHBPMS-5160 - Change VfsMVELWorkItemHandlerProducer CDI scope from Dependent to Application preventing multiple instances (#1123)
+3890cc7cda369535b778f72c0a05309cfc82da8d [6.5.x]  AF-1079 : Empty 'Validation errors' popup in Decision/Business Central (#992)
+ac5861f7f4d4c6503d98f00a91ce1a5e5fb22ff9 RHBPMS-5084: Process definition list in start process instance dialog incomplete (#960)
+f21a40ff5bead0ea355b6bb7482b62e043fc9161 adapted to the new Zanata server and project (#931)
+e0cf269730d65027cbd6d1d9b19e631dbdaafa99 RHBPMS-4712: Only 15 workitemhandlers can be added to kie-deployment-descriptor.xml  via business central console (#715)
+130fb06f73016eae0414b7a4ae0668c2647d7346 RHBPMS-4576: A user can display tasks for which he is not Potential Owner or Bussines Admin (#633)
+774bcc242cc5fdc94073849e89be62aa25b4ba6d RHBPMS-4584: User can perform process instance specific operations which was not permitted on BPMS (#626)
+71ffcbb1f3bbefe6a25de0874d85167124a307f5 RHBPMS-4246: Jobs: Queued tab displays jobs in status DONE (#587)
+2f6922cca5c6b3f0272aa5b42797cbb06775bffa Zanata translation changes 2016-11-15 (#551)
+fc7318329e4e4b95fae866672402e4e82a4f0789 Zanata translation changes 2016-11-02 (#521)
+
+===============================================================================
+Repository: dashboard-builder
+===============================================================================
+6334b575fe2a3b34080b8d10b39419855c2badbf upgraded-to-6.5.1.20180806-prod
+5584f32f533e9f3316a9732aeccb9fc73f1122a7 Fixes for 6.4.2 patch release (#104)
+b762d573f2c317025e77593d5e3115738303543a RHBPMS-4537: dashbuilder issue "integer = character varying" when postgresql database is used (#103)
+d60401e80cc12b2ac668b14ac60982fa571b8420 RHBPMS-4570: Excel export feature broken in old dashbuilder (#101)
+54ce3dc5903dc9d361ad795429f51ff56c611782 Zanata translation changes 2017-01-02 (#100)
+0ec7c876b4fa16b6617fa1f399101dfb6998184f RHBPMS-4385: stored XSS in dashbuilder (#99)
+757d01fa0f94ca995562d3b7b4956c8f682a8c42 RHBPMS-4225: Dashbuilder show wrong title in Browser (#98)
+d83c940058ee5e32788867722865d970a8d0e9fd RHBPMS-4430: Restore the Chinese language (#96)
+b70eabc3c50dd1e6701b8d5f451e5009fb50abdd Zanata translation changes 2016-11-16 (#94)
+2cfc384ea6d29f80ca2d11c335f45b8e710dd1e1 Zanata translation changes 2016-11-15 (#93)
+390a505b9e0c8eae6ed835f6e06cce7f8e2c09ca RHBPMS-4430: Remove Russian and Chinese from language dropdown (#92)
+
+===============================================================================
+Repository: optaplanner-wb
+===============================================================================
+c8f6fffe84d52b907b1ad14a92180bb5058a3c3b upgraded-to-6.5.1.20180806-prod
+dcd3cd2cf61c87664f7d6d2936148a11f5ef6726 AF-1079,PLANNER-1091 Fix SolverConfig validation
+70dfb50a3a373881eff8a96ecbb19798eecb4396 AF-1037 : Business-central maven artifacts available at maven2wb without authorization (#257)
+447ae7cfc01b433ac163fbb3202f5bdf8219d118 RHBRMS-2784 - XStream: DoS when unmarshalling void type - leftovers (#214)
+2e90b1ffa1bf2111f47caca4bb55684aabbf98b8 Zanata translation changes 2016-11-02
+a2f0802d8bd1989449d9703b9d0dd1be5d184cde upgraded to next SNAPSHOT (#113)
+4c319124e59f2c11d7ec551de0f86f7fce266d4a RHBPMS-4275: [6.5.x]: Guided Decision Table: XLS can not be validated (#108)
+f75d963a70a67eb52f43272eab77ca9f2e35438f [6.5.x] GUVNOR-2503: Asset screen Validate-button should use incremental builder (#100)
+6e06e0d0f9d8eac08f36affcd07013a100a828a8 PLANNER-629 Workbench: Solver configuration files not recognized in Project Explorer (#92)
+52deb5ded752b05aaad936248bfdee0fbc65d959 linked modules to new 6.5.0 Zanata project
+56a423adf726c41ba8623ddb26cbcc1b3c243fff upgraded to development version 0.5.0-SNAPSHOT
+
+===============================================================================
+Repository: jbpm-dashboard
+===============================================================================
+8b56ec1f650037c185efcdd7c0abc4295ac46526 upgraded-to-6.5.1.20180806-prod
+332d9c5d1dedcbe32ba70d8845bb110403e43e42 RHBPMS-220: Dashbuilder login page not protected against frame busting (#52)
+89838b7ef33453a13d97c41769e057635b759edf RHBPMS-4537: dashbuilder issue "integer = character varying" when postgresql database is used (#51)
+11c48e4ff0d557e3136f63ac03a282a28bf4e60a Zanata translation changes 2017-01-02 (#49)
+2ce3e18cec1ba2341d7f45e086a1f9b68c5afae8 Zanata translation changes 2016-11-16 (#47)
+768601e77b2b1ae38991668067723ff99a6bd0ff Zanata translation changes 2016-11-15 (#46)
+85c863098233fdcdb400474b3ef728bef4094144 JBPM-5377: Allow PARENT_LAST classloader setup for WAS
+0c3ed82bfca2c797b342ce0c0c40548f2488a8cc Zanata translation changes 2016-11-02 (#45)
+f22711a5d01be8b96772eaf2f4db797dda935665 upgraded to next SNAPSHOT (#43)
+92a90b444d46ac3503866593aab4c668ce095c14 RHBPMS-4209: ClassNotFoundException: org.jboss.jca.adapters.jdbc.jdk8.WrappedConnectionJDK8 on EAP7
+3346aeba24dc08c7758b770f8e01f92f8b43b8b2 Zanata translation changes 2016-10-06 (#40)
+
+===============================================================================
+Repository: kie-docs
+===============================================================================
+fe826251b8396c38c14df3131e87cfdd47b04c96 upgraded-to-6.5.1.20180806-prod
+2f9c3b7539b442ecf0c428d0337fc38eb1d949b7 fixed URL to docbook DTD (#731)
+6cbffc1f0ad31add22efd3f067c58cd0066426be JBPM-6275: Wrong artifact versions specified in the users management's setup section.
+d4c7f42816b70a278956a4224ee8427092b40bd3 [RHBPMS-4435] fix KieScanner docs
+b2ad3ea935b2e7ef37b86247564e272214919799 Fixed typo
+d1de3a7f29c2c18810125832de94955d04f55175 upgraded to next SNAPSHOT (#182)
+7a4ee3ce9558218dd5bb77d8db34170b2109949a  - updates to N&N
+f5e632257939664082ba0347a50e07edca91966b DROOLS-1322 JPAKnowledgeService session does not support mbeans (#178)
+2af6feaa5e18e727c7d6394540069f81c25a484c Move 'Reimport' from 6.4.x N&N to 6.5.x N&N (#175)
+8262d19d8502ccbab700adb637d68b55648cb557 [6.5.x] GUVNOR-2683: Test Scenarios: Objects added into previously white listed packages are not updated. (#173)
+55b6aa8d23c2f31958e57b657aab21ea18cfeb59 [DROOLS-1308] document that is necessary to wrap in parentesis a from clause when it is followed by another pattern starting with a parenthesis
+
+===============================================================================
+Repository: kie-wb-distributions
+===============================================================================
+f1c865c4effdd238cc46493bc324348d588c929f upgraded-to-6.5.1.20180806-prod
+005ef558e9cbbbd1f303a714a1119173be3d795b AF-1037 : Business-central maven artifacts available at maven2wb without authorization (#694)
+02f454da87ac4a721b944dfc3d85a78efd94a089 JBPM-6274 - Update batik to 1.9 for 6.5.x (#572)
+052f6615f996dc9a92bbf7ace87ec43b29493210 RHBPMS-4794 - History REST endpoints not behaving correctlly on WAS (#544)
+09b15bec9c4dbb3580e29024e43157be2bd782bc [RHBPMS-4769] add jcl-over-slf4j directly into WEB-INF/lib
+1f3e8df42a4caed3dbb136cb2780c11577525e12 RHBPMS-4687: Update the REST API documentation to fix the 'RestApiJspTest' (#533)
+3e7e93916f613ab61a18f8f94d8da423ac3d2aeb GUVNOR-3095 : Make 6.4.x Inbox optional (#530)
+9aff8766ab6cb8a4de2dd8fbbbd14782a5e7b3cd [6.5.x] GUVNOR-2790: Error happens when Execution server profile is used on Weblogic (#466)
+9545a1fa6138f6b5b1ddf737db8bdae3d34eee81 Fix GUI tests for the 'productized' build (thanks to @jhrcek)
+e69950dd59a5e2f1bac426ced3f38c2545d12db5 RHBRMS-2736: [GSS] (6.4.z) Unable to download JAR by Users without admin role (#448)
+57da8a18adc82e6d5b63b5ea01f573036d3e67ea [6.5.x] RHBPMS-4571: It is not possible to deploy business central on IBM WebSphere (#442)
+
+===============================================================================
+Repository: droolsjbpm-build-distribution
+===============================================================================
+589d86d22c5de09a57ffa3eaa8aabc9cc2cb0a7d upgraded-to-6.5.1.20180806-prod
+dc1b5d518bad7dbcbf78798885f99a030c4d3f38 upgraded to next SNAPSHOT (#10)
+027f6b2404e77164cc170148b93960424f5536d6 upgraded to development version 0.5.0-SNAPSHOT
+871ecbcb3053e95a90f6c1dd1b09fbd45b9f6abe upgraded to 6.4.1-SNAPSHOT (#8)
+768c85768482831836a9572069bf3b1597f1a7e8 upgrade to 6.4.0-SNAPSHOT
+0e49244c5dc8e110115e64fc2edf3dcadf8b3a39 Remove no longer needed ant snippet used for version updates
+f65eda5e7f3e16ef8d4d589608432f41caddd8dc jbpm-docs should be part of the uber-distribution
+c4d2f8648261ea4c3d2d0d5847d1dc8c5cc63b09 fixed task of mvn-antrun-plugin
+80305ce022f580d9538ed713ae49a6b3c329f6db changed assembly output directories
+3d72ba44f911a043327dc0da11873dd476acc1a7 upgrade to next -SNAPSHOT
+04ffdaa72f3ed18c9df544ac52d76b9222d9dec2 changed artifactId.version to version.groupID.artifactId
+
+===============================================================================
+Repository: kie-eap-modules
+===============================================================================
+953b1ffd9a594659dbd0966b3665898310d3ef6a upgraded-to-6.5.1.20180806-prod
+7cdf2ce4a8b9fa3fd4a12302c0daab1bd1a03aba RHBRMS-2673: Added missing modules. (#29)
+46c26a5053c5d68a2f3912f0f5c9a249d9579502 upgraded to next SNAPSHOT (#28)
+ece1694a70ee9114a32bd4f18dfd5bb5d2e38fe3 Fix slot name after Sptring 3.x -> 4.x upgrade
+d9bffee3b8ad7b0b00f91c948050f682c79c188a Revert "upgraded to 6.5.0.20160914-productized"
+a00c5be18565329f1058f4d0ca155adc1fe6349b upgraded to 6.5.0.20160914-productized
+f95772f1976f45a803d35bc7dff522b53a36301a RHBPMS-4032: remove dependency on org.apache.xmlgraphics:fop (#26)
+ac6eb981736842cd16c16983a13a77117ddc3b80 upgraded to development version 0.5.0-SNAPSHOT
+18f083d4cea7c9e34db76cd3305c46155c9b7a58 kie-eap-installer: use fixed file name to avoid SNAPSHOT timestamps in the name (#24)
+0ac3f0277fd79b66af00f192b4cff0cfda35c775 upgraded to 6.4.1-SNAPSHOT (#21)
+d3d0fb9fea1ce5c87d5684edaa33bd7112b3e267 Removing unnecessary camel dependency.
