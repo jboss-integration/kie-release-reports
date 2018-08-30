@@ -1,0 +1,196 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2018.08.30
+Code Cutoff Date: 2018.08.30
+Source Product Tag: 7.11.0.t035
+Community Tag (if available): build from kie master branch
+
+Product Pages:
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+
+------------------------------------------------------------------------
+                        Sources to build
+------------------------------------------------------------------------
+https://github.com/kiegroup/kie-soup/tree/7.11.0.t035
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.11.0.t035
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.11.0.t035
+https://github.com/kiegroup/drools/tree/7.11.0.t035
+https://github.com/kiegroup/optaplanner/tree/7.11.0.t035
+https://github.com/kiegroup/jbpm/tree/7.11.0.t035
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.11.0.t035
+https://github.com/kiegroup/drlx-parser/tree/7.11.0.t035
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Drelease -T1C -DaltDeploymentRepository=local::default::file:// -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx10g" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------
+
+MAVEN_OPTS=-Xms2g -Xmx3g
+
+-----------------------------------------------------------------------
+                     Component owners contacts
+------------------------------------------------------------------------
+kie-soup                        mswiderski@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+drlx-parser                     mfusco@redhat.com
+------------------------------------------------------------------------
+                              Notes
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, optaplanner repositories are removed
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+
+The last commits of this tag 7.11.0.t035 are:
+
+===============================================================================
+Repository: kie-soup
+===============================================================================
+1bd40274e6ae2c8d356fa556351b27730fb712b8 upgraded to 7.11.0.t035
+f8f6779fe9042cea69bbaa84315f3b9d4b96653a upgraded to 7.11.0-SNAPSHOT
+12a9758d51589c46c20a00aeb3d17da48038d78c upgraded to 8.0.0.Final IP BOM (#50)
+8f0852498a87d0386c89714ecbcf68002fb2ab65 bumped up version to next 7.10.0-SNAPSHOT
+392a767cb90e5791dd287d083e085389c0ae3650 bumped up to next SNAPSHOT version
+62d1651458122b3a7a89e6efd72d153056d0556c DROOLS-2629: Increase coverage of complex enumerations splitter (#48)
+b90e6018ea77c1d8a0150442474360d3a9a50ee5 [DROOLS-2619] Fix test names to follow surefire and failsafe patterns (#46)
+e2db1470676940ee99da79d35d932cde17371f93 DROOLS-2629 : Complex enumerations are not selected in BRL multi value constraint (#47)
+7dfa5e3554518fabc6bf153c7583a5fd797c8cf4 RHPAM-763: Exception on task list when navigating to next page with empty results (#44)
+89c08e66ccccd42b31484c130e1be11c842c1c92 AF-1145: Container removed if exist before test (#41)
+5d4d6361ecda407618607ae5644625666991beb4 upgraded to next development version
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+154143e41991b06ecb4e4ae9e915ac7d089b56a4 upgraded to 7.11.0.t035
+12e365b56f3a907af28a0f8fb928fe407e59fdc8 Upgrade tomcat-dbcp to 9.0.11 to consume fixes (#805)
+d58cf3f955e3e0147f475c06f9a7d6ab6fec0279 Chronicle dependencies (#797)
+6484a145b72af5fa81ec979e91b877296cb37102 upgraded to 7.11.0-SNAPSHOT
+8f6e62b85eb35526578c2b2369f353c1210835d9 DROOLS-2764 : Remove dead code in AuthoringPerspective, AdministrationPerspective and Social Home Page (#783)
+b664e6ba0c0721e46cd2f562c97f3644b1342092 Upgrade Cargo to version 1.6.9 (#794)
+9dd243add62f065ecdc91a183275dc835fcf5224 upgraded errai to next SNAPSHOT (#796)
+a155a91333e934370edb7f2ac3732b4618e3f8ee upgraded to 8.0.0.Final IP BOM (#795)
+7d2e058d91c2c085e35855f377a2685e2716eb28 JBPM-7340 - Added 'swagger-models' dependency which is needed to set Swagger Info in our kie-server-services-swagger extension. (#768)
+3badd916ed680e31a01b66eb1b829bec6905d5bd Detect BOM imports when building dependency tree (#778)
+6fa1876619ae3542aa511406bb83d8eadd27cb5b AF-799 (#781)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+7ec8c6417202505f2aa511d6b3268fe61b9fc97e upgraded to 7.11.0.t035
+a6a76fb56209fbe6cadcec1e174eda4cd1262caf JBPM-7638 - Docker support for business application, JBPM-7684 - Create archetype to generate model project (#322)
+56877a40379207cb03c157d78d373d840880f33a [DROOLS-2914] Moved addCommand to public API (#321)
+671794aca98a695ec9963b395bc51e78047cff05 upgraded to 7.11.0-SNAPSHOT
+aa30af9790515b290a9b1df9efdadc4bb7d9fd75 quiet mode for kjar and service archerypes (#320)
+96a7ecaf4aa380b16fc9e2faadda0cdc889b8c15 [DROOLS-2885] Add missing OSGI import in kie-api (#319)
+a9ff15fb2fa8045616de16a801d0d1ca8f540bc0 JBPM-7630 - Small enhancements to kjar and service archetypes (#318)
+255acec7505c2f0b623f5d3b84251653336ada12 JBPM-7514 - Create archetype for spring boot based service project (#317)
+67e15e441890d4804f4fb3bca2be44b98f1ee4cc JBPM-7513 - Create archetype to generate kjar project (#315)
+7d4287290aff795d8bfd254160cad5427027432a bumped up version to next 7.10.0-SNAPSHOT
+5cb1a40660856e000a40c4775c4e5acaa062772e [DROOLS-2740] Move ExecutableCommand to public API (#314)
+
+===============================================================================
+Repository: drlx-parser
+===============================================================================
+ba29caef4e732ead2d15fec7993d18610d30dd8f upgraded to 7.11.0.t035
+55ed5fdfcf6599d0efbc5ae6b6c372f063daa3b3 upgraded to 7.11.0-SNAPSHOT
+62084e93e67ec6c0381c02bfe332efc8298f185a [DROOLS-2810] Add org.drools.drlx to exported packages (#24)
+a4d29e6a538625db46a8333eff906710c3ff1c37 bumped up version to next 7.10.0-SNAPSHOT
+2d4b469128a2bacb03b31119d73cd39a63faafc8 Ignore build output (#23)
+7bc20bf25576f9bb5277ff7e9afc1118891bf140 Support negative literal in HalfBinaryComparison (#22)
+49cd62113b9bc2c27193655f1515b26c7a25bd74 osgify drlx-parser
+629ec7c904910fa07ba118308ac64df3bb1c3a7b bumped up to next SNAPSHOT version
+c77457a6bce6683ef5eb8a7d06f1735218da7c73 Support infinite temporal expr arg with * (#21)
+bbeb6130e11505a7790061887231b9602908815e Include in '-sources' classifier JAR also upstream JP sources as shaded (#20)
+4be4626b26e523f5ab6936b9bb5df00cbf6404de New literals for BigDecimal and BigInteger (#19)
+
+===============================================================================
+Repository: drools
+===============================================================================
+38e34efe97eae56d41efec16ebaeac4a34dbea24 upgraded to 7.11.0.t035
+7e1bad83d6023b7790bcb1698817d643a32edac3 DROOLS-2884 Guided Score Card build fails (#2034)
+d810327e3820575a4cd2cec582a667d42262ace9 DROOLS-2939 DMN v1.2 marshaller ignoring DMN<import> name attribute in the DMN (proper) namespace (#2033)
+a601a2d65c18ba63446a94cac1a14f01e643dea6 [DROOLS-2892] fix PathMemory reset
+d057e0113c8e519a07554569f51204565836f86d DROOLS-2938 DMN Validator DMN<import> extended attributre drools:modelName error (#2032)
+3da892c26d1ed3113b9cc1c10113f3b5198aa9bc DROOLS-2875 Problem compiling PMML when multiple output fields are present (#2016)
+57b62806a8649ebdee1a62e731417a7248fa8429 DROOLS-2936 DMN Validator is not sorting model files correctly ... (#2029)
+74fde72d648e3c2612669334c1901bf7cc5bc16d DROOLS-2923 PR #1997 test case for benchmark (#2027)
+0743d249d15520b4891b1c69fbe5909088e3e461 [DROOLS-2935] initialize the kproject class loader when loading a kmo… (#2028)
+732804c07e5700942ff78129497347756029e4a0 [DROOLS-2923] Improve DMN execution performance (#1997)
+a077250c8cef8f5bfc819d8aeea0ae9af088899f [DROOLS-2928] fix constraint jitting for integer division
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+468626bba1e1846b3af53f0d9d7ed3ee518c336c upgraded to 7.11.0.t035
+4848f9214387922a7a3d6d2d4364f0cd4b5580ad PLANNER-1199 lookupstrategy compatibility with enums (ScrabblePerformanceTest multithreaded solving failure)
+238b995e2f17c9bbc5b77ce19b4d6989dc31a9fb fix test
+2040b65f4e51584c8a1c3f8119a9207949e5e13a New constraint: Load balance flight duration total per employee - docs
+be039da334f6c9d45d715a167616378bbfde9fa9 New constraint: Load balance flight duration total per employee
+5a4700afc5ed8588d6daf320d207db36186bc323 Move drools load balance functions to common package so others can reuse them
+f6b335faa94726ea400cdef59cfcb045dcc242d2 Flight crew scheduling: review fixes
+c44334fede3bf6b4daa6404f0db0769b87aaa03d parameterList
+5746ec1d4ab69175be4ca461de0bc72d2d658302 fix FlightCrew test after moveThreadCounts merger + avoid "new ArrayList()" without capacity
+82fcccc483235f00ef1c0416bc217fd7b80e5983 PLANNER-1187 tests
+b1f089f979434292e122c5f675991dc856598ce6 PLANNER-1187 documentation
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+366075ec0507e8cf3b48715593fba9ecd7a1295c upgraded to 7.11.0.t035
+8ebdabaa4552aa9f439434a303babde85f951eab JBPM-7693 - DAYS_PER_WEEK = 'business.hours.per.week' in BusinessCalendarImpl.java (#1317)
+1593d99f6a8c02462defe9b821322b94255bfaeb Remove not needed persistent ksession as part of migration manager to avoid extra db overhead (#1316)
+7575f511ffc058ae14b7bd1e837f7919500400fe JBPM-7676 - Escalation event does not end the path after escalation event (#1312)
+8e475f5acdc3f8518369e337c0d38e2f9689ead0 JBPM-7667 - no index created for AuditTaskImpl table - fix long index identifier (#1314)
+a928eb4f61a22dee40a086654b9bc4f4835e0a12 JBPM-7671 - Verification, build and deploy doesn't notify user about empty subprocess (#1310)
+be2ed83c43ab6f7ef7cc358a74bb64f2063b6728 replace JPAAuditService use in MigrationManager with direct EntityMan… (#1311)
+11128f7c7361adf6a4b7c00afcee27a03249f38d JBPM-7667 - no index created for AuditTaskImpl table (#1308)
+ceda86888861835d67ad13b5c0f9196311edd0a3 [RHPAM-153] parentProcessInstanceId in ProcessEventListener is 0 (#1306)
+a7a6e151f484d0937b0a973d2289eb42d97f53eb DROOLS-1393 - Investigate why JpaOptLockPersistentStatefulSessionTest is failing with Hibernate 5 (#1307)
+28a94231e607b5f5653e7b7003151a47bf8ab07d JBPM-7646 - Broadcast signal with expression is not received by event subprocess (#1301)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+9b1be4b1a6a16f0ec28ea19a30acc432161b6b48 upgraded to 7.11.0.t035
+ae77d6997e6d73a9f55144f79fd3c57ecd0eef34 JBPM-7683: Skip tests which are unstable on slow databases (#1555)
+6bec551d7ed96efece38c3209999303466b14be1 Include jbpm-case-mgmt-cmmn in the bpms distribution (#1552)
+fffb52e4dfcaa666b36d4173a193535d31d575c7 Remove kie-eap-integration module (#1541)
+5e2cd56b959f24a4003a428d8cc724403e671029 Enable resolving snapshots in pax-exam (#1551)
+48d836ccfd36d1e85b5c12526fb814448201ebd8 JBPM-7589 - SpringBoot - transaction manager upgrade - narayana - clean up of dependencies
+d5cc368ebadb49b4a11e1dbea4b116d586c4c191 JBPM-7670 - SpringBoot - allow use of container aliases
+a6774466e45662878860ae60885902d9f1677e90 JBPM-7589 - SpringBoot - transaction manager upgrade - narayana
+2fc2403a1730e229fc8fb8771edcd551e275af9a JBPM-7588 - SpringBoot - quartz as timer for spring boot apps
+339262057bc19a0d30fbbb413652ffb529757a34 JBPM-7584 - SpringBoot - Custom event listeners as Spring beans, JBPM-7583 - SpringBoot - Custom work item handlers as Spring beans
+4c8fe3c6b7d205aa1786576b02b0a5a1100234d2 JBPM-7636 - SpringBoot - Use CXF-JAXRS spring boot starter instead of jersey for REST, JBPM-7585 - SpringBoot - custom REST endpoints registered in KIE Server Spring Boot
