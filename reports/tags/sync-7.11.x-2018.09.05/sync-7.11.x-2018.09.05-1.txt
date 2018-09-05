@@ -1,0 +1,444 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2018-09-05-21:45
+Code Cutoff Date: 2018-09-05
+Target Product Build: RHDM/RHPAM 7.1.0.CR1
+Payload Tracker:
+Source Product Tag: sync-7.11.x-2018.09.05
+Community Tag (if available): based on 7.11.0.Final tag
+
+Product Pages:
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build
+------------------------------------------------------------------------
+All tags sync-7.11.x-2018.09.05 are on Gerrit
+
+------------------------------------------------------------------------
+                          3rd party  versions
+------------------------------------------------------------------------
+
+jBoss-ip-bom: 8.1.0.Final
+errai: 4.2.3.Final (https://github.com/errai/errai/tree/4.2.3.Final)
+appformer (uberfire&dashbuilder): 2.8.1.20180905-prod (sync-7.11.x-2018.09.05 tag on Gerrit)
+
+------------------------------------------------------------------------
+
+mvn -B -e -U clean deploy -Dfull -Dproductized -Drelease -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx10g" -Dgwt.compiler.localWorkers=2
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------
+
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+
+-----------------------------------------------------------------------
+                     Component owners contacts
+------------------------------------------------------------------------
+kie-soup                        mswiders@redhat.com
+appformer                       porcelli@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         cnicolai@redhat.com
+kie-wb-playground               manstis@redhat.com
+kie-wb-commons                  manstis@redhat.com
+drools-wb                       manstis@redhat.com
+optaplanner-wb                  gdesmet@redhat,com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-wb		                    cnicolai@redhat.com
+kie-docs                        manstis@redhat.com
+kie-wb-distributions            manstis@redhat.com
+jbpm-work-items                 mswiders@redhat.com
+
+------------------------------------------------------------------------
+                              Notes
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, guvnor, optaplanner, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+
+-----------------------------------------------------------------------------------------------
+
+This tag is based on the branches used for community 7.11.0.Final tag.
+This community 7.11.0.Final version was not yet released - it is still in sanity checks phase.
+There failed a bunch of tests, like in community 7.11.0.Final tag.
+Right now there don't have been cherry-picks that solve this.
+The failing tests: https://rhba-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/KIE/job/7.11.x/job/release/job/buildAndDeployLocally-kieReleases-7.11.x/1/testReport/
+
+These are the last commits of tag sync-7.11.x-2018.09.05 [bsync-7.11.x-2018.09.05 release branch] (on Gerrit):
+
+===============================================================================
+Repository: lienzo-core
+===============================================================================
+93cb52d81c0314e4498e5bddac1440575883f79b upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+c3272430fed5227f44d8778b54a5a358f0a3cfef Upgraded versions for release 7.11.0.Final
+72e17c06d491fb2e26848f6ed4d4a8dbe00bf3a1 upgraded to 7.11.0-SNAPSHOT
+291309457d018473a93eebb16b2897bff1a138ad JBPM-6883 Stunner - can't move with bend points - setting drag bounds on point handles (#57)
+2b52441aaa472902bbbfb0eb67a0da8bc625868d JBPM-7027: Stunner - docking event to the specific edge of activity  (#52)
+dba1cc03a6fbc1572f458d10e6977472cd1ce905 Adding some more tests for curves and geometry class
+a1395fddc913b594ab05670afa0662ffacf977ea Added test cases for Geometry methods.
+8357f44ff3d2e1f3e37c527f570ddc80cc5769c7 Removed log
+7431e4541dd4ab86e8a8ca7101229148ce45a288 Fix minx/max state for BB.
+4d156102910030dec972b55a45b0528533755016 Fixings from PR's comments
+32c6fdfff4d26ccfc4f5448a7d547166ed4fdb87 Using NRRF_PRECISION in to prevent float point comparison errors.
+
+===============================================================================
+Repository: lienzo-tests
+===============================================================================
+8032f8c664c367e3671b649b84e2e0f73201fa40 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+da0c36d9f8885d20eddb598286e44cdfb26ebf96 Upgraded versions for release 7.11.0.Final
+2f8ffebc3a49910ff5d68f75c0cb8f6d7f9b2cfe upgraded to 7.11.0-SNAPSHOT
+257065bc01553f7e1910afb733c5dbb47b6e5195 JBPM-7027 Stunner - docking event to the specific edge of activity  (#34)
+9976d98c11cd31b2acc388b28382bd407ddec91f JBPM-6883 Stunner - can't move with bend points (#39)
+f30cb004ac87e6e9b74e1665e8360aa7fffa7570 JBPM-7267: Tests for the BB computation improvements (curves). (#25)
+8129083160ba511883873375e4a9a9864eb07035 JBPM-7450: Wires Connectors & Bendpoints - Tests (#38)
+843519d702bd267eb4c1aed21feafe32b68a5993 bumped up version to next 7.10.0-SNAPSHOT
+0a87a7b11ff3f0e5e3e232d50f745616c4bcf538 JBPM-7022: Stunner - not possible to move Selected nodes in some conditions (#36)
+e1e90a9a322cbb6a9819990fbe71d495e8d9921c JBPM-7406: Support for image strips - Tests (#32)
+d74cb60e0c52fab8684758e9012e9cfa8c740f4a Tests for HiDPI attribute in LienzoCore. (#33)
+
+===============================================================================
+Repository: kie-soup
+===============================================================================
+254bebbcf212b7e4d35b605c2a675ac6b71205a9 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+d9f855056f96c476ed226476e83ae12e1b0cc387 Upgraded versions for release 7.11.0.Final
+de1a8e7c0e73edeac1a180c2c1d4624ebfd38640 updated to use jboss-ip-bom 8.1.0.CR2 (#51)
+f8f6779fe9042cea69bbaa84315f3b9d4b96653a upgraded to 7.11.0-SNAPSHOT
+12a9758d51589c46c20a00aeb3d17da48038d78c upgraded to 8.0.0.Final IP BOM (#50)
+8f0852498a87d0386c89714ecbcf68002fb2ab65 bumped up version to next 7.10.0-SNAPSHOT
+392a767cb90e5791dd287d083e085389c0ae3650 bumped up to next SNAPSHOT version
+62d1651458122b3a7a89e6efd72d153056d0556c DROOLS-2629: Increase coverage of complex enumerations splitter (#48)
+b90e6018ea77c1d8a0150442474360d3a9a50ee5 [DROOLS-2619] Fix test names to follow surefire and failsafe patterns (#46)
+e2db1470676940ee99da79d35d932cde17371f93 DROOLS-2629 : Complex enumerations are not selected in BRL multi value constraint (#47)
+7dfa5e3554518fabc6bf153c7583a5fd797c8cf4 RHPAM-763: Exception on task list when navigating to next page with empty results (#44)
+
+===============================================================================
+Repository: appformer
+===============================================================================
+fc8b34a2878aa28ee939fe1aee8fe70d52f96fb6 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+f71ad910552de7178b9a2407d75025b9184e44a6 Upgraded versions for release 7.11.0.Final
+d65c7ac4463a44220a9abc70636902685db44892 updated to use jboss-ip-bom 8.1.0.CR2 (#443)
+9c8dab4fb063c689212941691bad50af8be4d151 Multiple branches support - new features (#442)
+c7067971cb802f170b1b4a5e9ecd55978668ce9a Multiple branches support (#437)
+97dfea4bf0ff77067fc47a179afcc6503358468f [AF-1267] JGit Filesystem cache improvements (#436)
+cfa784510141e1daaee10435762eb72482db66f6 DROOLS-2913: [DMN Designer] Data-types: Grid: FunctionDefinition (#439)
+81c11c88525bd88da83f3587b171c600e7ab3448 Update Uberfire version (#440)
+aa001c0de6ae462ca3c18c3b982846273da6eb48 PLANNER-1159: Add Optimization category (#438)
+1caae3e3ac7bb8aa0525317d4056a83e94439086 upgraded src/main/config/zanata.xml to link to new project 2.8.0 on https://vendors.zanata.redhat.com/ (#435)
+5257561ef2ef32a12433cc5c1d3e309576c4e886 upgraded uberfire & dashbuidler to 2.8.0-SNAPSHOT
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+028dd33cb0c2eb07fe35431064adbce2a92c7342 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+abbf6678f44d98c7191c3fe86082866bd5f3df1c Upgraded versions for release 7.11.0.Final
+463dfc82f88bcf8017aec457eab93fa7584b3af0 updated to use jboss-integration-platform-bom 8.1.0.CR2 (#812)
+0cea8301738d4d8b76c3b67641da8150c110ab64 Removed overrided version of takari (#810)
+1a927578f600f6789f381f306450c0d311c8476f [AF-1519] Added a second version of takari (#802)
+12e365b56f3a907af28a0f8fb928fe407e59fdc8 Upgrade tomcat-dbcp to 9.0.11 to consume fixes (#805)
+d58cf3f955e3e0147f475c06f9a7d6ab6fec0279 Chronicle dependencies (#797)
+6484a145b72af5fa81ec979e91b877296cb37102 upgraded to 7.11.0-SNAPSHOT
+8f6e62b85eb35526578c2b2369f353c1210835d9 DROOLS-2764 : Remove dead code in AuthoringPerspective, AdministrationPerspective and Social Home Page (#783)
+b664e6ba0c0721e46cd2f562c97f3644b1342092 Upgrade Cargo to version 1.6.9 (#794)
+9dd243add62f065ecdc91a183275dc835fcf5224 upgraded errai to next SNAPSHOT (#796)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+6aeb03f0b7e4ba0e9e833a3d99c74e6880c22cf8 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+e7974633ed855861f5b25b8e770c2b5e5ada1074 Upgraded versions for release 7.11.0.Final
+a6a76fb56209fbe6cadcec1e174eda4cd1262caf JBPM-7638 - Docker support for business application, JBPM-7684 - Create archetype to generate model project (#322)
+56877a40379207cb03c157d78d373d840880f33a [DROOLS-2914] Moved addCommand to public API (#321)
+671794aca98a695ec9963b395bc51e78047cff05 upgraded to 7.11.0-SNAPSHOT
+aa30af9790515b290a9b1df9efdadc4bb7d9fd75 quiet mode for kjar and service archerypes (#320)
+96a7ecaf4aa380b16fc9e2faadda0cdc889b8c15 [DROOLS-2885] Add missing OSGI import in kie-api (#319)
+a9ff15fb2fa8045616de16a801d0d1ca8f540bc0 JBPM-7630 - Small enhancements to kjar and service archetypes (#318)
+255acec7505c2f0b623f5d3b84251653336ada12 JBPM-7514 - Create archetype for spring boot based service project (#317)
+67e15e441890d4804f4fb3bca2be44b98f1ee4cc JBPM-7513 - Create archetype to generate kjar project (#315)
+7d4287290aff795d8bfd254160cad5427027432a bumped up version to next 7.10.0-SNAPSHOT
+
+===============================================================================
+Repository: drlx-parser
+===============================================================================
+ab64bd1000e7ec30e7098f68fa902db0bb14e0fe upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+592e5ed1cd478c631e5cf8ac80e82fb6cd84acb4 Upgraded versions for release 7.11.0.Final
+55ed5fdfcf6599d0efbc5ae6b6c372f063daa3b3 upgraded to 7.11.0-SNAPSHOT
+62084e93e67ec6c0381c02bfe332efc8298f185a [DROOLS-2810] Add org.drools.drlx to exported packages (#24)
+a4d29e6a538625db46a8333eff906710c3ff1c37 bumped up version to next 7.10.0-SNAPSHOT
+2d4b469128a2bacb03b31119d73cd39a63faafc8 Ignore build output (#23)
+7bc20bf25576f9bb5277ff7e9afc1118891bf140 Support negative literal in HalfBinaryComparison (#22)
+49cd62113b9bc2c27193655f1515b26c7a25bd74 osgify drlx-parser
+629ec7c904910fa07ba118308ac64df3bb1c3a7b bumped up to next SNAPSHOT version
+c77457a6bce6683ef5eb8a7d06f1735218da7c73 Support infinite temporal expr arg with * (#21)
+bbeb6130e11505a7790061887231b9602908815e Include in '-sources' classifier JAR also upstream JP sources as shaded (#20)
+
+===============================================================================
+Repository: drools
+===============================================================================
+fb94fe7e6438f0ff0dfbb6ea292cd46f0655d949 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+2fa48f05c861fb3c64178229df7171c75efc0852 Upgraded versions for release 7.11.0.Final
+830f45f570a37387eefec2e694842218c49d9d3f DROOLS-2944 DMN decision logic referencing DMN<import> InputData (#2038)
+6c2cfa1c928828736547c683fa65dc0b3353dde0 DROOLS-2943 DMN DecisionServiceCompiler not correctly wired for DMNv1.2 format (#2037)
+534735c99db0432c3bc9a1722b49b55ef5649046 [RHDM-717] allow to invoke a live query with null arguments
+21fae9ffa4a755b2bf4f293c06252527e7bc66e5 DROOLS-2908 Guided Score Card (#2035)
+f518284b173c87e33ae4aa4836896b94811e8472 DROOLS-2937 DMNRuntime API parameter nullcheck (#2030)
+794580ef96b5c11a45d33094919f46f967ea8a60 [DROOLS-2828] fix modify of an object with mutable hashcode in equality mode when using mvel dialect
+d1b864df4fb9d6d3cb098c84f36a5d05f424b5cd [DROOLS-2625] Better declaration search in consequence  (#2031)
+7e1bad83d6023b7790bcb1698817d643a32edac3 DROOLS-2884 Guided Score Card build fails (#2034)
+d810327e3820575a4cd2cec582a667d42262ace9 DROOLS-2939 DMN v1.2 marshaller ignoring DMN<import> name attribute in the DMN (proper) namespace (#2033)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+e8802640c8b5bf1af8456933bd6082e3cf41f545 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+005046b530b1466580094805707751e4379888e3 Upgraded versions for release 7.11.0.Final
+4848f9214387922a7a3d6d2d4364f0cd4b5580ad PLANNER-1199 lookupstrategy compatibility with enums (ScrabblePerformanceTest multithreaded solving failure)
+238b995e2f17c9bbc5b77ce19b4d6989dc31a9fb fix test
+2040b65f4e51584c8a1c3f8119a9207949e5e13a New constraint: Load balance flight duration total per employee - docs
+be039da334f6c9d45d715a167616378bbfde9fa9 New constraint: Load balance flight duration total per employee
+5a4700afc5ed8588d6daf320d207db36186bc323 Move drools load balance functions to common package so others can reuse them
+f6b335faa94726ea400cdef59cfcb045dcc242d2 Flight crew scheduling: review fixes
+c44334fede3bf6b4daa6404f0db0769b87aaa03d parameterList
+5746ec1d4ab69175be4ca461de0bc72d2d658302 fix FlightCrew test after moveThreadCounts merger + avoid "new ArrayList()" without capacity
+82fcccc483235f00ef1c0416bc217fd7b80e5983 PLANNER-1187 tests
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+6411691133dbb1ffb08f6a648bc5b53767b34862 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+6a8b1e60513ca22b6de23d2fab2a012f6ccf2994 Upgraded versions for release 7.11.0.Final
+8ebdabaa4552aa9f439434a303babde85f951eab JBPM-7693 - DAYS_PER_WEEK = 'business.hours.per.week' in BusinessCalendarImpl.java (#1317)
+1593d99f6a8c02462defe9b821322b94255bfaeb Remove not needed persistent ksession as part of migration manager to avoid extra db overhead (#1316)
+7575f511ffc058ae14b7bd1e837f7919500400fe JBPM-7676 - Escalation event does not end the path after escalation event (#1312)
+8e475f5acdc3f8518369e337c0d38e2f9689ead0 JBPM-7667 - no index created for AuditTaskImpl table - fix long index identifier (#1314)
+a928eb4f61a22dee40a086654b9bc4f4835e0a12 JBPM-7671 - Verification, build and deploy doesn't notify user about empty subprocess (#1310)
+be2ed83c43ab6f7ef7cc358a74bb64f2063b6728 replace JPAAuditService use in MigrationManager with direct EntityMan… (#1311)
+11128f7c7361adf6a4b7c00afcee27a03249f38d JBPM-7667 - no index created for AuditTaskImpl table (#1308)
+ceda86888861835d67ad13b5c0f9196311edd0a3 [RHPAM-153] parentProcessInstanceId in ProcessEventListener is 0 (#1306)
+a7a6e151f484d0937b0a973d2289eb42d97f53eb DROOLS-1393 - Investigate why JpaOptLockPersistentStatefulSessionTest is failing with Hibernate 5 (#1307)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+7a63272507915ba769daadaa80e4d9c8fe66b666 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+17c48b4e9a11b13a52f80b8a972a45efac6b919c Upgraded versions for release 7.11.0.Final
+1fd9a636dda0a3bda7b1a3abc3c2882a71493eec Set transaction manager factory for spring boot auto configuration to allow process instance migration to work properly with spring boot (#1553)
+9f50100b27392793b813b34e1b6ef8b89742d196 [AF-1519] Added a second version of takari (#1556)
+ae77d6997e6d73a9f55144f79fd3c57ecd0eef34 JBPM-7683: Skip tests which are unstable on slow databases (#1555)
+6bec551d7ed96efece38c3209999303466b14be1 Include jbpm-case-mgmt-cmmn in the bpms distribution (#1552)
+fffb52e4dfcaa666b36d4173a193535d31d575c7 Remove kie-eap-integration module (#1541)
+5e2cd56b959f24a4003a428d8cc724403e671029 Enable resolving snapshots in pax-exam (#1551)
+48d836ccfd36d1e85b5c12526fb814448201ebd8 JBPM-7589 - SpringBoot - transaction manager upgrade - narayana - clean up of dependencies
+d5cc368ebadb49b4a11e1dbea4b116d586c4c191 JBPM-7670 - SpringBoot - allow use of container aliases
+a6774466e45662878860ae60885902d9f1677e90 JBPM-7589 - SpringBoot - transaction manager upgrade - narayana
+
+===============================================================================
+Repository: droolsjbpm-tools
+===============================================================================
+f66dc782b043e69e3dbbb90683b06eac76f05cfb upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+5e1f6547f0803737c22ff37444f9ef344deb6a35 Upgraded versions for release 7.11.0.Final
+3e27b06545e5118cd7ee0e63c3e03b89051c245a upgraded to 7.11.0-SNAPSHOT
+df141081fde37ca365f0e06e3db4d92a74574bf0 bumped up version to next 7.10.0-SNAPSHOT
+51a69451371ec02f54808c31e6c05a1065e4b898 bumped up to next SNAPSHOT version
+401c43085cb1c00df11c1bf325a7e2c39a61d865 DROOLS-2342: Update Kie Navigator to the new git/rest structure (#90)
+c6671dc694dd268f8b0489c5afbbc9ece289f54f upgraded to next development version
+141cc545904462fdc14f8dc795d81278c6143eca Upgraded to next development version 7.7.0-SNAPSHOT (#88)
+b8dc98591075b7f050d96666aa71cdb4f8031388 DROOLS-2122 skip service entry when Properties.load a Drools v6 kie.conf (#87)
+ff4bb165b0197101e5ea014f683bc81662cc0ba6 upgraded to next development version
+eeb6deb364a180b57eb46fa35be2ac314ee95519  - updating target platform to 4.5.1.Final
+
+===============================================================================
+Repository: kie-uberfire-extensions
+===============================================================================
+e05c080ea60414774d49ae17f63184538200d458 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+8d90a735f1da27de10150f1ec81f5edfce3dbb62 Upgraded versions for release 7.11.0.Final
+987ca355e156738ecf175d4369a6aa7932b08b92 upgraded src/main/config/zanata.xml to link to new project 7.11.0 on https://vendors.zanata.redhat.com/ (#68)
+fedc31538a869d0933f3914ec2fe2b5f18d80786 upgraded to 7.11.0-SNAPSHOT
+e9e09d53d4fd2dde5c0d86033c2b87d1f45ddb52 upgraded src/main/config/zanata.xml to link to new project 7.10.0 on https://vendors.zanata.redhat.com/ (#66)
+9d45f7d142b1a9b1ec672490ca5235ed1b551fc8 bumped up version to next 7.10.0-SNAPSHOT
+8627c7d5fd66d50eccb8d49485423d4a7c87e696 upgraded src/main/config/zanata.xml to link to new project 7.9.0 on https://vendors.zanata.redhat.com/ (#65)
+cb3e161bd6831f47d5fa0bff79e3fdb68a14fc19 bumped up to next SNAPSHOT version
+6ab8e78b58a7620910b52494367df32ac313225d upgraded src/main/config/zanata.xml to link to new project 7.8.0 on https://vendors.zanata.redhat.com/ (#64)
+9dd89a59334ee2c07f9286a32fd420bee56d7596 upgraded to next development version
+16370bb6017ffe06260179e6b23b48f4a3c469b2 upgraded src/main/config/zanata.xml to link to new project 7.7.0 on https://vendors.zanata.redhat.com/ (#63)
+
+===============================================================================
+Repository: kie-wb-playground
+===============================================================================
+e116447c56160f20470099bc0e59fc59dde2e9c4 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+3dde41a96e83a5caab42e35b771fd8ac2ed91d11 Upgraded versions for release 7.11.0.Final
+92301f5c57c4a78800714da93d303d43ae8ebb3b upgraded to 7.11.0-SNAPSHOT
+dd5c96f7838b7465e34f27be74aeefc6c338420d bumped up version to next 7.10.0-SNAPSHOT
+7a3e43823f7b6f36007998cc4c61ec5846382aa2 bumped up to next SNAPSHOT version
+645d6f02d8370654801c6aa2cf22c747a55e6de4  - update pom.xml version
+0667a0e073ec18e6383fa575ec4e6868e62d080a Delete Mortgage Decision Table.gdst (#65)
+36fe647e5a7be7daf8648b268eef3d6380931fe9 Replace getstarted-loan with complete mortgage-process (#62)
+dbf6a0c2b2062ca4c515666622b854f946ecbc03 New getting started Loan app project (#54)
+2e10d3f16fad84923e70e665976cac7a7f11c538 AF-1129: Fix invalid project names (#59)
+9cb1054ce8872e153a8be63b6132beb2047cb0c0 JBPM-7364: Stunner - KIE playground examples are not displaying correctly, also the processes' SVG files must be replaced (#68)
+
+===============================================================================
+Repository: kie-wb-common
+===============================================================================
+d6b8db0f3a91f0514754c477bb64b3128714b613 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+4f370caa38a485cd93d8166a96f80f672b563412 Upgraded versions for release 7.11.0.Final
+9b04f46d8a0496e07349dce337dad4d10dd2dd42 * DROOLS-2878: Adapt the tree-grid component to the new dialog look and feel (#2079)
+4f4582e4f16b6b34b089669ab598981de9225530 Multiple branches support - new features (#2074)
+a348d7a66bb07e308883a36bafea4df31d18ac90 DROOLS-2796: [DMN Designer] Data-types: Grid: Context (#2075)
+83829c4e5f1a8a5b99d353066fb821f46357fe8d DROOLS-2815: [DMN Designer] Make Expression Type dependent on Diagram Node (#2053)
+b035faca127e592847088bb5f976b7a6a31aba02 DROOLS-2590: [DMN Designer] Remove fallback from QNameFieldConverter.toWidgetValue(..) (#2070)
+a450e1d77fa44222cf78363296b4781532666b31 Stunner - Fixing copyright info to reference the official file and correct config location in showcase README (#1949)
+fb25b74d97323516bb4d9536297dfca82bb0d880 [AF 1459] Reduce Test's time execution (#2058)
+d8932e3f0c3c24487306896adf4a7484c1a3964d JBPM-6385: Implement append node shortcuts (#1889)
+ca8119fbf2f409c570f19d0628654e9ce9082403 [AF-1522] Maven compiler uses undesired system properties  (#2067)
+
+===============================================================================
+Repository: drools-wb
+===============================================================================
+20271e95dab888ab6db1df7c880ee0b962340103 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+8358b7b677693464f7eb01587cecf348a24010b0 Upgraded versions for release 7.11.0.Final
+12b3c56c0974fef559a4495a1fde4ea259bdf88b AF-1269: Index all branches of a project AF-1270: Allow the selection of different branches AF-1271: Allow the creation of a branch AF-1272: Build/deploy actions should b
+c6aa4f802918a1383df7b9e3eab01679c278a540 DROOLS-2777: Guided Decision Table is changing date field value based on the timezone (#911)
+cfe2978a0c9bd8eaecf526d89f8b76ea2be689c2 Drools 2860 - Two level header (#915)
+932e828278aae8452495f63a8634250482b91550 PLANNER-1159: Improve categories (#914)
+53e60d175d506e89c091df145de8dc8bfbc3f7d0 upgraded src/main/config/zanata.xml to link to new project 7.11.0 on https://vendors.zanata.redhat.com/ (#912)
+ded1cb4fe5db0dee1309df108b15cb8bb00dffaa upgraded to 7.11.0-SNAPSHOT
+8303a4e0606f78e4da9f4ed9d25c1317dd077add DROOLS-2764 : Remove dead code in AuthoringPerspective, AdministrationPerspective and Social Home Page
+4b6d45549bfcd9b4db3df367ef7a9932722c0fd2 DROOLS-2785 : Create run scenario test pipeline
+912dd2538251a9b81a9e9da9e777a32a12c86435 Drools 2844 - Show contextual menu (#907)
+
+===============================================================================
+Repository: optaplanner-wb
+===============================================================================
+358288fc521e624a8e5d7d97b93f514da55660ac upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+eeb25f9f0918ba1ef66f0a3d8947cda8b1d0b23b Upgraded versions for release 7.11.0.Final
+f1b88df066e752c4de947f73d2fb43277de3f120 RHPAM-1436 Fix NPE when copying an enum
+980cab2116542c8b5da8c9ed40d3b45a0018bb3f RHPAM-1436 Avoid NPEs and improve test coverage
+9488287fe04ea383343fe455bee9211fa9db9a4b RHDM-257: Avoid CDI warning
+7ddec3d0ad80f5609e459f76f0c10e27a7c7cf58 PLANNER-1159 Add Optimization category and fix solver config icon (#296)
+0031d002e495ba2f6352d20cb9af5790ae544648 upgraded src/main/config/zanata.xml to link to new project 7.11.0 on https://vendors.zanata.redhat.com/ (#295)
+415b44573f1c4cd2f10170302a4164dca93daa10 upgraded to 7.11.0-SNAPSHOT
+58926469dedd6752c7deaf44c7fc271fd4e41390 DROOLS-2764 : Remove dead code in AuthoringPerspective, AdministrationPerspective and Social Home Page
+6bbfe676f3c0456d5d6878299cfb9cc3ef73e2a9 upgraded src/main/config/zanata.xml to link to new project 7.10.0 on https://vendors.zanata.redhat.com/ (#293)
+79e4ed44777b09b4fff2171ffa894b082de97a56 bumped up version to next 7.10.0-SNAPSHOT
+
+===============================================================================
+Repository: jbpm-designer
+===============================================================================
+461589297bac1c209ff79c6b9548f462091282d7 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+8ee412798b27d33a75f31171f89d74529ba324be Upgraded versions for release 7.11.0.Final
+527cbe2393915e930cc13fc0a72eace5e1a2af89 upgraded src/main/config/zanata.xml to link to new project 7.11.0 on https://vendors.zanata.redhat.com/ (#809)
+eb9672617e91c2bd0235d38265663e70e5958762 upgraded to 7.11.0-SNAPSHOT
+5ff8831cbe96100e5c4314171b2944e6fd975dab BAQE-488: Add tests for creating asset which already exists (#808)
+1ead2e4fea5cc49440676d2620b17a5b002b4604 JBPM-7507 - Editor for variable definition has no scrollbar (#806)
+3d1ad38d323c1f3724b32c28a353695893f45713 upgraded src/main/config/zanata.xml to link to new project 7.10.0 on https://vendors.zanata.redhat.com/ (#807)
+f5b2c4cd373a5aaee16a270ef61aa68e6b35f791 bumped up version to next 7.10.0-SNAPSHOT
+c1faccef5242f56d2192205dcfa04b81d886d284 JBPM-7462 - Workbench replaces symbol '-' to whitespace in REST-service tasks parameters (#805)
+6c54224f3bdb37b45ac4af4a368909d0601a0577 ability to install workitems from repository to kie workbench (#804)
+3e2c808faa1516a48eeb512f1da4a55257991961 JBPM-7408 - Correct id generation for default process and default case project process (#802)
+
+===============================================================================
+Repository: jbpm-wb
+===============================================================================
+f603b0f4002b114de4e792af4526b5006ae9984e upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+e2cfc089f015e38a4e7db7d740a1a5031a2aefcc Upgraded versions for release 7.11.0.Final
+b3c68d134528289eface89ecea41e17fb9311e10 JBPM-7427 - Display task comments when task is completed (#1189)
+259de74126de2ceb7fd1020ee42f9a581d059f96 [AF-1254]: LibraryService import replaced with new ProjectImportService (#1190)
+dfecb7284a8202025f401129cc1251adb4cfcce7 JBPM-7592 - Add resource type support for .cmmn files (#1186)
+3cb999d338f1d46086197b7c7bcf18c0aea597ae upgraded src/main/config/zanata.xml to link to new project 7.11.0 on https://vendors.zanata.redhat.com/ (#1188)
+e59ab261bb75aad267042c800921497c4b559ef9 upgraded to 7.11.0-SNAPSHOT
+daaecabe705b76eb36a61b3751ce99466c5f3b61 DROOLS-2764 : Remove dead code in AuthoringPerspective, AdministrationPerspective and Social Home Page (#1182)
+1aa51d923556a27a8e3750e8ed5a7f2f55b6cec2 JBPM-7393 Closed cases shown as canceled (#1176)
+dc398b7c9b197a002df5dbe5326875187ce4e524 JBPM-7383: Unable to access completed processes with undeployed container (#1177)
+5c6c0d365f26a767c2bd0c6169a8f4e7af8bb891 JBPM-6135:Add Bulk actions on jobs list (#1184)
+
+===============================================================================
+Repository: kie-docs
+===============================================================================
+8b7b5292e43fd50b8c01deab719a94ee30d532bd upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+824e38ffe85c061df91fd31ede4a3e10ba498766 Upgraded versions for release 7.11.0.Final
+8c7b030a9b9e72e53dd2cc379f835b67c5538545 jBPM N&N for 7.11 update (#1035)
+6c48b92e1dc41378e501aa1b242c233a470f4bfc Fixed link issue in kie-docs README
+1fbac5a0e2a8bf20f6b4a9e90c8d7d54e278d344 Update kie-docs README
+c77add48412a9dccb22f3856d61b51df243c9177 BXMSDOC-3050-alternative: New kie-docs master. (#1024)
+cf9da08a46cd3f03dabe82b851c159fc5378f026 Upstream PR Bxmsdoc 2431 master final - Executing a business process in Business Central (#1032)
+4f642d018b970bd4d1c6c8c0f4ce0c305cf1b65c BXMSDOC-2433-master Updated based on peer reveiw comments
+d288577d24f5e25621fadd68aa2b3c7d24ec0f21 BXMSDOC-2433 updated based on QE test input
+7d54fc79cf06107a29e9b95406fba620197f9f03 BXMSDOC-2433-master Minor grammar fix
+87ba6922ee7b7032fea9bb0ea3a5c6eb88322f77 BXMSDOC-2433-master Final content additions for SME and QE reviews
+
+===============================================================================
+Repository: jbpm-work-items
+===============================================================================
+54efce037bf41bed1462a5fc4da669cda3887955 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+a40f23cd167623ad0af3e01f89e1c35c29a08c9b Upgraded versions for release 7.11.0.Final
+ef7d357879ef0c69eb1b455692d181950d78cdc2 [JBPM-7648] Create OSGI tests for camel-workitem (#63)
+1114505e861769253aa4b45259b6c69a26bf4c49 [RHPAM-1456] Create separate profile for productized work items (#62)
+593ebd1f39cc40c6cfb063c60c2bb978e714a199 upgraded to 7.11.0-SNAPSHOT
+7cf1f663b60dcb68ef5d7ec02f55a02f50563ee9 [RHPAM-1230] OSGIfy camel-workitem (#61)
+2d7e19a83c3dec003772ca6bfdc9c5b006c4e663 modification to maven embedded work item and command to allow parallel builds (#60)
+3bb3b32bbbadb3449ee5b56560588ebff7357a96 Refactored maven embedded dependencies to make use of those already shipped with jBPM to avoid conflicts (#59)
+53eeb214f5b2bacf665f3d03b0f85746e9bbddf6 bumped up version to next 7.10.0-SNAPSHOT
+a9cc18429854ce82f769187ec1a8ec57a6dafa29 slack workitems - post messages and add reminders (#58)
+2467d18d30526e979e4e34db0e19e17b9675a3a0 ability to install workitems from repository to kie workbench (#57)
+
+===============================================================================
+Repository: kie-wb-distributions
+===============================================================================
+828aaa06de9c3e67e7de6a53a2d2a58de9748b52 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+9b87715fc5a7bda52ae47da847a26dd3e037ed03 Upgraded versions for release 7.11.0.Final
+be20b9d604334fafd4e043a04321f6cec96c8cf2 Don't test kie-(drools-)wb on tomcat (#799)
+1eeaef6c4c4eb6cb63a460251101b1e398e39fd5 JBPM-7690 - java MAX heap size in jbpm-server-7.10.0.Final-dist.zip (#798)
+dddba5e940f276799d65963072b5c56010b1edae Extra settings for server full distribution (#796)
+6a7659b7b694dfd0ee6d9c7f9da817489a020f82 Update StandalonePerspectivesIntegrationTest. (#794)
+f87dc74c7d1af4dced3e7fcf747936826fbeb47a DROOLS-2863 : Unable to start standalone business central without internet access (#790)
+8261d93e7ef10666fc9dbb3b3577366b12c4fdff upgraded src/main/config/zanata.xml to link to new project 7.11.0 on https://vendors.zanata.redhat.com/ (#793)
+5b77f4c19dda6082cebb88ea6b5a7651e5d8c273  - attempting to fix line endings on windows
+6850d2c14749ebfd58f796aca7319822a77c70b5 Testing new line change
+d9d4bad98e5752e12a39434ca3e1fac74d422aa5 upgraded to 7.11.0-SNAPSHOT
+
+===============================================================================
+Repository: optaweb-employee-rostering
+===============================================================================
+bc953c617b17088aa18539bad9039b75f27a6401 upgraded to kie 7.11.1.2080905-prod and appformer to 2.8.1.20180905-prod
+0750ccafc7438a8c5786946c025318118e9a9087 Upgraded versions for release 7.11.0.Final
+539d5a5fee5916d9a77012dc2ab057ac8515693f PLANNER-1240: Fixed bug in updateRotation which discarded rotation employee in ShiftTemplate (#193)
+364707355dcb5051319ae01f377d94f2a8e86437 upgraded to 7.11.0-SNAPSHOT
+75662c6a65a961851017eb4e7934a97c61e3ec80 Increase cargo deployment timeout
+e53c0e6d57ce44fdaa56b0745cd58986507347b5 PLANNER-926: Use Patternfly notifications
+46c76850a8263f9d42d6f971f206f869bf646779 Changed StringBuilder to String concat for optimization reasons
+aee758b3131fb3d9933e7f7c54cbbe77a3d2acf1 PLANNER-1097: Fixed various visual issues
+039793e0abcf7bffa711f2874ec391aa69a24b9f Temp: fixed Availability style
+abf9667a3e8a167a1bf6c56c39e093a3f1988d0e Fixed minor i18n issues
+39e587780ca423049e07bfac1c4045a86907b0ad Use JPA Queries to delete models in batch
