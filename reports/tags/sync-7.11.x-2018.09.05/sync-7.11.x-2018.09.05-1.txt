@@ -42,7 +42,7 @@ All tags sync-7.11.x-2018.09.05 are on Gerrit
 ------------------------------------------------------------------------
 
 jBoss-ip-bom: 8.1.0.Final
-errai: 4.2.3.Final (https://github.com/errai/errai/tree/4.2.3.Final)
+errai: 4.3.2.Final (https://github.com/errai/errai/tree/4.3.2.Final)
 appformer (uberfire&dashbuilder): 2.8.1.20180905-prod (sync-7.11.x-2018.09.05 tag on Gerrit)
 
 ------------------------------------------------------------------------
