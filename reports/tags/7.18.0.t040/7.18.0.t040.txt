@@ -1,0 +1,191 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2019.02.07 : 11:49
+Code Cutoff Date: 2019.02.07
+Source Product Tag: 7.18.0.t040
+Community Tag (if available): build from master branch
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+MAVEN: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/kiegroup/kie-soup/tree/7.18.0.t040
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.18.0.t040
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.18.0.t040
+https://github.com/kiegroup/drools/tree/7.18.0.t040
+https://github.com/kiegroup/optaplanner/tree/7.18.0.t040
+https://github.com/kiegroup/jbpm/tree/7.18.0.t040
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.18.0.t040
+https://github.com/kiegroup/drlx-parser/tree/7.18.0.t040
+------------------------------------------------------------------------
+                          Component versions
+------------------------------------------------------------------------
+jboss-integration-platform-bom:8.4.0.Final
+kie:7.18.0.t040
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+mnv -B -e -U clean deploy -Dfull -Drelease -T2 -DaltDeploymentRepository=local::default::file:///home/jenkins/workspace/KIE/Trisotech/tagForTrisotech/tristotech-deploy-dir -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx10g" -Dgwt.compiler.localWorkers=2
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+kie-soup                        mswiderski@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+drlx-parser                     mfusco@redhat.com
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+The last commits of this tag 7.18.0.t040 are:
+   
+Git arg. line=log -11 --pretty=oneline
+
+===============================================================================
+Repository: kie-soup
+===============================================================================
+2b78a44f7c280a87a90f4f621a7d702f659e0a3a upgraded to 7.18.0.t040
+10761d29842b4e1e199580ea8be503abca934a47 upgraded to next development version
+51bec3efc97f54a5e882bfa4781e043176095ed5 upgraded jboss-ip-bom (#81)
+5a5160efa792988315e15975dba676770d10fba8 JBPM-7686: Stunner - Minimal Graphical Constraint Editor (#80)
+da4141c99c412bac7661bc5990b1f88720999ecc upgraded to next SNAPSHOT version
+dec899a69dc9a6750c73883c503ba2c741005457 addAll method implemented for lists builder (#77)
+4b8cdcea1df45b561b648a75b7241b5f3d61af4b Update the extra-enforcer-rules version to 1.0 (#78)
+9a34b4066dc18d8018500e8d74a6a19771f50550 RHPAM-1743: XSD validation of kie-soup-dataset-elasticsearch pom.xml (#76)
+c242d9fb4e50ba952bf74e4a47f5579d41cf567f bumped up to next SNAPSHOT version
+b13aa6191ef19e94ed481f6fe24c241a565413b9 AF-1646: if not offline, and a artifact has a bad description, we delete it and try resolve again. (#75)
+09709e24a3306a50e8b130b6621847650d0d92c7 bumped up to 7.15.0-SNAPSHOT version
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+84b0077d47af839057ff5ac731a6aac992c42457 upgraded to 7.18.0.t040
+b9e7dc80282156fcf217bcec49bfa3ee6964e7db added dependency javax.xml.soap-api to avoid jbpm failing (#922)
+36e17250fcc8a4624c59ab74aea98c840313f4ea Duplicated SOAP dependency in the jdk 11 commit (#901)
+af6ac434e4f1ed9af65fc8c3c85217ac293740af upgraded to next development version
+90a040bdba59c07d967be2eddfbbdebb65bf460e upgraded to next errai SNAPSHOT (#919)
+be4c8c6fc8c3c59f4e4b15f455e0e568bee90ee4 override of version.org.mockito and revert of Revert "upgraded byte buddy because needed by mockito upgrade (#916)" (#918)
+752eae1748e560c069ea7b5c901f867852bcc002 added missing setting.xml to upgrade-version script modified default parameter when creating release branches (#910)
+f0ffb46896cb6e6f1184628a08a495c7b3262655 moved com.google.guava and its dependencies to jboss-ip-bom (#894)
+af976315bd538f688d5e0fef0c9e4746b6540e6c moved io.undertow to jboss-ip-bom 8.4.0.Final (#891)
+f9717b4525c8d4cc76d7b8d2aa7d492b894b6fc5 Align JAXB and JAXWS APIs with Wildfly (#900)
+222e84380a1547dae22773b64859af467045d50f hibernate and jboss-ip-bom upgrade (#915)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+b15d0a8f6cdd827b80dea797de7d9b2af7cc5fec upgraded to 7.18.0.t040
+9e80627fb980afa87e0c38734d5e7ba4aa09ad77 DROOLS-3404 Removing all 'declare' statements, including those that were used for output, from PMML generated rules (#358)
+8d7759de126052504383b3ac28669204c6763652 JBPM-8176 - update to add more http methods to cors (#367)
+49e56a568b88b530804abc59d9f0b7fc0b2dec2f [BAPL-1096] optionally allow to keep cells untrimmed in decision tables (#361)
+0f93c0bc506070391520f3a48d42e2d0b0d8f8d5 Change scope of javax.activation:activation to provided (#365)
+80728a3fcdda72a65ecebe76d0b1353c7ac3203f upgraded to next development version
+75d1175cc05d500470c1a156bac430c3e07af661 Add jboss-jaxb-api_2.3_spec and javax.activation for JDK 11 (#364)
+d36af9cc458bca367a833491e2ca37fb0c6ac8be JBPM-8183 - Disable xframe option by default in jBPM Business Applications (#362)
+d7a25f4a7dcdfab5778f31f6e0a3487e2cd97af0 Align JAXB and JAXWS APIs with Wildfly (#352)
+6955f93f4e5b74cd8f513130ed05e14e8a277381 JBPM-8176 - Enable CORS by default in jBPM Business Applications (#360)
+d64fb0aa2c36bbb9fbe15a9b44ceb8fb26b8e23a BAQE-814 - Change revapi to check against 7.14.0.Final (#359)
+
+===============================================================================
+Repository: drlx-parser
+===============================================================================
+c6727d0dbf0c8228a9875c6beb5ec02200231117 upgraded to 7.18.0.t040
+4a1638613c301553dfb81e97c07eab198efa1671 Add JBoss deployment repositories (#30)
+f76f7f4bf5b81b8af213e92e200ccc66d5ed79c3 Fix deployment to jboss Nexus (#29)
+46e3c1be1a39c88785fe4f17cc6358e300b0fd96 Update to 7.18 snapshot
+e2539ea2344758e264c0105625e4a8398533e80a Fix regression while parsing drlx files
+af05b8c17230c20b4f68badc150c19f587dcbd5a Add javaparser_test_result to ignore
+1675167b7097e85b50db8ff6879652588188cb9b Rebase against 3.10.2 tag
+35429b8fea248d7f6631a18b5c4c378f83115dd7 [DROOLS-3527] Support decimals in BigDecimal literal (#28)
+d6dd940730750e98aeeeb1ef92c9882faa2f7d8c Fix tests
+0e12c3cd5431eccf7c5f1da00b9f11ed7c113d4d Shade correct version
+5f0aebc3151903c0522893f8fd77ede22018a603 Added some trace statements
+
+===============================================================================
+Repository: drools
+===============================================================================
+949e71b0b90fcb476984ff7fdbb244575e326466 upgraded to 7.18.0.t040
+8bb6812ae780543bfddc97bd5ab27bdd1f857401 DROOLS-3594: adding support for interval-based algebra.  (#2237)
+339805035b2883e6b1ba72099a9902128d947654 [DROOLS-3607] support property reactivity for beans annotated with @propertyChangeSupport
+1f612438b70079e79dcbb788b7c3d5389ca5955c  [DROOLS-3598] Better error message while using the DummyKieScanner (#2244)
+2283c7ac996e4fec02f6123eaff709b255d4d44a [DROOLS-3606] take count of alpha constraints in from node when calculating its own property reactivity mask
+b18b24e2f25e48d851e22e46c0db77a377c8c381 [DROOlS-3554] fix removal of rule with accumulate performing a logical assertion
+c6d69e2fcb3eb8544cebf611ef9ccf9be616f368 Fix map access expression with recursive paths (#2240)
+0f3a6cde028e031d16a5a220faa1d96e2e064802 RHDM-766 / DROOLS-3404 (#2202)
+eab41dbad990c89242155ec32b8a2d2ba5d20c12 DROOLS-3596 DMN implement DMNDI extension element converter plug-in (#2238)
+0fc09cc1ebb1200c5ba9e067f5ccbec11a86ae0b [DROOLS-3556] implement property reactivity for update statements in mvel consequences (#2239)
+bf379631b744d33207746e3f179e0741bcf2ec82 DROOLS-2262: [DMN Designer] DRD Grid Column width is not preserved. Fix support for DMNDI extensions. (#2235)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+61dbf679979d4dbda899228ca4b5f32a2ca2c783 upgraded to 7.18.0.t040
+6ec5a48a9bee17439a5ed7a1fa0795c252f0d867 Show middlePanel when import action is done
+a37ee2ff6aac56db4920d5d2f6f0ff68c164d7a2 Add approved talks and warn if there are no timeslots/rooms
+55ff1f0b6a60275f35df0da75be34e2a7208966f Fix style and typo in test file
+195e9e0cebcb8c5cf8aa9942c0e8e7c83bfe4062 Add room tag sets
+b701dca7a565046c192377843eded4d9c8f8a2cb Add required fields to trigger addinitonal constraints
+751370a82881bf66164c743a384c19fb513ea2e7 upgraded to next development version
+cc568ea0e3dd55c10e0a7f54c549513cde484891 Fix failing tests
+df9d4d37ee76ace44990ce7c0fed4727dad50f26 Fix compilation errors related to Mockito upgrade
+1c54583f488c63a928dd6d6a94aeab6f12d9862c Align JAXB and JAXWS APIs with Wildfly (#469)
+12bd78a6971aa235514ea8afed31b4819327f5cc Hibernate upgrade (#479)
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+1996d27e17dbdbdb4c1a354d34a5dae6f864896f upgraded to 7.18.0.t040
+958bbda014f82893c000a25b46125d2c9ec7c911 JBPM-8200 - Unify QueryContext count handling in Hibernate (#1432)
+abae4f2c6b81dfbaf1b4130fd37473fdd68bbc05 RHPAM-1854 - add new feature to mask the original sender's address. (#1431)
+3fa0705a2a24c19161fa71dffba9d4c0c6d342c0 RHPAM-1836 - Incorrect syntax in Sybase DDL scripts (#1430)
+f676797165da9581c51d4d2808028c4041f14371 Index changes to address deadlocks on MySQL based on support feedback (KBase #3063771) (#1426)
+09b537c8b82bbc44d07e9612e1b7e715f82874c1 upgraded to next development version
+137dd65c88e8459d96319a7200ad953c5c8b6088 removed again RestGeoCodeApiCallWorkItemHandlerTest.java since an erroneous PR brought this in (#1428)
+4941c592e420c9ead45e9844eccb53f463470c54 Align JAXB and JAXWS APIs with Wildfly (#1394)
+8ff9b1ac03af8aea0326f9d3f38b4cfcabd5515b JBPM-7923 - Upgrade of hibernate to align with WildFly 14 (#1425)
+eeaaf9bbdf0c9c8079b959f854931d7e87324367 JBPM-8000 - update jbpm workitems so can be used in workitem repository (#1423)
+8956e23bb40d71758553170c5652ac219c1987c0 BAQE-814 - Change revapi to check against 7.14.0.Final (#1413)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+3e14eff4f2b5f1349b947b2f68bdbe5a78462065 upgraded to 7.18.0.t040
+830822a66e3c63143b224720ace3b1a80d00a3f4 Add jackson-datatype-jsr310 to OSGI features
+ce85754e46aeae47bf6d3547302287d6d77cd6e3 PLANNER-1356: Make java.time.* (un)marshalling work with SolverInstance
+77c01903e0eba36eedc97b139fc662e703c0fe5a PLANNER-1356: java.time.* unmarshalling from JSON should work OOTB
+5ea28cee38b8f06be806f33d21a6a57bcfb2b8e0 [JBPM-8177] Security exceptions in localhost log when running kie-server on JWS (#1704)
+73550e55513f3c3b87e023e76df23a6595fadfa2 JBPM-8199 - CaseNotFoundException when reopening the case (#1709)
+19a331b0dff5ac1e3815d20a8a8195df16526321 JBPM-8191 - Smart router cannot handle job requests (#1710)
+72693ac851f21e45fdab3c1231ac1573e9eaf578 DROOLS-3548 - Thread used by LoadBalancer remains when connection to kie-server fails during instantinating of KieServicesClient (#1701)
+7ba6c547bf55eddadc7c608776407943e82d0c08 [BAQE-829] Improve test coverage for kie-camel remote clients (#1707)
+e4ee6157d9240100547a6d571aa5f8212b2c73f8 [JBPM-8153] Container is removed from UI even though it was not possible to stop it. (#1694)
+dfded989b9ca162b26a62738a053286ec47ad1be JBPM-8154: Exclude tools.jar from kubernetes-server-mock (#1695)
