@@ -1,0 +1,174 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2019.03.22 : 12:00
+Code Cutoff Date: 2019.03.22
+Source Product Tag: 7.20.0.t041
+Community Tag (if available): build from master branch
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+MAVEN: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/kiegroup/kie-soup/tree/7.20.0.t041
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.20.0.t041
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.20.0.t041
+https://github.com/kiegroup/drools/tree/7.20.0.t041
+https://github.com/kiegroup/optaplanner/tree/7.20.0.t041
+https://github.com/kiegroup/jbpm/tree/7.20.0.t041
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.20.0.t041
+------------------------------------------------------------------------
+                          Component versions
+------------------------------------------------------------------------
+jboss-integration-platform-bom:8.5.0.Final
+kie:7.20.0.t041
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+mnv -B -e -U clean deploy -Dfull -Drelease -T2 -DaltDeploymentRepository=local::default::file:///home/jenkins/workspace/KIE/Trisotech/tagForTrisotech/tristotech-deploy-dir -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx10g" -Dgwt.compiler.localWorkers=2
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+kie-soup                        mswiderski@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+drlx-parser                     mfusco@redhat.com
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+The last commits of this tag 7.20.0.t041 are:
+   
+
+===============================================================================
+Repository: kie-soup
+===============================================================================
+270900554b68b92589d1d13ac3f5b50ee990c9c2 upgraded to 7.20.0.t041
+7f26f758f2519d0562a9ff78518a6c44e889672f BAPL-1148: upgraded jboss-ip-bom (#82)
+031af629daaee0ac6570c42af32aa5698b585b90 upgraded to next SNAPSHOT version
+771c843859a26fc4bfc05922e06fda2428ce8c6f upgraded to next SNAPSHOT
+10761d29842b4e1e199580ea8be503abca934a47 upgraded to next development version
+51bec3efc97f54a5e882bfa4781e043176095ed5 upgraded jboss-ip-bom (#81)
+5a5160efa792988315e15975dba676770d10fba8 JBPM-7686: Stunner - Minimal Graphical Constraint Editor (#80)
+da4141c99c412bac7661bc5990b1f88720999ecc upgraded to next SNAPSHOT version
+dec899a69dc9a6750c73883c503ba2c741005457 addAll method implemented for lists builder (#77)
+4b8cdcea1df45b561b648a75b7241b5f3d61af4b Update the extra-enforcer-rules version to 1.0 (#78)
+9a34b4066dc18d8018500e8d74a6a19771f50550 RHPAM-1743: XSD validation of kie-soup-dataset-elasticsearch pom.xml (#76)
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+9925c0df27691dcc7d81018cec4ab33ec36e2d5e upgraded to 7.20.0.t041
+0fa3a31cccef26aa4746759e98609319b00fbac0 DROOLS-2165: Upgrade revapi-maven-plugin from 0.9.4 to 0.9.5 (#640)
+40693f32f5e850865a1a6407ad1cb4af746c372c RHPAM-1874: migrated org.infinispan and its dependencies to jboss-ip-bom (#923)
+4305212a70be400f7386d8078e4e46758d71351c BAPL-1148: JBEAP7.2 alignment (#933)
+6c98073ddc01ba7575723572fa90479b3e7d9add upgraded to next SNAPSHOT version
+896aea42548e8daab1ecca48aa2619b9b199e14a Removed drlx-parser (#935)
+6bda670aeb466467d135da5277ed6a5928a9ef1a [DROOLS-3654] Adding org.kie:kie-gwthelper-maven-plugin definition (#932)
+0016426815f318a4c314a93e088670b5e70e6503 JBPM-8029: Align javaassist for support GwtMockito in Java11 (#934)
+bf5cb0efce9bc2420b9f99d894ac264847f3693c DROOLS-1781: replacement of findbugs-maven-plugin (#921)
+873946bf6b213a53a9dad92780e6f94e296fbc7d JBPM-8254 - jBPM XES Exporter tool (#928)
+8f422cd2a64021a174a391470b486b1eb54b558c Drools Constraint Parser (#931)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+833d58e53190da9a9751d75ca3025e7026f5f17a upgraded to 7.20.0.t041
+0c3fdb127319d88237d803bcc298dd047f4f0800 upgraded to next SNAPSHOT version
+928a0d619210f0e106c4685e714c96053a875cdb Fixes to allow XStream processing of PMML related objects (#375)
+e12f26c234f65ea167dff38ede0e52084a1c2c60 JBPM-8165: Added method for obtaining all extensions for a given ResourceType (#374)
+aa21ed5299a7f9189cd722c5c539224f857ea0fe fix for spring boot 2 cors and password encoder for inmemory users (#373)
+3b78ec853732765a08688864e72aa710650bb265 upgraded to next SNAPSHOT
+ddfcaf8e91a20d93eea4705252955abc6244f075 JBPM-8166: case modeler - register the assets into the workbench and process engine (#370)
+dd517a97539546288dee0a37c1e6a85851edd569 RHPAM-1875 Fix required because of the way JSON is marshalled/unmarshalled (#372)
+23c82dbef4f44e74006537341838c5dc1a707d06 JBPM-7867 - kie-server-spring-boot springboot 2 support - allow configurable spring boot version (#371)
+dfb9cc62f6f97d9f8faffaa37e97fa22a779113a [DROOLS-3523] group drl files in KieBases by packages instead of folders (#369)
+3d4148e44d037d0fffcaf2dafc9d11f05612890f JBPM-7867 - kie-server-spring-boot springboot 2 support (#363)
+
+===============================================================================
+Repository: drools
+===============================================================================
+73fcce8fe8b1b70f44ee39a29b9f25b66aa4b785 upgraded to 7.20.0.t041
+feafedea61b0293b58daa7c28d61c2113af1fcf8 DROOLS-3772 DMN DT Analysis Rule masking (#2285)
+aec2b6a9731276fe781633ea0b6d5fce984d9213 DROOLS-3780 DMN DT Analysis report warn for HitPolicy First (#2286)
+34293e9675ae4f36f2a3a9e633305bbcc8260d19 [JBPM-8097] jBPMHelper no longer sets default values for H2 (#2264)
+51bb6c55049b4015991561b03b5734c8ae2f7e0e DROOLS-3673: Disable inserting rows according to string id (#2265)
+ec606ef5f50eaf3878434023a37a717d94f8093d JBPM-6848: Form Generation fails generating forms for classes on external dependencies (#2277)
+b1988d11165011ce6acdb5e8e9265820174be966 DROOLS-3737 DMN DT Analysis Table Consistency in relation with HitPolicy (#2284)
+b47b53c576f0c6a48be702eb9a044ae244258a95 DROOLS-3715 Fix kjar path handling on Windows (#2282)
+a3516a3ba351b53ca4f2a724246463610a943e2a upgraded to next SNAPSHOT version
+a84a407558d77c250bc8583831c1908f7ce2d439 DMN DT Analysis additional test in the FEEL number domain (#2281)
+a89e2cbc83c24e9fdee6410612f8740e768eac20 DROOLS-3764 Raise timeout for a test (#2280)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+fce60e4d0c7e12d6312400301fa9e73c7445b182 upgraded to 7.20.0.t041
+769940b21cc7c68313e2c072e81d510b3aaf60b0 BAPL-1148: upgraded to jboss-jaxrs-api_2.1_spec (#488)
+1fa3652260d9dd058b81a7e1cf4c0206e3e17b13 upgraded to next SNAPSHOT version
+ed506f894aa906b3ff25749dbccfaec192a8ee1a Add with methods on the important Config classes
+07a210f41907d3d7266873b0a0fc1eb75b26cbf7 Complement JPMS requirements These steps are based on https://github.com/mwkroening/optaplanner-modulepath-example/commit/e8f909250a6664b368f55b6dd503bd2cc3240824 and htt
+5352bc1eeb1b4106fb1f02a78442685e4b9e0fe7 cloud architecture patterns text
+43efadb133fc7cdf49dcd8e6f0cfe1162ca64658 real time planning cloud architecture
+912a8f7c19c465ca03cebac7f598c06127780c4e fix typo
+72551ea587fb0a7e2b15a4691bf0e9cc7fdb9d8c serverless cloud architecture
+9f8d3d63e0715d1928e872530c5237c83f6623f3 DROOLS-1781: replacement of findbugs-maven-plugin (#483)
+cf704096f0e29d2895be4a3f3a53f20f125de9d7 Enable AWT headless mode to prevent test failures
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+36adcbb93421670334720545cedcfc26f99432ea upgraded to 7.20.0.t041
+442526f52c66be90832c53f35134d0c5eaec2235 Refactoring of WorkItemNodeInstance for extensibility (#1461)
+5dfd109a778a9cde753302d527418655556154e9 JBPM-7930 - process-level compensation via event subprocess (#1462)
+98d449321faab202041a13b470c2592365b6d949 BAPL-1148: upgrade to org.dom4j because of hibernate upgrade to 5.3.7 (#1450)
+8485229586b687b774918c4512feecc7dec1f8e3 [JBPM-8342] Newly added system property - org.jbpm.correlationkey.length - does not truncate the "value" column in the CorrelationPropertyInfo table (#1460)
+138576b91b6e931cc59f1de28a8a961354a78944 jBPM XES Exporter: command line tests and upgrade to latest schema (BAPL-1214) (#1459)
+09f2f159a2d6ac362dad44485683029bd9294a6d upgraded to next SNAPSHOT version
+5a7e309a7b0af91edc22311e5e60f5b03fe7e714 JBPM-8249 - Rules activation not canceled in Case Management subprocess (#1452)
+08c1aff9782c14bfa4ae8579eef0ff3312b8e590 [JBPM-8152] Add method to jBPM JUnit support to retrieve active nodes (#1455)
+937ffac7980d73cabea3cd04f613efae5876836b Remove hibernate-entitymanager (obsolete) (#1444)
+d4bfdd632ab79026a441d0b22954a71e06bb681b jbpm-remote-ejb: Disable deployment sync (#1457)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+18c5f65ac651b6d744bd953c4797811b6c010a46 upgraded to 7.20.0.t041
+e709315405c624083fa380bc3be01aa4ef2c47b5 JBPM-8362 - KIE Server client does not reuse marshaller for JMS (#1775)
+066938b02cc12f1c569f50554cbf034f27c1c054 Controller Swagger docs update (#1778)
+018e809d56a75fa9a74d062735506e602e20377c BAPL-1148: updated to org.dom4j (#1749)
+dd66cf9ebd5c975b3a2788819653f00c5ac970ad Use drools-constraint-parser instead of drlx-parser in kie-osgi (#1777)
+cbb2a3fa7d4fa06eff7ffa2a533a8bc763de9503 Typo fix in Swagger API description. (#1768)
+7e3181a8cc400b73768aab5b42c49888f3f88a8f [JBPM-8348] Tomcat doesn't correctly stop Kie server controller healthcheck (#1773)
+31f2b01dcfe77c4224b2bb371892dd14249e79e1 upgraded to next SNAPSHOT version
+22f73a52740f4aa2cd410141d510f3e6b2ac18ed JBPM-8361- Create on-demand Spring Boot PR check (#1771)
+3fb73effa03f80c8ed36651301b0dd6066de3faf Extend timeout for PMML tests (#1757)
+98200aa704af3b1c37ebc20636dfe9a3dc056721 [JBPM-7974] kie-server not removed from the controller view if server is killed or crashes (#1712)
