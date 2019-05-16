@@ -1,0 +1,178 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2019.05.16 : 12:45
+Code Cutoff Date: 2019.05.16
+Source Product Tag: 7.22.0.t042
+Community Tag (if available): (if available)
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+MAVEN: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/kiegroup/kie-soup/tree/7.22.0.t042
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.22.0.t042
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.22.0.t042
+https://github.com/kiegroup/drools/tree/7.22.0.t042
+https://github.com/kiegroup/optaplanner/tree/7.22.0.t042
+https://github.com/kiegroup/jbpm/tree/7.22.0.t042
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.22.0.t042
+https://github.com/kiegroup/drlx-parser/tree/7.22.0.t042
+------------------------------------------------------------------------
+                          Component versions
+------------------------------------------------------------------------
+jboss-integration-platform-bom:8.6.0.Final
+kie:7.22.0.t042
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+mnv -B -e -U clean deploy -Dfull -Drelease -T2 -DaltDeploymentRepository=local::default::file:///home/jenkins/workspace/KIE/Trisotech/tagForTrisotech/tristotech-deploy-dir -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx10g" -Dgwt.compiler.localWorkers=2
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+kie-soup                        mswiderski@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+drlx-parser                     mfusco@redhat.com
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+The last commits of this tag 7.22.0.t042 are:
+   
+Git arg. line=log -11 --pretty=oneline
+
+===============================================================================
+Repository: kie-soup
+===============================================================================
+572dbc0ded0879116283c8b1b0505e9eb96bb731 upgraded to 7.22.0.t042
+39e958fad218d51a31355bf44cb631cdc6952a19 upgraded to 7.22.0-SNAPSHOT
+d0ac2d9f231c66c168a0657892432ed806a774cf AF-1871: Adding Clob support (#83)
+a425fb3ee16db6e776eddcc26a149f91b8d2545e JBPM-8347 - Added DataSetPostProcessor (#84)
+f91b4e0d51d6f6010e8530d6b98adf890cb1d288 upgraded jboss-ip-bom (#85)
+07dbaa59e7200566041a5e40f01e92fac40dc93f upgraded to next development version 7.21.0-SNAPSHOT
+7f26f758f2519d0562a9ff78518a6c44e889672f BAPL-1148: upgraded jboss-ip-bom (#82)
+031af629daaee0ac6570c42af32aa5698b585b90 upgraded to next SNAPSHOT version
+771c843859a26fc4bfc05922e06fda2428ce8c6f upgraded to next SNAPSHOT
+10761d29842b4e1e199580ea8be503abca934a47 upgraded to next development version
+51bec3efc97f54a5e882bfa4781e043176095ed5 upgraded jboss-ip-bom (#81)
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+0bff7f92c924a517a7287e3dbb5c7eeb383d3f0f upgraded to 7.22.0.t042
+b2bbfda071bf27290f7b027188965107c6e4ab02 Update antlr-runtime version to 4.7.2 (#953)
+d20e9103522e3f8747904e7d61dcea8249a77b3f [DROOLS-3389] Added scesim backend and api modules (#951)
+eb3693ab48b8bccc7f8cb35bb51a8d0e13a6c1dd upgraded to 7.22.0-SNAPSHOT
+f49cfbcbb3853e9ef1c344e4db30853f17895022 upgrade of jackson to 2.9.8 (#950)
+1153ae114275c9141f1a3695c4252414e44fd202 Add Spaces Screen module (#936)
+bcd733061fa60eb60040a3c9088ce04ee2f12dd4 JBPM-7886 : Update WildFly Swarm to Thorntail (#944)
+ab90c9b11eea735940099642b533f185040e6c99 [DROOLS-3097] Added commons-csv dependency (#945)
+52732e489536a83cd460bb3f5576162d889db3e1 downgraded Maven min version (#949)
+3ad7bd7deef8a0421d655eab32f5f26f2e6f252f upgraded maven.min.version to 3.5.4 (#864)
+64b1ee77f628024e2f5a054e075806aae4c86722 PLANNER-1436: phase 2 (#940)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+e643dd954b770d62752a6d777bd2b1dea2e3d5be upgraded to 7.22.0.t042
+5d94d78d415a3f71a28389be8b422a5a9a629944 [DROOLS-3999] perf improvement for dmn (#382)
+c4a080dbd3a55f6b8719dd9ef95d70d9cf103afe upgraded to 7.22.0-SNAPSHOT
+fbe6de817c9f27cd4f6ef07e808e5c7bc946d4e5 JBPM-8347 - Add execution error listeners (#379)
+668f7daa55b15f8d450df7c6ccda30f1acdf3363 [DROOLS-3869] fix services discovery on Fuse (#380)
+bdef25e225b4be7f9c0d8a7d4e6e3a369da5a42a upgraded to next development version 7.21.0-SNAPSHOT
+5bf64e7e5af88fe104805f8063435af4beec06cb BAQE-928 - Change revapi to check against 7.18.0.Final (#378)
+bce9df996681f66fc9d90b77f1e3b84cc879bfcc RHPAM-2017 - Compilation error in Spring Boot business application (#377)
+0c3fdb127319d88237d803bcc298dd047f4f0800 upgraded to next SNAPSHOT version
+928a0d619210f0e106c4685e714c96053a875cdb Fixes to allow XStream processing of PMML related objects (#375)
+e12f26c234f65ea167dff38ede0e52084a1c2c60 JBPM-8165: Added method for obtaining all extensions for a given ResourceType (#374)
+
+===============================================================================
+Repository: drools
+===============================================================================
+fe3ad04478f67fef97951b34f30161f8ad462ca5 upgraded to 7.22.0.t042
+7dff67dfc5ccb960cf387f45c949b9aa872140f2 DROOLS-4021 Fix executable model file path on Windows (#2346)
+87606052b6596a88a11b8d59aff834e99bc65f6d DROOLS-4017 Fix accidentaly removed snapshot versions in tests (#2344)
+9e87735de236473ce001a6be83a3e1a1ce79f40b [DROOLS-4019] ScenarioRunner for PMML (#2345)
+912cbf4fa9e12c5b10f6f3b8c59d7e27cfde5af7 RHPAM-2107 ApplyPmmlModelCommand now accepts external objects as input (#2343)
+a6269de4b43ddbe1b6098ed5a45088ac7951c8a7 [DROOLS-3825] Use stable names for generated classes
+194eccb678d06ffe4fb653c58ef4ccfd49980fe1 [DROOLS-3825] Use stable names for generated classes
+31bee4a732f6820c6f37a6f0cb4af305ed175508 [DROOLS-3879] Implemented common TestUtils class. (#2336)
+b5a1ca39c8fd40f3a545d8a41f3a2f69ed0b8f6a DROOLS-4002 DMN FEEL custom Frame is always initialized (#2342)
+d22c958f04ff8b77d0e10608bca35c8b516a5f29 [DROOLS-3875] Shade drools-model file based on the GAV of the KJar in… (#2340)
+8792ae7737c84c5903ebd6e14a56e5cbc3ddbd32 [Drools-3838] Improve error reporting in scenario result  (#2335)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+3e93fb6d28bed0a77d06f468ca3ab1d78d57734f upgraded to 7.22.0.t042
+755090f1965697c99675fa05308cbc3ba8870617 PLANNER-1481 @DeepPlanningClone on properties: Improve docs to spec out current reality
+e9e6e8d0239ba740ef983b0a698f54d944100fde PLANNER-583 Benchmarker report should mention how long it took to load a problem's inputSolutionFile
+0fb3eba0bf1b7ce85bd8288a1d32371f807759bf upgraded to 7.22.0-SNAPSHOT
+b8f1459b4e6b0f7aafe941fd165bff640c11d7d5 Doc typo's (thanks Radovan)
+ab391825af939aded1214bef5f848bb798c700b7 PLANNER-1453 Custom properties for MoveList/IteratorFactory
+4e4adf8cb186d26a3932ac7b7049447ed929f10e Gradle docs
+c039857c7a6df7d667c3bf0a4d59683a7a65cae6 Fixing ArithmeticException
+7fda8ee9687f55b9d06c3dde339c0f5dde281adb Fix NPE when talks are semi pinned + expose in XLSX (thanks Arrie)
+ed5fd9f2a4601223379ec32fb1d19fce6ad92595 upgraded to next development version 7.21.0-SNAPSHOT
+feba7fa09555f106197e2c6de3208640a5c82127 Fix methematical terminology (addend)
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+c4ee6956d12d1fd23429004edea9145a02562c87 upgraded to 7.22.0.t042
+ae8e83a365a524f4d57d47b5d99121f092f40be2 [JBPM-8380] (#1477)
+097324150a22f5039279e25b8704a169b3753ffe JBPM-8241 - fix javadoc comments for  org.jbpm.services.api (#1491)
+45f883ae66d773040484b799b851ae9f56c41135 JBPM-8459 - multiInstanceLoopCharacteristics cause NPE if output collection is not specified (#1488)
+c7973a2099a213546d9479b766cd882e8e328292 DROOLS-3988 Fix change-set XSD URL (#1490)
+f20a285f7d7b66fb244a735fd051ba7707a60cbf JBPM-8421: Documents tab on Process Instance details doesn't show documents stored in documents variable ("org.jbpm.document.Documents") (#1480)
+a260664fc1aa8fd07871268d8ea52623102bb804 upgraded to 7.22.0-SNAPSHOT
+c3473c728aa382ebbea01e380c5e754a96647b82 BAQE-826 - Solve Apache CXF issue in jBPM tests (#1483)
+4a59008ea08c4c818c92ddfc8b2febb3c3dcd5d6 BPM-8404: Introduced DocumentCollection and DocumentCollectionImpl to separate interface and impl of document collections
+61053beb10df60fae415bbc18e124b575309b0cd [RHPAM-2077] Cannot configure CXF Client connectionTimeout/receiveTimeout for WebServiceWorkItemHandler (#1482)
+8ba35c0e3a039d5c626ed46ce9641ecbc2df3521 add WARN for a combination of Singleton strategy and EJB Timer Scheduler (#1478)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+0d56233bdfbfea30616c7025510c4670fe091ed3 upgraded to 7.22.0.t042
+cfcb3fe8c50d501e44226aceaab4d8c120d528c5 Set npm version to 0.0.0 (#1820)
+40c5fc07619b9f000e79191644634d304432cbd2 [RHPAM-2079] Integrate UI within backend service (#1814)
+96f7a97f7542d23964ea756439ac29bec81fc65c [JBPM-7762] Remove unused jdbc driver and configuration (#1786)
+4b5f8fa304a509ef050e286e316a0f7d4fb0dcde [DROOLS-3875] Shade drools-model file based on the GAV of the KJar in order to (#1819)
+eb6a0b1666021add7e2f0a086ce2a9cd20c1d640 Skip Prometheus job test for SpringBoot (#1818)
+8a0a331fd74a160fbcb1ac3d66eae5111261ea2d [JBPM-8177] Security exceptions in localhost log when running kie-server on JWS (#1810)
+c1c9b114e181524775942ea278e8175864024427 JBPM-8347 - Enforce markdown break line for each metric. (#1816)
+c1ec6ff41730f8d559bf06ac20152a6ad8ca6539 Fix kie-maven-plugin-example and added reproducer for DROOLS-3960 (#1815)
+c3e6cdc68e1772e948f539d06178b608ff9335d5 [DROOLS-3888] group dtables in KieBases by packages instead of folders
+18cccaaf400b72e0433b17f4bc2ddffc0153bc9c [DROOLS-3888] group dtables in KieBases by packages instead of folders
+
+Total time: 0s
