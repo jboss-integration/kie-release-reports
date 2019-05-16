@@ -44,7 +44,7 @@ All product branches bsync-7.22.x-2019.05.13 are on Gerrit
 jBoss-ip-bom: 8.6.0.Final
 kie: 7.22.0.20190513-prod
 errai: 4.6.0.Final (https://github.com/errai/errai/tree/4.6.0.Final)
-appformer (uberfire&dashbuilder): 2.19.0.20190513-prod (on bsync-7.22.x-2019.05.13 appformer branch on Gerrit)
+appformer (uberfire&dashbuilder): 2.19.0.20190513-prod
 
 ------------------------------------------------------------------------
 
