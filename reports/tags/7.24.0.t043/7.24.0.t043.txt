@@ -1,0 +1,178 @@
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2019.06.25 : 00:07
+Code Cutoff Date: 2019.06.24
+Source Product Tag: 7.24.0.t043
+Community Tag (if available): (if available)
+ 
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+MAVEN: 
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+https://github.com/kiegroup/kie-soup/tree/7.24.0.t043
+https://github.com/kiegroup/droolsjbpm-build-bootstrap/tree/7.24.0.t043
+https://github.com/kiegroup/droolsjbpm-knowledge/tree/7.24.0.t043
+https://github.com/kiegroup/drools/tree/7.24.0.t043
+https://github.com/kiegroup/optaplanner/tree/7.24.0.t043
+https://github.com/kiegroup/jbpm/tree/7.24.0.t043
+https://github.com/kiegroup/droolsjbpm-integration/tree/7.24.0.t043
+https://github.com/kiegroup/drlx-parser/tree/7.24.0.t043
+------------------------------------------------------------------------
+                          Component versions
+------------------------------------------------------------------------
+jboss-integration-platform-bom:8.6.0.Final
+kie:7.24.0.t043
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+mnv -B -e -U clean deploy -Dfull -Drelease -T2 -DaltDeploymentRepository=local::default::file:///home/jenkins/workspace/KIE/Trisotech/tagForTrisotech/tristotech-deploy-dir -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx10g" -Dgwt.compiler.localWorkers=2
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+kie-soup                        mswiderski@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+drlx-parser                     mfusco@redhat.com
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+The last commits of this tag 7.24.0.t043 are:
+   
+Git arg. line=log -11 --pretty=oneline
+
+===============================================================================
+Repository: kie-soup
+===============================================================================
+554d3eb3ebc52d9120ce1cc315a4a786c7bcdc76 upgraded to 7.24.0.t043
+39f554142db5ceb8e854dea2c3eb4e5a06d1afeb Fill proxy from settings.xml for each remote Maven repository (#90)
+40dced0ba995c9f4a0683be186253ea206966558 JBPM-8559 - Avoid estimating query and table row counts and use prepared statement for reading columns metadata (#91)
+d19b46388b6b57ecf7aa0919a9d7be2ea4347002 upgrade to next SNAPSHOT
+d2f81e1f134d09cf26015a6a3f13bb5547a646cc Fix "Apache License, Version 2.0" spelling (#86)
+bc3587058011502a1543339cb23a3744337cba12 AF-1967: Bringing SQL tests to kie-soup-dataset-sql-tests so individual tests will run (#87)
+7a1b382f4e29b2eb19bbd38370dd186169d20229 upgraded to next SNAPSHOT
+39e958fad218d51a31355bf44cb631cdc6952a19 upgraded to 7.22.0-SNAPSHOT
+d0ac2d9f231c66c168a0657892432ed806a774cf AF-1871: Adding Clob support (#83)
+a425fb3ee16db6e776eddcc26a149f91b8d2545e JBPM-8347 - Added DataSetPostProcessor (#84)
+f91b4e0d51d6f6010e8530d6b98adf890cb1d288 upgraded jboss-ip-bom (#85)
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+e765e8dc6fa5adab3a0357804a2cccedc96d2acc upgraded to 7.24.0.t043
+c4108230b1864632a25197d3d54260d33e153bc7 [AF-1792] Migration CLI of space information from system.git to config.git (#970)
+b8a74a54ba3c4ba31364804ea2161fb6c7b5cfa3 DROOLS-4141: Add dependency for new module drools-wb-scenario-simulation-editor-businesscentral-client (#972)
+f1be42cc0a78765b6ea7618b9e5ba59f3cc76806 DROOLS-4118: [DMN Designer] Documentation tab - Show information from the DMN diagram in the documentation tab (#971)
+6c50184cfe49378e8300a6c1560d6fd0c512af04 Add JMH version (#965)
+110c78424c9d310edf37e62b34f0cea203c94512 [DROOLS-4104] Mvel-compiler (#969)
+2e25f9ff7e171269dc05ddf7fe48592cae339a2c Bump version.org.apache.camel from 2.23.1 to 2.24.0 (#964)
+f218bad2722cf2bbf6f6b4eba33ab38d2a552b22 DROOLS-4147 Add CI jobs for new repository kie-jpmml-integration (#968)
+bc02bbc488393b8e0c9216fd571d57f5873cb1b8 DROOLS-4075 DMN merge upstream PMML evaluators (#963)
+349514a20b56d0e7fd00056a882b3b844dc1d2ac added a space which could fix the command failing
+de68021443db95e3c704e4509a40cae5965a4bf9 added branch to branch mapping.yaml (#966)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+37a01c7f7f7dc506143bfb3c33cf01a517895cfd upgraded to 7.24.0.t043
+efb9ddae4440a6bbf84c613decec82608218a970 [DROOLS-4185] allow to define message level during incremental compilation (#390)
+4f175703f7c9b0249b26043197065209d34545d9 upgrade to next SNAPSHOT
+cced0dca577ad013e358a8918356e8ca40e1c5c4 RHPAM-2064 Guided Score card rules not executed via test scenario (#387)
+612a0e3049970ede4c501114a40724bb62a72ad1 [DROOLS-4085] Added change set xsd to avoid fetching it from the internet (#385)
+f19a3c1dd6bbaa55f1ac419a606929a2ba7b2bb2 [JBPM-8430] RETRY handlingStrategy should handle exception multiple times while handling exception via subprocess (#381)
+7c38dc15aea1493be9020e3683955080495b9a38 [DROOLS-3840] Add agenda-group and rule-flow setting to simulation fluent API (#383)
+f70c054eee5fd00e3262415fe558761606dada87 upgraded to next SNAPSHOT
+5d94d78d415a3f71a28389be8b422a5a9a629944 [DROOLS-3999] perf improvement for dmn (#382)
+c4a080dbd3a55f6b8719dd9ef95d70d9cf103afe upgraded to 7.22.0-SNAPSHOT
+fbe6de817c9f27cd4f6ef07e808e5c7bc946d4e5 JBPM-8347 - Add execution error listeners (#379)
+
+===============================================================================
+Repository: drools
+===============================================================================
+12798a7ac8642e28eb35c7e1115b06a798015924 upgraded to 7.24.0.t043
+0623eafbc5b9fa1e0bff71697eaba040785a410d DROOLS-4202 DMN DT Analysis when outputclause is expression (#2404)
+fd7293c277717c297ccc789c533fa3c97c6b3738 DROOLS-4204 DMN optimize DT evaluation (#2406)
+2a4dc698b9e2728ad7c8acb551d73d8ba41fe860 DROOLS-4184 Fix first set of issues reported by SonarCloud (#2398)
+37dc2a5f1d04d6e00b6445d3f94e2e98750af2d9 DROOLS-4184 DMN specific test rig for Antlr's grun with FEEL non-context-free grammar (#2392)
+957c8c091f52191d605e9bf7d68fa472b527c5bb [DROOLS-3805] All line separators in RHS in spreadsheet are escaped (#2293)
+383fd87f1b401b92006b1fae7e3e6f6d5eb64283 DROOLS-3432: Increase coverage of one template key for two different fields (#2364)
+5a97711efc9d4a6d6b7cb892756d2c7d630a1278 DROOLS-4193 DMN DT Analysis handling of explicit null InputClause enum (#2395)
+cd4c6d6b57909d949c6026c779dbf6a8543f67e7 DROOLS-4186 : Guided Rules does not output parenthesis in DRL (#2393)
+0c31847c42ce50ffc6168d01d1ed6770cf634606 [DROOLS-4154][DROOLS-4156][DROOLS-4185] allow to define message level during incremental compilation (#2394)
+a8c56425ac1a078af8220b3a0523ec5b407a8643 WIP (#2390)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+f774612f606b44464be71cd574149903c88cdc4e upgraded to 7.24.0.t043
+b0114b4589297ff5c7fe86a1141f3d2cbf8a68f8 Update all *HibernateTypeTest to cover AIOOBE
+68ee7cfc989fe4a9026bdeac01a7d30409bbc05e Add tests to reproduce AIOOBE bug and ensure it is fixed
+82748a5ca6a4c47a13c49c530435974d27cf8022 PLANNER-1530 Fix AIOOBE when deserializnig score levels
+e773f20110e589e6fabcfec0e2a893db7fe0f1cf Increase timeouts for flaky tests
+8d3fe6cca7a4e54428ac0b5b7ce5effb63b7b9c4 upgrade to next SNAPSHOT
+a3721fd478da5c277d65252cb77b0c197cde4415 Chained through time: automatic collapse
+62ac602b7df2b77c3ddefeb531321fcf6c9b9d54 upgraded to next SNAPSHOT
+755090f1965697c99675fa05308cbc3ba8870617 PLANNER-1481 @DeepPlanningClone on properties: Improve docs to spec out current reality
+e9e6e8d0239ba740ef983b0a698f54d944100fde PLANNER-583 Benchmarker report should mention how long it took to load a problem's inputSolutionFile
+0fb3eba0bf1b7ce85bd8288a1d32371f807759bf upgraded to 7.22.0-SNAPSHOT
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+3aa4595b58312cf8e6aa8a309ec97ad5b5390596 upgraded to 7.24.0.t043
+47c87a822365d83ab073cd5487ed21cafc8daa69 JBPM-8485 - Add support ISO8601 expressions for user task notifications - reschedule only if deadlines not empty (#1501)
+e63f3c64548227f5f35b8707edf069245e8eb666 JBPM-8595 - Unify which classes are registered for serialization at kjar level (#1499)
+cd57cd17925f37e9abe9188e5bff44126464c619 JBPM-8559 - Disable SQLDataSet size estimation (#1496)
+6a27f8794d4d740846308de1d92af3ed5fccd7d8 upgrade to next SNAPSHOT
+a08a7b3a747e7a0ef56c4e82030a9ddbaef4029f JBPM-8485 - Add support ISO8601 expressions for user task notifications (#1493)
+263fb95beec87a8dffcd2f1583f7fd11dea90ed5 RHPAM-2106: Add system property org.jbpm.ejb.timer.local.cache to disable local cache in EJB timer implementation to avoid memory issues with high number of timers (#1489)
+58f94480b825da586f7f5708fc88187fae9e7a2a [JBPM-8430] RETRY handlingStrategy should handle exception multiple times while handling exception via subprocess (#1479)
+89a444467f5e031142ec31e24a49a1ac20617ffa [JBPM-8363] AsyncMode True causes error with Multi Instance Sub Process (#1465)
+853baec3573aecf9888658a00a3d7a6b86d56700 Allow extensibility in the process builder/validator to keep more information in the error messages (#1494)
+0b3c457a57937ccfb9bb53887a9a0f998dd0100e upgraded to next SNAPSHOT
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+75ca75b31fd254c2d2390aa057b6473ffc86c395 upgraded to 7.24.0.t043
+8623038623c5f05f4b606e52d06741beb9580b1a Force EAP to use IPv4 for camel container tests (#1850)
+7baf92da5062bb558c8e40cf6256d660831b3fc1 [JBPM-8501] Allow reloading KIE Server clients (#1842)
+613b4e9d986b816537e6d7b80ae334592d61905e [JBPM-8495] Fix integration tests (#1829)
+83e281297bb76c8705dcbda04f76f630f25093c3 [DROOLS-4104] Mvel Compiler (#1847)
+a852ff6ff6b94f5763045286af4dcbb0009f08ea JBPM-8399: Fix EAP test for stack trace included (#1843)
+4de3e693fdc36c5bc8ac8b1646ecf64ae1b723a7 Introduce kie-dmn-core-osgi (#1840)
+1cd614bb7bfc6553d17217a198e3d3efdbf0b540 Added warning statement to better inspect 4120 problems (#1841)
+c26b14377e62f02f5c8421cac7c51180a85bfaf6 [JBPM-8487] Generate frontend tests results in junit format (#1830)
+42fae7d1ccb72cc61773a66b75b04bf2a4034ecf [JBPM-8498] Add sourceProcessID to migration plan (#1834)
+a42ba20fbdd6d838670d30c6c4933aec5d565216 [JBPM-8491] Do not allow filter by container alias (#1832)
+
+Total time: 0s
