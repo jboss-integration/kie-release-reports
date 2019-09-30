@@ -4,7 +4,7 @@
 SCRIPT="$(cd $(dirname "$0") && pwd)/$(basename "$0")"
 # Absolute path this script is in, thus /home/user/xxx
 scriptDir=$(dirname "$SCRIPT")
-logFileDir=$HOME/droolsjbpm
+
 
 
 if [ $# != 4 ] ; then
@@ -46,17 +46,10 @@ fileToWrite=$productTag.txt
 
 cd $scriptDir
 
+cat notes.properties log.txt >> reportNotes.txt
+
 CONTACTS=$(cat mails.properties)
-# add to URL in repository.properties /tree/$communityTag
-FILE_TO_READ=$scriptDir/repositories.properties
-   while read line; do
-     if [ -n "$line" ]; then
-       echo "$line"/tree/"$productTag" >> repURLS.txt
-     fi
-   done < $FILE_TO_READ
-REPOSITORIES=$(cat repURLS.txt)
-rm repURLS.txt
-NOTES=$(cat notes.properties)
+NOTES=$(cat reportNotes.txt)
 DATETIME=`date +%F-%H:%M`
 
 
@@ -99,7 +92,7 @@ OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix
 ------------------------------------------------------------------------
                         Sources to build                         
 ------------------------------------------------------------------------
-All tags $communityTag are on Gerrit
+All tags $productTag are on Gerrit
 
 ------------------------------------------------------------------------
                           component  versions
@@ -111,7 +104,6 @@ kie=$kieVersion
                           Build Command
 ------------------------------------------------------------------------
 
-mvn -B -e -U clean install -Dfull -Drelease -Dproductized -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx10g"
 mvn -B -e -U clean install -Dfull -Dproductized -Drelease -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx10g"
 
 ------------------------------------------------------------------------
@@ -134,6 +126,18 @@ $NOTES
 
 
 EOF
+
+
+# copy file to /tags
+cp $fileToWrite ../reports/tags/$productTag
+
+# remove files to prevent pushing them in automatic report generation & pipeline
+rm $fileToWrite
+rm reportNotes.txt
+rm log.txt
+
+
+
 
 
 
