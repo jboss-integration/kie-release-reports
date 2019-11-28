@@ -5,7 +5,7 @@
 Report Date: 2019-11-27-18:45
 Code Cutoff Date: 2019-11-18
 Target Product Build: RHPAM_7.6.0.CR1
-Prod Tag: sync-7.6.x-2019.11.27
+Prod Tag: sync-7.30.x-2019.11.27
 based on branch: community 7.30.x
 
 
@@ -36,7 +36,7 @@ OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix
 ------------------------------------------------------------------------
                         Sources to build                         
 ------------------------------------------------------------------------
-All tags sync-7.6.x-2019.11.27 are on Gerrit
+All tags sync-7.30.x-2019.11.27 are on Gerrit
 
 ------------------------------------------------------------------------
                           component  versions
