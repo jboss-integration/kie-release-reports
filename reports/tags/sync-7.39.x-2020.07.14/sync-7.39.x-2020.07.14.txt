@@ -1,0 +1,483 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2020-07-15-06:01
+Code Cutoff Date: 2020-07-14
+Target Product Build: RHPAM_7.8.0.CR2
+Prod Tag: sync-7.39.x-2020.07.14
+based on branch: community 7.39.x
+
+
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_201"
+Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
+Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.5.2 (138edd61fd100ec658bfa2d307c43b76940a5d7d; 2017-10-18T09:58:13+02:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_201, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_201/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+All tags sync-7.39.x-2020.07.14 are on Gerrit
+
+------------------------------------------------------------------------
+                          component  versions
+------------------------------------------------------------------------
+
+kie=7.39.1.20200714-prod
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean install -Dfull -Dproductized -Drelease -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx10g"
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+lienzo-core                     romartin@redhat.com
+lienzo-tests                    romartin@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+kie-soup                        mswiders@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+kie-jpmml-integration           mmortari@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+openshift-drools-hacep          mdessi@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         cnicolai@redhat.com
+kie-wb-playground               manstis@redhat.com
+kie-wb-common                   manstis@redhat.com
+drools-wb                       manstis@redhat.com
+optaplanner-wb                  gdesmet@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-work-items                 manstis@redhat.com
+jbpm-wb                         cnicolai@redhat.com
+kie-docs                        sterobin@redhat.com
+optaweb-employee-rostering      gdesmet@redhat.com
+optaweb-vehicle-routing         gdesmet@redhat.com
+kie-wb-distributions            manstis@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, optaplanner, optaweb, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The last commits of the tag are:
+
+
+
+
+
+
+Git arg. line=log -11 --pretty=oneline
+
+===============================================================================
+Repository: lienzo-core
+===============================================================================
+059c7a71242b20162913ff9c4578b688815f40df Upgraded version to  7.39.1.20200714-prod
+59d5d3ed2baa55f6bda872670aa9822b843f1b78 updated to 7.39.1-SNAPSHOT
+9eadf473c10cedf45ea912d85fdd9701afbe6057 upgraded to next SNAPSHOT version
+0f917d498396f0015eb4360b1cb645155fa81a08 Expose zoom and pan filters (#102)
+07ccc005036d2ef5a071df026f94dd17920fbaa7 upgraded to 7.39.0-SNAPSHOT
+c81859ecef4d7d764331aeab08445fc9f71e9d83 KOGITO-1196: Editor goes back horizontally when diagram is bigger than default (#108)
+2e357e7071b1749413841fd559add8dfac17e315 bumped up version to 7.38.0-SNAPSHOT
+180a62a9dfe98ff1866c74dc746f776db820da15 upgraded to 7.37.0-SNAPSHOT
+c4fff20d0d0bc980084be306c6b10aef13f7031f BXMSPROD-710 Jenkinsfile removed. Centralized in droolsjbpm-build-bootstrap (#107)
+994007a6edff8746f5f35d7d058279b3282fd14b JBPM-8386: Stunner - Preview mediator does nothing for small selection areas (#101)
+efb14572d816470144b6060ed2c95b370c31c63d upgraded to next SNAPSHOT
+
+===============================================================================
+Repository: lienzo-tests
+===============================================================================
+f9d6aee5554bb0b7c6c4c1f7b042656853f4e344 Upgraded version to  7.39.1.20200714-prod
+8dd9dc509b8ecdd1948786c91a1d76a3c0b8f185 updated to 7.39.1-SNAPSHOT
+e66e4568cd0b44796d3021338a598fc4570ee8fd upgraded to next SNAPSHOT version
+45c16e10f8a2d4e155e65cc9c6caae39634f03c6 Fix tests (#84)
+c47e65408d5e67ac597cfe47ecbde1fe3176194f upgraded to 7.39.0-SNAPSHOT
+040aea1de4185f7ba425bd3772b2ac991dac3cc0 KOGITO-1196: Editor goes back horizontally when diagram is bigger than default (#92)
+98c885157a47e6fc5a17967fdc705c7c85916305 bumped up version to 7.38.0-SNAPSHOT
+c2b0c464ec35bc7875f09a11cd774f4a1d88e140 upgraded to 7.37.0-SNAPSHOT
+ce26a07d14ad28d191673665949fd0df33844510 BXMSPROD-710 Jenkinsfile removed. Centralized in droolsjbpm-build-bootstrap (#91)
+548df961ebd5691aa780da90f99ab04e4d5e2302 JBPM-8386: Preview Panel mediator tests updated. (#83)
+1ffbf0dd1b3e97241bacf6e26b39b5e3cb1fe87d upgraded to next SNAPSHOT
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+3dbd24268098351841360c8461b77ba4a65b3104 Upgraded version to  7.39.1.20200714-prod
+7e35987c2fedf366acd3c39a7885be5ff7657440 Jenkins file sync (#1388)
+9057918d587f9a39f6b0a7b2ae5cb63ddf8e0e37 Update 7.39.x nightly Jenkinsfile (#1370)
+cc5d5f1f1630a2429f484e3de8f3eedd1740f847 updated to 7.39.1-SNAPSHOT
+2ceceaa1249b5d1b4080971db21e6a845622e61b DROOLS-5440 DMN FEEL built-in functions verifiable documentation (#1366)
+39a15384849840c4dfa23df90aa0d6fb14b851d7 upgraded to next SNAPSHOT version
+82fc6c6ef40b7e8fb98ea84fb1e3d7624edac6e5 JBPM-9189: upgrading to fixed 19.1.0.SP1 Errai Wildfly distribution (#1364)
+28544fd373b93be2a6cd04c171b9001c06d20787 KOGITO-1553: [DMN Designer] Open a DMN file with an included model - Included Models tab (#1323)
+8092686e32b106ced4e01b173b836c66299486c6 RHPAM-2985 : Added Jboss MSC to avoid specific EAP dependacies (#1362)
+6982710b2b60bb14ae681dc08a43556ae08e0b8e upgraded errai final version (#1361)
+4c9d318a75f7d1884f889e6b3cf06fede7cdf5d1 [RHPAM-2977] upgrade to jackson 2.10.4 + wildfly 19 (#1352)
+
+===============================================================================
+Repository: kie-soup
+===============================================================================
+997de1f3010b2f4f98ded054c2478a123d98f9bd Upgraded version to  7.39.1.20200714-prod
+b6896d388f77b8b21fd640cc2ac161290050f073 updated to 7.39.1-SNAPSHOT
+7071a6d82637484c557015e5d9ed95914166eeaa upgraded to next SNAPSHOT version
+09f0d479d4f8bce2a916e6e0ed61270229a24082 merged duplicated maven-surefire-plugin configuration (#140)
+cde8e9313e9025c34091f34c33f80343cd7cfc98 RHDM-1283 Exclude transitive plexus-utils versions. (#141)
+1cdc89532f470ad7be8dafc31183af6127a0f14a upgraded to 7.39.0-SNAPSHOT
+1fa19cf6fb39d20b9464b315eebf97b8be94c817 Removed deprecated Docker Tests (#138)
+ad7f088576805199b7c7e610d924e1e707ba4119 KOGITO-1546 XStreamUtils kie-soup refactoring (#137)
+4570da28fdf3d824928821dbf49573dcaddfd8fa bumped up version to 7.38.0-SNAPSHOT
+6ab3dda0ccf2085c08a4c2c38a9afed19f0f2fdb upgraded to 7.37.0-SNAPSHOT
+e58368e34b028f8fbf6db6330b4dfaf2ec052cb1 BXMSPROD-710 Jenkinsfile removed. Centralized in droolsjbpm-build-bootstrap (#135)
+
+===============================================================================
+Repository: appformer
+===============================================================================
+5ba7e048e427f1b44ff0eceb53ee863c65026c97 Upgraded version to  7.39.1.20200714-prod
+4f621a2e68de405384d0db9350013c19f98b82ea RHPAM-3032: getting UI error if navtree.json file is not available in… (#999)
+2ba4b0361e4e66a3f86f8a6a0ab5a9d5b60147dc updated to 7.39.1-SNAPSHOT
+8ee6aa14855f451ff3ef52a04e6dedd023b5cfc7 upgraded to next SNAPSHOT version
+d4377f6f063a6201053e983c05e55829cffb4f07 BXMSPROD-685: changed assembly for uberfire-showcase (#982)
+d2bb52f1f215d259a9ad8c80fb531480b574476f BAPL-1547 :Improvement the REST API in Business-Central adding the groups/roles operations available in the UI (#976)
+e3bd94b9dcb7cc585435d28d9010ae0c09a2542d AF-2504 :Adding description when creating new Space using Business Central (#981)
+ebeddc9e8dff9a385a5783052ab740d5362c167b DROOLS-5415: fixed beans.xml schemaLocation
+b2ef816333c4cde11bdf7b2c793524e4e97fe6fd AF-2474: Add Remote dataset type (kie server) for Dashbuilder Webapp and Standalone (#970)
+59ff9bbde13eb83cd53b56d4ed43a042e7f40b2c AF-2534 : Dashbuilder Data Transfer feature does not work on Windows (#977)
+19e8d033e0351612e7a3d5c5a01d4ffc3a6da7d3 AF-2521: Create new home page for dashbuilder webapp (#973)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+a01ad9a7037d6e5c35b50ea3ff2a16441f4dc37f Upgraded version to  7.39.1.20200714-prod
+da0757c744bff5d50d18e3873b067ae99daa60ba updated to 7.39.1-SNAPSHOT
+a3793d10d4db136ce1d6b4f6132dd7e96099f79b upgraded to next SNAPSHOT version
+3db0d47dfe197abc3d9e36dfbcc9a0a479a7aa93 [DROOLS-5417] Implement "NOOP" ResourceType (#444)
+a88b09617ab23c5a7ffd2028fa1bca0706f46185 [DROOLS-5324] refactor building of non-native resources from the exec… (#442)
+79c6f869bb6f5e0f44dac3745819d460776590e8 [JBPM-9129] Start process without triggering a start node
+775a50e66c45a5d05583f27eae2b5fab260016c0 upgraded to 7.39.0-SNAPSHOT
+9999583e0ffaf0509f7407adc2c0f32efc60f373 [RHPAM-2840] issue with afterTaskActivatedEvent method of TaskLifeCycleEventListener
+1c5a1fecaaece1665dd8322324da1bf33318585f bumped up version to 7.38.0-SNAPSHOT
+9a3b898371019cefc90f921a6e6b0ef616c29efc [RHPAM-2813] Allow to use 'user' query parameter with /contents/output REST API.
+504fe76bf4f0a82d344a475181b10a588680533f upgraded to 7.37.0-SNAPSHOT
+
+===============================================================================
+Repository: drools
+===============================================================================
+74ec49cf90fd38e3b0e39e34386851fc32cd4a4f Upgraded version to  7.39.1.20200714-prod
+2ed921e8d32b6f5c1562f1dc7cfe54348f5190a4 Revert "[RHDM-1387] use bound variables in property reactivity (#2964) (#2965)" (#2982)
+8dc57f1a950ab1f00cf7ad8212c73fed326b5850 [RHDM-1387] use bound variables in property reactivity (#2964) (#2965)
+6895dfc493d94b1ef98b9082aeb5db2fec2b34b5 updated to 7.39.1-SNAPSHOT
+83e13031252403cc7f7f2a057d17b0157a65cc34 DROOLS-5440 DMN FEEL built-in functions verifiable documentation (#2953)
+fb587843c92f4df90c2aff43f457b3d8852afd6e [RHDM-1376] org.kie.dmn.validation fails on master with ibm jdk (#2951)
+30adcbffc72f7402deeddbdf46a0f94c4ad7ee09 upgraded to next SNAPSHOT version
+c28bce0090383558aa0f8dd24850e07e5f2d4a06 Checkstyle fix on ScenarioSimulation api module (#2950)
+50a1a435cfb2be5926218bb96d8eb4546cdb1680 DROOLS-5429 DMN DT Analysis mc/dc TCK output enhancement (#2947)
+fe1382c3f0182919e2dcacc73a2fb803697b5825 [DROOLS-5423] Declaring glassfish jaxb-runtime dependency for JDK >= 11 to maintain compiler functionality in such environments (#2942)
+9503a5450ec9c55267f44ae86fdb1e2700e34316 JDK11 future upgrade (#2944)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+37d3e459955c7a26575df4cced388984ce55aede Upgraded version to  7.39.1.20200714-prod
+16f8120a790dd9d9f20d0a81ebff7e00d8151155 Remove quarkus extensions/quickstart from 7.39.x branch (#810)
+04fca59b12c67564629bf4283cdadf18642ffd67 updated to 7.39.1-SNAPSHOT
+9ff52428389205e7f9984221de9c71a9a50970ee upgraded to next SNAPSHOT version
+00974d0072820a9d284f6550a68ce8570314f2a9 Fix Quarkus Integration tests dependencies
+2496cd91d08d8a53d6ba11223042624d87fc164a Avoid testing exceptions with try/catch
+a9b597a76029a4de1f52675b2eea646c8cf4a83c Move OrderByMoveIndexBlockingQueueTest to the correct package
+3d6deb85a65976c50ab98ccc6bf1dce0a1ad650f PLANNER-2021 Don't use JUnit 4's classes anymore (#802)
+7f7f8506fc14638a782fc2bc05ac5d98d4e85c02 OptaPlannerProcessor - orElse approach for solverConfigXML
+96407d8c7beb154797fd519567185b47c0ac5f81 Fix issues with artifact transfer in CI (#799)
+f1300fbf5d5e0a2359be3fc264a5421b9d0a724d Change jpa workflow to "clean install" for consistency
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+b626c0a44217f4b3fa778d30ca63b79e6ee6001f Upgraded version to  7.39.1.20200714-prod
+4e3b70ed6c47fa9a6af264a148fdfb9cb97448d9 [RHPAM-2796] Test for aborted type task when aborting process (#1695)
+3c83feeeb7a86a7d2098f3d7453b73376d378bde RHPAM-3027: Using Task Assigning with DDL prevents users from completing tasks
+c68ee7ea1cb59f7547e57f26321086813aa811c5 updated to 7.39.1-SNAPSHOT
+8d90857916a3a348b83a00c5f90075f6a98f87aa upgraded to next SNAPSHOT version
+9c0ce0994b765a458f10553f32d035a8bae156c5 Revert "[JBPM-9156] WorkItemHandler archetype can't be uploaded into business-central (#1652)" (#1681)
+6a9a4258c4ee7a2d778180d2159b4facac4e5557 Register dialect for validating Quartz - mariaDB (#1665)
+af3db94cef2eadff672af416c0cd8446f3b703c8 [RHPAM-2980] Set new SLADueDate when updating SLA timer
+c77a39a3109526bdbfb6ead27231ee49ce0aa9e3 JBPM-9151 API return 200 if containerId does not exist
+2ed90f89c57266b170fe9e208d5969f6428aad68 RHPAM-2980 Update timer of SLA (#1677)
+fa593e729a8cdb5f47bc8447db2993a972bdbd94 [JBPM-9156] WorkItemHandler archetype can't be uploaded into business-central (#1652)
+
+===============================================================================
+Repository: kie-jpmml-integration
+===============================================================================
+eafa0d697dac94dcacd319db9b578f7899e2d8c1 Upgraded version to  7.39.1.20200714-prod
+e38b4e46a680cf8b43f3e679b3caac3d84c89649 updated to 7.39.1-SNAPSHOT
+56999e80b220fd21e8668fb549cfb0d6520a629a upgraded to next SNAPSHOT version
+124cdf0e8c262886a44581136d0cdc09f1b0d70f upgraded to 7.39.0-SNAPSHOT
+3d7308c2a253ce23bf0a6075c7d845e6bc6fe4ab bumped up version to 7.38.0-SNAPSHOT
+8b903b68fefa26cea49403a8530a4551c1a0b413 upgraded to 7.37.0-SNAPSHOT
+7096e9fdf0f90c0be1f67e9eee2e69fc75c33134 BXMSPROD-710 Jenkinsfile removed. Centralized in droolsjbpm-build-bootstrap
+65120baffe99ce54f7415fae91acd2e8394948b6 upgraded to next SNAPSHOT
+7a3fe2c930d9524edbbd7d30e111e951406d461d BXMSPROD-592 upstream/downstream pipeline simplified in one single file
+74ea9d02b7ca9c78dd1e62c4d6d64b3eb877a0e0 upgraded to next 7.35.0-SNAPSHOT
+0487701af4362817196e8c1d9bab9141bf3554b1 [DROOLS-4561] DMN introspect PMML for output types (#22)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+91608004eb659f4813923cf7bb16888bff71145c Upgraded version to  7.39.1.20200714-prod
+9561a5423ecf6f0a75311ceb0d0915c1d5dadb2a RHPAM-2734: deps for SB 2.2.6 upgraded (#2155)
+0fec057970f655ad62e9e084950434b15687c1c2 [RHPAM-3405] fix kie-camel feature for fuse 7.6 on karaf (#2153)
+a07bdfcff6f2cd4689d79449fc752779af647a9f RHPAM-3027: Using Task Assigning with DDL prevents users from completing tasks
+c4127422a5ed9e1f68a7a412de0d80cded22ea98 Fix DMNLocalDateIntegrationTest execution on Java 11 (#2135) (#2138)
+8ced73038fdc59798aa1c3326a589c05461f9036 updated to 7.39.1-SNAPSHOT
+dd78aec0993efe3b83b5f22038f7a6053dea77f0 upgraded to next SNAPSHOT version
+c2c208537b5b328b88352dba24fce5209baf16e5 [RHPAM-3000] Attach classes for Process migration service war (#2133)
+c0c4f69222b15b98910bfb9f5e9f4a133083b4c5 BXMSPROD-598 filterWebInfLib property added to thorntail maven plugin (#1978)
+1f9ebbd1e1d5600f65892b854d630dd463409c8e [RHPAM-2980] Add integration tests for update SLA timer
+b6aa47ecbd61fbaaa845d302ebc74d66945150fc [RHPAM-2977] upgrade jackson to version 2.10.4 (#2125)
+
+===============================================================================
+Repository: openshift-drools-hacep
+===============================================================================
+42f1663e7fccc0ce2f69e279d557ce61963717eb Upgraded version to  7.39.1.20200714-prod
+d08f8008b878432d6f6c90e1592c22d8beaba66d updated to 7.39.1-SNAPSHOT
+d1fa550d9c9167f431d0121d0a1eac7644fb7c5a upgraded to next SNAPSHOT version
+938108daf6c55a66e149fca55877967366d953a6 upgraded to 7.39.0-SNAPSHOT
+4a28d4ebb161d6a1eb8cc9fc1dbb5a79131b2d04 bumped up version to 7.38.0-SNAPSHOT
+2cccacb38a07bf0c06becdfaa760cabfc3613fa2 upgraded to 7.37.0-SNAPSHOT
+4c528bf84740c32ca4aab9c4797bfbdc63408e24 BXMSPROD-710 Jenkinsfile removed. Centralized in droolsjbpm-build-bootstrap (#89)
+ad432dd9d98ffad019e0e995d7bf49fc066bb683 moved modules to droolsjbpm-integration (#86)
+c4d751b05a1ac1a7f36436c0551e73c3f13f7e22 Merge pull request #85 from mareknovotny/RHPAM-2800
+e33142bf65d0250ceef8d4bee9a332fb0a113dcc RHPAM-2800: fixing declaration of pom.xml to be valid for XSD validation
+25e5718a5984856f5c73a08f954b23c0fb7b97aa upgraded to next SNAPSHOT
+
+===============================================================================
+Repository: droolsjbpm-tools
+===============================================================================
+d2d0b3dc21c4100b58bf095913cceee22ccbac6b Upgraded version to  7.39.1.20200714-prod
+45f82fb421b3388f7c3752e0a8cab73944c6473a updated to 7.39.1-SNAPSHOT
+c4be831ce3dfe0f4870a943f7b6e628cc096246d upgraded to next SNAPSHOT version
+cbd0265f64d774c686ba4a74af6ee58627bb0463 JBPM-9188: adding property to skip Enforcer banDuplicatedClasses check in whole repository (#108)
+15b3a93e2f1b195014711e3e8ffd22494d154203 upgraded to 7.39.0-SNAPSHOT
+80bc87908212aa7295fbfefd0b3b9fec84f1c6b5 KOGITO-1546 XStreamUtils kie-soup refactoring (#104)
+2da7fadd47f81d08d6b4dba98b49027021be6d8a bumped up version to 7.38.0-SNAPSHOT
+31541106cf28f4f79f4d5164ef15015310a42288 [DROOLS-2965] add new vertex mocking new AlphaTerminalNode (#106)
+c614dbafb099ccdb856749c3ca9dad105e4a040b upgraded to 7.37.0-SNAPSHOT
+7ca4ddd65949531967a20c1ca827c96be4d4c281 BXMSPROD-710 Jenkinsfile removed. Centralized in droolsjbpm-build-bootstrap (#103)
+911f95a26ffb139e60871ad9462b5c06f15788e8 upgraded to next SNAPSHOT
+
+===============================================================================
+Repository: kie-uberfire-extensions
+===============================================================================
+332dab4fa16c473cdc7d8080e0cfdfd262b95ffe Upgraded version to  7.39.1.20200714-prod
+12ed9c83da4af80044ef01249f87948ea0ba5eef updated to 7.39.1-SNAPSHOT
+de3d53e047eb6fb2b33afa4def95aba57caf1e6b upgraded to next SNAPSHOT version
+b4706e6da61be0c27982376dba40cf36591fe2eb upgraded to 7.39.0-SNAPSHOT
+6d2f76481c57b01eb1787191ca2df307e3e79b20 bumped up version to 7.38.0-SNAPSHOT
+24a3a1bd91c2de0b6696debf3af39e9c85c9fc96 upgraded to 7.37.0-SNAPSHOT
+51745aab36766add04d35e2e5bfec1bb7e88c060 BXMSPROD-710 Jenkinsfile removed. Centralized in droolsjbpm-build-bootstrap (#96)
+9cd21e7ee0eec7b0036da1a918a35c7f2f69782e upgraded to next SNAPSHOT
+bc2e1690e0d33c49c341601d814ae3b77781c311 BXMSPROD-592 upstream/downstream pipeline simplified in one single file (#94)
+6eea35e1ec2401f6e254ce11078647ef8c20dc82 upgraded to next 7.35.0-SNAPSHOT
+eeae76d0ba6cbb01476d2cfb9e760c53891342d0 Update license file name (#92)
+
+===============================================================================
+Repository: kie-wb-playground
+===============================================================================
+360c8832925ed6dfa0ddf560fb093691aab475ae Upgraded version to  7.39.1.20200714-prod
+cae99263251fc19f7413a33e9d1c86278056c8f4 updated to 7.39.1-SNAPSHOT
+0f4397342f5b388b18b42e8d9e8a62950fb5df34 upgraded to next SNAPSHOT version
+6f33573a10b4817e1f34b724327599184680528c Add Test Scenario simulation example to Mortgages (#88)
+1fbc5842021d1709fc6f16cbe4e99995823d78d6 upgraded to 7.39.0-SNAPSHOT
+ec51a11949bbcb57ab89c880575ded5fc8a301ad KOGITO-1546 XStreamUtils kie-soup refactoring (#86)
+a176f416ef382c31c729011158aa9616094d059a bumped up version to 7.38.0-SNAPSHOT
+df41435f52bf015a34bdcd65947f66cf239ecf72 upgraded to 7.37.0-SNAPSHOT
+1e970e35b5a3b6888c14667e85f76ebadc030532 BXMSPROD-710 Jenkinsfile removed. Centralized in droolsjbpm-build-bootstrap (#85)
+30a3d81d5ac467a02ea3635467e23403c87dcd18 upgraded to next SNAPSHOT
+ce6104ac7632711611daf0cea2aee1dac8e3c8a8 BXMSPROD-592 upstream/downstream pipeline simplified in one single file (#83)
+
+===============================================================================
+Repository: kie-wb-common
+===============================================================================
+db9f24938f0bef26da5e833d2764dbb159728619 Upgraded version to  7.39.1.20200714-prod
+6643f36f06a1f9e4e772033f75bed24fc2ef3821 DROOLS-5458 : Project broken after test scenario run with possibly a class-loading issue (#3354)
+f3838272815f30c1dcc7e599d5797fa5d9782e03 RHPAM-2990 / RHPAM-3015 - Variable Data Type related problems (#3341)
+b76bac2593dc9cdc6e85888db5b4dcda6ae6b25f updated to 7.39.1-SNAPSHOT
+fa75cacf6383a62a4d057c8752b52304badd4e4f upgraded to next SNAPSHOT version
+81181d824c34c2d35487065c6d3ecc90c0a511c5 JBPM-9189: fixing used version of wildfly-dist (#3330)
+53cd6e2cd802d4661e3b233e1c198fdf34cc84ee KOGITO-1553: [DMN Designer] Open a DMN file with an included model - Included Models tab (#3310)
+6ff68b1f00d27a2812441ea5944146898bd3feda BXMSPROD-685: upgrade javassist and GWTMockito to play nice with it (#3328)
+188690665e7c4614d05fda91e6db09b5157c0258 RHPAM-2695: BPMN Editor - Component timer expression contains errors (#3292)
+923c66ae2fb94b8ec87b883eab34a54708593e47 RHPAM-2891: Stunner - Error message when creating process variable without Data Type (#3305)
+4d634b9371a390f33cfcfa9f426c795739e21e38 KOGITO-1997: Stunner - Process metadata attribute value should be a free string (#3282)
+
+===============================================================================
+Repository: drools-wb
+===============================================================================
+e5d813954bf1a6af5aa4699dbaed2236efac9bca Upgraded version to  7.39.1.20200714-prod
+5b1ef7386bd2d318b24340c8b57597e72881f9bb DROOLS-5458 : Project broken after test scenario run with possibly a class-loading issue (#1398)
+2629630ab02ce30e09fce1a66b7c2792df5d0560 updated to 7.39.1-SNAPSHOT
+03f9c726709b894d38f9734cb90d44d192d19a35 upgraded to next SNAPSHOT version
+4ef34e127150d74dc7fff51807e406536c6d5e07 JBPM-9189: Updated WildFly version (#1389)
+4d4354cdc8e3543cd7571ff96db03df7d1b0f920 DROOLS-3799: Check and fix i18n (#1387)
+c946cb6c680b585f9e5ceee4d001628dad9efcc6 KOGITO-1553: [DMN Designer] Open a DMN file with an included model - Included Models tab (#1375)
+04934bb4b252643508bd4f446088a55e3e962bdb Revert DROOLS-5317 (#1388)
+8b93ef5a50b7c8bc4abdc4ae9450abccc51b1101 DROOLS-5210 : BRL Column support for GDST to XLS export (#1365)
+9ddb23e11cc556ba459458f7525a84994bf14c53 DROOLS-5364: Test scenario reports data type change during creation (#1380)
+9c63749c5cd20660b367bb9d8af2f65d6c98acd8 DROOLS-5393 : Default values for GDST BRL columns (#1381)
+
+===============================================================================
+Repository: optaplanner-wb
+===============================================================================
+12cf9fee956644e3e3f165be09e85e959fe9c786 Upgraded version to  7.39.1.20200714-prod
+4a5d4c234fc7249f13ae160434e4861bd9c04fd1 updated to 7.39.1-SNAPSHOT
+eb62492d04c4f47edbde3b14e9ef20c262b070d4 upgraded to next SNAPSHOT version
+8b7012568fff360887a2089572a7551333e4d51c BAPL-1547 :Improvement the REST API in Business-Central adding the groups/roles operations available in the UI (#370)
+cbe429381afc32f86a2a699fcfbfaa4ae22f46ee DROOLS-5415: fixed beans.xml schemaLocation (#372)
+7b4e82981c43c0bfac923cb02ed1cfe3e4e3954a AF-2411: Added HomeProducer initializer
+4f3d2444bd479150bba64db61894710037653da4 upgraded to 7.39.0-SNAPSHOT
+d5a57c1a4959b736a987c033aeb493c29613e483 JBPM-9044: fixed usage of incorrect version property (#368)
+74b2952142e1a5eb820ca9e8a5e7deabad19e90c KOGITO-1546 XStreamUtils kie-soup refactoring (#367)
+db1e5a7ea2e19e7049eb3b87426ae691736429ce bumped up version to 7.38.0-SNAPSHOT
+dbf72ad996cd2fd315b3ee9d20c4fdedf5a81fc4 upgraded to 7.37.0-SNAPSHOT
+
+===============================================================================
+Repository: jbpm-designer
+===============================================================================
+d9bfa50d17395ac686ea7422110275191ca953c7 Upgraded version to  7.39.1.20200714-prod
+b21d5dae2e62549d0ee5ad316e04ef4c5903a905 updated to 7.39.1-SNAPSHOT
+1fd8826e8525f7b9d8c9fa9d88ed014411384b27 upgraded to next SNAPSHOT version
+c2547fc09a4979914097179cbe72abad30b6a0e0 upgraded to 7.39.0-SNAPSHOT
+43dec21350f7571cc2519afaf6867bdd6b70b140 AF-2410: default:// as main file system
+012ea0b66b4a0934cc28362ce3470d96ad3645d7 bumped up version to 7.38.0-SNAPSHOT
+a442de4a6d72fa04bad392b83378fb2a51e0fd1f upgraded to 7.37.0-SNAPSHOT
+881b36ef16ee830f9dd40847e5bba45acbf0a2d1 BXMSPROD-710 Jenkinsfile removed. Centralized in droolsjbpm-build-bootstrap
+e6c04a5314c350967169d3af0d202d426c44aff4 upgraded to next SNAPSHOT
+6f4fbfe01a075b34ad713df2dfbd7a1ffb6ceb7e BXMSPROD-592 upstream/downstream pipeline simplified in one single file
+ed81be6c853569f3af154612b848d656e9c9448e upgraded to next 7.35.0-SNAPSHOT
+
+===============================================================================
+Repository: jbpm-work-items
+===============================================================================
+32a17e46dadc6e2c8b2622a17756d1689f7312b9 Upgraded version to  7.39.1.20200714-prod
+66b2c235c249575d0f980e76c4992d02bb03c583 updated to 7.39.1-SNAPSHOT
+da204cd57b3af7eb20e31b10d84f3fb8d9d8e464 upgraded to next SNAPSHOT version
+a8f5cc6c45507d22389135565ffd14e64c81ffc2 BXMSPROD-685: adding exclusions for enforcer ban-duplicated-classes (#132)
+4b2cb277c16990c1d8991cf712c3b92a1d61d7ea upgraded to 7.39.0-SNAPSHOT
+9e0b5c671fc6c81496c583ff9f1716f4122caeff JBPM-9044: removed outdated Wildfly version property (#125)
+7ae4faa65dbaa9a69e155a6154d8c63c3625d640 bumped up version to 7.38.0-SNAPSHOT
+ca0294535984d8e5c013ba254cf70a82b9feb7bd upgraded to 7.37.0-SNAPSHOT
+69b425f549f0e10ed09159e313f4b73ba23d286a BXMSPROD-710 Jenkinsfile removed. Centralized in droolsjbpm-build-bootstrap (#130)
+7458af7fbe8dba0a94a4e3af8c5c79d9207c1065 BAQE-1323 - DB scripts move to a new module along with refactoring work in jbpm-installer (#129)
+a2838fa1546f79d78ede3c0e1c05c7ff3e6bd16a upgraded to next SNAPSHOT
+
+===============================================================================
+Repository: jbpm-wb
+===============================================================================
+2541563c4afc293781022fb31a97ca329e40e9a5 Upgraded version to  7.39.1.20200714-prod
+3c3d84283d100d06815ceb60d91ed76859ab30ec updated to 7.39.1-SNAPSHOT
+89331a694cab432806245abe929fb1226e83a77a upgraded to next SNAPSHOT version
+5bba567c9bc87a4ea3ed0618edb0a4b293116d23 JBPM-9189: fixing versions for new Errai Wildfly distribution 19.1.0.SP1
+ccbce271bae9cf23e09f68441848256912594698 BAPL-1547 :Improvement the REST API in Business-Central adding the groups/roles operations available in the UI (#1435)
+9aecb21fefa498e31594c21228aa2cd5628bddfe fixing Enforcer error after keycloak upgrade
+9b730177bccc7f6c84ad6a99b48c2c70f157ef2d AF-2411: Added HomeProducer initializer (#1436)
+f00fca82c8d0fc3762b4d0f36540c44511531478 upgraded to 7.39.0-SNAPSHOT
+0901fbeb3a987669e6a462b15e314aaf93068bea JBPM-9044: upgrade to WF18 (#1429)
+a87a6b3238d5136acaa34029869e5af3e700caa0 KOGITO-1546 XStreamUtils kie-soup refactoring (#1430)
+2d0d9533887cdaa3e1b5fed69c0062d3a46d6b66 bumped up version to 7.38.0-SNAPSHOT
+
+===============================================================================
+Repository: kie-docs
+===============================================================================
+6a18dfe295e267e9d7b773806323ea49fbd9cd43 Upgraded version to  7.39.1.20200714-prod
+a0510a8214c4a6e5b65689b1fd0119a94de607db BXMSDOC-5728-master: Updated the versions, links and references in the KIE server document. (#2648)
+54fb2b2547b4f7c46a935f68185a70b222b476e6 BXMSDOC-5967-7.39.x: Update product and link versions (#2641)
+91a9ba511e9c56179973610082cac52301582eae BXMSDOC-5923-7.39.x: Change title to Importing and deploying business assets projects in Business Central (#2644)
+da38571d3c0f83bd77335b46b97b404136ba4562 [BXMSDOC-5601] QE review changes for OpenShift docs - 7.39.x (#2645)
+bbd515f637bd671b11221d7b77bf515cc49dfe2e Review PR for Bxmsdoc 5789 Managing assets in Business Central (#151) (#2639)
+ab7772458b3679c402f551bc8168441d03fef615 BXMSDOC-2095-7.39.x: Add important note regarding maven repository artifacts (#2630)
+b47c9fcf955e9c0a0f68ea98ca296c0786678ac7 Remove 7.7.0 specific fix (#2621)
+3cab9b28d6c8b9254546a1d833b8b5f200f0b862 BXMSDOC-6041: Add a warning note for Entando deprecation in the Entando doc. (#2626)
+63dd0ed34d5052fa4c7cba113c602289da3e5357 Authoring architecture overview (#111) (#2627)
+559ebba0568c0af11f08002e531cbde1d75be783 BXMSDOC-5734-master: Added the conditionals for RHPAM and RHDM content in configuring BC settings doc. (#2623)
+
+===============================================================================
+Repository: optaweb-employee-rostering
+===============================================================================
+cff3f91022470fa5a12cb668578ba21ff9f43e64 Upgraded version to  7.39.1.20200714-prod
+d2b477164176b62be03f5dabcdc7669f081403f6 updated to 7.39.1-SNAPSHOT
+c0f0b445f08a59f2015dc950a263d5ce06eee377 upgraded to next SNAPSHOT version
+c6ffcdce10933947b004f4e4aebb18ec80ce9241  PLANNER-1834: Disable delete button for current tenant
+b8c6f8fef84fd78ee0db99ad2f2997fc96174421 Fix issues with artifact transfer in CI
+18dfc5132e5da91f8478f7a77e6d2a0ae4137973 BXMSPROD-685: added exclusion for enforcer ban-duplicated-classes (#450)
+24a08485e8063b8235dc380ea1264e3a1f443b90 Manage postgresql version with kie-parent (#448)
+36826562d2e53dd80fc36763a64e4e8a248a66dc Treat Gateway related error http statuses as Lost Connection.
+f8c9d4027d643bbe7fb62a4b998e57ddf63f3146 Fix type error after rebase on master
+f81fd3478af9bfeee57312fd26ef4f8383d0ab1c Make connection error show up if any rest call fails and recover more gracefully
+b33e541c5f959bde29269954c08a5a86930c4a7a Change "unable to connect" message
+
+===============================================================================
+Repository: optaweb-vehicle-routing
+===============================================================================
+64784023ed3117a260466b7f2ca425507f0bfdfc Upgraded version to  7.39.1.20200714-prod
+d931032e7f55019c626731b74a2f698ba05a3093 updated to 7.39.1-SNAPSHOT
+db44b168fe8af4ffcd397c98eec061e1ea452375 upgraded to next SNAPSHOT version
+5490fe575748d173954f2b56978c09967cbdd365 Merge pull request #313 from yurloc/docs-rework
+a0b9480f77d2e55019f4779416a121847fb73101 Improve logging properties examples
+c41a1f15fe797328f01eb685cc837b4b88011e54 Remove Toolbar
+3d2f51c1161e4ea3eea54b8d9f2f5a797c705f38 Bump websocket-extensions in /optaweb-vehicle-routing-frontend
+abc2ed56fe2b055df253b1cc3c5726953044bce4 Apply back end and front end to OpenShift run script
+adeb97229bf7f271ea803d736410f096fe3a40d8 Replace warehouse with depot
+3f921eacfaa2fbf8f347e0e625c3a3317d22cc38 Add a comma after Otherwise
+87139e0014f9f5e61696c606f10674dea1c5fb13 Rephrase inversion of control between services and plugins
+
+===============================================================================
+Repository: kie-wb-distributions
+===============================================================================
+e2322378e87745482003768c0246931cc12f5c96 Upgraded version to  7.39.1.20200714-prod
+c8c92e184b8549fc4781f186915310b18b150c22 BXMSPROD-830 add scopes to missing backend dependencies (#1044)
+147c7a7f16c8b0fe806f3f37275fa7cc42b716dc updated to 7.39.1-SNAPSHOT
+5d2ab0ba2d3c47f97d36eaf40f59edbcf38ced76 upgraded to next SNAPSHOT version
+2f50663dd3fb4010db254a8d939d00fa410fcdfe RHPAM-2985 : Removed Jboss EAP plateform specific dependancies and added to container (#1038)
+599b36fbc3955949bd601d8257a64848d95a3d38 excluded org.jboss.modules because of duplicated classes (#1040)
+e91a2fca0dd7f145cfd7f976d3f5f5cd5d3270c3 BXMSPROD-598 filterWebInfLib property added to thorntail maven plugin (#1006)
+eef2bbe6301d4fc9a3bf35633d5c03a1e9a6452c JBPM-9189: changed Errai wildfly distro version
+eeecb39d5650f3a197a3fc1a120416272d3980b8 Manage postgresql version with kie-parent
+758ecc70bad412e8121fb7f52f26598b04bdbb05 BAPL-1547 :Improvement the REST API in Business-Central adding the groups/roles operations available in the UI (#1033)
+b47db5aa4a35273010f0d0985ca1d54b6d213194 Fixing again Enforcer rule ban-duplicated-classes for keycloak transitive deps
+
+Total time: 0s
+
+
+
