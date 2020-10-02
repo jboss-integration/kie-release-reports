@@ -1,0 +1,483 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2020-10-02-03:37
+Code Cutoff Date: 2020-10-01
+Target Product Build: RHPAM_7.9.0.CR1
+Prod Tag: sync-7.44.x-2020.10-01
+based on branch: community 7.44.x
+
+
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_201"
+Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
+Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.5.2 (138edd61fd100ec658bfa2d307c43b76940a5d7d; 2017-10-18T09:58:13+02:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_201, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_201/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+All tags sync-7.44.x-2020.10-01 are on Gerrit
+
+------------------------------------------------------------------------
+                          component  versions
+------------------------------------------------------------------------
+
+kie=7.44.1.20201001-prod
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean install -Dfull -Dproductized -Drelease -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx10g"
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+lienzo-core                     romartin@redhat.com
+lienzo-tests                    romartin@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+kie-soup                        mswiders@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+kie-jpmml-integration           mmortari@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+openshift-drools-hacep          mdessi@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         cnicolai@redhat.com
+kie-wb-playground               manstis@redhat.com
+kie-wb-common                   manstis@redhat.com
+drools-wb                       manstis@redhat.com
+optaplanner-wb                  gdesmet@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-work-items                 manstis@redhat.com
+jbpm-wb                         cnicolai@redhat.com
+kie-docs                        sterobin@redhat.com
+optaweb-employee-rostering      gdesmet@redhat.com
+optaweb-vehicle-routing         gdesmet@redhat.com
+kie-wb-distributions            manstis@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, optaplanner, optaweb, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The last commits of the tag are:
+
+
+
+
+
+
+Git arg. line=log -11 --pretty=oneline
+
+===============================================================================
+Repository: lienzo-core
+===============================================================================
+1ab687877dab29c82341baf032cedd0233807346 Upgraded version to  7.44.1.20201001-prod
+a9be4c128e953cebfa23ee1699b2c10b4d15673f updated to 7.44.1-SNAPSHOT
+e548dae70b016dba351747c2194b42cd62bca461 BXMSPROD-494 allow GA build on windows machine (#133)
+6847cba716b93c081adbee60a36311ee937b9c51 BXMSPROD-1003 add details section to pull request template (#132)
+1380bdafc14c8cb862aedb5e1d3cd0684a7cac87 BXMSPROD-998 add takari (#131)
+2b9825ad5c9a5f18929171e6db97a0d68c6bff92 Mbiarnes test (#130)
+ce5f780712bf5ee2af982aa446f32d7ea67fb1d7 bumped up to 7.44.0-SNAPSHOT
+c3dd1849aafd8edf01a411f8407f698c9dfc8773 BXMSPROD-963 pull_request.yml updated (#124)
+1714a9ff94c4e7794e02888656346a4c344f9209 updated pull request template (#121)
+ee0f99efd43ba3c2fdfb4a186ce8b1518fce4ac1 upgraded to 7.43.0-SNAPSHOT
+485195ded117b5ebe42101788d3147b39cd16616 added pull request template (#120)
+
+===============================================================================
+Repository: lienzo-tests
+===============================================================================
+c56dd33f16898f14685ee2dded9c0cbcd7616d44 Upgraded version to  7.44.1.20201001-prod
+67cf1e11b975f2edb989404f7ae21c188703a765 updated to 7.44.1-SNAPSHOT
+c8b4508d53261e04ca905a59fc5d148326d08554 BXMSPROD-494 allow GA build on windows machine (#108)
+323807ceb90382ea06748a6169f3e1c55a58b803 BXMSPROD-1003 add details section to pull request template (#107)
+930b27a1542fa3eeeb74f4735e5eef03c94e9a42 BXMSPROD-998 add takari (#106)
+93a2c6acf5b1d49ff11600d5efe356a3686f6840 bumped up to 7.44.0-SNAPSHOT
+691e18b67723e1aa8e596c80e43cf4f970d1441c BXMSPROD-963 pull_request.yml updated (#105)
+75a9057f9f8b8849d2ed271a79e795a764b66dc4 updated pull request template (#102)
+b88445a07edd4fef73dddbca25fba7abcfe58447 upgraded to 7.43.0-SNAPSHOT
+cdb718ec38142197da202dbeb28fdb00fa3f10eb added pull request template (#101)
+1be66027322fbea828c2f2092a1444e1e3668297 BXMSPROD-912 openjdk11 build execution added to pull_request.yml (#98)
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+c188f19721a446ed709346f35997196f8ce00459 Upgraded version to  7.44.1.20201001-prod
+a50eafe3dc36948f1901e5913d40b6b1377132df [JBPM-9357] Add springboot Kafka WIH test (#1482)
+1196c92711e9170d43995cadd0516d05230a75c8 updated to 7.44.1-SNAPSHOT
+4ae79df044e51c8bcd61321b327aa8667b7bedf3 removed managed log4j:log4j dependency as not used (#1477)
+ca129669f9b7195d20d3530f7b419113654bd557 Upgrade to Netty 4.1.51.Final (#1441)
+0baf74a902fe20b4bfd1fadd4e8c431591d42bdc RHDM-1331 update hibernate validator to 6.0.20.Final (#1475)
+5003c2cdabf09f3bb526162a3f3ba32b555ad4dd BXMSPROD-996 remove multithread build for appformer, drools and kie-wb-common (#1476)
+ae59c15a67788a5780a4c48f8de4175a823d21f6 BXMSPROD-1004: Add optawebs on the 7.x branch list (#1473)
+4cc8b5b3bfcb59487978ef27f868db71b69a4579 AF-2604: Infinispan version upgraded to 9.4.19 (#1444)
+a4f0bc4408519fc6871f767cd3bd0ea5728d4bb1 BXMSPROD-995: hibernate core upgrade to 5.3.17.Final (#1468)
+508cb49673b07fa0f839a45ef7593f2dbf503da1 BXMSPROD-994: wildfly-elytron upgrade to 1.10.7.Final (#1469)
+
+===============================================================================
+Repository: kie-soup
+===============================================================================
+966fdc9544b98c2a02976bfe6f6c556cde5b647a Upgraded version to  7.44.1.20201001-prod
+ad6cb81e5384a4ff9273fafe053448fa47247ba4 updated to 7.44.1-SNAPSHOT
+ac5dde4f8c95e8ae4bd7c8566ca01cf89cdb92b0 BXMSPROD-494 allow GA build on windows machine (#158)
+1041aea2d6e32d87571cdddab541635ad55fa771 BXMSPROD-998 add takari (#157)
+81ba01ec12c39b68fced7d2f233b2849b6013888 RHDM-1338 org.apache.logging.log4j:log4j-api and log4j-core 2.13.2 (#156)
+dfa98c6a076049cf997de0133bb52684ce8b3d2a [JBPM-9344] Maven project loader requires solving pom with immutable spring boot images.
+1e7b3f63aab49850238f987245d151e23a9c0c41 bumped up to 7.44.0-SNAPSHOT
+fceb2e6ae0c52e0c458a76e3bae4c1b7b4d9e227 BXMSPROD-963 pull_request.yml updated (#154)
+19747fe38be75787db5677bb3123cb0b07ddb54a [JBPM-9178] Immutable SpringBoot Deployment
+21b7cd844423e8954073857a92b306ba7261201d upgraded to 7.43.0-SNAPSHOT
+3ef9b564da55cd1793d89e61ab58b379230aa22b Revert "[JBPM-9178] Immutable SpringBoot Deployment" (#151)
+
+===============================================================================
+Repository: appformer
+===============================================================================
+4b39eb7d5d864d761af71e8101add20ebd3c2361 Upgraded version to  7.44.1.20201001-prod
+6b6c05b30692b2964bf799b4db1e06b715c58656 updated to 7.44.1-SNAPSHOT
+f3c846edb672cba9da5c32a075c4e0be171d0d4a BXMSPROD-996 http arguments for upstream commands (#1056)
+4592827cd0777d119d8f42801cba2c1a792f980c AF-2633: Map Tooltip not completely showing (#1051)
+1f486f59674b3a060bbb715574779b8f5b908874 KOGITO-3152: [DMN Designer] PMML support - function parameters generation (#1041)
+2df9a713fa5689491ac8b511c34c16f82c9f5ef8 AF-2582 : Package list dropdown should load faster (#1010)
+332ab952545db823f2b537a9a667d81052716a85 AF-2604: Infinispan version upgraded to 9.4.19 (#1031)
+1fb24e9a83e37d2f5c11cbd35725227c261fb40f BXMSPROD-1003 add details section to pull request template (#1052)
+562bef9c76caef4e118206aba1cc2d4af32a6226 BXMSPROD-998 add takari (#1050)
+e78277e356dc71563d1ac7e89d063e151d071221 Update pom.xml
+088c150070a4d283d56cf384b88d46f5dea8c8f0 RHDM-1338 org.apache.logging.log4j:log4j-api and log4j-core 2.13.2
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+3fe2154517a37c6557cb24b0cb3392e188ea6be1 Upgraded version to  7.44.1.20201001-prod
+9097f7b1684ca294f107a19a52caf475bdd7c7fa updated to 7.44.1-SNAPSHOT
+80f196fac9c0f3d4cdd85f94f21816cf105a822c [DROOLS-5532] descope jaxb support from KnowledgeBuilderFactoryService (#464)
+94faa7d33ac884f13c110546de198bef4694759e BXMSPROD-1003 add details section to pull request template (#463)
+3e6ad65ea3ce0da30a1f6ca1be61104b8cc9a40a BXMSPROD-998 add takari (#462)
+2f14ca46e34ec891c008016e4d12d824208609e6 bumped up to 7.44.0-SNAPSHOT
+bfecfcdd0e4b4eae2bf483e83e49fd738d73e898 [JBPM-9310] Warning in BAMTaskEventListener if task is skipped from task event listener
+a119ecd6c8dec0942ca6476da2a6c6f14e24c659 BXMSPROD-963 pull_request.yml updated (#459)
+9ff3cb16617d0223c627a548510da507fd792ed1 [JBPM-9317] userTaskService.saveContent doesn't work
+9b038beb36ce0b45d1f7217c7ed4c4a469126f42 [JBPM-9277] JMS Audit Data Replication in spring boot
+934c2001712ee0c8a6dfc9a5f765ff42df4eb652 [JBPM-9178] Immutable SpringBoot Deployment
+
+===============================================================================
+Repository: drools
+===============================================================================
+038ebeb82e21ac4262ea8e597f6d9505e456b421 Upgraded version to  7.44.1.20201001-prod
+48edf2bbd3b91b22c890ac320b54d6d4b7cacb31 updated to 7.44.1-SNAPSHOT
+bb383bf0d57bab4e27c4dc3170da7c6e6cfae04d BXMSDOC-6622 Align DMN builtin function document to resolve minor differences (#3122)
+8bb92ccf7bb3899b6de09b377b8cd4c4197781d6 [DROOLS-5668] ignore no longer needed node memories serialized by old… (#3120)
+83641ba475ddf2af4f4248e65bb709a05ac0cb18 BXMSPROD-996 http arguments for upstream commands (#3118)
+e6f55e79a5379730987830866dfa402b5281fa71 DROOLS-5644: Queries should be not considered on RULE based Test Scenario (#3103)
+874ca830a6f329442b7d588c2e9a797f44562d16 [JBPM-9341] - Detached WorkItemInfo entities error when aborting cases containing active/running subcases
+0450194d13b1e686e51a3fed28e543047bf3aa97 [DROOLS-5652] String relational comparison fails with executable-model (#3111)
+3704cdb35e2fa27bfcda86019e6f09a1b6d0b672 DROOLS-5660 DMN code maint. avoid unnecessary cart.prod. test matrix (#3115)
+3931d94dd8cf7e9fb2e7fda12b3e206a112887ab DROOLS-5659 DMN code maint.: dead code elimination from -legacy-tests (#3114)
+23565445e83099ec63e7751227f0c2468481ee30 DROOLS-5653 DMN fix stronglytyped deserialization for collection of temporals (#3110)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+57625c580a0f955eaeab82c95243b42a7650a394 Upgraded version to  7.44.1.20201001-prod
+05a4a7b03fe861571cbbc99a5e3bf44eb68685c2 updated to 7.44.1-SNAPSHOT
+b1ab0adb9e4630a3d0b546c974a5e36441213112 Bump Quarkus and Kogito to fix stale optaplanner-core dep
+f6a7b5e017d6966ecd5057b376fbffd8e94a0498 PLANNER-1362 Deprecate AbstractCustomPhaseCommand
+2342f86d5fc1002291adaa4c18bfbd5dad6a3d90 BXMSPROD-1003 add details section to pull request template (#934)
+eff5a330b005b8fe199575d629bdc06349a556f3 use rhino version defined in kie-parent (#926)
+53dc405f63b0b33c9ad28a34d038ffb6f26180d3 PLANNER-2138 Deprecate support for JavaScript expressions in configs (#917)
+f5eec770cac87e160fc7b2287ad3f656ef3baf61 bumped up to 7.44.0-SNAPSHOT
+0f1083bd8c19613a45ab81cdc0cc934c59718c84 Disable Maven deployment of quickstarts (#914)
+c6f02c7e54a5ed731c0607c97d7c765c00eac6a3 BXMSPROD-963 pull_request.yml updated (#901)
+3f588515d61fe6efffffceeeb695eb9932f9b772 RHDM-1430 Add new reference implementation for Optaplanner School Timetabling (#900)
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+b2d95b9ac3da14ab577446f5d375c9f1fc923f15 Upgraded version to  7.44.1.20201001-prod
+170085166058ff87933cb7d8169bd7012671239f updated to 7.44.1-SNAPSHOT
+6b89e1415d149c3fc1132ee3bb1d1e49aa083d28 [BAQE-1456] Move CountDownAsyncJobListener from jbpm-executor to jbpm-test-util (#1744)
+b4f456714049fd497d03b6dc75b66efcd117fb4f [JBPM-9342] Runtime manager shouldn't throw exception if already closed
+44c4f365adeb7eab214ca37c31180aa524efa746 [JBPM-9366] Allow environment variables during WIH registering.
+d1cdc84314c93569f6c78f485fa20a77b8c75393 [JBPM-9278] Tests for Email deadline notifications with DBUserInfoImpl (#1724)
+658f38be09b85ea822d54d4b3584d0c90375aa73 BXMSPROD-1003 add details section to pull request template (#1756)
+6efff15c3a111e1e31c81be230f559fdd1debd4e BXMSPROD-998 add takari (#1755)
+d48068e6666a66122cfd3eb5e1fcbf4b5dd3af02 [JBPM-9344] Maven project loader requires solving pom with immutable spring boot images.
+0a0b9bb2ab96325614872e27843c1b244d9e8f90 [JBPM-9261] unclear validation message for link in different subprocess (#1750)
+15ae0807707b860967e980775349e3b66a7a67a2 [JBPM-9248] RuntimeDataServiceCDIImplTest must abort process before (#1702)
+
+===============================================================================
+Repository: kie-jpmml-integration
+===============================================================================
+ce98fddff428fb447f2ffdf0e32083eccb2c02b1 Upgraded version to  7.44.1.20201001-prod
+2d4ff640f680998a18c286877a81988c554196ea updated to 7.44.1-SNAPSHOT
+0ac759d5edbad9bb84381610b901a6827189adaa BXMSPROD-1003 add details section to pull request template (#42)
+f06ad6a65cfa26e50542569916598af9e4b9d90a BXMSPROD-998 add takari (#41)
+e156cda3e55e80924524ca9e7189817a5eeafa36 bumped up to 7.44.0-SNAPSHOT
+c7322224fefe4f28a03bbc5a71dca1bd61734525 Merge pull request #39 from Ginxo/BXMSPROD-963
+bea42b9ea4d0da34a7ee3656f5ae996127801edf Merge pull request #40 from gitgabrio/KOGITO-3222
+f175166593224d01232abbadaa3e61748e94de37 [KOGITO-3222] Removing explicit version of jandex maven plugin - use inherited declaration
+793b89540c9a30a1288a3b01e181a03d37bd4808 [KOGITO-3222] Adding Jandex to kie-dmn-jpmml
+afefb4338d71d3072bd13f269cd727d42fe4d516 BXMSPROD-963 pull_request.yml updated. clean removed from every mvn command
+6758399181071fb3490cb9e8a5605eb21bce2e10 BXMSPROD-963 pull_request.yml updated. rm -rf for upstream commands
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+c5016f6c60ac3db3fad3d9b0286ce600c14eda55 Upgraded version to  7.44.1.20201001-prod
+5041ef91fd700210589cb3077b0a041640d909ed updated to 7.44.1-SNAPSHOT
+49f6513a738426731c85e88fc6d1998d99dc4830 [JBPM-9322] Some form options can't be rendered in API response / MultipleInput
+79937bee65217f15913cdd0b4a4dcfe65316f275 [JBPM-9323] Some form options can't be rendered in API response / MultipleSelector
+cb628aac24c53386c579c12eff91659120f8ac09 JBPM-9286 UI error when parent process instance details have been removed (#2193)
+dc817a3b84fe9909275f2549ce37616c3adb6d7a remove needless use of guava map in test
+518e387d366eba3b0408bbe154135d8e22f4dd78 Removed jvmArgs arguments from GA (#2245)
+17de5fbf9a5656e9c220d3772be298373194bec3 [JBPM-9206] container id should be checked when retrieving process (#2226)
+f1f9bb58d2a3c3ff4f7e822f7f5629ba288e4918 BXMSPROD-1003 add details section to pull request template (#2240)
+4f3c576f07969a1f0c9c37a1d0c324471aac3bd9 BXMSPROD-998 add takari (#2239)
+4e85f239c11ab121abab0381344d06e5e88066b2 BXMSPROD-846: upgrade of cxf-core to 3.2.14 (#2231)
+
+===============================================================================
+Repository: openshift-drools-hacep
+===============================================================================
+94a01907b7c7e21d3bd7d854bf6360b493fa0a1b Upgraded version to  7.44.1.20201001-prod
+70e13e568f00beed5a0e48cca6165592be7ce2dc updated to 7.44.1-SNAPSHOT
+79380d2ef0cf3e633f130af5d535c96b4eabcddd BXMSPROD-1003 add details section to pull request template (#99)
+4ff1469957597784384ed66237fa553e18374eb5 BXMSPROD-998 add takari (#98)
+72c66206a7983d4abc64d89d1b34a7e640637d7b bumped up to 7.44.0-SNAPSHOT
+0296dfedbab062938406028a1b2ba9bbd78fb4dc BXMSPROD-963 pull_request.yml updated (#97)
+50d272b1b97db55cae49211b030509e20065d03d Merge pull request #96 from mbiarnes/templateChanges
+8bb39ec3bf5ee8f02abf40952aeb2b5ab3018a57 updated pull request template
+854d3db1397a72f394188acac57e2db5dfe2ce8a upgraded to 7.43.0-SNAPSHOT
+fdc18fe68be0785688d7b161a6d3bb15749fa44f Merge pull request #95 from mbiarnes/templatePassphrases
+ff389fcccc3eb1dc23283aaa9769e22e30d0b4e3 added pull request template
+
+===============================================================================
+Repository: droolsjbpm-tools
+===============================================================================
+7656fba26e854407f195617dcc80ea285760097a Upgraded version to  7.44.1.20201001-prod
+f3a25e53a0071bd735c17359db4d1a1950f02586 updated to 7.44.1-SNAPSHOT
+e8213907c10b94b85d2fe189fd85475b77491994 BXMSPROD-998 add takari (#117)
+4c3e58bb24c9fdf3cfe74b28455a399911e0680e bumped up to 7.44.0-SNAPSHOT
+ccba928c8f2a758b790106570212292672ef2a06 BXMSPROD-963 pull_request.yml updated (#116)
+c540c204fdde1badcdbb24769c28028782300783 upgraded to 7.43.0-SNAPSHOT
+c2bbb05535b455288d6cded1c25b75bda1206c26 BXMSPROD-912 openjdk11 build execution added to pull_request.yml (#115)
+2ede9ff0b82c81e54e41a27ce8dccee4aff0b7bc BXMSPROD-890 pull_request.yml KIE_TOKEN to GITHUB_TOKEN (#114)
+1077c094f5b1ba6cee3c5d5b44a051e88f2e4e51 BXMSPROD-883 pull request flow on github actions (#113)
+f140d2b2d60734f431d29aadcc54225c364b6436 Upgraded version to 7.42.0-SNAPSHOT
+4874da021b7af4deb318319dc0c76ee2754389f6 DROOLS-5495: Drools Builder error (#112)
+
+===============================================================================
+Repository: kie-uberfire-extensions
+===============================================================================
+120b881ca546a0f17315faf8cab0fbe2144469de Upgraded version to  7.44.1.20201001-prod
+14e2d4f7baf271106e91ba33a9e1294195764f3d updated to 7.44.1-SNAPSHOT
+ec0a68c51286962f8f6f0a496c4e3e54f570de50 BXMSPROD-1003 add details section to pull request template (#105)
+58a3a6ffd5d9e19d17ea48eaf7d9b60f22401067 BXMSPROD-998 add takari (#104)
+c247f1248ec165d7a53aea8a227c1dd8e890966c bumped up to 7.44.0-SNAPSHOT
+4a70dd800b09c44c60a86f8260a117f53144f241 BXMSPROD-963 pull_request.yml updated (#103)
+87276950af54432fd8864663f4eac2e9722248ef updated pull request template (#102)
+70c8825b6ad0e9733e2baa50fc2289aae8fbdddc upgraded to 7.43.0-SNAPSHOT
+3258242d36dd0091d6b54ff5f12176064ca8295b added pull request template (#101)
+a27a827026b5415e54ab388b735ec2fbf383794e BXMSPROD-912 openjdk11 build execution added to pull_request.yml (#100)
+9a35bcdb3e58d09a59a5c8f72f5bb919bcfc6fa1 BXMSPROD-890 pull_request.yml KIE_TOKEN to GITHUB_TOKEN (#99)
+
+===============================================================================
+Repository: kie-wb-playground
+===============================================================================
+d0f50b259a5397e8c1eb064a8cb008468626d249 Upgraded version to  7.44.1.20201001-prod
+c3129a98f03936080ffa979f2774742451956c40 updated to 7.44.1-SNAPSHOT
+dfdda81d5fabe1d1756e382645d575c718e786eb BXMSPROD-1003 add details section to pull request template (#96)
+fc45c1fe87c9a16ed31c3dde2c96d2820e0a189b BXMSPROD-998 add takari (#95)
+bf7493c8aca1bf75e2e11fca30b214c5cc86293e bumped up to 7.44.0-SNAPSHOT
+91ae1bfca17cd6031b62f5e7bbb0074edc9761a6 BXMSPROD-963 pull_request.yml updated (#94)
+65f2460544a12831d540ec692086eb38a364a0d6 updated pull request template (#93)
+2d12fe1a9b0352cf9c9912d523b82da386a7ec9f upgraded to 7.43.0-SNAPSHOT
+5a251d27192c0e472a2894c4a3d512430bb6b24c added pull request template (#92)
+5b924475d28935e80e4b801f8c0904662cd96015 BXMSPROD-912 openjdk11 build execution added to pull_request.yml (#91)
+2ac18d6a6691344029f3815bfd95c8a36ae218b6 BXMSPROD-890 pull_request.yml KIE_TOKEN to GITHUB_TOKEN (#90)
+
+===============================================================================
+Repository: kie-wb-common
+===============================================================================
+441c86384bba3d1a906ec05dc8233b3b821204d9 Upgraded version to  7.44.1.20201001-prod
+079b60aca63ba200d5df76d7c3cea872bff1efad updated to 7.44.1-SNAPSHOT
+079e460e9347e0366eb0008579e9909ed5573b7c JBPM-9381 : Stunner - Data Object's Name with new line characters breaks the process (#3437)
+a0ec78e2850e5100ded434004a12bdebd415f42a DROOLS-5673: [DMN Designer] Validation fails when an included node is added on a DRD (#3438)
+097613ba664572ba41d0e5745d0f4777a605aef3 RHPAM-3178: Stunner - Monaco script editor scrollbars disappear (#3436)
+89d685d1ae8089fc5ab64ee698084b93fc80debb RHPAM-3119 : [Data Modeler] Unsaved changes dialog appears after rename (#3432)
+c7873aba521333a76bded27cc05094d5137b303b JBPM-9376: Stunner - Confirm changes by clicking outside the Inline text editor (#3435)
+e680dbcc6b84e46d54a1a39d37b802ae79ca4f78 JBPM-9352: Stunner - Warning when getContent is called while the model is invalid (#3427)
+a00c0726b88839b187a20e2b8579ac9b6f6492bb [KOGITO-3426] - [DMN Designer] Creating a node using toolbox causes error (#3433)
+419de45e8115e30aff9b5ec1691c963ed3de4ca9 RHPAM-3190: Stunner - Error is displayed when using BPMN designer editor (#3431)
+be58f36ae2a675cfc0f2494eab855b4083da03de BXMSPROD-996 http arguments for upstream commands (#3429)
+
+===============================================================================
+Repository: drools-wb
+===============================================================================
+dd01086424fba51fe949ecd7a6022d2373a4cf82 Upgraded version to  7.44.1.20201001-prod
+ac74e58e224969bb7f96fbc90195ed274d406996 updated to 7.44.1-SNAPSHOT
+1d7204a3a0c005d47c3f677432e2908d2c263357 BXMSPROD-990: drools-wb compilation failing (#1426)
+34ca61db6d482645a8f66b168174365cd930ea1a Revert "BXMSPROD-990 drools-wb-scenario-simulation-editor-kogito-webapp-common artifact added (#1419)" (#1422)
+95b2cd6ac04cc361b1249b4ea5aea33eff0b2ffd KOGITO-2664: [DMN Designer] Multiple DRDs support (#1416)
+b03843db047640197435c706f0b8e02fa4e11840 BXMSPROD-1003 add details section to pull request template (#1421)
+d074deb8e4c77235db6c56b8953f4ca1c633cee3 BXMSPROD-998 add takari (#1420)
+2227e9c8fc0bf9136fda2786acd20bd857617236 BXMSPROD-990 drools-wb-scenario-simulation-editor-kogito-webapp-common artifact added (#1419)
+337360173050931fb7e34f43aa9484e9a518b0f8 ulimit removed from drools-wb upstream command (#1418)
+c2253825be2e61c39d2efb7c94c1bbd058ea09a0 bumped up to 7.44.0-SNAPSHOT
+6b3d678cb401e0c8c17f4f1c3a59168c78a261f4 BXMSPROD-963 pull_request.yml updated (#1414)
+
+===============================================================================
+Repository: optaplanner-wb
+===============================================================================
+bee134a409a0e963523497e2c9c12bc35e12abe9 Upgraded version to  7.44.1.20201001-prod
+24ee36ff107fe5d7e8a1ed0b1a2edcf676e26980 updated to 7.44.1-SNAPSHOT
+ec49856de589f40db2e85a6d54b0a48509f22078 BXMSPROD-1003 add details section to pull request template (#380)
+fcc21b1b1ef8aebc898ceda8649a749378e07b4d BXMSPROD-998 add takari (#379)
+ed80ef93191e8b01419536933601053d4a2bd8e4 bumped up to 7.44.0-SNAPSHOT
+f4f36e8e1b84aee957c17da4b38b1f7ccb684657 BXMSPROD-963 pull_request.yml updated (#378)
+cccbd9fec1973190ace5b09c1716726269b9be1c updated pull request template (#377)
+80bfd1d3c135a6b3c65ae0934384e2e2009d7f03 upgraded to 7.43.0-SNAPSHOT
+d4a59707a2f594758496e2957d101540447071cd added pull request template (#376)
+183bb8c45655733c6f785b2e14021e419a9bb1a2 BXMSPROD-912 openjdk11 build execution added to pull_request.yml (#375)
+9c3b08008153a0f3802122296d6ec0f1f1b45da7 BXMSPROD-890 pull_request.yml KIE_TOKEN to GITHUB_TOKEN (#374)
+
+===============================================================================
+Repository: jbpm-designer
+===============================================================================
+77328885e5eba8e0312eafffaac8108944f76286 Upgraded version to  7.44.1.20201001-prod
+c156f9cfec584af166ba40a71917ee0d29188cd7 updated to 7.44.1-SNAPSHOT
+8e80bc3076c5a0affea4dc6554112c9f6f19bbcd BXMSPROD-1003 add details section to pull request template (#890)
+8c49a9370dad95a68c475a399e2243865825bd3e BXMSPROD-998 add takari (#889)
+da2fd80e12ca82269a8abba3fa4207a86984da7d bumped up to 7.44.0-SNAPSHOT
+e6f9f1b2d43c787fd8283351664a021dc69c6310 BXMSPROD-963 pull_request.yml updated (#888)
+b07f7ff217d517e838a73664ee0dedaeeaeb720a updated pull request template (#887)
+33d73f571b7b6a23ede1740f484c0f72c14c6523 upgraded to 7.43.0-SNAPSHOT
+e032a9c034fba45083c88d1b0260db7f71cf146d added pull request template (#886)
+49cf5fd859b9c3930aaab216de4770456c231c31 JBPM-9231: removed exlusion of batik-ext (#885)
+7066e658c243d981f6972c03cf278f71f251dc24 BXMSPROD-912 openjdk11 build execution added to pull_request.yml (#884)
+
+===============================================================================
+Repository: jbpm-work-items
+===============================================================================
+88f9ce2d91fb9a3603a52747e10986d451329319 Upgraded version to  7.44.1.20201001-prod
+76aed7fcc6ad3923987758a60c97463cd83dd280 [7.44.x][JBPM-9357] Add springboot Kafka WIH tests (#157)
+2e71708b2b64bf7dcc0717f63bd9241198dc7236 updated to 7.44.1-SNAPSHOT
+cc295aea99215624b21a415998527d9a58056383 [JBPM-9369] Allow Classloader in kafka workitem
+1f9029e3b7b4de1ec0fa7fa6b1553fc74bf53f05 [JBPM-9353] Kafka WIH handle producer exceptions
+e619aef0b9004f954fdbb6ff09a61e9a1a3ed0b5 BXMSPROD-1003 add details section to pull request template (#152)
+353ad425e0a24d13355b3a68d97a8ab404eaab69 BXMSPROD-998 add takari (#151)
+e224f887f1847707d1c8242dfa574e6a7bc2b356 [JBPM-9346] AMQ Stream (Kafka) Integration WIH / workflow component
+69062e8a50a3e01311c3a2ac82b8687a550caf1f [JBPM-9346] Exception when deploying WIH Kafka in wildfly/EAP
+a65425b6503f650cb519f0026e89a6452d63db73 GUAVA upgrade to 24.1.1-jre (#144)
+6fa556d9a666caf57135223de803ce7ea2f2d928 bumped up to 7.44.0-SNAPSHOT
+
+===============================================================================
+Repository: jbpm-wb
+===============================================================================
+2f8e01a205d0163e8b3c6f90f381a27c6091e587 Upgraded version to  7.44.1.20201001-prod
+865ba133a073df553dcccb95ad1f0a8160a709d7 updated to 7.44.1-SNAPSHOT
+74bc2fdcdbc63d50064d545864bb71f378f7aa63 JBPM-9286 UI error when parent process instance details have been removed (#1463)
+72d6b8a2dbf026e8ddbde76a943bc4ee6e1df50b Revert "JBPM-9286 UI error when parent process instance details have been removed (#1452)" (#1462)
+0614b37bcc06a8c14c6e70e32fc6c72fbd8e05a1 JBPM-9286 UI error when parent process instance details have been removed (#1452)
+7173f529cfebeb4f103271568cd1ae37b1a9e10c BXMSPROD-1003 add details section to pull request template (#1460)
+3fe87cdf3c03fae848391e4a8f2724ea455daf1b BXMSPROD-998 add takari (#1459)
+f33822859517e99eb20f0bb2d532ca5f35fbbb17 bumped up to 7.44.0-SNAPSHOT
+da2d0a26c4af86140e4a57b33a1d21a1d8ae2481 BXMSPROD-963 pull_request.yml updated (#1457)
+894f168c0eae37b7936b513075ed9d8edbd94abc JBPM-9271 Change Service Tasks labels to Custom Tasks (#1448)
+90c06e7840d0036b4fe02b62bcb437f35c540564 updated pull request template (#1454)
+
+===============================================================================
+Repository: kie-docs
+===============================================================================
+e3f87a10499b86fc25c2037c75053d9a85b58c35 Upgraded version to  7.44.1.20201001-prod
+0c211d5c840c1a6ac49b3b20197396e9e0ea0fba [BXMSDOC-6453] Setting LDAP failover server (#124) (#2874)
+6ee8b34057873e17c2133b2a19f22fc655499fad updated to 7.44.1-SNAPSHOT
+ffa15e7754255fa60e61362ca73d71b656ea7e8e remove duplication in immutable (#2867)
+f239d12bd5f7df845ebb607e3951e8ce712d1872 BXMSDOC-6622 Align DMN builtin function document to resolve minor diff (#2868)
+eabdbff6f0e239fe9efa0bcbb8184e182444aebe BXMSDOC-6492 Spring Boot: Configuring JMS Audit Replication (#2866)
+cc7671a5402c357b1a1a61fc5df0d05c12bffeba [BXMSDOC-6499] Smart Router log level (#2863)
+60d5156ae3519c343c02c0f5fab0ffcbba3bbadc BXMSDOC-6472 SpringBoot: Configuring Maven section (#2844)
+30f927d1516605c38e7033b76b01cf2844dbd04c BXMSDOC-6501 - Developing process services for RHPAM 7.9 changes as per linked BAPLs (#2865)
+a97508ecfc6be1929772121a3f7d46fb97d33b0e [BXMSDOC-6213] Clarification for HACEP env var list  (#123) (#2864)
+d5d08d9d16302a063db661e6a62dff73f3f95c91 BXMSDOC-6416-master: Add multi-DRD content to PAM/DM (#2861)
+
+===============================================================================
+Repository: optaweb-employee-rostering
+===============================================================================
+b109e3bb4cdf66821e0c063853fa5574e4fe417a Upgraded version to  7.44.1.20201001-prod
+58abd561855ae0995bcc6fb670382c6f7a95a44e updated to 7.44.1-SNAPSHOT
+a71393faf4fcfd08528d9b2d4ab8a9bb45cd98c5 BXMSPROD-998 add takari (#496)
+d241e5b8ddfe6a6403db9a7e5c41c8bdba7f4cd6 Remove unused constant in SeatJigsaw
+d7d0f4f6bb86d2eacdebbbd8ec7474a69f625e65 PLANNER-2105: Send update on mouse leave or mouse up to prevent locking error.
+8330b890733930902ace606012b9c758195065b3 PLANNER-2105: Update TimeBuckets on an interval to prevent multiple concurrent requests updating the same TimeBucket
+c57101c9671ab67e7bc3906db9557aba48570f21 Upgrade Cypress to 4.12.1
+848bdd05dc183eca766f7ecfb7ed99624c63a2be Update package lock with locktt changes
+40dedef0dd56da932b1ef7df7ead649ee7cf21dc Upgrade react-scripts to 3.4.3
+d846e7106cc32a5a915ef56f190951abf3e3596a Improve pull request template
+fd525258b7598e8dbfa2ce5e478a0833b70458c6 bumped up to 7.44.0-SNAPSHOT
+
+===============================================================================
+Repository: optaweb-vehicle-routing
+===============================================================================
+de4fc7d72841db6201b392e4ca8a1972e7b61664 Upgraded version to  7.44.1.20201001-prod
+a056a7d006f093d5f10a5ee4b4afd4001f7ef632 updated to 7.44.1-SNAPSHOT
+1ea70cb7f2b07879c9c02edc73a5eee2e536cc4b BXMSPROD-1002 maven connection timeout (#366)
+197424c6a9a28272313e0ee19ef6d87b5903a6d1 BXMSPROD-998 add takari (#365)
+fd314cb3e65d9af9df01ec29cad6e0ccfbf6b5f2 Upgrade Cypress to 4.12.1
+c7e46e78bf13e2c6516632ef50b85e39d1f692db Update package lock with locktt changes
+4ca1c08d66c4e62c22505e837564cd55b8bc9375 Upgrade react-scripts to 3.4.3 to fix npm audit
+58bec7eeda246f9b54906521e9208fb962d0f489 PLANNER-2120: Move ide setup to dev guide and add note about auto format
+bda2012dc6f099f610288657072b42b125a6450e Move a shorthand object property at the end
+0c05ae206c956be8121c616226a0812fdcd7af9e Remove commented out hot reloading code
+fb739f07893883b226022e35359535303f109f2b Use curly braces around an if's body
+
+===============================================================================
+Repository: kie-wb-distributions
+===============================================================================
+d8b9a60bbad6416cc236774d46449f5f8a9ccb56 Upgraded version to  7.44.1.20201001-prod
+03086d80879896432d6a782173e8c31eab42fed4 updated to 7.44.1-SNAPSHOT
+36d533287ba33a46552d9500aa7295594773c6ea RHPAM-3066: Error when creating page in Monitoring console (#1065)
+73de00f463db050beb8b6707a85361ac2355ac58 BXMSPROD-1006 GA runner hard disk clean (#1059)
+c64a101032094637824d752c20e0c8e2236adc3e RHDM-1451: DMN models opened as invalid in productized builds of BC (#1064)
+b5eb585d41d4b3e25618e00334617a2dbd801d29 BXMSPROD-1004 Switch OptaWeb releases from master to 7.x branch (#1063)
+9f70f317be7c7739fd78f1f05da395d90d79b5f1 KOGITO-2664: [DMN Designer] Multiple DRDs support (#1054)
+fb0fdbb032942250c5d0f97f94c43a485968a726 BXMSPROD-1003 add details section to pull request template (#1057)
+fecef3186eb537673739372abcb608e3d4feb092 BXMSPROD-998 add takari (#1056)
+4b3730581e11cb48abc58ab39087c4df4767cc9b bumped up to 7.44.0-SNAPSHOT
+4a7fd4e4a29ee8a13315c2bfb56b1a9e23cf90c3 BXMSPROD-963 pull_request.yml updated (#1053)
+
+Total time: 0s
+
+
+
