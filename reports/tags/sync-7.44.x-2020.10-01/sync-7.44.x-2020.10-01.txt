@@ -27,11 +27,10 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 
 MAVEN:
 Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
-Apache Maven 3.5.2 (138edd61fd100ec658bfa2d307c43b76940a5d7d; 2017-10-18T09:58:13+02:00)
+Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
 Maven home: /opt/tools/mavenVer
-Java version: 1.8.0_201, vendor: Oracle Corporation
-Java home: /opt/tools/jdk1.8.0_201/jre
-Default locale: en_US, platform encoding: UTF-8
+Java version: 1.8.0_201, vendor: Oracle Corporation, runtime: /opt/tools/jdk1.8.0_201/jre
+Default locale: en_GB, platform encoding: UTF-8
 OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
 ------------------------------------------------------------------------
                         Sources to build                         
@@ -63,7 +62,7 @@ MAVEN_OPTS:
 lienzo-core                     romartin@redhat.com
 lienzo-tests                    romartin@redhat.com
 droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
-kie-soup                        mswiders@redhat.com
+kie-soup                        cnicolai@redhat.com
 droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
 drools                          mfusco@redhat.com,etirelli@redhat.com
 optaplanner                     gdesmet@redhat.com

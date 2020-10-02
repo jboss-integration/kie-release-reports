@@ -1,68 +1,12 @@
-#!/bin/bash
-
-# Absolute path to this script, e.g. /home/user/xxx/infoRlease.sh
-SCRIPT="$(cd $(dirname "$0") && pwd)/$(basename "$0")"
-# Absolute path this script is in, thus /home/user/xxx
-scriptDir=$(dirname "$SCRIPT")
-
-
-
-if [ $# != 4 ] ; then
-    echo
-    echo "Usage:"
-    echo "  $0 communityBranch productTag targetProdBuild cutOffDate"
-    echo "For example:"
-    echo "  $0 7.26.x sync-6.2.x-2015.02.27 RHDM_7.5.0.CR1 2015-02-27"
-    echo
-    exit 1
-fi
-
-echo "The communityBranch is: "$1
-echo "The productTag is: "$2
-echo "The target product build is: "$3
-echo "The cutoff date is: " $4
-echo -n "Is this ok? (Hit control-c if is not): "
-read ok
-
-
-communityBranch=$1
-productTag=$2
-targetProdBuild=$3
-cutOffDate=$4
-
-# checks if directory where the files are to be stored exists, if not it creates it
-cd $scriptDir
-cd ../reports/tags
-if [ ! -d "$productTag" ]; then
-  mkdir $productTag
-  cd $productTag
-else
-  cd $productTag
-fi
-fileDir=$(pwd)
-
-# name of file to be written and pushed
-fileToWrite=$productTag.txt
-
-cd $scriptDir
-
-cat notes.properties log.txt >> reportNotes.txt
-
-CONTACTS=$(cat mails.properties)
-NOTES=$(cat reportNotes.txt)
-DATETIME=`date +%F-%H:%M`
-
-
-cat <<EOF >$fileToWrite
 
 ------------------------------------------------------------------------
            Engineering to Productization Handoff Report
 ------------------------------------------------------------------------
-Report Date: $DATETIME
-Code Cutoff Date: $cutOffDate
-Target Product Build: $targetProdBuild
-Prod Tag: $productTag
-based on branch: community $communityBranch
+Report Date: 2020-05-12-16:21
+Code Cutoff Date: 2020-05-11
+Target Product Build: RHPAM_7.7.1.CR1
+Prod Tag: sync-7.33.x-20200511
+based on branch: community 7.33.x
 
 
 Product Pages: 
@@ -81,22 +25,24 @@ java version "1.8.0_201"
 Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
 Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 
+MAVEN:
 Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
-Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
+Apache Maven 3.5.2 (138edd61fd100ec658bfa2d307c43b76940a5d7d; 2017-10-18T09:58:13+02:00)
 Maven home: /opt/tools/mavenVer
-Java version: 1.8.0_201, vendor: Oracle Corporation, runtime: /opt/tools/jdk1.8.0_201/jre
-Default locale: en_GB, platform encoding: UTF-8
+Java version: 1.8.0_201, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_201/jre
+Default locale: en_US, platform encoding: UTF-8
 OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
 ------------------------------------------------------------------------
                         Sources to build                         
 ------------------------------------------------------------------------
-All tags $productTag are on Gerrit
+All tags sync-7.33.x-20200511 are on Gerrit
 
 ------------------------------------------------------------------------
                           component  versions
 ------------------------------------------------------------------------
 
-kie=$kieVersion
+kie=
 
 ------------------------------------------------------------------------
                           Build Command
@@ -114,29 +60,40 @@ MAVEN_OPTS:
 -----------------------------------------------------------------------  
                      Component owners contacts                           
 ------------------------------------------------------------------------
-$CONTACTS
+lienzo-core                     romartin@redhat.com
+lienzo-tests                    romartin@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+kie-soup                        mswiders@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+kie-jpmml-integration           mmortari@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+openshift-drools-hacep          mdessi@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         cnicolai@redhat.com
+kie-wb-playground               manstis@redhat.com
+kie-wb-common                   manstis@redhat.com
+drools-wb                       manstis@redhat.com
+optaplanner-wb                  gdesmet@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-work-items                 manstis@redhat.com
+jbpm-wb                         cnicolai@redhat.com
+kie-docs                        sterobin@redhat.com
+optaweb-employee-rostering      gdesmet@redhat.com
+optaweb-vehicle-routing         gdesmet@redhat.com
+kie-wb-distributions            manstis@redhat.com
 
 ------------------------------------------------------------------------
                               Notes                                     
 ------------------------------------------------------------------------
-$NOTES
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, optaplanner, optaweb, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
 
-
-
-EOF
-
-
-# copy file to /tags
-cp $fileToWrite ../reports/tags/$productTag
-
-# remove files to prevent pushing them in automatic report generation & pipeline
-rm $fileToWrite
-rm reportNotes.txt
-rm log.txt
-
-
-
-
+The last commits of the tag are:
 
 
 
