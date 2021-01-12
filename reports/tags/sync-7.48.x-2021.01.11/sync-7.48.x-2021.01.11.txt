@@ -4,7 +4,7 @@
 ------------------------------------------------------------------------
 Report Date: 2021-01-12-01:45
 Code Cutoff Date: 2021-01-11
-Target Product Build: RHPAM_7.11.0.CR1
+Target Product Build: RHPAM_7.10.0.CR1
 Prod Tag: sync-7.48.x-2021.01.11
 based on branch: community 7.48.x
 
