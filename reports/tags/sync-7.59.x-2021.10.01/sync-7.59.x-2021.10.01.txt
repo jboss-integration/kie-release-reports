@@ -1,0 +1,481 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2021-10-04-00:48
+Code Cutoff Date: 2021-10-01
+Target Product Build: RHPAM_7.12.0.ER3
+Prod Tag: sync-7.59.x-2021.10.01
+based on branch: community 7.59.x
+
+
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_201"
+Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
+Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
+
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_201, vendor: Oracle Corporation, runtime: /opt/tools/jdk1.8.0_201/jre
+Default locale: en_GB, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+All tags sync-7.59.x-2021.10.01 are on Gerrit
+
+------------------------------------------------------------------------
+                          component  versions
+------------------------------------------------------------------------
+
+kie=7.59.1.20211001-prod
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean install -Dfull -Dproductized -Drelease -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx10g"
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+lienzo-core                     romartin@redhat.com
+lienzo-tests                    romartin@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+kie-soup                        cnicolai@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+kie-jpmml-integration           mmortari@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+openshift-drools-hacep          mdessi@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         cnicolai@redhat.com
+kie-wb-playground               manstis@redhat.com
+kie-wb-common                   manstis@redhat.com
+drools-wb                       manstis@redhat.com
+optaplanner-wb                  gdesmet@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-work-items                 manstis@redhat.com
+jbpm-wb                         cnicolai@redhat.com
+kie-docs                        sterobin@redhat.com
+optaweb-employee-rostering      gdesmet@redhat.com
+optaweb-vehicle-routing         gdesmet@redhat.com
+kie-wb-distributions            manstis@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, optaplanner, optaweb, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The last commits of the tag are:
+
+
+
+
+
+
+Git arg. line=log -11 --pretty=oneline
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+4324e4b5b0672f657bf8a242faf5f1ca3380e6eb Upgraded version to  7.59.1.20211001-prod
+ec626a3d50c3b26983b030dbc62db03f1b90e2c7 [7.59.x] AF-2880 : Support Elytron in Business Central  (#1776)
+7f8011fceea9b060e70d7ad6978949a57f23627c AF-2884 opencmis version to 0.14.0 (#1777) (#1779)
+36869c58420c9787f8f4c2ffc304bf56c1ec0bb1 [7.59.x] RHPAM-3897: switch to jboss-transaction-spi-jakarta (#1775)
+b42b8f8dba3c1f8afb9ca519734e6570644f9bb9 BXMSPROD-1475 maven version (#1774)
+b2ceb7952868bdb62a6f705fe3a5f1334300ccdb Fix dependency for compilation Stunner on JDK 11 to JRE 8 (#1771)
+a20ec232a67032232160cc4c3d94b07bfce81690 call method that removes partially downloaded deps in .m2 before the build starts (#1772) (#1773)
+8e1ccb34ec133c4fbf34f4703ed6e4c0d0679da7 RHPAM-3510: micro upgrades (#1735) (#1767)
+bb1b5c07f37fae88bf5308c689f88a7df3fa98dc RHPAM-3510: upgrade minor versions (#1736) (#1769)
+6980c556fd9585810f1177f8736a0c9fb3e37a4f Bump xstream from 1.4.17 to 1.4.18 (#1737)
+63ec1f46b52cc60be94e85f8818b8a90f516b950 Switch nightly build to JDK11 (#1762)
+
+===============================================================================
+Repository: kie-soup
+===============================================================================
+b7801d93f9a74f1ccaa39407eda42bab43c4193e Upgraded version to  7.59.1.20211001-prod
+9b2f0523149cdd4a3f870b652f697dbd4d59af88 AF-2880 : Support Elytron in Business Central (#231)
+f2dfd2dc3c57f309efbfd0063bc0fee589732600 RHPAM-3897: switch to jboss-transaction-spi-jakarta (#230)
+45084f4a14b2131cd1eb8c66d3a890923ee2985b [7.59.x][BXMSPROD-1475] GHA maven version (#229)
+a4d3b61992d9734ee483c69b6c1bcc033db058bb bumped up to 7.59.1-SNAPSHOT
+c04f1c9156332559849d7e97dd637b11c258eac9 Upgraded version to  7.59.0.Final
+7fa296099d7b9d7dd722c6f19c2a06ddf3494efe [RHPAM-3856] business central can't start when wildcard host is set to nonProxyHosts in settings.xml (#226)
+eb20ff40202f2c37a31b3875cc697a8406bb114c JBPM-9659: Upgrade deployments to WildFly 23 (#216)
+875dcb5e68928f8e023b85f93c8c6c308776d231 AF-2830 : Conscious language initiative on KIE-SOUP (#219)
+ba6845d96532f1939f85738bf581e530b5de31d5 [JBPM-9829] Spring Boot jar containing kjar and commons-beanutils causes "Could not read pom in jar" error
+0a3b984a701caf154c8dbc7522ecaa5709336687 BXMSPROD-1425 github actions paths-ignore (#215)
+
+===============================================================================
+Repository: droolsjbpm-knowledge
+===============================================================================
+6955d5ebff659035afb44e47d59442e65330002b Upgraded version to  7.59.1.20211001-prod
+ac0a148a73c58f5c6ab4c6bc7fae1364bcec63ec [7.59.x][BXMSPROD-1475] GHA maven version (#551)
+7222a5ccf682c5f03cb83b5792405a1c4fbf587e bumped up to 7.59.1-SNAPSHOT
+16bfff84b9053d7b2ac4d5d32f621351e612dd31 Upgraded version to  7.59.0.Final
+c18956898f6c50b8a3ac044f1720fd0d25318114 [DROOLS-6557] add package to ResourceChangeSet (#546)
+2b67971cb802682886380cc10876a0ccb327d87c JBPM-9659: Upgrade deployments to WildFly 23 (#543)
+73209439ab854606ca70da60dcf071d6d27db1d2 BXMSPROD-1425 github actions paths-ignore (#538)
+f3ecbe0ff7f46dc0293bc4622e4b116957a73627 bumped up to 7.59.0-SNAPSHOT
+5db6b53ae22fdb3abce4a3ff2515601c0bc1b483 [DROOLS-6524] Kie server fails to resolve kie.conf files from jars in Tomcat (#544)
+2080e9ced8c3972b8b1c08c8b6e6500a2282985e [DROOLS-6493] put kie conf files in different folders (#535)
+f4bc6fb2505a5ff9db42e709dd30e4dfa9c8fb68 upgraded to next 7.58.0-SNAPSHOT version
+
+===============================================================================
+Repository: drools
+===============================================================================
+00b7d0630b1c0d02b2e0365df7e15dc83b141be6 Upgraded version to  7.59.1.20211001-prod
+1e81fdc18b93e96dfdd2fd316f69916a242fbd9d [7.59.x] RHPAM-3897: switch to jboss-transaction-spi-jakarta (#3839)
+093cfbf8584697893c44614c0e70d446850a9256 BXMSPROD-1475 maven version (#3837)
+58815233e5d7c63b528f7c860cb6595892401ec5 fix compilation problem
+a26df9797fc561a720e42657bae152a9d29db2a6 bumped up to 7.59.1-SNAPSHOT
+88f168f8ba62ed0c53f826847ab11f2c5d6c20b8 Upgraded version to  7.59.0.Final
+4e5b9584ac0150a9e4c3ba60d890640d562a6bfa [DROOLS-6557] refactor rules add/removal (#3795)
+2b8f25351376973bb327a6d9438b0a6cb0119e95 Use TerminalNodes instead of more generic BaseNodes when iterating the activations (#3796)
+8f61e6ff879d8b6ab792621e6aff356655acba05 [DROOLS-6406] Missing safe wording (#3793)
+c6b1b33e5202cc8f036722efea1d02cc8d62bf6a DROOLS-6551 DMN message construction for FEEL error throws NPE (#3792)
+ca07b58d7b603ad3a32b8ab58fc104510417a9b6 JBPM-9659: Upgrade deployments to WildFly 23 (#3757)
+
+===============================================================================
+Repository: optaplanner
+===============================================================================
+ee0eace5c4df8d26bfddd3db737b9adc25fafa89 Upgraded version to  7.59.1.20211001-prod
+b91ec05a814f845577daa755167dda351fe8882a RHPAM-3897: switch to jboss-transaction-spi-jakarta (#1580)
+77711fac9b31cc0095b1c74f77d9b7a1d370a142 bumped up to 7.59.1-SNAPSHOT
+888b994e842cf450fb7af3f2f7da82aa8534b588 Upgraded version to  7.59.0.Final
+2df1ff376382a0fe3cf606664dd5d366957ebdc9 @v2.6.8
+84dab4301adb6538fd67f087e4d6dd61d4d63338 v2.6.8
+a7e49334a8a2a1c97efba847a23ef96262b2a3fd @issue_165
+6af05ed13495e8f13111b856a6aeb067eecb9eaa upgrade build-chai
+9424178b77fd6ab64b9d63070c52b1cb869d6793 JBPM-9659: Upgrade deployments to WildFly 23 (#1463)
+8aaff6e95c29f74973f3ec4ff0ef233cde0a58fa BXMSPROD-1425 github actions paths-ignore (#1456)
+8318abcc6c123d074fbd74e33d80f0f92d9cf2ce bumped up to 7.59.0-SNAPSHOT
+
+===============================================================================
+Repository: lienzo-core
+===============================================================================
+e4034408158913690f87544df6d25071cc97b2fc Upgraded version to  7.59.1.20211001-prod
+cf2c29aecd8dfb68c2e836381cb4f40d3e5973a7 [7.59.x][BXMSPROD-1475] GHA maven version (#153)
+d478adb24b2bec1b1042577e6eca05b5e99df0c5 bumped up to 7.59.1-SNAPSHOT
+38840de82a7fbbe16d87df05b84ed0df4c41e33c Upgraded version to  7.59.0.Final
+8c6b0781396f87b92760035cc5a0e6c065950b9e BXMSPROD-1425 github actions paths-ignore (#150)
+15c8e3797147177b53d90df47098adc8c6a0319b bumped up to 7.59.0-SNAPSHOT
+fae882174a211b531a5d34bc7dfbf51c881b24a5 upgraded to next 7.58.0-SNAPSHOT version
+066f2d7e17cd634c9ddd0aba6448c2a1b3e603a7 BXMSPROD-1390 github actions flows concurrency (#149)
+b55568037ee3b01042110c7b9f2f9fd563ab4324 upgraded to next 7.57.0-SNAPSHOT
+b1188b40e2ca094bc0ca6a79ca31fba435f79a3c [BXMSPROD-1361] decrease API rate limit probability (#148)
+59f5c20e404f103d3251bae203d8c5e031ea6c5d BXMSPROD-1363 build-chain definition and project-dependencies upgraded to v2.1 (#147)
+
+===============================================================================
+Repository: lienzo-tests
+===============================================================================
+de4303721aac762dd1ed5f335b0610cce6d1bcec Upgraded version to  7.59.1.20211001-prod
+51f2bec1c82f3077e91b8df2feb791fcd33a8a60 [7.59.x][BXMSPROD-1475] GHA maven version (#127)
+8974335df322a840912997c0eb616cc852c7b2d6 bumped up to 7.59.1-SNAPSHOT
+d2bfc92306b88e67506cfb92ae35e8bcb0e398de Upgraded version to  7.59.0.Final
+4f8a97a8cefc6751d9c7bed5d16864f8b4545bac JBPM-9659: Upgrade deployments to WildFly 23 (#124)
+633805403ff50d4ae14ab0e8df5c5451f19623e8 BXMSPROD-1425 github actions paths-ignore (#123)
+df4174d26d223f1b8663e7822df1f9956c869129 bumped up to 7.59.0-SNAPSHOT
+86fba224f1f31ece504f45f4d9441b28a15137f0 upgraded to next 7.58.0-SNAPSHOT version
+807c7a9cfd9528ebafa021198954f8bb3b223665 BXMSPROD-1390 github actions flows concurrency (#122)
+4cb088b30f929d2de8dd1209ccd764223bca6b48 upgraded to next 7.57.0-SNAPSHOT
+f01d23eb235ff8f2ef5f827ec213f00d43874769 [BXMSPROD-1361] decrease API rate limit probability (#121)
+
+===============================================================================
+Repository: appformer
+===============================================================================
+0b5003ff4634aa86b47f966da4a3db3916849ffe Upgraded version to  7.59.1.20211001-prod
+feb8ad98c9a9c736be123101d5d29639e332b0b9 AF-2880 : Support Elytron in Business Central (#1199)
+b8c987461d7d1c427a97eb9e7489c893bb6b09b1 BXMSPROD-1475 maven version (#1198)
+c078b2b7374957bdbe479e9581541941fb3f3163 added latest translations (#1195) (#1196)
+a5fedb1fed8529da7b1bde382f76da619c9f8dd3 Permission configured in business-central is not applied when doing git clone from outside of BC (#1194)
+be150806166c0ddf291d03395f5fad7b58a09b7c bumped up to 7.59.1-SNAPSHOT
+fc460eb33ee16cbda0187c4aca63eea399b5266e Upgraded version to  7.59.0.Final
+b5648ea45bc27a5e66eaddbf2688a7a3f6c22bb4 AF-2789 | update logic to remove 'refs/' from file tree so that it doesn't split branch names containing `/` (#1118)
+6b2d97321e279218689bc62ce12e075fa8b38a90 JBPM-9659: Upgrade deployments to WildFly 23 (#1163)
+dc30ed24a3737ff9ab13059d412c5bdf801b1bbf AF-2887: Test failure on daily-build on main branch (#1188)
+c7ba2c490a789c57701e48794663068851fb43ca AF-2887: Test failure on daily-build on main branch (#1187)
+
+===============================================================================
+Repository: kie-uberfire-extensions
+===============================================================================
+492bd29493b95165a330b85063f168385682a6bb Upgraded version to  7.59.1.20211001-prod
+ee8650e01eb08c5ade83ca7d3e04e93b2cd46786 BXMSPROD-1475 maven version (#125)
+7029106bceec990ba7ad0050ad816e8f0f30a5a9 bumped up to 7.59.1-SNAPSHOT
+b8e89b34c8b7afd8e3e313107480f430fc05bdc5 Upgraded version to  7.59.0.Final
+f167694da8a28e73f0842d8ec0de30c14c8aa814 JBPM-9659: Upgrade deployments to WildFly 23 (#122)
+16861eb30ba969e503aefd65ad513ff3ea2e2ecd BXMSPROD-1425 github actions paths-ignore (#121)
+a82fde3755bd4522587e8c3500cb843b4d360bcd bumped up to 7.59.0-SNAPSHOT
+fb038dc2995637a697d4e3263897a2dcfb0c69e9 upgraded to next 7.58.0-SNAPSHOT version
+77c091b6c68c8c88c2c4684bf6062aa593fc156c BXMSPROD-1390 github actions flows concurrency (#120)
+e5e3bb9158c771a3c6e37f0d18bd42123b73611c upgraded to next 7.57.0-SNAPSHOT
+3b568f1ba50ab13d2056a43dc89f25edea66b9a3 [BXMSPROD-1361] decrease API rate limit probability (#119)
+
+===============================================================================
+Repository: jbpm
+===============================================================================
+a581ca17cceeef12720ffa6dcec6ed1edd0f29d8 Upgraded version to  7.59.1.20211001-prod
+cf7d5a93665856db5fea228b7e2b665ac303a8cb [JBPM-9897] Stabilize bpmn2 tests with cron in boundary timers (#2031)
+7bd7310f0583ba2a86862e743449041fd7170eed [7.59.x] RHPAM-3897: switch to jboss-transaction-spi-jakarta (#2028)
+82350a6d0594921c67106931d6365684a141b07f BXMSPROD-1475 maven version (#2027)
+31dd93ee06945a45742e25652b9fa0ef2cc00aee [JBPM-9895] Fix flaky tests at LocalTaskAuditWithDeadlineTest (#2020)
+cee922b80b565da2452ba206fde436c9057df095 [JBPM-9878] Missing jakarta dependency for jdk11 workitems-bpmn2 tests (#2018)
+b4cf6c4ec007681e855042cea3c0c6d6cb76af1c [DROOLS-6566] Add missing package import (required by org.jbpm.runtime.manager.impl.error.filters.TaskExecutionErrorFilter) (#2011)
+39c6bdaf59df7b42556cba68fb89928defaeffca [JBPM-9877] Revert schema changes for DB partition
+159c87381cb7c9c9a1d3f9f8d55e797df6abdd28 [RHPAM-3854] ejb scheduler does not take further action if the active tx is rolled back (#2002)
+20a7c858288362ef3c324a265a0bb32bc62423f1 bumped up to 7.59.1-SNAPSHOT
+c5a8676e71a36d75b61c4d31e59bfd0907f323d8 Upgraded version to  7.59.0.Final
+
+===============================================================================
+Repository: kie-jpmml-integration
+===============================================================================
+ceeaaee31118d1d3ad7d45e3f068aca6909cccb3 Upgraded version to  7.59.1.20211001-prod
+85e6687837ac27106fe923a6746a6992f63f7e0a RHPAM-3897: switch to jboss-transaction-spi-jakarta (#67)
+07e9a4b3e35aa7d346a3a8f919c7ced87b68c8f9 BXMSPROD-1475 maven version (#66)
+1874e685c9715adb60eea58cad7a8e632648c4ba bumped up to 7.59.1-SNAPSHOT
+2c6412d680524e0e5629abc8fc67e29fce926e1f Upgraded version to  7.59.0.Final
+05c24f52261d8198904bd45f825be7dc57523a4d Merge pull request #62 from jesuino/wf23only
+a3267ce890e46d0b30cce635afe26517b0dafbd2 Merge branch 'main' into wf23only
+7a10ef7e9eb4eb28ef0c6332657a6344197af80e BXMSPROD-1425 github actions paths-ignore (#61)
+7719370bd78183c966e1e71f08b379c71805e36d bumped up to 7.59.0-SNAPSHOT
+e75d0768205bbaa22fdc2b4ed59fb5ec04e7d4b8 empty
+fa0c3887089793caa595478044ab25ad35875f66 Prepare to add banned dependencies on kie-parent (#3)
+
+===============================================================================
+Repository: droolsjbpm-integration
+===============================================================================
+93130eec903b1aed28f1514cbaa6b213ec2529bf Upgraded version to  7.59.1.20211001-prod
+00319c16f0def406f050b6744756b528755e502d AF-2880 : Support Elytron in Business Central (#2611)
+39b9c8a31c8beebc76f70b405bfe7aa9236d6ccd [7.59.x] RHPAM-3897: switch to jboss-transaction-spi-jakarta (#2609)
+7fcc1d698f4d487b790dda2f454d266601180923 [7.59.x][BXMSPROD-1475] GHA maven version (#2608)
+eba81fb42dc9d60ad834ba7004487a29cca03d12 [DROOLS-6566] Upgrade to Karaf 4.3.2 and fix all (but 3) integration … (#2591)
+b1c5220c0a3a34d2d4f4ed5e56f1364753356674 [DROOLS-6592] Kie Server Marshalling changes Pojo field UpperCase begin and JSON
+b2d7b73ec4c47e843635c9212621439704c45ae9 [JBPM-9885] QueryDataServiceIntegrationTest tests are failing due to removal of end_date column. (#2593)
+a644bd0c147af12a217b5c2e9d7be5acf3c30b47 [JBPM-9872] Banned classes in kie-server-services-openshift artifact
+348e73160678202ed6612116d1f1393d22e25782 [DROOLS-6556] JSON marshalling slow due to inefficient com.fasterxml.jackson.databind.type.TypeFactory.findClass calls (#2577) (#2587)
+a8e376f543638fd7c740ef69010f887ce5b558b4 [DROOLS-6569] Disable camel-container-integration-tests for wildfly23 (#2580) (#2589)
+1123235ee7afaea70f4824b45e79f56ae104a8ff [JBPM-9839] Add unit test
+
+===============================================================================
+Repository: kie-wb-playground
+===============================================================================
+ac63d618acfc87f7772ac482dbf35e0cf8df02b8 Upgraded version to  7.59.1.20211001-prod
+4facd4a304db0b6b37c0124b0dbbd54ad3273ec7 BXMSPROD-1475 maven version (#120)
+76d3b25e9630e4fe6cc811b5c57d6ed5d7637ce1 bumped up to 7.59.1-SNAPSHOT
+8d38fb8a01cbf27178c086e5c98cac8af6b7d997 Upgraded version to  7.59.0.Final
+43684bce859dda0a1294a8d6e7ed7a2db0b8fad9 JBPM-9659: Upgrade deployments to WildFly 23 (#115)
+d0898b0a00a5ad6cf78ceead110deea8614524bf AF-2833 : Conscious language initiative kie-wb-common and kie-wb-playground (#117)
+63d471e4d663c5998dba1ad7efdd32200789924d BXMSPROD-1425 github actions paths-ignore (#114)
+dd23e29db1b6183fa744fbe4dcbf20fb4715dc44 bumped up to 7.59.0-SNAPSHOT
+5e1977fd5c9bb9c3c2546c2efe28e3627cf3d00a upgraded to next 7.58.0-SNAPSHOT version
+fdc631288509486ae3a3ddc9e0bb2f2009cf1808 BXMSPROD-1390 github actions flows concurrency (#112)
+675de87fb271da47a52e66994cbf7fcfac1faff3 upgraded to next 7.57.0-SNAPSHOT
+
+===============================================================================
+Repository: kie-wb-common
+===============================================================================
+e564d9e94313547ad79aff09ea94e348bc97b5f8 Upgraded version to  7.59.1.20211001-prod
+cf4c581b05a20764fc5639606a8f3765a8314173 BXMSPROD-1475 maven version (#3687)
+2bbf8b68130a867159374c56e2c2e3c8598ca705 [7.59.x] JBPM-9896 - Fix dependency for compilation Stunner on JDK 11 to JRE 8 (#3685)
+9385752b4ce84153f58ee542bd1d42dc7c7401a8 added latest translations (#3683) (#3684)
+d34dcf0a08851e717505f8d3954f364d29d42661 AF-2760 :Permission configured in business-central is not applied when doing git clone from outside of BC (#3681)
+a103ecb806d4f698a5c9e2c3917b733ff0e4622a JBPM-9842 : Error logged if reusable subprocess has some dataInput mapping but no dataOutput mapping in stunner (#3667) (#3679)
+0aff76646323c1d643166e91380184b679952846 [AF-2892]:Disable broken compiler tests on business central (#3680)
+442434f0c76bf4b74d531f3c32bec04fcf3df346 bumped up to 7.59.1-SNAPSHOT
+90a1b05a037dcd258dc43ea7ccf524b4647a09d1 Upgraded version to  7.59.0.Final
+ebd55cc4a1490bb80a4da428073c605e935f0519 JBPM-9659: Upgrade deployments to WildFly 23 (#3660)
+baf6f2c778ec53608146bb52d42d6c724d5e5750 JBPM-9840 - Review container status refresh (#3671)
+
+===============================================================================
+Repository: drools-wb
+===============================================================================
+0a316200340f57c7893a4c389487f7b9cacf09d7 Upgraded version to  7.59.1.20211001-prod
+ba1ccf3467c166df9b91e407b393acb9fafa12d3 BXMSPROD-1475 maven version (#1516)
+50d4ca9f574ac558bebcbc18b40ff322e4240b7b added latest translations (#1513) (#1514)
+4bb35e5dd7de7deb9dcca7ee49c5ccb0e639b94f bumped up to 7.59.1-SNAPSHOT
+b5a0f3872fa6d97ba8959e263d6bbb123977a391 Upgraded version to  7.59.0.Final
+79c74bb5c27f27b11c34a9991489eded5a9ce090 AF-2889: "Argument list too long" on Drools WB Webapp after migrating… (#1512)
+4077879cb519562e12294152455fc31e0a19f77d JBPM-9659: Upgrade deployments to WildFly 23 (#1506)
+886607fe0223abe6737997131fdcc667c69151b9 [DO NOT MERGE] AF-2835 : Conscious language initiative drools-wb (#1509)
+a37a7241611428fda32fad879d6b098be4b9278a DROOLS-6511: Create Reproducer for ConcurrentModification exception (#1505)
+68f465cdb3ff3dbb4ae6c5a95f31849dad9023ec BXMSPROD-1425 github actions paths-ignore (#1507)
+575af8df892285353d5481e75007e8c677319175 bumped up to 7.59.0-SNAPSHOT
+
+===============================================================================
+Repository: jbpm-designer
+===============================================================================
+f5cbb5a673e0ef01953aa892f14f6c0b990acc6c Upgraded version to  7.59.1.20211001-prod
+8119af77cb3dee5f5739de2712f20ee3c5097370 BXMSPROD-1475 maven version (#919)
+b0d6c7ada05922d4c562d0f991a6a89fe7f9dd4c added latest translations (#916) (#917)
+14f234df94a30af40b80430434f00745f5b0fc74 bumped up to 7.59.1-SNAPSHOT
+c715dfb6618d8cd0e9c33f8195a468f80453a892 Upgraded version to  7.59.0.Final
+ef7b2e8a96fd058335be452c8fd27bc160ec2ef4 JBPM-9659: Upgrade deployments to WildFly 23 (#913)
+4d95cb123dd8ae76c57300060e52f24d90a929b7 AF-2836 : Conscious language initiative jbpm-designer (#914)
+20c450fc82e2036f026bbe1d3f55fdf731854382 BXMSPROD-1425 github actions paths-ignore (#911)
+5194ef9f19c829e8b8d33cab9a3f6ffa843cd347 bumped up to 7.59.0-SNAPSHOT
+c090c73bb690972a3baf493eedaeaa282fbe8c6f upgraded to next 7.58.0-SNAPSHOT version
+a77433434e139dd5e2bb4f3cb47d1f25dbc74e73 BXMSPROD-1390 github actions flows concurrency (#910)
+
+===============================================================================
+Repository: jbpm-work-items
+===============================================================================
+6876be4b10769ddfc703c045b480727db5c38146 Upgraded version to  7.59.1.20211001-prod
+4d5f07759416738b43154eede7d0c0aa603a2e90 RHPAM-3897: switch to jboss-transaction-spi-jakarta (#218)
+825e324d2c9d2e70d10ae0577b2343a6146ee184 BXMSPROD-1475 maven version (#217)
+63dc666ab43c37ad5d461d9745c1acfae77ae3dc bumped up to 7.59.1-SNAPSHOT
+c9c3c06543066f22d0ae6e2a2bc2e7be2bc5cfb9 Upgraded version to  7.59.0.Final
+c88bb73ee206d3d992b176717d92c6be24a63e23 JBPM-9659: Upgrade deployments to WildFly 23 (#212)
+084c666e77d2972f90e4cd231a5b83643815ef60 [JBPM-9737] Conscious Language initiative (jBPM)
+021b3dae88bf60c0234fea9845af0330d03fb29a BXMSPROD-1425 github actions paths-ignore (#213)
+fe984ba41239d3f6f584ae610e0ee889fdc1a9f5 bumped up to 7.59.0-SNAPSHOT
+3416e60c4a83832b04d7e6f042a99b4d34c95e88 [JBPM-9816] JPAWorkItemHandlerTest test is failing for 7.57.0.Final (#210)
+84ace36436029c5d6cc9189037a1b4f87d9a61d0 upgraded to next 7.58.0-SNAPSHOT version
+
+===============================================================================
+Repository: jbpm-wb
+===============================================================================
+3767ac07d3a0098e8b4635fc72cb1bd4cedf8526 Upgraded version to  7.59.1.20211001-prod
+53f43f29972c3a75e6200c07f6936bd14333e527 AF-2880 : Support Elytron in Business Central (#1518)
+4a78b6c3e0205d5b03d5947c451c8c7425a17402 [AF-2884] upgrading opencmis version to 0.14.0 (#1521) (#1522)
+b9cdfbca6784267fd6609b61d1e413fa10c8de0b JBPM-9899 JBPM WB IT tests fails (#1520)
+2d6e7f9a05756edcb0514605aa71c9afe9317b4b BXMSPROD-1475 maven version (#1517)
+b326dd032650e468a534b44a81b0bebc9ada31b3 Enforcer issues fix (#1515)
+343b3921d2b2e766e81616c3281f8261c94306c1 added latest translations (#1512) (#1514)
+e4b975e830b2a6f1a791eeddf75bc780499349a8 bumped up to 7.59.1-SNAPSHOT
+910aed66ffa6781e9e5124dabdcfad61de2a266a Upgraded version to  7.59.0.Final
+008e196cd7c6de008eb795407a0601a3f3ba9428 JBPM-9659: Upgrade deployments to WildFly 23 (#1506)
+83d661b5cf2bffa8715d97cd80fb44fabc6df899 AF-2837 : Conscious language initiative jbpm-wb and optaplanner-wb (#1509)
+
+===============================================================================
+Repository: optaplanner-wb
+===============================================================================
+6120f46fb8b5ba7c3dc10a78ef345f7a94934a62 Upgraded version to  7.59.1.20211001-prod
+189e75171612c4233416313997df6e3f12a1d568 BXMSPROD-1475 maven version (#406)
+bf0eaec35011ed05d948c0971dda581f32583904 added latest translations (#403) (#404)
+a35dc1afa4d363d76d3a5b47f41212cfaec4d636 bumped up to 7.59.1-SNAPSHOT
+d53d7f17362648517fde59c473be75f499d3a6e3 Upgraded version to  7.59.0.Final
+bd5e9e1918193222c88dad9625ae34b60d2aadad JBPM-9659: Upgrade deployments to WildFly 23 (#399)
+f53cda49689418504d7026ecf746e313578e79ba AF-2837: Conscious language initiative jbpm-wb and optaplanner-wb (#401)
+d0b66bd7eafa1ae927a0209fa1e62c31cc53eb1d BXMSPROD-1425 github actions paths-ignore (#398)
+660ac9f993f319e04b9194571f3b984f67f0b0e7 bumped up to 7.59.0-SNAPSHOT
+80f2df2dd6e9df933e9eee1e787b6dbdcd98dc55 upgraded to next 7.58.0-SNAPSHOT version
+5e05c12a486232a824be529709733eb93ba568fc BXMSPROD-1390 github actions flows concurrency (#397)
+
+===============================================================================
+Repository: kie-wb-distributions
+===============================================================================
+2089f7148287e06bb38cf072cb2d0c1b61677660 Upgraded version to  7.59.1.20211001-prod
+d7d9f6f1db849b1ebbe2727aeab1a60838f68d72 [7.59.x] AF-2880 : Support Elytron in Business Central  (#1132)
+64801b19b3e106daf3a0e94c44a6f5048092eee9 BXMSPROD-1475 maven version (#1131)
+eb06a1b204173392178fb4036974ee4cb547fb2f fix for Enforcer plugin (#1129)
+98e69db452f44a30f7564eb6d53c0c0648519a94 added latest translations (#1126) (#1128)
+2289a046d8e3b545ce388a929fdc16ac2d753fb3 AF-2760 :Permission configured in business-central is not applied when doing git clone from outside of BC (#1124)
+4d7276e732ff9c35bb8e09e064d616463fa9e3a3 bumped up to 7.59.1-SNAPSHOT
+de34a8c8df805bbd4a7940304a137d0f8583b7af Upgraded version to  7.59.0.Final
+b28c741328d0f55dfb79b872beabe1f6bf305c6f JBPM-9659: Upgrade deployments to WildFly 23 (#1115)
+dda45b5d2bf73e8ddddd45ba5936635ed551a990 JBPM-9688 Popup window for user/password not opened while executing business-central REST API through swagger (#1119)
+36c3a5b73e307ad98ccf48a0417ca9315f119952 [DO NOT MERGE] AF-2839 : Conscious language initiative kie-wb-distributions (#1118)
+
+===============================================================================
+Repository: openshift-drools-hacep
+===============================================================================
+989eae87bd34acfb9a4b6a77ca928609acae488d Upgraded version to  7.59.1.20211001-prod
+9fe3d150f0cee31c1bc648caf6f5e9eb15a38414 BXMSPROD-1475 maven version (#119)
+8d6a8b92b2ee4837fba5cfe63ee9baef8c51a20f bumped up to 7.59.1-SNAPSHOT
+66f11f96330bad0a91a91b4c4c5481daafc37e07 Upgraded version to  7.59.0.Final
+d0f13ef3e335103d98caf0f0c848337b8b187312 Merge pull request #116 from jesuino/wf23only
+73877a269ba9199132aea1a5738cde5ee386e432 Re-add org.glassfish impl JARs (#5)
+cfa57f4ddc2ab76fcfcbcd85fa1cfbd20f7caacf Merge branch 'main' into wf23only
+257f60f8407e1c7ccd50ac22ec67178ff304e75e BXMSPROD-1425 github actions paths-ignore (#115)
+69124b142f139cc89c61d3ef868a23a95964da69 bumped up to 7.59.0-SNAPSHOT
+cdc8e27ff33e39d320400b0315e96228c1c93350 empty
+7d138b8ef5cddf3dbe8b85362e6c669598de0f3c Prepare to add banned dependencies on kie-parent (#4)
+
+===============================================================================
+Repository: process-migration-service
+===============================================================================
+3547d3e6b471a02fe38b84a66ffdc8ceeb27ed55 Upgraded version to  7.59.1.20211001-prod
+f06b229aa9789c11d7cecf8447d0d691e311b9d0 Merge pull request #27 from afalhambra/JBPM-9901_7.59.x
+29f44949eaeac479c2b2a67e0b7e0896253fe1f0 [JBPM-9901] - PIM DDL drop scripts shouldn't be executed when starting up the app
+65397b017d8c496f2292fe9aa4bc85cca70aaea0 Merge pull request #25 from Ginxo/BXMSPROD-1475_7.59.x
+a81190f56f7851ffd9a3a7e5b2d51c0ed6efc6d4 BXMSPROD-1475 maven version
+d3abadc9ac76c8687c26b8427fb31cedb3400aae BXMSPROD-1418: restructure distribution zip
+1efc026d8375701860625be7b7b0eb1d97297f78 Merge pull request #18 from afalhambra/JBPM-9892_7.59.x
+390cd99b87e10364f2ba9c86a0a2946d31690c49 [JBPM-9892] - Any exception thrown while starting up container should be caught
+76006badb2c317bcbbd36813ae3c20a9062cdfd3 Merge pull request #16 from almope/BXMSPROD-1418_7.59.x
+849735de6f091512d4dd6ec5d27d3ac27d842ced BXMSPROD-1418: add new DDL Scripts into the distributed assembly
+bbc096745effbc23874beb6ad5df87720e838bf9 Merge pull request #14 from afalhambra/JBPM-9890-7.59.x
+
+===============================================================================
+Repository: optaweb-employee-rostering
+===============================================================================
+c879d963c64698f7e46cfab8fc7f8d5c28572781 Upgraded version to  7.59.1.20211001-prod
+d71a83218377add99dd3e4fd946ba96ffa353aaa [7.59.x][BXMSPROD-1475] GHA maven version (#692)
+052eff926efb4fc905375f17ace50ed94ae8f78c bumped up to 7.59.1-SNAPSHOT
+99f639f883e9040b2b8756b2bba901580fdcfd99 Upgraded version to  7.59.0.Final
+9fb949635317684fb086b66399e38d51ce834a91 JBPM-9659: Upgrade deployments to WildFly 23 (#662)
+fdacaa06ae89795ad59cad782b118d460c81874a BXMSPROD-1425 github actions paths-ignore (#661)
+49b248fa2e037295cda29f146654737a09dd3845 bumped up to 7.59.0-SNAPSHOT
+f852b117b898419c92ff1676a923eae85fc804e8 BXMSPROD-1265: master to main leftovers (#663)
+198e5996f07689f1a727b0e97806a38e29363816 BXMSPROD-1413 [7.x] [build-chain upgrade] exclude projects not taken into account (#655)
+8b9b0f9bd7dfaf43d68b9b781be926189eaecca9 upgraded to next 7.58.0-SNAPSHOT version
+8af623fded436dc9a0796d77e017e5397eef17f6 BXMSPROD-1390 github actions flows concurrency (#644)
+
+===============================================================================
+Repository: optaweb-vehicle-routing
+===============================================================================
+59fe228f4041c7f5a2c8b0e564693f0c74a858fe Upgraded version to  7.59.1.20211001-prod
+1d135ffdf2e24c2a4d22284fc5d28269fec66f09 BXMSPROD-1475 maven version (#562)
+a4460bc5d865499ae0dd12f24fb38e289182eb8f bumped up to 7.59.1-SNAPSHOT
+6fcb4e1347e2244f1b7f15b15fc00daaec55d823 Upgraded version to  7.59.0.Final
+ac3ef89fe0b6be9f415ddcfe8f9367474baceacf BXMSPROD-1425 github actions paths-ignore (#534)
+bd7db3ff854a74cd0cb5d39316af07b2bc4a65df bumped up to 7.59.0-SNAPSHOT
+eadd2f64afd283cdbd118abd296b16933f6ded96 BXMSPROD-1265: master to main leftovers (#536)
+4fe642ea8ce53840f99a8ac03138ff068670f586 BXMSPROD-1413 [7.x] [build-chain upgrade] exclude projects not taken into account (#528)
+14d04dd77c710b1b2133ee52a85351fb4ccff8af upgraded to next 7.58.0-SNAPSHOT version
+f55799dfa2e94ae9fb6d94c94cb3c4c51a42eaea BXMSPROD-1390 github actions flows concurrency (#518)
+a5e69fad14c65317faeeaca74f589448603ce3a0 upgraded to next 7.57.0-SNAPSHOT
+
+===============================================================================
+Repository: kie-docs
+===============================================================================
+142900a46397ea2d56587432ca126ea13545365c Upgraded version to  7.59.1.20211001-prod
+06204a0ecc1f14011ffb531e7ba30ac42d2c6f23 Event listener development (#161) (#3916)
+927b2d9cd0fbb304576506df4e3444e615b1e8c4 Merge pull request #337 from emmurphy1/BXMSDOC-8073-main (#3908)
+92074d34fdd1bd89110abb37ccd6cceb22495b47 Merge pull request #339 from emmurphy1/BXMSDOC-7900-main2 (#3903)
+9fa7f1f7c9be1d25a9749beb96565e180e4930e7 BXMSDOC-8011: Added reference of Kogito doc in decision architecture doc (#3897)
+f0b7e09d3d5a043d5fbfe518032b4717a0f4a6e9 BXMSDOC-8062: Removed rule unit section from DRL and decision engine doc (#3899)
+96636775ab44a181b5027f84d5270ed8a4863e6c BXMSPROD-1475 maven version (#3895)
+eae66002470a38799dd29ff94de64cc859fe8ade BXMSDOC-8003: Added Metadata attribute property and reuse data types feature as per BAPL-1936 and BAPL-1639 (#3893)
+8c08a640b9a910c6c36e7cf613917794aa74ea4b BXMSDOC-8172-7.59.x-final: Resolved merged conflict. (#3890)
+67c704f8d21450e066ca2e2e882acc2be05b3966 Merge pull request #331 from emmurphy1/BXMSDOC-8108-main (#3880)
+5ce73c566eb95062726dbfb5407b60622e999500 Merge pull request #329 from emmurphy1/BXMSDOC-8107b-main (#3884)
+
+Total time: 3s
+
+
+
